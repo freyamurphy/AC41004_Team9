@@ -32,7 +32,7 @@ import { SqlapiService } from './sqlapi.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,// <maybe wrong
-    AgmCoreModule.forRoot({apiKey: 'AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8'})
+    AgmCoreModule.forRoot({apiKey: ''})
   ],
   providers: [
     SqlapiService
