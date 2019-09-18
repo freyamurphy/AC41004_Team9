@@ -4,22 +4,12 @@
   >
 
   <!-- loop through each hospital -->
-  <agm-marker [latitude]="ninewells.lat" [longitude]="ninewells.lng"
-    [label]="ninewells.label">
-    <agm-info-window [disableAutoPan]="true">
-      {{ninewells.info}}
-    </agm-info-window>
-  </agm-marker>
-  <agm-marker [latitude]="royalVictoria.lat" [longitude]="royalVictoria.lng"
-    [label]="royalVictoria.label">
-    <agm-info-window [disableAutoPan]="true">
-      {{royalVictoria.info}}
-    </agm-info-window>
-  </agm-marker>
-  <agm-marker [latitude]="kingsCross.lat" [longitude]="kingsCross.lng"
-    [label]="kingsCross.label">
-    <agm-info-window [disableAutoPan]="true">
-      {{kingsCross.info}}
-    </agm-info-window>
-  </agm-marker>
+  <ng-template ngFor let-item [ngForOf]="hospitals" let-i="index" [ngForTrackBy]="trackByFn">
+    <agm-marker [latitude]="hospitals[i].lat" [longitude]="hospitals[i].lng"
+      [label]="hospitals[i].label">
+      <agm-info-window [disableAutoPan]="true">
+        {{hospitals[i].info}}
+      </agm-info-window>
+    </agm-marker>
+  </ng-template>
 </agm-map>

@@ -6,13 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
-
-  lat = 51.678418;
-  lng = 7.809007;
   zoom = 13;
 
   userLocation = {lat: 56.4620, lng: -2.9707};
-test="hhhhiiiiiiii";
+
   // marker for each hospital
   ninewells = {
     lat: 56.4643,
@@ -32,6 +29,8 @@ test="hhhhiiiiiiii";
     label: "3",
     info: "Kings Cross Hospital: $900",
   };
+
+  hospitals = [this.ninewells, this.royalVictoria, this.kingsCross]
 
   constructor() { }
 
