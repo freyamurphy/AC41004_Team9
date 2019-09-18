@@ -10,7 +10,7 @@ import { map, catchError } from 'rxjs/operators';
 export class SqlapiService {
 
 
-  baseUrl = 'http://localhost/phptest/test.php';
+  baseUrl = 'http://localhost:3000';
 
    constructor(private http: HttpClient) { }
 
@@ -20,7 +20,7 @@ export class SqlapiService {
      return this.http.get(`${this.baseUrl}`).pipe(
        map((res) => {
 
-         return res['data'];
+         return res['obj'];
      }));
   }
 
