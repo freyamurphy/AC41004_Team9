@@ -3,3 +3,4 @@ node_modules/
 insert statements.txt
 providers.sql
 first 30 lines.json
+*.json

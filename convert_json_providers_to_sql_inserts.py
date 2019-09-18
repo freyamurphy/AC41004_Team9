@@ -1,6 +1,6 @@
 import json
 
-DATA_FILE = "first 30 lines.json"
+DATA_FILE = "DRGChargesData.json"
 OUTPUT_FILE = "providers.sql"
 
 rows = json.load(open(DATA_FILE))
@@ -11,8 +11,17 @@ except:
     print("ERROR: failed to open file")
 
 insertedIDs = {}
-for row in rows:
-    providerID = str(int(row.get("providerId")))    # Remove leading 0s
+for rowIndex in range(len(rows)):
+    row = rows[rowIndex]
+
+    try:
+        providerID = str(int(row.get("providerId")))    # Remove leading 0s
+    except ValueError:
+        providerID = None
+        #print("ERROR: " + row.get("providerId"))
+        #print(rows[rowIndex-1])
+        #outputFile.close()
+        #raise
     providerName = row.get("providerName")
     streetAddress = row.get("providerStreetAddress")
     city = row.get("providerCity")
@@ -20,7 +29,7 @@ for row in rows:
     zipCode = row.get("providerZipCode")
     referralRegion = row.get("hospitalReferralRegionHRRDescription")
 
-    if insertedIDs.get(providerID) is None:
+    if insertedIDs.get(providerID) is None and providerID is not None:
         insertedIDs[providerID] = True
         statement = (
             "INSERT INTO `provides`(`Id`,`Name`,`City`,`StreetAddress`,"
