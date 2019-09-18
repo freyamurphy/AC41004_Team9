@@ -17,6 +17,7 @@ import { TestpageComponent } from './testpage/testpage.component';
 
 // services
 import { SqlapiService } from './sqlapi.service';
+import { HospitalselecterComponent } from './hospitalselecter/hospitalselecter.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { SqlapiService } from './sqlapi.service';
     MapoutlineareasTESTComponent,
     HomepageComponent,
     MapComponent,
-    TestpageComponent
+    TestpageComponent,
+    HospitalselecterComponent
   ],
   imports: [
     BrowserModule,
