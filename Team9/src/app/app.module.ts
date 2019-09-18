@@ -5,16 +5,18 @@ import { AppComponent } from './app.component';
 
 // team imports
 import { AgmCoreModule } from '@agm/core';// used for linking with google maps
+import { HttpClientModule } from '@angular/common/http';// for linking with the backend node server
 
 
 //pages
-
 import { UserfiltersComponent } from './userfilters/userfilters.component';
 import { MapoutlineareasTESTComponent } from './mapoutlineareas-test/mapoutlineareas-test.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { MapComponent } from './map/map.component';
+import { TestpageComponent } from './testpage/testpage.component';
 
-
+// services
+import { SqlapiService } from './sqlapi.service';
 
 
 @NgModule({
@@ -23,16 +25,19 @@ import { MapComponent } from './map/map.component';
     UserfiltersComponent,
     MapoutlineareasTESTComponent,
     HomepageComponent,
-    MapComponent
+    MapComponent,
+    TestpageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCUsOXj6dTBVQkd7zH7UpkS4TXl_eS4Chc'
-    })
+    HttpClientModule,// <maybe wrong
+    AgmCoreModule.forRoot({apiKey: 'AIzaSyCUsOXj6dTBVQkd7zH7UpkS4TXl_eS4Chc'})
   ],
-  providers: [],
+  providers: [
+    SqlapiService
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
