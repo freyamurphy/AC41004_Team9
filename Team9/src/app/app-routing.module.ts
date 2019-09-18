@@ -13,11 +13,11 @@ import { TestpageComponent } from './testpage/testpage.component';
 
 const routes: Routes = [
 
-  { path: '',   redirectTo: 'testmap', pathMatch: 'full' },
+  { path: '',   redirectTo: 'testpage', pathMatch: 'full' },
   { path: 'home', component: HomepageComponent},
-  { path: 'testmap', component: MapoutlineareasTESTComponent}
-
-
+  { path: 'testmap', component: MapoutlineareasTESTComponent},
+  { path: 'testpage', component: TestpageComponent},
+  { path: 'histeve', component: UserfiltersComponent}
 ];
 
 @NgModule({
