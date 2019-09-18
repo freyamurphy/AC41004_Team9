@@ -2,6 +2,7 @@
 var mysql = require('mysql');
 
 const express = require('express')
+const cors = require('cors')
 const app = express()
 const port = 3000
 
@@ -15,6 +16,11 @@ function test(){
 }
 var json = '{"result":true, "count":42}';
 obj = JSON.parse(json);
+app.use(cors())
+
+app.get('/products/:id', function (req, res, next) {
+  res.json({msg: 'This is CORS-enabled for all origins!'})
+})
 
 app.get('/', (req, res) => res.send(obj))
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

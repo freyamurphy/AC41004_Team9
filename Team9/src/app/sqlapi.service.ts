@@ -12,24 +12,30 @@ export class SqlapiService {
 
   baseUrl = 'http://localhost:3000';
 
-   constructor(private http: HttpClient) { }
+   constructor(private http: HttpClient) {
+     //console.log("Hey");
+    }
 
-
+    
 
    gettestdata(): Observable<any> {
-     return this.http.get(`${this.baseUrl}`).pipe(
+     return this.http.get(this.baseUrl).pipe(
        map((res) => {
+         
+        //console.log(res.toString());
+        
+        return res['result'];
+        //return this.http.get(`${this.baseUrl}`);
 
-         return res['obj'];
+   //}
      }));
   }
-
-
-  posttestdata(a,b){
-     this.http.post(`${this.baseUrl}`,a,b);
- }
-
-
-
-
 }
+
+
+ 
+
+
+
+
+
