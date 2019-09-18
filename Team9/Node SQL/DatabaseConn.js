@@ -14,7 +14,7 @@ function test(){
       console.log(result[0]);
   });
 }
-var json = '{"result":true, "count":42}';
+var json = '{"data":[{"first":"a","last":"b"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"},{"first":"c","last":"d"}]}';
 obj = JSON.parse(json);
 app.use(cors())
 
