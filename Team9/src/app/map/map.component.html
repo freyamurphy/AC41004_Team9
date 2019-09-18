@@ -1,1 +1,25 @@
-<p>map works!</p>
+<agm-map [latitude]="userLocation.lat" [longitude]="userLocation.lng"
+  [zoom]="zoom"
+  style="height:100%; width: 100%; position: absolute; bottom: 1%; right:1%;"
+  >
+
+  <!-- loop through each hospital -->
+  <agm-marker [latitude]="ninewells.lat" [longitude]="ninewells.lng"
+    [label]="ninewells.label">
+    <agm-info-window [disableAutoPan]="true">
+      {{ninewells.info}}
+    </agm-info-window>
+  </agm-marker>
+  <agm-marker [latitude]="royalVictoria.lat" [longitude]="royalVictoria.lng"
+    [label]="royalVictoria.label">
+    <agm-info-window [disableAutoPan]="true">
+      {{royalVictoria.info}}
+    </agm-info-window>
+  </agm-marker>
+  <agm-marker [latitude]="kingsCross.lat" [longitude]="kingsCross.lng"
+    [label]="kingsCross.label">
+    <agm-info-window [disableAutoPan]="true">
+      {{kingsCross.info}}
+    </agm-info-window>
+  </agm-marker>
+</agm-map>
