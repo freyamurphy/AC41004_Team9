@@ -15,7 +15,7 @@ export class GelocatorService {
 
 
   getIpCliente(): Observable<any> {
-return    this.http.get<any>('https://jsonip.com');
+    return this.http.get<any>('https://jsonip.com');
 
   }
 
