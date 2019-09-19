@@ -1,11 +1,10 @@
 <?php
-/**
- * Returns the list of policies.
- */
+
 require 'database.php';
 
 $data = [];
 $sql = "SELECT first FROM 2019indteam9db.test";
+
 
 if($result = mysqli_query($con,$sql))
 {
