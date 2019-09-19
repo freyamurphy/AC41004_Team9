@@ -34,7 +34,7 @@ import { HospitalselecterComponent } from './hospitalselecter/hospitalselecter.c
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,// <maybe wrong
-    AgmCoreModule.forRoot({apiKey: 'AIzaSyCUsOXj6dTBVQkd7zH7UpkS4TXl_eS4Chc'})
+    AgmCoreModule.forRoot({apiKey: ''})
   ],
   providers: [
     SqlapiService

@@ -19,7 +19,8 @@ const routes: Routes = [
   { path: 'home', component: HomepageComponent},
   { path: 'testmap', component: MapoutlineareasTESTComponent},
   { path: 'hospital', component: HospitalselecterComponent},
-
+  { path: 'map', component: MapComponent},
+  { path: 'testpage', component: TestpageComponent}
 
 
 ];
