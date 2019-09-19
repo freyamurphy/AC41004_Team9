@@ -8,7 +8,7 @@ const port = 3000
 
 
 function test(){
-  
+
   con.query("SELECT first FROM 2019indteam9db.test", function(err, result, fields){
       if (err) throw err;
       console.log(result[0]);
@@ -40,4 +40,3 @@ con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
 });
-

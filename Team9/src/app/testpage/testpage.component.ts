@@ -13,12 +13,9 @@ data:any;
   constructor(private sqlapi:SqlapiService) { }
 
   ngOnInit() {
-    console.log("U");
-    this.sqlapi.gettestdata().subscribe((res: any) => {this.data =res;});
-    console.log("y");
 
-    console.log(this.data);
-    //console.log(this.data);
+    this.sqlapi.gettestdata().subscribe((res: any) => {this.data =res;});
+ 
   }
 
 }
