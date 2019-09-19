@@ -24,7 +24,7 @@ export class SqlapiService {
          
         //console.log(res.toString());
         
-        return res['data'];
+        return res['first'];
         //return this.http.get(`${this.baseUrl}`);
 
    //}
