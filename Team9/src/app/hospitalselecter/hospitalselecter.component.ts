@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HospitalselecterComponent implements OnInit {
 
-  hospitalList: Section [] = [
+  hospitalList: Section[] = [
   {
     name: 'Hospital',
   },
