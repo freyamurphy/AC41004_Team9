@@ -17,7 +17,7 @@ export class SqlapiService {
 
 
    gettestdata(): Observable<any> {
-     return this.http.get(`${this.baseUrl}`).pipe(
+     return this.http.get(this.baseUrl).pipe(
        map((res) => {
 
          return res['data'];
