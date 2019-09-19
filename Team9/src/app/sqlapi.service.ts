@@ -12,12 +12,15 @@ export class SqlapiService {
 
   baseUrl = 'http://localhost:3000';
 
-   constructor(private http: HttpClient) {
-     //console.log("Hey");
-    }
+   constructor(private http: HttpClient) { }
 
-    
+/*
+GET
+test data is in the following format '{"data":[{"first":"a","last":"b"},{"first":"a","last":"b"}}]
+will use class from class manager tomerge
 
+function on sql is named 
+*/
    gettestdata(): Observable<any> {
      return this.http.get(this.baseUrl).pipe(
        map((res) => {
@@ -30,12 +33,7 @@ export class SqlapiService {
    //}
      }));
   }
+
+
+
 }
-
-
- 
-
-
-
-
-
