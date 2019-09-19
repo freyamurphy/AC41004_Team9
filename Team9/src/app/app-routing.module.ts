@@ -16,8 +16,8 @@ const routes: Routes = [
   { path: '',   redirectTo: 'testmap', pathMatch: 'full' },
   { path: 'home', component: HomepageComponent},
   { path: 'testmap', component: MapoutlineareasTESTComponent},
-  { path: 'map', component: MapComponent}
-
+  { path: 'map', component: MapComponent},
+  { path: 'testpage', component: TestpageComponent}
 
 ];
 
