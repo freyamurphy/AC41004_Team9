@@ -17,9 +17,7 @@ background-color: blue;
 position: absolute;
  bottom: 1%;
 
-
 }
-
 
 .searchbar{
 
@@ -62,9 +60,8 @@ right:1%;
 
 <div class="searchbar" [style.width.px]="getwidth(40)" [style.height.px]="getheight(10)">
 
-<input type="text" placeholder="Search..."/>&nbsp;&nbsp;
-<button type="submit"> Submit </button> <br/>
-
+<input input type="text" id="myInput" (keyup)="searchFunction()" placeholder="Search for country..."/>&nbsp;&nbsp;
+<br>
 <button (click)="sortTable(0)">Distance</button> &nbsp;
 <button (click)="sortTable(1)">Price</button>
 
@@ -102,16 +99,19 @@ right:1%;
     </tr>
     <tr>
         <td>1231</td>
-        <td>123123122</td>
+        <td>43342</td>
         <td>Magazzini Alimentari Riuniti</td>
         <td>Italy</td>
     </tr>
-
+    <tr>
+        <td>9022</td>
+        <td>48942</td>
+        <td>Dundee</td>
+        <td>UK</td>
+    </tr>
 </table>
 
 </div>
-
-
 
 <div class="zipcode" [style.width.px]="getwidth(37)" [style.height.px]="getheight(13)">
 
@@ -123,11 +123,6 @@ right:1%;
   <agm-map [latitude]="lat" [longitude]="lng" style="height:200px; width: 200px; position: absolute; bottom: 1%; right:1%;" [style.height.px]="getheight(59)"[style.width.px]="getwidth(54)">
   <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
 </agm-map>
-
-
-
-
-
 
 
 </body>
