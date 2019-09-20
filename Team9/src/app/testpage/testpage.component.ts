@@ -18,7 +18,7 @@ data:any;
     console.log("y");
 
     this.sqlapi.gettestdata().subscribe((res: any) => {this.data =res;});
- 
+
   }
 
 }

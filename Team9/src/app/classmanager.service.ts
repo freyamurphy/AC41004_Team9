@@ -19,3 +19,11 @@ last: string
  ) {}
 }
 //-------------------------------------------------------
+
+export interface LabelInfo {
+  providerID: any,
+  providerName: any,
+  providerLat: any,
+  providerLng: any,
+  cost: any
+}
