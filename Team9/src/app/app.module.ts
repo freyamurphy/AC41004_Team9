@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 // team imports
 import { AgmCoreModule } from '@agm/core';// used for linking with google maps
 import { HttpClientModule } from '@angular/common/http';// for linking with the backend node server
-
+import { HttpModule } from '@angular/http';
 
 //pages
 import { UserfiltersComponent } from './userfilters/userfilters.component';
@@ -36,6 +36,7 @@ import { HospitalselecterComponent } from './hospitalselecter/hospitalselecter.c
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,// <maybe wrong
+
     AgmCoreModule.forRoot({apiKey: ''})
   ],
   providers: [

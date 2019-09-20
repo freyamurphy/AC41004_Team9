@@ -9,10 +9,13 @@ import { test }from '../classmanager.service';
 })
 export class TestpageComponent implements OnInit {
 data:any;
-    array_or_test_clases: any;
+    array_or_test_clases: test[];
   constructor(private sqlapi:SqlapiService) { }
 
   ngOnInit() {
+    console.log("U");
+    this.sqlapi.gettestdata().subscribe((res: test[]) => {this.data =res;});
+    console.log("y");
 
     this.sqlapi.gettestdata().subscribe((res: any) => {this.data =res;});
  
