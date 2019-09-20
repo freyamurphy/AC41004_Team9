@@ -17,15 +17,13 @@ background-color: blue;
 position: absolute;
  bottom: 1%;
 
-
 }
 
 .searchbar{
 
 background-color: green;
 position: absolute;
- bottom: 51%;
-
+bottom: 51%;
 
 }
 
@@ -52,8 +50,6 @@ right:1%;
 </head>
 <body [style.height.px]="getheight(100)" >
 
-
-
 <div class="priceselectorcontainer" [style.width.px]="getwidth(90)" [style.height.px]="getheight(20)">
 
 </div>
@@ -63,6 +59,57 @@ right:1%;
 </div>
 
 <div class="searchbar" [style.width.px]="getwidth(40)" [style.height.px]="getheight(10)">
+
+<input input type="text" id="myInput" (keyup)="searchFunction()" placeholder="Search for country..."/>&nbsp;&nbsp;
+<br>
+<button (click)="sortTable(0)">Distance</button> &nbsp;
+<button (click)="sortTable(1)">Price</button>
+
+<table id="myTable">
+    <tr>
+        <!--When a header is clicked, run the sortTable function, with a parameter, 0 for sorting by names, 1 for sorting by country:-->
+        <th>Distance</th>
+        <th>Price</th>
+        <th>Name</th>
+        <th>Country</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>1232</td>
+        <td>Berglunds snabbkop</td>
+        <td>Sweden</td>
+    </tr>
+    <tr>
+        <td>1332</td>
+        <td>1232123</td>
+        <td>North/South</td>
+        <td>UK</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>1</td>
+        <td>Alfreds Futterkiste</td>
+        <td>Germany</td>
+    </tr>
+    <tr>
+        <td>190</td>
+        <td>123223</td>
+        <td>Koniglich Essen</td>
+        <td>Germany</td>
+    </tr>
+    <tr>
+        <td>1231</td>
+        <td>43342</td>
+        <td>Magazzini Alimentari Riuniti</td>
+        <td>Italy</td>
+    </tr>
+    <tr>
+        <td>9022</td>
+        <td>48942</td>
+        <td>Dundee</td>
+        <td>UK</td>
+    </tr>
+</table>
 
 </div>
 
@@ -76,8 +123,6 @@ right:1%;
   <agm-map [latitude]="lat" [longitude]="lng" style="height:200px; width: 200px; position: absolute; bottom: 1%; right:1%;" [style.height.px]="getheight(59)"[style.width.px]="getwidth(54)">
   <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
 </agm-map>
-
-
 
 
 </body>

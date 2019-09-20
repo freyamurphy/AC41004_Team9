@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+
+
 // team imports
 import { AgmCoreModule } from '@agm/core';// used for linking with google maps
 import { HttpClientModule } from '@angular/common/http';// for linking with the backend node server
@@ -17,6 +19,7 @@ import { TestpageComponent } from './testpage/testpage.component';
 
 // services
 import { SqlapiService } from './sqlapi.service';
+import { HospitalselecterComponent } from './hospitalselecter/hospitalselecter.component';
 
 
 @NgModule({
@@ -26,14 +29,15 @@ import { SqlapiService } from './sqlapi.service';
     MapoutlineareasTESTComponent,
     HomepageComponent,
     MapComponent,
-    TestpageComponent
+    TestpageComponent,
+    HospitalselecterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,// <maybe wrong
-    HttpModule,
-    AgmCoreModule.forRoot({apiKey: 'AIzaSyCUsOXj6dTBVQkd7zH7UpkS4TXl_eS4Chc'})
+
+    AgmCoreModule.forRoot({apiKey: ''})
   ],
   providers: [
     SqlapiService
