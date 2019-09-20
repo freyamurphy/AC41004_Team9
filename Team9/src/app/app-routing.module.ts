@@ -9,6 +9,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { MapComponent } from './map/map.component';
 import { TestpageComponent } from './testpage/testpage.component';
 import { HospitalselecterComponent } from './hospitalselecter/hospitalselecter.component';
+import { UserfiltersComponent } from './userfilters/userfilters.component';
 
 
 
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'testmap', component: MapoutlineareasTESTComponent},
   { path: 'hospital', component: HospitalselecterComponent},
   { path: 'map', component: MapComponent},
-  { path: 'testpage', component: TestpageComponent}
+  { path: 'testpage', component: TestpageComponent},
+  { path: 'userfilters', component: UserfiltersComponent}
 
 
 ];
