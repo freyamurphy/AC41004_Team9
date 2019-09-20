@@ -19,15 +19,11 @@ last: string
  ) {}
 }
 //-------------------------------------------------------
-@Injectable({
-  providedIn: 'root'
-})
-export class LabelInfo {
-constructor(
-providerID: any,
-providerName: any,
-providerLat: any,
-providerLng: any,
-cost: any
- ) {}
+
+export interface LabelInfo {
+  providerID: any,
+  providerName: any,
+  providerLat: any,
+  providerLng: any,
+  cost: any
 }

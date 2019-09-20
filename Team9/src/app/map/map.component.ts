@@ -11,8 +11,6 @@ export class MapComponent implements OnInit {
 
   userLocation = {lat: 56.4620, lng: -2.9707};
 
-  labelInfo: LabelInfo;
-
   /*
   get list of provider and pricings from search bar Component
   convert providers and prices into array of objects
@@ -93,39 +91,51 @@ export class MapComponent implements OnInit {
     }
   ];
 
-  labelInfos: LabelInfo[];
 
-test:test;
+
+
+ labelInfoarrray:LabelInfo[] =[];
+
+ labelInfo: LabelInfo;
+
 
   constructor() {}
 
   ngOnInit() {
 
 
-test="aaa";
-
 
     for (let i = 0; i < this.providers.length; i++) {
-      this.labelInfo.providerID = this.providers[i].Id;
-      //this.labelInfo.providerName = this.providers[i].name;
-      //this.labelInfo.providerLat = this.providers[i].lat;
-    //  this.labelInfo.providerLng = this.providers[i].lng;
-    //  this.labelInfo.cost = 0;
-
+      this.labelInfo= {
+        providerID: this.providers[i].Id,
+        providerName:  this.providers[i].name,
+        providerLat: this.providers[i].lat,
+        providerLng: this.providers[i].lng,
+        cost: 0
       }
-    //  this.labelInfos.push(this.labelInfo);
+      this.labelInfoarrray[i]=this.labelInfo;
+    }
 
 
-    for (let i = 0; i < this.pricings.length; i++) {
-      for (var provider in this.labelInfos) {
-//        if (provider.providerID == this.pricings[i].providerID) {
-      //    provider.cost = (this.pricings[i].averageTotalPayments -
-        //    this.pricings[i].averageMedicarePayments);
+
+
+
+
+    for (let i = 0; i < this.pricings.length; i++) {// for each pricing loop through provider and find the matching id
+      for (let j = 0; j <  this.providers.length; j++) {
+
+        if (this.providers[j].Id == this.pricings[i].providerID) {
+          this.labelInfoarrray[j].cost = (this.pricings[i].averageTotalPayments - this.pricings[i].averageMedicarePayments);
         }
+
       }
     }
 
 
-  }
 
+
+}
+}
+interface tester {
+    label: any;
 }
