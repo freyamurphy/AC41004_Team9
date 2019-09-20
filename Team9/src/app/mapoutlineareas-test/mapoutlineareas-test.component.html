@@ -12,11 +12,11 @@ position: absolute;
 background-color: red;
 }
 .hospitalselector{
-
-background-color: blue;
-position: absolute;
- bottom: 1%;
-
+  position: absolute;
+   bottom: 1%;
+   left: 10px;
+  overflow:scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 .searchbar{
@@ -55,7 +55,17 @@ right:1%;
 </div>
 
 <div class="hospitalselector" [style.width.px]="getwidth(40)" [style.height.px]="getheight(49)">
-
+  <div class="list-group" *ngFor = "let hospital of hospitalList ; let i = index" >
+        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+          <div class="d-flex w-50 justify-content-between">
+            <h5 class="mb-1">{{hospital.name}}</h5>
+            <small>3 days ago</small>
+          </div>
+          <p class="mb-1">{{i}}</p>
+          <small>{{hospital.address}}</small>
+        </a>
+        <p></p>
+  </div>
 </div>
 
 <div class="searchbar" [style.width.px]="getwidth(40)" [style.height.px]="getheight(10)">
