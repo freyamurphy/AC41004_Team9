@@ -79,7 +79,7 @@ export class MapoutlineareasTESTComponent implements OnInit {
          }
      }
 
-//Search function
+//Search function  (to be deleted)
      searchFunction() {
              // Declare variables
              var input, filter, table, tr, td, i, txtValue;
@@ -102,11 +102,6 @@ export class MapoutlineareasTESTComponent implements OnInit {
                  }
              }
          }
-
-
-
-
-
 
 
     @HostListener('window:resize', ['$event'])
