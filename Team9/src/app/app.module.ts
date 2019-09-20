@@ -9,6 +9,10 @@ import { AppComponent } from './app.component';
 import { AgmCoreModule } from '@agm/core';// used for linking with google maps
 import { HttpClientModule } from '@angular/common/http';// for linking with the backend node server
 import { HttpModule } from '@angular/http';
+import {MatSliderModule} from '@angular/material/slider';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+
 
 //pages
 import { UserfiltersComponent } from './userfilters/userfilters.component';
@@ -20,6 +24,7 @@ import { TestpageComponent } from './testpage/testpage.component';
 // services
 import { SqlapiService } from './sqlapi.service';
 import { HospitalselecterComponent } from './hospitalselecter/hospitalselecter.component';
+import { RangesliderComponent } from './UserFilters2/rangeslider/rangeslider.component';
 
 
 @NgModule({
@@ -30,13 +35,15 @@ import { HospitalselecterComponent } from './hospitalselecter/hospitalselecter.c
     HomepageComponent,
     MapComponent,
     TestpageComponent,
-    HospitalselecterComponent
+    HospitalselecterComponent,
+    RangesliderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,// <maybe wrong
-
+    MatSliderModule,
+    BrowserAnimationsModule,
     AgmCoreModule.forRoot({apiKey: ''})
   ],
   providers: [
