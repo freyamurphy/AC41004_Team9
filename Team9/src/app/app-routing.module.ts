@@ -9,7 +9,6 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { MapComponent } from './map/map.component';
 import { TestpageComponent } from './testpage/testpage.component';
 import { HospitalselecterComponent } from './hospitalselecter/hospitalselecter.component';
-import { UserfiltersComponent } from './userfilters/userfilters.component';
 
 
 
