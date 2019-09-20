@@ -1,6 +1,2 @@
 node_modules/
 .DS_Store
-insert statements.txt
-providers.sql
-first 30 lines.json
-*.json
