@@ -11,14 +11,23 @@ import { map, catchError } from 'rxjs/operators';
 })
 export class GelocatorService {
   ipAddress:any;
+  location:any;
   constructor(private http: HttpClient) { }
 
 
   getIpCliente(): Observable<any> {
-    return this.http.get<any>('https://jsonip.com');
+    this.ipAddress= this.http.get<any>('https://jsonip.com');
+
+return this.http.get<any>('https://jsonip.com');
+
+
 
   }
-
+  getlocation(newName: string): Observable<any> {
+    var temp = 'https://geoipify.whoisxmlapi.com/api/v1?apiKey=at_5hXi7N8OgGcRzk6qfCaApUVnndTIN&ipAddress=8.8.8.8';//+(hello);
+    console.log(newName);
+    return this.http.get<any>(temp);
+  }
 
 
 }
