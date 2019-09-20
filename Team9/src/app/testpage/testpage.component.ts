@@ -15,7 +15,7 @@ data:any;
   ngOnInit() {
 
     this.sqlapi.gettestdata().subscribe((res: any) => {this.data =res;});
- 
+
   }
 
 }
