@@ -24,15 +24,15 @@ function on sql is named
    gettestdata(): Observable<any> {
      return this.http.get(this.baseUrl).pipe(
        map((res) => {
-         
-        //console.log(res.toString());
-        
-        return res['first'];
-        //return this.http.get(`${this.baseUrl}`);
-
-   //}
+        return res['name'];
      }));
   }
+
+    postTestData(data : any): Observable<any> {
+      return this.http.post<any>(this.baseUrl, "Hello")
+    
+
+    }
 
 
 

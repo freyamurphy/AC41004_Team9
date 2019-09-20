@@ -1,7 +1,7 @@
 //https://www.w3schools.com/nodejs/nodejs_mysql.asp
 //https://www.digitalocean.com/community/questions/blocked-by-cors-policy-the-access-control-allow-origin-mean-stack
 //https://flaviocopes.com/express-headers/
-/*var mysql = require('mysql');
+var mysql = require('mysql');
 
 const express = require('express')
 const cors = require('cors')
@@ -35,10 +35,9 @@ con.end();
 
 function test(){
   test2 = { "name":"John", "age":30, "car":null };
-  app.get('/', (req, res) => res.send(result))
+  app.get('/', (req, res) => res.send(test2))
   app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 }
-
 
 test();
 
@@ -48,7 +47,7 @@ test();
 //app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
 
-const request = require('request')*/
+const request = require('request')
 
 
 
