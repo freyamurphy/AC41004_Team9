@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 
 export class HospitalselecterComponent implements OnInit {
 
-  hospitalList: Section[] = [
+  hospitalList: any[] = [
   {
     name: 'Hospital',
     address: '101 Dundee Street Dundee DD1 2AS',
