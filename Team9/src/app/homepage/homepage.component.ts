@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HostListener } from "@angular/core";
+import { SqlapiService }from '../sqlapi.service';
+
+import { GelocatorService }from '../gelocator.service';
+import { ClassmanagerService }from '../classmanager.service';
 
 
 
@@ -12,11 +16,17 @@ export class HomepageComponent implements OnInit {
 
       userlocation;
       usersIPAddress;
+      userlat;
+      userlong;
       lat = 51.678418;
       lng = 7.809007;
       public innerHeight: any;
       public innerWidth: any;
-      constructor() { }
+
+
+
+
+      constructor(private sqlapi:SqlapiService ,private locate:GelocatorService , private classmanager:ClassmanagerService ) { }
 
 
     ngOnInit() {
@@ -54,15 +64,28 @@ export class HomepageComponent implements OnInit {
 
     }
 
-// this needs to be in master
-getuserlocation(){
-      this.locate.getIpCliente().subscribe((res: any) => {this.testip =res.ip;});// gets the user ip address
-// 5 seconds after that, uses the ip address to get latitude and longitude
-      setTimeout( ()=>{
-   this.locate.getlocation(this.testip).subscribe((res: any) => {this.location =JSON.stringify(res);})
-     }, 5000)
+    // this needs to be in master
+    getuserlocation()
+    {
+        this.locate.getIpCliente().subscribe((res: any) => {this.usersIPAddress =res.ip;});// gets the user ip address
+
+        // 5 seconds after that, uses the ip address to get latitude and longitude
+        setTimeout( ()=>{
+              this.locate.getlocation(this.usersIPAddress).subscribe((res: any) => {this.userlocation =JSON.stringify(res);})
+         }, 5000)
 
 
-}
+    }
+
+
+    gethospitallocation(){
+
+
+
+
+
+    }
+
+
 
   }

@@ -30,4 +30,14 @@ return this.http.get<any>('https://jsonip.com');
   }
 
 
+getlocationfromaddress(state: string,address: string): Observable<any>{
+var addressFull = "";
+var apikey=""
+//var temp = "https://maps.googleapis.com/maps/api/geocode/json?address="addresss"&key="apikey;
+
+return this.http.get<any>(apikey);
+}
+
+
+
 }
