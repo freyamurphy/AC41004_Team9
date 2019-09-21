@@ -1,8 +1,19 @@
 
 .selector {
-  position: relative;
+  position: absolute;
   left: 30px;
-  top: 225px
+  top: 225px;
+}
+.priceslider {
+  position: absolute;
+  left: 30px;
+  top: 100px;
+}
+
+.distanceslider {
+  position: absolute;
+  left: 176px;
+  top: 100px;
 }
 .priceselectorcontainer{
 

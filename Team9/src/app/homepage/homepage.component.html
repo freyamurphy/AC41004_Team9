@@ -3,9 +3,19 @@
 <head>
 </head>
 <body [style.height.px]="getheight(100)" >
-<div class="selector">
-<app-hospitalselecter></app-hospitalselecter>
-</div>
+  <div class="sliders">
+    <div class="priceslider">
+        <app-rangeslider></app-rangeslider>
+    </div>
+    <div class="distanceslider">
+        <app-rangeslider></app-rangeslider>
+    </div>
+  </div>
+  
+  <div class="selector">
+    <app-hospitalselecter></app-hospitalselecter>
+  </div>
+
 <!---
 <div class="searchbar" [style.width.px]="getwidth(40)" [style.height.px]="getheight(10)">
 
