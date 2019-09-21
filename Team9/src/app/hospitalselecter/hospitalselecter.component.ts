@@ -8,12 +8,14 @@ import { Component, OnInit, HostListener } from '@angular/core';
 
 export class HospitalselecterComponent implements OnInit {
 
-  hospitalList: any[] = [
+  hospitalList: any = [
   {
     dRGDefinition: 39,
-    description: "EXTRACRANIAL PROCEDURES W/O CC/MCC",
+    description: "EXTRACRANIAL PROCEDURES ",
     hospital: "SOUTHEAST ALABAMA MEDICAL CENTER",
-    cost : 4000
+    cost : 4000//,
+    //lat:
+  //  long:
   },
   {
     dRGDefinition: 41,
@@ -56,9 +58,13 @@ public innerHeight: any;
 public innerWidth: any;
 
 
+oldcontext:any= 0;// used for selecting in the function highlight
+
+
+
 p: number = 1;
 
-  
+
 constructor() { }
 ngOnInit() {
   this.innerWidth = window.innerWidth;
@@ -80,7 +86,14 @@ var tempvar =(this.innerWidth/100)*widthpercentage;
 return tempvar.toString();
 }
 
+highlight(index){
+  document.getElementById(this.oldcontext).style.backgroundColor = "white";
+  document.getElementById(index).style.backgroundColor = "lightblue";
 
+
+
+this.oldcontext= index;
+}
 resize(){
 
 

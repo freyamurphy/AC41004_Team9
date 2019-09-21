@@ -1,3 +1,4 @@
 .hospitalbox {
     border: 1px solid green;
 }
+.active { background-color: blue;}
