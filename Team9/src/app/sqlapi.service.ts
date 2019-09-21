@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
 
@@ -8,7 +8,7 @@ import { map, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class SqlapiService {
-
+  temp: number[];
 
   baseUrl = 'http://localhost:3000';
 
@@ -34,6 +34,9 @@ function on sql is named
 
     }
 
+    sliderTest(): Observable<number> {
+      return of(50);
+    }
 
 
 }

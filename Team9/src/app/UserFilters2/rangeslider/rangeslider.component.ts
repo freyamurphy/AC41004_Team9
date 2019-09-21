@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { SqlapiService }from '../../sqlapi.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { test }from '../]../../../classmanager.service';
 @Component({
   selector: 'app-rangeslider',
   templateUrl: './rangeslider.component.html',
@@ -6,14 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RangesliderComponent implements OnInit {
 
-  ranges:number[];
-  constructor() { }
+  ranges:number;
+  description:string;
+  constructor(private sqlapi:SqlapiService) { }
 
   ngOnInit() {
-    this.ranges = [1, 10];
-    
+    this.description = "temp"
+    this.getRange();
   }
+  getRange() : void {
+    this.sqlapi.sliderTest().subscribe(ranges => this.ranges = ranges);
 
+  }
   
 
 }
