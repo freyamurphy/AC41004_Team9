@@ -26,6 +26,7 @@ import { TestpageComponent } from './testpage/testpage.component';
 import { SqlapiService } from './sqlapi.service';
 import { HospitalselecterComponent } from './hospitalselecter/hospitalselecter.component';
 import { RangesliderComponent } from './UserFilters2/rangeslider/rangeslider.component';
+import { SearchbarComponent } from './UserFilters2/searchbar/searchbar/searchbar.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { RangesliderComponent } from './UserFilters2/rangeslider/rangeslider.com
     MapComponent,
     TestpageComponent,
     HospitalselecterComponent,
-    RangesliderComponent
+    RangesliderComponent,
+    SearchbarComponent
   ],
   imports: [
     BrowserModule,
