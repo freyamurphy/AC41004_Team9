@@ -3,18 +3,23 @@
 </head>
 
 <body>
-  <div class="list-group" *ngFor = "let hospital of hospitalList ; let i = index" >
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-        <div class="d-flex w-50 justify-content-between">
-          <h5 class="mb-1">{{hospital.name}}</h5>
-          <small>3 days ago</small>
-        </div>
-        <p class="mb-1">{{i}}</p>
-        <small>{{hospital.address}}</small>
-      </a>
-      <p></p>
+<div class="hospitalselector" [style.width.px]="getwidth(40)" [style.height.px]="getheight(49)">
+  <div class="list-group" *ngFor = "let hospital of hospitalList | paginate: { itemsPerPage: 3, currentPage: p } ; let i = index" >
+    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-50 justify-content-between">
+        <h5 class="mb-1">{{hospital.name}}</h5>
+        <small>3 days ago</small>
+      </div>
+      <p class="mb-1">{{i}}</p>
+      <small>{{hospital.address}}</small>
+    </a>
+    <p></p>
   </div>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
 
+</div>
+
+      
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

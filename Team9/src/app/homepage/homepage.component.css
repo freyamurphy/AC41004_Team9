@@ -1,0 +1,45 @@
+
+.selector {
+  position: relative;
+  left: 30px;
+  top: 225px
+}
+.priceselectorcontainer{
+
+    padding-left:5%;
+    position: absolute;
+     bottom: 62%;
+    }
+    .hospitalselector{
+      position: absolute;
+       bottom: 1%;
+       left: 10px;
+      overflow:scroll;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    .searchbar{
+    
+    position: absolute;
+    bottom: 51%;
+    
+    }
+    
+    .zipcode{
+    
+    background-color: grey;
+    position: absolute;
+     bottom: 85%;
+    right:1%;
+    
+    }
+    
+    .icons{
+    
+      background-color: yellow;
+      position: absolute;
+       bottom: 85%;
+      left:2%;
+    
+    
+    }

@@ -9,9 +9,10 @@ import { AppComponent } from './app.component';
 import { AgmCoreModule } from '@agm/core';// used for linking with google maps
 import { HttpClientModule } from '@angular/common/http';// for linking with the backend node server
 import { HttpModule } from '@angular/http';
-import {MatSliderModule} from '@angular/material/slider';
+import {MatSliderModule} from '@angular/material/slider'; //For slidebar
+import {MatListModule} from '@angular/material/list';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 //pages
@@ -43,6 +44,8 @@ import { RangesliderComponent } from './UserFilters2/rangeslider/rangeslider.com
     AppRoutingModule,
     HttpClientModule,// <maybe wrong
     MatSliderModule,
+    MatListModule,
+    NgxPaginationModule,
     BrowserAnimationsModule,
     AgmCoreModule.forRoot({apiKey: ''})
   ],

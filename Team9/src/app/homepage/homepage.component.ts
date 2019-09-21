@@ -139,7 +139,6 @@ export class HomepageComponent implements OnInit {
 
     getheight(heightpercentage){
     var tempvar =(this.innerHeight/100)*heightpercentage;
-    console.log(tempvar);
     return tempvar.toString();
     }
 
@@ -147,7 +146,6 @@ export class HomepageComponent implements OnInit {
 
     getwidth(widthpercentage){
     var tempvar =(this.innerWidth/100)*widthpercentage;
-    console.log(tempvar);
     return tempvar.toString();
     }
 
