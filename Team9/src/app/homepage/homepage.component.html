@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <style>
 
 
@@ -90,18 +91,6 @@ visibility: hidden;
 
 
 
-<div class="priceselectorcontainer" [style.width.px]="getwidth(92)" [style.height.px]="getheight(20)">
-
-</div>
-
-<div class="hospitalselector" [style.width.px]="getwidth(40)" [style.height.px]="getheight(49)">
-
-</div>
-
-<div class="searchbar" [style.width.px]="getwidth(40)" [style.height.px]="getheight(10)">
-
-</div>
-
 <div class="zipcode" [style.width.px]="getwidth(37)" [style.height.px]="getheight(13)">
 
 <button id ="44" (click)="getuserlocation()" [style.width.px]="75" [style.height.px]="40" style=" ">autofind location</button>
@@ -119,17 +108,143 @@ visibility: hidden;
 
 
 
-<div class="icons" [style.width.px]="getwidth(42)" [style.height.px]="getheight(14)">
+
+
+
+
+
+</head>
+<body [style.height.px]="getheight(100)" >
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm">
+        <h1>Freedom 4 U</h1>
+        <small>Freedom isn't free</small>
+      </div>
+
+      <div class="col-sm">
+      </div>
+
+      <div class="col-sm">
+          Ryans bit?
+
+        </div>   
+    </div>
+    <div class="row">
+      <div class="col-sm">
+      </div>
+      <div class="col-sm">
+
+      </div>
+      <div class="col-sm">
+
+      </div>
+
+    </div>
+    <div class="row">
+        <div class="col-sm">
+          <app-rangeslider></app-rangeslider>
+
+        </div>
+        <div class="col-sm" style="left:-300px">
+            <app-rangeslider></app-rangeslider>
+  
+        </div>
+        <div class="col-sm">
+  
+        </div>
+  
+      </div>
+      <div class="row">
+          <div class="col-sm" style="top: 20px">
+            <app-searchbar></app-searchbar>
+          </div>
+          <div class="col-sm">
+            
+          </div>
+          <div class="col-sm">
+    
+          </div>
+    
+        </div>
+        <div class="row">
+            <div class="col-sm">
+              <app-hospitalselecter></app-hospitalselecter>
+    
+            </div>
+            <div class="col-sm">
+              <app-map style="height:200px; width: 200px; position: absolute;"
+              [style.height.px]="getheight(59)"[style.width.px]="getwidth(54)">
+              </app-map>
+            </div>
+             <div class="col-sm">
+                
+            </div>
+      
+          </div>
+  </div>
+  
+
+<!---
+<div class="searchbar" [style.width.px]="getwidth(40)" [style.height.px]="getheight(10)">
+
+<input input type="text" id="myInput" (keyup)="searchFunction()" placeholder="Search for country..."/>&nbsp;&nbsp;
+<br>
+<button (click)="sortTable(0)">Distance</button> &nbsp;
+<button (click)="sortTable(1)">Price</button>
+-->
+<!--
+<table id="myTable">
+    <tr>
+        <th>Distance</th>
+        <th>Price</th>
+        <th>Name</th>
+        <th>Country</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>1232</td>
+        <td>Berglunds snabbkop</td>
+        <td>Sweden</td>
+    </tr>
+    <tr>
+        <td>1332</td>
+        <td>1232123</td>
+        <td>North/South</td>
+        <td>UK</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>1</td>
+        <td>Alfreds Futterkiste</td>
+        <td>Germany</td>
+    </tr>
+    <tr>
+        <td>190</td>
+        <td>123223</td>
+        <td>Koniglich Essen</td>
+        <td>Germany</td>
+    </tr>
+    <tr>
+        <td>1231</td>
+        <td>43342</td>
+        <td>Magazzini Alimentari Riuniti</td>
+        <td>Italy</td>
+    </tr>
+    <tr>
+        <td>9022</td>
+        <td>48942</td>
+        <td>Dundee</td>
+        <td>UK</td>
+    </tr>
+</table>
 
 </div>
-
-  <agm-map [latitude]="lat" [longitude]="lng" style="height:200px; width: 200px; position: absolute; bottom: 1%; right:1%;" [style.height.px]="getheight(59)"[style.width.px]="getwidth(54)">
-  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-</agm-map>
+-->
 
 
-
-
+ 
 </body>
 
 </html>

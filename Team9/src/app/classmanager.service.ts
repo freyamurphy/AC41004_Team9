@@ -41,28 +41,13 @@ last: string
  ) {}
 }
 //-------------------------------------------------------
-//-------------------------------------------------------
-//
-//------------------test--------------------------
-@Injectable({
-  providedIn: 'root'
-})
-export class provider {
-constructor(
-first: string,
-last: string
- ) {}
-}
-//-------------------------------------------------------
-//-------------------------------------------------------
-// class used to pull all data from test table in database
-//------------------test--------------------------
-@Injectable({
-  providedIn: 'root'
-})
-export class pricing {
-constructor(
-first: string,
-last: string
- ) {}
+
+
+export interface LabelInfo {
+  providerID: any,
+  providerName: any,
+  providerLat: any,
+  providerLng: any,
+  cost: any
+
 }

@@ -8,6 +8,8 @@ import { MapoutlineareasTESTComponent } from './mapoutlineareas-test/mapoutlinea
 import { HomepageComponent } from './homepage/homepage.component';
 import { MapComponent } from './map/map.component';
 import { TestpageComponent } from './testpage/testpage.component';
+import { HospitalselecterComponent } from './hospitalselecter/hospitalselecter.component';
+
 
 
 
@@ -17,7 +19,14 @@ const routes: Routes = [
   { path: 'home', component: HomepageComponent},
   { path: 'testmap', component: MapoutlineareasTESTComponent},
   { path: 'testpage', component: TestpageComponent},
-  { path: 'histeve', component: UserfiltersComponent}
+  { path: 'histeve', component: UserfiltersComponent},
+  { path: 'hospital', component: HospitalselecterComponent},
+  { path: 'map', component: MapComponent},
+  { path: 'testpage', component: TestpageComponent},
+  { path: 'userfilters', component: UserfiltersComponent}
+
+
+
 ];
 
 @NgModule({

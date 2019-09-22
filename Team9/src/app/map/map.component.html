@@ -1,1 +1,15 @@
-<p>map works!</p>
+<agm-map [latitude]="userLocation.lat" [longitude]="userLocation.lng"
+  [zoom]="zoom"
+  style="height:100%; width: 100%;"
+  >
+
+  <!-- loop through each hospital -->
+  <ng-template ngFor let-item [ngForOf]="hospitals" let-i="index" [ngForTrackBy]="trackByFn">
+    <agm-marker [latitude]="hospitals[i].lat" [longitude]="hospitals[i].lng"
+      [label]="hospitals[i].label">
+      <agm-info-window [disableAutoPan]="true">
+        {{hospitals[i].info}}
+      </agm-info-window>
+    </agm-marker>
+  </ng-template>
+</agm-map>

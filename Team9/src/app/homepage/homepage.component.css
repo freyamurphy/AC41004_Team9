@@ -1,0 +1,61 @@
+
+.searchbar {
+  position: absolute;
+  top: 180px;
+  left: 30px
+}
+.selector {
+  position: absolute;
+  left: 30px;
+  top: 225px;
+}
+.priceslider {
+  position: absolute;
+  left: 30px;
+  top: 100px;
+}
+
+.distanceslider {
+  position: absolute;
+  left: 176px;
+  top: 100px;
+}
+.priceselectorcontainer{
+
+    padding-left:5%;
+    position: absolute;
+     bottom: 62%;
+    }
+    .hospitalselector{
+      position: absolute;
+       bottom: 1%;
+       left: 10px;
+      overflow:scroll;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    .searchbar{
+    
+    position: absolute;
+    bottom: 51%;
+    
+    }
+    
+    .zipcode{
+    
+    background-color: grey;
+    position: absolute;
+     bottom: 85%;
+    right:1%;
+    
+    }
+    
+    .icons{
+    
+      background-color: yellow;
+      position: absolute;
+       bottom: 85%;
+      left:2%;
+    
+    
+    }
