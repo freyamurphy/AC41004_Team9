@@ -146,6 +146,10 @@ export class HomepageComponent implements OnInit {
     var tempvar =(this.innerWidth/100)*widthpercentage;
     return tempvar.toString();
     }
+
     resize(){
     }
+
+
+    
   }
