@@ -11,13 +11,6 @@ export class MapComponent implements OnInit {
 
   userLocation = {lat: 56.4620, lng: -2.9707};
 
-  /*
-  get list of provider and pricings from search bar Component
-  convert providers and prices into array of objects
-    get coords of providers from addresses
-  display
-  */
-
   providers = [
     {
       Id: 0,
@@ -91,6 +84,8 @@ export class MapComponent implements OnInit {
     }
   ];
 
+  focusLocation = this.userLocation
+
  labelInfoArray:LabelInfo[] = [];
 
  labelInfo: LabelInfo;
@@ -121,8 +116,16 @@ export class MapComponent implements OnInit {
 
       }
     }
+  }
 
-}
+  onClick() {
+    if (this.focusLocation.lat != 56.4643) {
+      this.focusLocation = {lat: 56.4643, lng: -3.0379}
+    }
+    else {
+      this.focusLocation = {lat: 56.4620, lng: -2.9707}
+    }
+  }
 
 }
 interface tester {

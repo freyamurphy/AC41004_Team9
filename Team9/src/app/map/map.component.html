@@ -1,11 +1,7 @@
-<agm-map [latitude]="userLocation.lat" [longitude]="userLocation.lng"
+<agm-map [latitude]="focusLocation.lat" [longitude]="focusLocation.lng"
   [zoom]="zoom"
   style="height:100%; width: 100%;"
   >
-
-  <div>
-  <button ng-click="">OK</button>
-  </div>
 
   <!-- loop through each hospital -->
   <ng-template ngFor let-item [ngForOf]="labelInfoArray" let-i="index" [ngForTrackBy]="trackByFn">
@@ -18,3 +14,7 @@
     </agm-marker>
   </ng-template>
 </agm-map>
+
+<div>
+<button (click)="onClick()">Click me</button>
+</div>
