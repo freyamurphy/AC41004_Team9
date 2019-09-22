@@ -24,9 +24,11 @@ import { TestpageComponent } from './testpage/testpage.component';
 
 // services
 import { SqlapiService } from './sqlapi.service';
+import { UilocationfinderComponent } from './uilocationfinder/uilocationfinder.component';
 import { HospitalselecterComponent } from './hospitalselecter/hospitalselecter.component';
 import { RangesliderComponent } from './UserFilters2/rangeslider/rangeslider.component';
 import { SearchbarComponent } from './UserFilters2/searchbar/searchbar/searchbar.component';
+
 
 
 @NgModule({
@@ -37,9 +39,11 @@ import { SearchbarComponent } from './UserFilters2/searchbar/searchbar/searchbar
     HomepageComponent,
     MapComponent,
     TestpageComponent,
+    UilocationfinderComponent,
     HospitalselecterComponent,
     RangesliderComponent,
     SearchbarComponent
+
   ],
   imports: [
     BrowserModule,
