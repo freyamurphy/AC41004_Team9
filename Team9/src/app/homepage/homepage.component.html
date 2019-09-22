@@ -2,116 +2,6 @@
 <html>
 <head>
 
-<style>
-
-
-.priceselectorcontainer{
-
-padding-left:5%;
-position: absolute;
- bottom: 62%;
-background-color: red;
-}
-.hospitalselector{
-
-background-color: blue;
-position: absolute;
- bottom: 1%;
-
-
-}
-
-.searchbar{
-
-background-color: green;
-position: absolute;
- bottom: 51%;
-
-
-}
-
-.zipcode{
-text-align: center;
-
-
-  position: absolute;
-  bottom: 85%;
-  right:1%;
-  overflow: hidden;
-  display:inline-block;
-
-}
-.zipcodecover{
-text-align: center;
-visibility: hidden;
-  position: absolute;
-  bottom: 85%;
-  right:1%;
-
-}
-.icons{
-
-  background-color: yellow;
-  position: absolute;
-   bottom: 85%;
-  left:2%;
-
-
-}
-
-
-
-.loader {
-
-  margin-left:45%;
-  border: 12px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 12px solid #3498db;
-  width: 25px;
-  height: 25px;
-  -webkit-animation: spin 5s linear infinite; /* Safari */
-  animation: spin 2s linear infinite;
-}
-
-/* Safari */
-@-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-
-</style>
-</head>
-<body [style.height.px]="getheight(100)" >
-
-
-
-<div class="zipcode" [style.width.px]="getwidth(37)" [style.height.px]="getheight(13)">
-
-<button id ="44" (click)="getuserlocation()" [style.width.px]="75" [style.height.px]="40" style=" ">autofind location</button>
-
-
-
-
-
-
-</div>
-
-<div id="99" class="zipcodecover" [style.width.px]="getwidth(37)" [style.height.px]="getheight(13)">
-<div class="loader" ></div><p>getting location</p>
-</div>
-
-
-
-
-
-
-
 
 </head>
 <body [style.height.px]="getheight(100)" >
@@ -127,9 +17,17 @@ visibility: hidden;
       </div>
 
       <div class="col-sm">
-          Ryans bit?
+       <button class="zipcodebutton"  id ="44" (click)="getuserlocation()"   style=" ">autofind location</button>
 
-        </div>   
+
+
+
+                    <div id="99" class="zipcodecover" [style.width.px]="getwidth(37)" [style.height.px]="getheight(13)">
+                    <div class="loader" ></div><p>getting location</p>
+                    </div>
+
+
+        </div>
     </div>
     <div class="row">
       <div class="col-sm">
@@ -149,29 +47,29 @@ visibility: hidden;
         </div>
         <div class="col-sm" style="left:-300px">
             <app-rangeslider></app-rangeslider>
-  
+
         </div>
         <div class="col-sm">
-  
+
         </div>
-  
+
       </div>
       <div class="row">
           <div class="col-sm" style="top: 20px">
             <app-searchbar></app-searchbar>
           </div>
           <div class="col-sm">
-            
+
           </div>
           <div class="col-sm">
-    
+
           </div>
-    
+
         </div>
         <div class="row">
             <div class="col-sm">
               <app-hospitalselecter></app-hospitalselecter>
-    
+
             </div>
             <div class="col-sm">
               <app-map style="height:200px; width: 200px; position: absolute;"
@@ -179,12 +77,12 @@ visibility: hidden;
               </app-map>
             </div>
              <div class="col-sm">
-                
+
             </div>
-      
+
           </div>
   </div>
-  
+
 
 <!---
 <div class="searchbar" [style.width.px]="getwidth(40)" [style.height.px]="getheight(10)">
@@ -244,7 +142,7 @@ visibility: hidden;
 -->
 
 
- 
+
 </body>
 
 </html>
