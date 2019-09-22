@@ -91,19 +91,13 @@ export class MapComponent implements OnInit {
     }
   ];
 
-
-
-
- labelInfoarrray:LabelInfo[] =[];
+ labelInfoArray:LabelInfo[] = [];
 
  labelInfo: LabelInfo;
-
 
   constructor() {}
 
   ngOnInit() {
-
-
 
     for (let i = 0; i < this.providers.length; i++) {
       this.labelInfo= {
@@ -113,28 +107,23 @@ export class MapComponent implements OnInit {
         providerLng: this.providers[i].lng,
         cost: 0
       }
-      this.labelInfoarrray[i]=this.labelInfo;
+      this.labelInfoArray[i]=this.labelInfo;
     }
 
-
-
-
-
-
-    for (let i = 0; i < this.pricings.length; i++) {// for each pricing loop through provider and find the matching id
+    // for each pricing loop through provider and find the matching id
+    for (let i = 0; i < this.pricings.length; i++) {
       for (let j = 0; j <  this.providers.length; j++) {
 
         if (this.providers[j].Id == this.pricings[i].providerID) {
-          this.labelInfoarrray[j].cost = (this.pricings[i].averageTotalPayments - this.pricings[i].averageMedicarePayments);
+          this.labelInfoArray[j].cost = (this.pricings[i].averageTotalPayments
+            - this.pricings[i].averageMedicarePayments);
         }
 
       }
     }
 
-
-
-
 }
+
 }
 interface tester {
     label: any;

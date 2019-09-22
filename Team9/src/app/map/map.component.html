@@ -3,12 +3,17 @@
   style="height:100%; width: 100%;"
   >
 
+  <div>
+  <button ng-click="">OK</button>
+  </div>
+
   <!-- loop through each hospital -->
-  <ng-template ngFor let-item [ngForOf]="hospitals" let-i="index" [ngForTrackBy]="trackByFn">
-    <agm-marker [latitude]="hospitals[i].lat" [longitude]="hospitals[i].lng"
-      [label]="hospitals[i].label">
+  <ng-template ngFor let-item [ngForOf]="labelInfoArray" let-i="index" [ngForTrackBy]="trackByFn">
+    <agm-marker [latitude]="labelInfoArray[i].providerLat"
+      [longitude]="labelInfoArray[i].providerLng"
+      [label]="(i+1).toString()">
       <agm-info-window [disableAutoPan]="true">
-        {{hospitals[i].info}}
+        {{labelInfoArray[i].providerName}}: ${{labelInfoArray[i].cost}}
       </agm-info-window>
     </agm-marker>
   </ng-template>
