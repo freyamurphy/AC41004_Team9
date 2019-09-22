@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HostListener } from "@angular/core";
 
+import { SqlapiService }from '../sqlapi.service';
+import { GelocatorService }from '../gelocator.service';
+import { ClassmanagerService }from '../classmanager.service';
+
 
 @Component({
   selector: 'app-homepage',
@@ -9,35 +13,44 @@ import { HostListener } from "@angular/core";
 })
 export class HomepageComponent implements OnInit {
 
-      public innerHeight: any;
-      public innerWidth: any;
+  userlocation;
+       usersIPAddress;
+       userlat;
+       userlong;
+       lat = 51.678418;
+       lng = 7.809007;
+       public innerHeight: any;
+       public innerWidth: any;
 
-      hospitalList: any[] = [
-         {
-           name: 'Hospital',
-           address: '101 Dundee Street Dundee DD1 2AS',
-         },
-         {
-           name: 'Maybe',
-           address: '101 V&A Street Dundee DD1 2AG',
-         },
-         {
-           name: 'This',
-           address: 'University Dundee DD2 3AJ',
-         },
-         {
-           name: 'Will',
-           address: 'Not doing anymore Dundee DD4 1RC',
-         },
-         {
-           name: 'Work',
-           address: '101 V&A Street Dundee DD1 2AG',
-         },
-         {
-           name: 'Maybe',
-           address: '101 V&A Street Dundee DD1 2AG',
-         },
-         ];
+
+       hospitalList: any[] = [
+          {
+            name: 'Hospital',
+            address: '101 Dundee Street Dundee DD1 2AS',
+          },
+          {
+            name: 'Maybe',
+            address: '101 V&A Street Dundee DD1 2AG',
+          },
+          {
+            name: 'This',
+            address: 'University Dundee DD2 3AJ',
+          },
+          {
+            name: 'Will',
+            address: 'Not doing anymore Dundee DD4 1RC',
+          },
+          {
+            name: 'Work',
+            address: '101 V&A Street Dundee DD1 2AG',
+          },
+          {
+            name: 'Maybe',
+            address: '101 V&A Street Dundee DD1 2AG',
+          },
+          ];
+
+       constructor(private sqlapi:SqlapiService ,private locate:GelocatorService , private classmanager:ClassmanagerService ) { }
 
 
          // Sort function
@@ -121,7 +134,7 @@ export class HomepageComponent implements OnInit {
                   }
 
 
-      constructor() { }
+
 
 
     ngOnInit() {
@@ -149,7 +162,35 @@ export class HomepageComponent implements OnInit {
 
     resize(){
     }
-
-
     
+    // this needs to be in master
+    getuserlocation()
+    {
+          document.getElementById("99").style.visibility = "visible";
+                document.getElementById("44").style.visibility = "hidden";
+        this.locate.getIpCliente().subscribe((res: any) => {this.usersIPAddress =res.ip;});// gets the user ip address
+
+        // 5 seconds after that, uses the ip address to get latitude and longitude
+        setTimeout( ()=>{
+              this.locate.getlocation(this.usersIPAddress).subscribe((res: any) => {this.userlocation =JSON.stringify(res);});
+              this.timerfunction();
+         }, 5000)
+    }
+
+
+    timerfunction(){
+      document.getElementById("99").style.visibility = "hidden";
+      document.getElementById("44").style.visibility = "visible";
+    }
+
+
+    gethospitallocation(){
+
+
+
+
+
+    }
+
+
   }
