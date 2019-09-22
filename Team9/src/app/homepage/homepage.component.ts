@@ -32,6 +32,7 @@ export class HomepageComponent implements OnInit {
     ngOnInit() {
         this.innerWidth = window.innerWidth;
           this.innerHeight= window.innerHeight;
+          this.getuserlocation();
     }
 
 
@@ -71,9 +72,15 @@ export class HomepageComponent implements OnInit {
 
         // 5 seconds after that, uses the ip address to get latitude and longitude
         setTimeout( ()=>{
-              this.locate.getlocation(this.usersIPAddress).subscribe((res: any) => {this.userlocation =JSON.stringify(res);})
+              this.locate.getlocation(this.usersIPAddress).subscribe((res: any) => {this.userlocation =JSON.stringify(res);});
+              this.timerfunction();
          }, 5000)
 
+
+    }
+    timerfunction(){
+
+      document.getElementById("99").style.visibility = "hidden";
 
     }
 
