@@ -58,8 +58,8 @@ public innerHeight: any;
 public innerWidth: any;
 
 
-oldcontext:any= 0;// used for selecting in the function highlight
-
+oldcontext:any;// used for selecting in the function highlight
+boolforselector:any="white";
 
 
 p: number = 1;
@@ -87,13 +87,46 @@ return tempvar.toString();
 }
 
 highlight(index){
-  document.getElementById(this.oldcontext).style.backgroundColor = "white";
-  document.getElementById(index).style.backgroundColor = "lightblue";
+  if(this.oldcontext != undefined)
+  {
+    if(index!=this.oldcontext)
+    {
+      document.getElementById(this.oldcontext).style.backgroundColor = "white";
+      document.getElementById(index).style.backgroundColor = "lightblue";
+      this.oldcontext= index;
+    }
+    else  if(index==this.oldcontext && this.boolforselector=="blue")
+    {
+      document.getElementById(index).style.backgroundColor = "white";
+      this.oldcontext= index;
+      this.boolforselector="white";
+    }
+    else  if(index==this.oldcontext && this.boolforselector=="white")
+    {
+      document.getElementById(index).style.backgroundColor = "lightblue";
+      this.oldcontext= index;
+      this.boolforselector="blue";
+    }
+
+  }
+  else
+  {
+    document.getElementById(index).style.backgroundColor = "lightblue";
+    this.oldcontext= index;
+  }
 
 
+this.putinfocus(index);
 
-this.oldcontext= index;
+
 }
+putinfocus(index){
+
+// focus map on selected hospital
+
+}
+
+
 resize(){
 
 
