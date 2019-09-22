@@ -53,7 +53,7 @@ import { SearchbarComponent } from './UserFilters2/searchbar/searchbar/searchbar
     MatListModule,
     NgxPaginationModule,
     BrowserAnimationsModule,
-    AgmCoreModule.forRoot({apiKey: ' '})
+    AgmCoreModule.forRoot({apiKey: ''})
   ],
   providers: [
     SqlapiService
