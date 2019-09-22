@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 </head>
 <body [style.height.px]="getheight(100)" >
 
@@ -15,9 +16,17 @@
       </div>
 
       <div class="col-sm">
-          Ryans bit?
+       <button class="zipcodebutton"  id ="44" (click)="getuserlocation()"   style=" ">autofind location</button>
 
-        </div>   
+
+
+
+                    <div id="99" class="zipcodecover" [style.width.px]="getwidth(37)" [style.height.px]="getheight(13)">
+                    <div class="loader" ></div><p>getting location</p>
+                    </div>
+
+
+        </div>
     </div>
     <div class="row">
       <div class="col-sm">
@@ -37,29 +46,29 @@
         </div>
         <div class="col-sm" style="left:-300px">
             <app-rangeslider></app-rangeslider>
-  
+
         </div>
         <div class="col-sm">
-  
+
         </div>
-  
+
       </div>
       <div class="row">
           <div class="col-sm" style="top: 20px">
             <app-searchbar></app-searchbar>
           </div>
           <div class="col-sm">
-            
+
           </div>
           <div class="col-sm">
-    
+
           </div>
-    
+
         </div>
         <div class="row">
             <div class="col-sm">
               <app-hospitalselecter></app-hospitalselecter>
-    
+
             </div>
             <div class="col-sm">
               <app-map style="height:200px; width: 200px; position: absolute;"
@@ -67,12 +76,12 @@
               </app-map>
             </div>
              <div class="col-sm">
-                
+
             </div>
-      
+
           </div>
   </div>
-  
+
 
 <!---
 <div class="searchbar" [style.width.px]="getwidth(40)" [style.height.px]="getheight(10)">
@@ -132,7 +141,7 @@
 -->
 
 
-  
+
 </body>
 
 </html>

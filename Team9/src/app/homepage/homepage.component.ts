@@ -162,12 +162,13 @@ export class HomepageComponent implements OnInit {
 
     resize(){
     }
-    
+
     // this needs to be in master
     getuserlocation()
     {
           document.getElementById("99").style.visibility = "visible";
                 document.getElementById("44").style.visibility = "hidden";
+                
         this.locate.getIpCliente().subscribe((res: any) => {this.usersIPAddress =res.ip;});// gets the user ip address
 
         // 5 seconds after that, uses the ip address to get latitude and longitude
