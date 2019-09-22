@@ -3,17 +3,41 @@
 </head>
 
 <body>
-  <div class="list-group" *ngFor = "let hospital of hospitalList ; let i = index" >
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-        <div class="d-flex w-50 justify-content-between">
-          <h5 class="mb-1">{{hospital.name}}</h5>
-          <small>3 days ago</small>
-        </div>
-        <p class="mb-1">{{i}}</p>
-        <small>{{hospital.address}}</small>
-      </a>
-      <p></p>
+<!--<div class="table-responsive-sm">
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Condition</th>
+            <th scope="col">Hospital Name</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let hospital of hospitalList">
+            <td>{{ hospital.description }}</td>
+            <td>{{ hospital.hospital }}</td>
+            <td>{{ hospital.cost }}</td>
+
+          </tr>
+
+
+        </tbody>
+      </table>
+    </div>-->
+<div class="hospitalselector"  >
+  <div class="list-group" *ngFor = "let hospital of hospitalList | paginate: { itemsPerPage: 3  , currentPage: p } ; let i = index" >
+    <a    id={{i}} class="list-group-item list-group-item-action flex-column align-items-start" (click)="highlight(i);">
+      <div class="d-flex w-50 justify-content-between">
+        <h6 class="mb-1">{{hospitalList[i].hospital}}</h6>
+        <h6 class="mb-2">Price: ${{ hospital.cost }} </h6>
+      </div>
+      <small>{{hospital.description}}</small>
+    </a>
   </div>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+</div>
+
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

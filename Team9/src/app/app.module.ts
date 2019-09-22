@@ -9,6 +9,11 @@ import { AppComponent } from './app.component';
 import { AgmCoreModule } from '@agm/core';// used for linking with google maps
 import { HttpClientModule } from '@angular/common/http';// for linking with the backend node server
 import { HttpModule } from '@angular/http';
+import {MatSliderModule} from '@angular/material/slider'; //For slidebar
+import {MatListModule} from '@angular/material/list';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NgxPaginationModule} from 'ngx-pagination';
+
 
 //pages
 import { UserfiltersComponent } from './userfilters/userfilters.component';
@@ -20,6 +25,8 @@ import { TestpageComponent } from './testpage/testpage.component';
 // services
 import { SqlapiService } from './sqlapi.service';
 import { HospitalselecterComponent } from './hospitalselecter/hospitalselecter.component';
+import { RangesliderComponent } from './UserFilters2/rangeslider/rangeslider.component';
+import { SearchbarComponent } from './UserFilters2/searchbar/searchbar/searchbar.component';
 
 
 @NgModule({
@@ -30,14 +37,19 @@ import { HospitalselecterComponent } from './hospitalselecter/hospitalselecter.c
     HomepageComponent,
     MapComponent,
     TestpageComponent,
-    HospitalselecterComponent
+    HospitalselecterComponent,
+    RangesliderComponent,
+    SearchbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,// <maybe wrong
-
-    AgmCoreModule.forRoot({apiKey: ''})
+    MatSliderModule,
+    MatListModule,
+    NgxPaginationModule,
+    BrowserAnimationsModule,
+    AgmCoreModule.forRoot({apiKey: ' '})
   ],
   providers: [
     SqlapiService

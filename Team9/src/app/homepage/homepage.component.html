@@ -1,123 +1,90 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-
-
-.priceselectorcontainer{
-
-padding-left:5%;
-position: absolute;
- bottom: 62%;
-}
-.hospitalselector{
-  position: absolute;
-   bottom: 1%;
-   left: 10px;
-  overflow:scroll;
-  -webkit-overflow-scrolling: touch;
-}
-
-.searchbar{
-
-position: absolute;
-bottom: 51%;
-
-}
-
-.zipcode{
-
-background-color: grey;
-position: absolute;
- bottom: 85%;
-right:1%;
-
-}
-
-.icons{
-
-  background-color: yellow;
-  position: absolute;
-   bottom: 85%;
-  left:2%;
-
-
-}
-
-</style>
 </head>
 <body [style.height.px]="getheight(100)" >
 
-<div class="priceselectorcontainer" [style.width.px]="getwidth(90)" [style.height.px]="getheight(20)">
-  <div class="slidecontainer">
-      <div>
-        <h1>Price</h1>
-        <input type="range" min="1" max="100" value="50" class="slider" id="myRange" step = "5">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm">
+        <h1>Freedom 4 U</h1>
+        <small>Freedom isn't free</small>
       </div>
-      <div>
-          <h1>Distance</h1>
 
-        <input type="range" min="1" max="100" value="50" class="slider" id="myRange" step = "5">
+      <div class="col-sm">
+      </div>
+
+      <div class="col-sm">
+          Ryans bit?
+
+        </div>   
+    </div>
+    <div class="row">
+      <div class="col-sm">
+      </div>
+      <div class="col-sm">
+
+      </div>
+      <div class="col-sm">
+
       </div>
 
     </div>
-  <style>
-    .slider {
-      -webkit-appearance: none;
-      width: 25%;
-      height: 15px;
-      border-radius: 5px;
-      background: #d3d3d3;
-      outline: none;
-      opacity: 0.7;
-      -webkit-transition: .2s;
-      transition: opacity .2s;
-    }
+    <div class="row">
+        <div class="col-sm">
+          <app-rangeslider></app-rangeslider>
 
-    .slider::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 25px;
-      height: 25px;
-      border-radius: 50%;
-      background: #4CAF50;
-      cursor: pointer;
-    }
-
-    .slider::-moz-range-thumb {
-      width: 25px;
-      height: 25px;
-      border-radius: 50%;
-      background: #4CAF50;
-      cursor: pointer;
-    }</style>
-
-</div>
-
-<div class="hospitalselector" [style.width.px]="getwidth(40)" [style.height.px]="getheight(49)">
-  <div class="list-group" *ngFor = "let hospital of hospitalList ; let i = index" >
-        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-          <div class="d-flex w-50 justify-content-between">
-            <h5 class="mb-1">{{hospital.name}}</h5>
-            <small>3 days ago</small>
+        </div>
+        <div class="col-sm" style="left:-300px">
+            <app-rangeslider></app-rangeslider>
+  
+        </div>
+        <div class="col-sm">
+  
+        </div>
+  
+      </div>
+      <div class="row">
+          <div class="col-sm" style="top: 20px">
+            <app-searchbar></app-searchbar>
           </div>
-          <p class="mb-1">{{i}}</p>
-          <small>{{hospital.address}}</small>
-        </a>
-        <p></p>
+          <div class="col-sm">
+            
+          </div>
+          <div class="col-sm">
+    
+          </div>
+    
+        </div>
+        <div class="row">
+            <div class="col-sm">
+              <app-hospitalselecter></app-hospitalselecter>
+    
+            </div>
+            <div class="col-sm">
+              <app-map style="height:200px; width: 200px; position: absolute;"
+              [style.height.px]="getheight(59)"[style.width.px]="getwidth(54)">
+              </app-map>
+            </div>
+             <div class="col-sm">
+                
+            </div>
+      
+          </div>
   </div>
-</div>
+  
 
+<!---
 <div class="searchbar" [style.width.px]="getwidth(40)" [style.height.px]="getheight(10)">
 
 <input input type="text" id="myInput" (keyup)="searchFunction()" placeholder="Search for country..."/>&nbsp;&nbsp;
 <br>
 <button (click)="sortTable(0)">Distance</button> &nbsp;
 <button (click)="sortTable(1)">Price</button>
-
+-->
+<!--
 <table id="myTable">
     <tr>
-        <!--When a header is clicked, run the sortTable function, with a parameter, 0 for sorting by names, 1 for sorting by country:-->
         <th>Distance</th>
         <th>Price</th>
         <th>Name</th>
@@ -162,17 +129,10 @@ right:1%;
 </table>
 
 </div>
+-->
 
-<div class="zipcode" [style.width.px]="getwidth(37)" [style.height.px]="getheight(13)">
 
-</div>
-
-<div class="icons" [style.width.px]="getwidth(42)" [style.height.px]="getheight(14)">
-
-</div>
-  <app-map style="height:200px; width: 200px; position: absolute; bottom: 1%; right:1%;"
-    [style.height.px]="getheight(59)"[style.width.px]="getwidth(54)">
-  </app-map>
+  
 </body>
 
 </html>
