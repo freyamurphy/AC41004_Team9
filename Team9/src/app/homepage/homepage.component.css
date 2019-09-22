@@ -1,3 +1,40 @@
+body, html {
+  height: 100%;
+}
+.bg {
+  /* The image used */
+  background-image: url("../../Images/Background.jpg");
+  /* Half height */
+    height: 75%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.loader {
+
+  margin-left:45%;
+  border: 12px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 12px solid #3498db;
+  width: 30px;
+  height: 30px;
+  -webkit-animation: spin 5s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 
 .zipcodecover{
 text-align: center;
@@ -5,8 +42,6 @@ visibility: hidden;
 
 
 }
-
-
 .searchbar {
   position: absolute;
   top: 180px;
