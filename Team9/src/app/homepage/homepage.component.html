@@ -31,7 +31,7 @@ position: absolute;
 
 .zipcode{
 text-align: center;
-
+ visibility: hidden;
   position: absolute;
   bottom: 85%;
   right:1%;
@@ -41,7 +41,7 @@ text-align: center;
 }
 .zipcodecover{
 text-align: center;
-  background-color: rgba(0, 0, 0, 0.3);
+   
   position: absolute;
   bottom: 85%;
   right:1%;
@@ -103,7 +103,8 @@ text-align: center;
 <div class="zipcode" [style.width.px]="getwidth(37)" [style.height.px]="getheight(13)">
 
 
-<p style="display:inline-block;">  Zip code:</p> <input style="width:50%;display:inline-block;" type="text" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code">
+<p style="display:inline-block;">  Zip code:</p>
+<input style="width:50%;display:inline-block;" type="text" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code">
 
 
 
