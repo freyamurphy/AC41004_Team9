@@ -13,7 +13,8 @@ import { ClassmanagerService }from '../classmanager.service';
 })
 export class HomepageComponent implements OnInit {
 
-  userlocation;
+
+       userlocation;
        usersIPAddress;
        userlat;
        userlong;
@@ -51,6 +52,7 @@ export class HomepageComponent implements OnInit {
           ];
 
        constructor(private sqlapi:SqlapiService ,private locate:GelocatorService , private classmanager:ClassmanagerService ) { }
+
 
 
          // Sort function
@@ -194,4 +196,5 @@ export class HomepageComponent implements OnInit {
     }
 
 
+ 
   }

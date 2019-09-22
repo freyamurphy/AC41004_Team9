@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Observable, throwError, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-
+//import { test }from '../classmanager.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,12 @@ import { map, catchError } from 'rxjs/operators';
 export class SqlapiService {
   temp: number[];
 
-  baseUrl = 'http://localhost:3000';
+
+test:any;
+  baseUrl = 'http://localhost/phptest/test.php';
+
+
+
 
    constructor(private http: HttpClient) { }
 
@@ -32,7 +37,9 @@ function on sql is named
       return this.http.post<any>(this.baseUrl, "Hello")
     
 
+
     }
+
 
     sliderTest(): Observable<number> {
       return of(50);
