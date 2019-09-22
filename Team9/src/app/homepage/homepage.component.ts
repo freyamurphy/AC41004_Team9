@@ -32,7 +32,7 @@ export class HomepageComponent implements OnInit {
     ngOnInit() {
         this.innerWidth = window.innerWidth;
           this.innerHeight= window.innerHeight;
-          this.getuserlocation();
+           
     }
 
 
@@ -45,7 +45,7 @@ export class HomepageComponent implements OnInit {
 
     getheight(heightpercentage){
     var tempvar =(this.innerHeight/100)*heightpercentage;
-    console.log(tempvar);
+  //  console.log(tempvar);
     return tempvar.toString();
     }
 
@@ -53,7 +53,7 @@ export class HomepageComponent implements OnInit {
 
     getwidth(widthpercentage){
     var tempvar =(this.innerWidth/100)*widthpercentage;
-    console.log(tempvar);
+    //console.log(tempvar);
     return tempvar.toString();
     }
 
