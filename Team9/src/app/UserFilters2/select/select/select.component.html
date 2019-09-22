@@ -1,0 +1,10 @@
+<mat-form-field>
+    <mat-label>Select an option</mat-label>
+    <mat-select [(value)]="selected">
+        <mat-option>None</mat-option>
+        <mat-option value="Distance">{{filterOptions[0]}}</mat-option>
+        <mat-option value="Price">{{filterOptions[1]}}</mat-option>
+    </mat-select>
+</mat-form-field>
+      
+      <p>You selected: {{selected}}</p>
