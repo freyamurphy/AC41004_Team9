@@ -14,7 +14,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatSelectModule} from '@angular/material/select';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgxPaginationModule} from 'ngx-pagination';
-
+import {MatButtonModule} from '@angular/material/button';
 
 //pages
 import { UserfiltersComponent } from './userfilters/userfilters.component';
@@ -54,6 +54,7 @@ import { ComunicationService } from './comunication.service';
     HttpClientModule,// <maybe wrong
     MatSliderModule,
     MatListModule,
+    MatButtonModule,
     MatSelectModule,
     NgxPaginationModule,
     BrowserAnimationsModule,

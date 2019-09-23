@@ -15,8 +15,19 @@ export class SearchbarComponent implements OnInit {
 }
 
 
-
-
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.innerWidth = window.innerWidth;
+    this.innerHeight= window.innerHeight;
+    this.resize()
+  }
+  scroll(){
+      document.getElementById("hospitals").scrollIntoView({behavior: 'smooth'});
+    }
+getheight(heightpercentage){
+var tempvar =(this.innerHeight/100)*heightpercentage;
+return tempvar.toString();
+}
 
 //Search function
   searchFunction() {
