@@ -13,9 +13,7 @@ body, html {
   background-size: cover;
 }
 
-
 .loader {
-
   margin-left:45%;
   border: 12px solid #f3f3f3;
   border-radius: 50%;
@@ -38,21 +36,22 @@ body, html {
 }
 
 .zipcodecover{
-text-align: center;
-visibility: hidden;
-
-
+  text-align: center;
+  visibility: hidden;
 }
+
 .searchbar {
   position: absolute;
   top: 180px;
   left: 30px
 }
+
 .selector {
   position: absolute;
   left: 30px;
   top: 225px;
 }
+
 .priceslider {
   position: absolute;
   left: 30px;
@@ -64,42 +63,35 @@ visibility: hidden;
   left: 176px;
   top: 100px;
 }
+
 .priceselectorcontainer{
+  padding-left:5%;
+  position: absolute;
+  bottom: 62%;
+}
 
-    padding-left:5%;
-    position: absolute;
-     bottom: 62%;
-    }
-    .hospitalselector{
-      position: absolute;
-       bottom: 1%;
-       left: 10px;
-      overflow:scroll;
-      -webkit-overflow-scrolling: touch;
-    }
+.hospitalselector{
+  position: absolute;
+  bottom: 1%;
+  overflow:scroll;
+  -webkit-overflow-scrolling: touch;
+}
 
-    .searchbar{
+.searchbar{
+  position: absolute;
+  bottom: 51%;
+}
 
-    position: absolute;
-    bottom: 51%;
+.zipcode{
+  background-color: grey;
+  position: absolute;
+  bottom: 85%;
+  right:1%;
+}
 
-    }
-
-    .zipcode{
-
-    background-color: grey;
-    position: absolute;
-     bottom: 85%;
-    right:1%;
-
-    }
-
-    .icons{
-
-      background-color: yellow;
-      position: absolute;
-       bottom: 85%;
-      left:2%;
-
-
-    }
+.icons{
+  background-color: yellow;
+  position: absolute;
+  bottom: 85%;
+  left:2%;
+}
