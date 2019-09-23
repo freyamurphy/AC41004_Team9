@@ -22,7 +22,9 @@ export class SearchbarComponent implements OnInit {
     this.innerHeight= window.innerHeight;
     this.resize()
   }
-
+  scroll(){
+      document.getElementById("hospitals").scrollIntoView({behavior: 'smooth'});
+    }
 getheight(heightpercentage){
 var tempvar =(this.innerHeight/100)*heightpercentage;
 return tempvar.toString();
