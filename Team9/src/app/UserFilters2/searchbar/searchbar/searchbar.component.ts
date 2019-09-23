@@ -28,7 +28,7 @@ getheight(heightpercentage){
 var tempvar =(this.innerHeight/100)*heightpercentage;
 return tempvar.toString();
 }
-
+resize(){}
 //Search function
   searchFunction() {
     // Declare variables
