@@ -22,7 +22,6 @@ export class SearchbarComponent implements OnInit {
     this.resize()
   }
   scroll(){
-    console.log("t");
       document.getElementById("hospitals").scrollIntoView({behavior: 'smooth'});
     }
 getheight(heightpercentage){
