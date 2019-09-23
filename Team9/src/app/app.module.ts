@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';// for linking with the 
 import { HttpModule } from '@angular/http';
 import {MatSliderModule} from '@angular/material/slider'; //For slidebar
 import {MatListModule} from '@angular/material/list';
+import {MatSelectModule} from '@angular/material/select';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgxPaginationModule} from 'ngx-pagination';
 
@@ -21,13 +22,14 @@ import { MapoutlineareasTESTComponent } from './mapoutlineareas-test/mapoutlinea
 import { HomepageComponent } from './homepage/homepage.component';
 import { MapComponent } from './map/map.component';
 import { TestpageComponent } from './testpage/testpage.component';
-
-// services
-import { SqlapiService } from './sqlapi.service';
 import { UilocationfinderComponent } from './uilocationfinder/uilocationfinder.component';
 import { HospitalselecterComponent } from './hospitalselecter/hospitalselecter.component';
 import { RangesliderComponent } from './UserFilters2/rangeslider/rangeslider.component';
 import { SearchbarComponent } from './UserFilters2/searchbar/searchbar/searchbar.component';
+import { SelectComponent } from './UserFilters2/select/select/select.component';
+// services
+import { SqlapiService } from './sqlapi.service';
+import { ComunicationService } from './comunication.service';
 
 
 
@@ -42,7 +44,8 @@ import { SearchbarComponent } from './UserFilters2/searchbar/searchbar/searchbar
     UilocationfinderComponent,
     HospitalselecterComponent,
     RangesliderComponent,
-    SearchbarComponent
+    SearchbarComponent,
+    SelectComponent
 
   ],
   imports: [
@@ -51,13 +54,14 @@ import { SearchbarComponent } from './UserFilters2/searchbar/searchbar/searchbar
     HttpClientModule,// <maybe wrong
     MatSliderModule,
     MatListModule,
+    MatSelectModule,
     NgxPaginationModule,
     BrowserAnimationsModule,
-    AgmCoreModule.forRoot({apiKey: ' '})
+    AgmCoreModule.forRoot({apiKey: ''})
   ],
   providers: [
-    SqlapiService
-
+    SqlapiService,
+    ComunicationService
   ],
   bootstrap: [AppComponent]
 })

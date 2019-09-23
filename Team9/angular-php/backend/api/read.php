@@ -1,27 +1,25 @@
 <?php
 
-require 'database.php';
+  require 'database.php';
 
-$data = [];
-$sql = "SELECT first FROM 2019indteam9db.test";
-
-
-if($result = mysqli_query($con,$sql))
-{
-  $i = 0;
-  while($row = mysqli_fetch_assoc($result))
+  $data = [];
+  $sql = "SELECT * FROM 2019indteam9db.provides";
+  if($result = mysqli_query($con,$sql))
   {
-    $data[$i]['first']    = $row['first'];
-    //$data[$i]['last']    = $row['last'];
+    $i = 0;
+    while($row = mysqli_fetch_assoc($result))
+    {
+      $data[$i]['City']    = $row['City'];
+      $data[$i]['State']    = $row['State'];
 
-    $i++;
+      $i++;
+    }
+
+    echo json_encode($data);
   }
-
-  echo json_encode($data);
-}
-else
-{
-  http_response_code(404);
-}
-$con->close();
+  else
+  {
+    http_response_code(404);
+  }
+  $con->close();
 ?>

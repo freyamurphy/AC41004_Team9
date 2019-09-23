@@ -10,9 +10,73 @@ import { map, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class GelocatorService {
+
+  
   ipAddress:any;
   location:any;
+
+
+
   constructor(private http: HttpClient) { }
+
+
+
+  userlat:any;
+  userlong:any;
+  latInContext:any;
+  longInContext:any;
+
+
+  getuserlatitude(){
+
+  return this.userlat;
+  }
+
+  getuserlongitude(){
+
+  return this.userlong;
+  }
+
+
+  getLatitudeInContext(){
+
+
+  return this.latInContext;
+  }
+
+  getLongitudeInContext(){
+
+
+  return this.longInContext;
+  }
+
+
+
+  setuserlatitude(a){
+
+  this.userlat=a;
+  }
+
+  setuserlongitude(a){
+
+  this.userlong=a;
+  }
+
+
+  setLatitudeInContext(a){
+
+  this.latInContext=a;
+
+  }
+
+  setLongitudeInContext(a){
+
+   this.longInContext=a;
+
+  }
+
+
+
 
 
   getIpCliente(): Observable<any> {
