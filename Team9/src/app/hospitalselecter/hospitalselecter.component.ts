@@ -1,4 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { ComunicationService } from '../comunication.service';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-hospitalselecter',
@@ -13,50 +15,60 @@ export class HospitalselecterComponent implements OnInit {
     dRGDefinition: 39,
     description: "EXTRACRANIAL PROCEDURES ",
     hospital: "SOUTHEAST ALABAMA MEDICAL CENTER",
-    cost : 4000//,
-    //lat:
-  //  long:
+    cost : 4000,
+    lat: 56.4643,
+    lng: -3.0379,
   },
   {
     dRGDefinition: 41,
     description: "TOE AMPUTATION",
     hospital: "NORTH TEXAS MEDICAL SCHOOL",
-    cost : 4003
+    cost : 4003,
+    lat: 56.4762,
+    lng: -2.9856,
 
   },
   {
     dRGDefinition: 15,
     description: "BROKEN LEG SURGERY",
     hospital: "WASHINGTON MEDICAL",
-    cost : 210
+    cost : 210,
+    lat: 56.4643,
+    lng: -3.0379,
 
   },
   {
     dRGDefinition: 10,
     description: "CRACKED RIB",
     hospital: "EASTERN MICHIGAN",
-    cost : 953
+    cost : 953,
+    lat: 56.4643,
+    lng: -3.0379,
 
   },
   {
     dRGDefinition: 29,
     description: "FRACTURED WRIST",
     hospital: "NORTH-EASTERN KENTUCKY WALK-IN CENTRE",
-    cost : 120
+    cost : 120,
+    lat: 56.4643,
+    lng: -3.0379,
 
   },
   {
     dRGDefinition: 93,
     description: "BURNT RETINA",
     hospital: "CALIFORNA CENTRAL",
-    cost : 60000
+    cost : 60000,
+    lat: 56.4643,
+    lng: -3.0379,
 
   },
 ];
 
 public innerHeight: any;
 public innerWidth: any;
-
+ testvar:any;
 
 oldcontext:any;// used for selecting in the function highlight
 boolforselector:any="white";
@@ -65,7 +77,13 @@ boolforselector:any="white";
 p: number = 1;
 
 
-constructor() { }
+constructor(private interact:ComunicationService) { }
+
+
+
+
+
+
 ngOnInit() {
   this.innerWidth = window.innerWidth;
   this.innerHeight= window.innerHeight;
@@ -86,7 +104,28 @@ var tempvar =(this.innerWidth/100)*widthpercentage;
 return tempvar.toString();
 }
 
+senddatatocommunicationservice(data:any){
+  this.interact.setfocusedlocation(data);
+}
+
+
+
+
+
+
+
+
 highlight(index){
+  var temp = {
+    lat:this.hospitalList[index].lat,
+    lng:this.hospitalList[index].lng
+  };
+
+
+
+
+
+
   if(this.oldcontext != undefined)
   {
     if(index!=this.oldcontext)
@@ -94,18 +133,21 @@ highlight(index){
       document.getElementById(this.oldcontext).style.backgroundColor = "white";
       document.getElementById(index).style.backgroundColor = "lightblue";
       this.oldcontext= index;
+      this.senddatatocommunicationservice(temp);
     }
     else  if(index==this.oldcontext && this.boolforselector=="blue")
     {
       document.getElementById(index).style.backgroundColor = "white";
       this.oldcontext= index;
       this.boolforselector="white";
+     this.interact.resetfocused();
     }
     else  if(index==this.oldcontext && this.boolforselector=="white")
     {
       document.getElementById(index).style.backgroundColor = "lightblue";
       this.oldcontext= index;
       this.boolforselector="blue";
+      this.senddatatocommunicationservice(temp);
     }
 
   }
@@ -113,6 +155,7 @@ highlight(index){
   {
     document.getElementById(index).style.backgroundColor = "lightblue";
     this.oldcontext= index;
+    this.senddatatocommunicationservice(temp);
   }
 
 

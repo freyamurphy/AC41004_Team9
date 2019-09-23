@@ -11,8 +11,7 @@ export class SearchbarComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.innerWidth = window.innerWidth;
-      this.innerHeight= window.innerHeight;
+ 
 }
 
 
@@ -30,12 +29,6 @@ var tempvar =(this.innerHeight/100)*heightpercentage;
 return tempvar.toString();
 }
 
-getwidth(widthpercentage){
-var tempvar =(this.innerWidth/100)*widthpercentage;
-return tempvar.toString();
-}
-resize(){
-}
 //Search function
   searchFunction() {
     // Declare variables
@@ -58,6 +51,6 @@ resize(){
             }
         }
     }
-      
+
   }
 }

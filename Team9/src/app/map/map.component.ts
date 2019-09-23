@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LabelInfo ,test}from '../classmanager.service';
+import { ComunicationService } from '../comunication.service';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-map',
@@ -10,14 +12,7 @@ export class MapComponent implements OnInit {
   zoom = 12;
 
   userLocation = {lat: 56.4620, lng: -2.9707};
-
-  /*
-  get list of provider and pricings from search bar Component
-  convert providers and prices into array of objects
-    get coords of providers from addresses
-  display
-  */
-
+userLocation2:any;
   providers = [
     {
       Id: 0,
@@ -91,17 +86,24 @@ export class MapComponent implements OnInit {
     }
   ];
 
+  focusLocation = this.userLocation
 
-
-
- labelInfoarrray:LabelInfo[] =[];
+ labelInfoArray:LabelInfo[] = [];
 
  labelInfo: LabelInfo;
-
-
-  constructor() {}
+subscription:any;
+  constructor(private interact:ComunicationService) {}
 
   ngOnInit() {
+
+      this.subscription = this.interact.getfocusedlocation().subscribe(message => { this.userLocation.lat = message.lat;this.userLocation.lng = message.lng;});
+    setTimeout( ()=>{
+
+      console.log("mapp component after subscribe");
+      console.log(this.subscription);
+      console.log(" ");
+      console.log(this.userLocation2);
+    }, 5000)
 
 
 
@@ -113,28 +115,31 @@ export class MapComponent implements OnInit {
         providerLng: this.providers[i].lng,
         cost: 0
       }
-      this.labelInfoarrray[i]=this.labelInfo;
+      this.labelInfoArray[i]=this.labelInfo;
     }
 
-
-
-
-
-
-    for (let i = 0; i < this.pricings.length; i++) {// for each pricing loop through provider and find the matching id
+    // for each pricing loop through provider and find the matching id
+    for (let i = 0; i < this.pricings.length; i++) {
       for (let j = 0; j <  this.providers.length; j++) {
 
         if (this.providers[j].Id == this.pricings[i].providerID) {
-          this.labelInfoarrray[j].cost = (this.pricings[i].averageTotalPayments - this.pricings[i].averageMedicarePayments);
+          this.labelInfoArray[j].cost = (this.pricings[i].averageTotalPayments
+            - this.pricings[i].averageMedicarePayments);
         }
 
       }
     }
+  }
 
+  onClick() {
+    if (this.focusLocation.lat != 56.4643) {
+      this.focusLocation = {lat: 56.4643, lng: -3.0379}
+    }
+    else {
+      this.focusLocation = {lat: 56.4620, lng: -2.9707}
+    }
+  }
 
-
-
-}
 }
 interface tester {
     label: any;

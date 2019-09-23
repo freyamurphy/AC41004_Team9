@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+
 </head>
 <body [style.height.px]="getheight(100)" >
   <div class="bg">
@@ -15,16 +17,18 @@
   <div class="container">
     <div class="row">
       <div class="col-sm">
-        
+
       </div>
 
       <div class="col-md">
       </div>
 
       <div class="col-sm">
-      
 
-      </div>   
+
+
+        </div>
+
     </div>
     <div class="row">
       <div class="col-sm">
@@ -42,32 +46,55 @@
           <!--<app-rangeslider></app-rangeslider>-->
 
         </div>
-        <div class="col-md" style="left:-250px">
+
+        <div class="col-md"  >
             <!--<app-rangeslider></app-rangeslider>-->
-  
         </div>
         <div class="col-sm">
-  
+
         </div>
-  
+
       </div>
       <div class="row">
           <div class="col-sm" style="top: 20px">
             
+
+            <app-searchbar style=" display: table-cell; width:100px;"></app-searchbar>
+            <app-select style=" display: table-cell; "></app-select>
+
+
+            <div style=" display: table-cell; margin-left:100px;"  >
+              <button class="zipcodebutton"  id ="44" (click)="getuserlocation()"   style=" margin-left:50px;">autofind location</button>
+              <p style=" display: table-cell; margin-left:50px;  float:left;">or</p>
+              <div id="99" class="zipcodecover" [style.width.px]="100" [style.height.px]="40">
+                <div class="loader" ></div><p>getting location</p>
+              </div>
+
+            </div>
+
+            <div style=" display: table-cell; margin-left:100px;">
+              <button class="search"  id ="44"   >search</button>
+              <div id="999" class="zipcodecover" [style.width.px]="getwidth(37)" [style.height.px]="getheight(13)">
+                <div class="loader" ></div><p>getting location</p>
+              </div>
+            </div>
+
             <br>
           </div>
-          <div class="col-md">
-            
+
+          <div class="col-sm">
+
+
           </div>
           <div class="col-sm">
-    
+
           </div>
-    
+
         </div>
         <div class="row">
             <div class="col-sm" id="hospitals">
               <app-hospitalselecter></app-hospitalselecter>
-    
+
             </div>
             <div class="col-md">
               <app-map style="height:200px; width: 200px; position: absolute;"
@@ -75,12 +102,12 @@
               </app-map>
             </div>
              <div class="col-sm">
-                
+
             </div>
-      
+
           </div>
   </div>
-  
+
 
 <!---
 <div class="searchbar" [style.width.px]="getwidth(40)" [style.height.px]="getheight(10)">
@@ -140,7 +167,7 @@
 -->
 
 
-  
+
 </body>
 
 </html>

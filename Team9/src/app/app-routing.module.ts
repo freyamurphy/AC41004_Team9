@@ -15,13 +15,16 @@ import { HospitalselecterComponent } from './hospitalselecter/hospitalselecter.c
 
 const routes: Routes = [
 
-  { path: '',   redirectTo: 'testmap', pathMatch: 'full' },
+  { path: '',   redirectTo: 'testpage', pathMatch: 'full' },
   { path: 'home', component: HomepageComponent},
   { path: 'testmap', component: MapoutlineareasTESTComponent},
+  { path: 'testpage', component: TestpageComponent},
+  { path: 'histeve', component: UserfiltersComponent},
   { path: 'hospital', component: HospitalselecterComponent},
   { path: 'map', component: MapComponent},
   { path: 'testpage', component: TestpageComponent},
   { path: 'userfilters', component: UserfiltersComponent}
+
 
 
 ];
