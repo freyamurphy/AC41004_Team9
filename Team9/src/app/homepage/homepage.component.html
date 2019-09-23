@@ -55,12 +55,24 @@
           <div class="col-sm" style="top: 20px  ; display: table;">
             <app-searchbar style=" display: table-cell; width:100px;"></app-searchbar>
             <app-select style=" display: table-cell; "></app-select>
+
+
+            <div style=" display: table-cell; margin-left:100px;"  >
+              <button class="zipcodebutton"  id ="44" (click)="getuserlocation()"   style=" margin-left:50px;">autofind location</button>
+              <p style=" display: table-cell; margin-left:50px;  float:left;">or</p>
+              <div id="99" class="zipcodecover" [style.width.px]="100" [style.height.px]="40">
+                <div class="loader" ></div><p>getting location</p>
+              </div>
+
+            </div>
+
             <div style=" display: table-cell; margin-left:100px;">
-              <button class="zipcodebutton"  id ="44" (click)="getuserlocation()"   style=" margin-left:100px;">autofind location</button>
-              <div id="99" class="zipcodecover" [style.width.px]="getwidth(37)" [style.height.px]="getheight(13)">
+              <button class="search"  id ="44"   >search</button>
+              <div id="999" class="zipcodecover" [style.width.px]="getwidth(37)" [style.height.px]="getheight(13)">
                 <div class="loader" ></div><p>getting location</p>
               </div>
             </div>
+
             <br>
           </div>
 

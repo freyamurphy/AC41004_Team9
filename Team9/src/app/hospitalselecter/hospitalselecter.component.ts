@@ -1,4 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { ComunicationService } from '../comunication.service';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-hospitalselecter',
@@ -75,7 +77,10 @@ boolforselector:any="white";
 p: number = 1;
 
 
-constructor() { }
+constructor(private interact:ComunicationService) { }
+
+
+
 
 
 
@@ -99,7 +104,28 @@ var tempvar =(this.innerWidth/100)*widthpercentage;
 return tempvar.toString();
 }
 
+senddatatocommunicationservice(data:any){
+  this.interact.setfocusedlocation(data);
+}
+
+
+
+
+
+
+
+
 highlight(index){
+  var temp = {
+    lat:this.hospitalList[index].lat,
+    lng:this.hospitalList[index].lng
+  };
+
+
+
+
+
+
   if(this.oldcontext != undefined)
   {
     if(index!=this.oldcontext)
@@ -107,18 +133,21 @@ highlight(index){
       document.getElementById(this.oldcontext).style.backgroundColor = "white";
       document.getElementById(index).style.backgroundColor = "lightblue";
       this.oldcontext= index;
+      this.senddatatocommunicationservice(temp);
     }
     else  if(index==this.oldcontext && this.boolforselector=="blue")
     {
       document.getElementById(index).style.backgroundColor = "white";
       this.oldcontext= index;
       this.boolforselector="white";
+     this.interact.resetfocused();
     }
     else  if(index==this.oldcontext && this.boolforselector=="white")
     {
       document.getElementById(index).style.backgroundColor = "lightblue";
       this.oldcontext= index;
       this.boolforselector="blue";
+      this.senddatatocommunicationservice(temp);
     }
 
   }
@@ -126,6 +155,7 @@ highlight(index){
   {
     document.getElementById(index).style.backgroundColor = "lightblue";
     this.oldcontext= index;
+    this.senddatatocommunicationservice(temp);
   }
 
 

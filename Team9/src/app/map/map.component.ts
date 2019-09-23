@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LabelInfo ,test}from '../classmanager.service';
+import { ComunicationService } from '../comunication.service';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-map',
@@ -10,7 +12,7 @@ export class MapComponent implements OnInit {
   zoom = 12;
 
   userLocation = {lat: 56.4620, lng: -2.9707};
-
+userLocation2:any;
   providers = [
     {
       Id: 0,
@@ -89,10 +91,21 @@ export class MapComponent implements OnInit {
  labelInfoArray:LabelInfo[] = [];
 
  labelInfo: LabelInfo;
-
-  constructor() {}
+subscription:any;
+  constructor(private interact:ComunicationService) {}
 
   ngOnInit() {
+
+      this.subscription = this.interact.getfocusedlocation().subscribe(message => { this.userLocation.lat = message.lat;this.userLocation.lng = message.lng;});
+    setTimeout( ()=>{
+
+      console.log("mapp component after subscribe");
+      console.log(this.subscription);
+      console.log(" ");
+      console.log(this.userLocation2);
+    }, 5000)
+
+
 
     for (let i = 0; i < this.providers.length; i++) {
       this.labelInfo= {
