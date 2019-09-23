@@ -4,9 +4,10 @@
 </head>
 <body [style.height.px]="getheight(100)" >
   <div class="bg">
-      <h1 style="color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">Freedom 4 U</h1>
-      <small style="color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">Freedom isn't free</small>
-
+      <h1 style="text-align: center;color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">Freedom 4 U</h1>
+      <!--<small style="height: 50%; text-align: center; color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">Freedom isn't free</small>-->
+      <app-searchbar></app-searchbar>
+      <app-select></app-select>
   </div>
   <div class="container">
     <div class="row">
@@ -49,8 +50,7 @@
       </div>
       <div class="row">
           <div class="col-sm" style="top: 20px">
-            <app-searchbar></app-searchbar>
-            <app-select></app-select>
+            
             <br>
           </div>
           <div class="col-md">
