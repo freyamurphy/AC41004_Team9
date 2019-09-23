@@ -1,0 +1,105 @@
+body, html {
+  height: 100%;
+}
+.bg {
+  /* The image used */
+  background-image: url("../../Images/Background.jpg");
+  /* Half height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.loader {
+
+  margin-left:45%;
+  border: 12px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 12px solid #3498db;
+  width: 30px;
+  height: 30px;
+  -webkit-animation: spin 5s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.zipcodecover{
+text-align: center;
+visibility: hidden;
+
+
+}
+.searchbar {
+  position: absolute;
+  top: 180px;
+  left: 30px
+}
+.selector {
+  position: absolute;
+  left: 30px;
+  top: 225px;
+}
+.priceslider {
+  position: absolute;
+  left: 30px;
+  top: 100px;
+}
+
+.distanceslider {
+  position: absolute;
+  left: 176px;
+  top: 100px;
+}
+.priceselectorcontainer{
+
+    padding-left:5%;
+    position: absolute;
+     bottom: 62%;
+    }
+    .hospitalselector{
+      position: absolute;
+       bottom: 1%;
+       left: 10px;
+      overflow:scroll;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .searchbar{
+
+    position: absolute;
+    bottom: 51%;
+
+    }
+
+    .zipcode{
+
+    background-color: grey;
+    position: absolute;
+     bottom: 85%;
+    right:1%;
+
+    }
+
+    .icons{
+
+      background-color: yellow;
+      position: absolute;
+       bottom: 85%;
+      left:2%;
+
+
+    }
