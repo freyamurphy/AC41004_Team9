@@ -10,14 +10,73 @@ import {BehaviorSubject} from 'rxjs';
 
 
 export class ClassmanagerService {
-  private messagesource = new BehaviorSubject<any>("defaultmessage");
-  currentmessage= this.messagesource.asObservable();
+
+userlat:any;
+userlong:any;
+latInContext:any;
+longInContext:any;
+
+private messagesource = new BehaviorSubject<any>({lat: 56.4620, lng: -2.9707});
+ currentmessage= this.messagesource.asObservable();
 
   constructor() { }
 
-givedata(){
 
-  return this.currentmessage;
+givedata(){
+  console.log("within class manager ");
+  console.log(this.currentmessage);
+   return this.currentmessage;
+}
+setdata(a){
+   this.currentmessage=a;
+   console.log(this.currentmessage);
+}
+getuserlatitude(){
+
+return this.userlat;
+}
+
+getuserlongitude(){
+
+return this.userlong;
+}
+
+
+getLatitudeInContext(){
+
+
+return this.latInContext;
+}
+
+getLongitudeInContext(){
+
+
+return this.longInContext;
+}
+
+
+
+setuserlatitude(a){
+
+this.userlat=a;
+}
+
+setuserlongitude(a){
+
+this.userlong=a;
+}
+
+
+setLatitudeInContext(a){
+
+this.latInContext=a;
+
+}
+
+setLongitudeInContext(a){
+
+ this.longInContext=a;
+
 }
 
 

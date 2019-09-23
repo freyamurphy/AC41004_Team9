@@ -21,14 +21,6 @@
 
       <div class="col-sm">
 
-       <button class="zipcodebutton"  id ="44" (click)="getuserlocation()"   style=" ">autofind location</button>
-
-
-
-
-                    <div id="99" class="zipcodecover" [style.width.px]="getwidth(37)" [style.height.px]="getheight(13)">
-                    <div class="loader" ></div><p>getting location</p>
-                    </div>
 
 
         </div>
@@ -51,7 +43,7 @@
 
         </div>
 
-        <div class="col-md" style="left:-250px">
+        <div class="col-md"  >
             <!--<app-rangeslider></app-rangeslider>-->
         </div>
         <div class="col-sm">
@@ -59,10 +51,16 @@
         </div>
 
       </div>
-      <div class="row">
-          <div class="col-sm" style="top: 20px">
-            <app-searchbar></app-searchbar>
-            <app-select></app-select>
+      <div class="row" >
+          <div class="col-sm" style="top: 20px  ; display: table;">
+            <app-searchbar style=" display: table-cell; width:100px;"></app-searchbar>
+            <app-select style=" display: table-cell; "></app-select>
+            <div style=" display: table-cell; margin-left:100px;">
+              <button class="zipcodebutton"  id ="44" (click)="getuserlocation()"   style=" margin-left:100px;">autofind location</button>
+              <div id="99" class="zipcodecover" [style.width.px]="getwidth(37)" [style.height.px]="getheight(13)">
+                <div class="loader" ></div><p>getting location</p>
+              </div>
+            </div>
             <br>
           </div>
 

@@ -22,14 +22,14 @@ import { MapoutlineareasTESTComponent } from './mapoutlineareas-test/mapoutlinea
 import { HomepageComponent } from './homepage/homepage.component';
 import { MapComponent } from './map/map.component';
 import { TestpageComponent } from './testpage/testpage.component';
-
-// services
-import { SqlapiService } from './sqlapi.service';
 import { UilocationfinderComponent } from './uilocationfinder/uilocationfinder.component';
 import { HospitalselecterComponent } from './hospitalselecter/hospitalselecter.component';
 import { RangesliderComponent } from './UserFilters2/rangeslider/rangeslider.component';
 import { SearchbarComponent } from './UserFilters2/searchbar/searchbar/searchbar.component';
 import { SelectComponent } from './UserFilters2/select/select/select.component';
+// services
+import { SqlapiService } from './sqlapi.service';
+import { ComunicationService } from './comunication.service';
 
 
 
@@ -60,8 +60,8 @@ import { SelectComponent } from './UserFilters2/select/select/select.component';
     AgmCoreModule.forRoot({apiKey: ''})
   ],
   providers: [
-    SqlapiService
-
+    SqlapiService,
+    ComunicationService
   ],
   bootstrap: [AppComponent]
 })
