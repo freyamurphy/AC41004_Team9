@@ -8,7 +8,9 @@ import { Component, OnInit, HostListener } from '@angular/core';
 export class SearchbarComponent implements OnInit {
   public innerHeight: any;
   public innerWidth: any;
-
+  resize(){
+    
+  }
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     this.innerWidth = window.innerWidth;
