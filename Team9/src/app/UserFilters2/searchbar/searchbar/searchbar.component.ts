@@ -6,30 +6,26 @@ import { Component, OnInit, HostListener } from '@angular/core';
   styleUrls: ['./searchbar.component.css']
 })
 export class SearchbarComponent implements OnInit {
-  public innerHeight: any;
-  public innerWidth: any;
+
   constructor() { }
 
   ngOnInit() {
- 
+
 }
 
 
-  @HostListener('window:resize', ['$event'])
-  onResize(event) {
-    this.innerWidth = window.innerWidth;
-    this.innerHeight= window.innerHeight;
-    this.resize()
-  }
+
   scroll(){
     console.log("t");
       document.getElementById("hospitals").scrollIntoView({behavior: 'smooth'});
     }
+  
 getheight(heightpercentage){
 var tempvar =(this.innerHeight/100)*heightpercentage;
 return tempvar.toString();
 }
 resize(){}
+
 //Search function
   searchFunction() {
     // Declare variables
