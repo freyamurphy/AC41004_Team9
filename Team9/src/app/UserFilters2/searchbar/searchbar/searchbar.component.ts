@@ -28,7 +28,7 @@ export class SearchbarComponent implements OnInit {
       document.getElementById("hospitals").scrollIntoView({behavior: 'smooth'});
     }
 
-
+onResize()
 
 //Search function
   searchFunction() {
