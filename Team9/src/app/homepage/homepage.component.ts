@@ -24,33 +24,7 @@ export class HomepageComponent implements OnInit {
        public innerWidth: any;
 
 
-       hospitalList: any[] = [
-          {
-            name: 'Hospital',
-            address: '101 Dundee Street Dundee DD1 2AS',
-          },
-          {
-            name: 'Maybe',
-            address: '101 V&A Street Dundee DD1 2AG',
-          },
-          {
-            name: 'This',
-            address: 'University Dundee DD2 3AJ',
-          },
-          {
-            name: 'Will',
-            address: 'Not doing anymore Dundee DD4 1RC',
-          },
-          {
-            name: 'Work',
-            address: '101 V&A Street Dundee DD1 2AG',
-          },
-          {
-            name: 'Maybe',
-            address: '101 V&A Street Dundee DD1 2AG',
-          },
-          ];
-
+     
        constructor(private sqlapi:SqlapiService ,private locate:GelocatorService , private classmanager:ClassmanagerService ) { }
 
 
