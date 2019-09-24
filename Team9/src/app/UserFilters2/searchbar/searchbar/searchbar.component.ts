@@ -7,6 +7,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 })
 export class SearchbarComponent implements OnInit {
 
+
   constructor() { }
 
   ngOnInit() {
@@ -16,9 +17,11 @@ export class SearchbarComponent implements OnInit {
 
 
   scroll(){
+    console.log("t");
       document.getElementById("hospitals").scrollIntoView({behavior: 'smooth'});
     }
- 
+
+
 
 //Search function
   searchFunction() {

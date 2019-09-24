@@ -1,9 +1,12 @@
 body, html {
   height: 100%;
 }
+.sel {
+  background-image: url("../../Images/Love.jpg");
+}
 .bg {
   /* The image used */
-  background-image: url("../../Images/Background.jpg");
+  background-image: url("../../Images/Background7.jpg");
   /* Half height */
   height: 100%;
 
@@ -38,15 +41,26 @@ body, html {
 }
 
 .zipcodecover{
-text-align: center;
-visibility: hidden;
+  text-align: center;
+  visibility: hidden;
 
 
 }
+.zipcode{
+  background-color: grey;
+  position: absolute;
+  bottom: 85%;
+  right:1%;
+}
+.icons{
+  background-color: yellow;
+  position: absolute;
+  bottom: 85%;
+  left:2%;
+}
 .searchbar {
   position: absolute;
-  top: 180px;
-  left: 30px
+  bottom: 51%;
 }
 .selector {
   position: absolute;
@@ -57,6 +71,7 @@ visibility: hidden;
   position: absolute;
   left: 30px;
   top: 100px;
+  
 }
 
 .distanceslider {
@@ -64,42 +79,16 @@ visibility: hidden;
   left: 176px;
   top: 100px;
 }
+
 .priceselectorcontainer{
+  padding-left:5%;
+  position: absolute;
+  bottom: 62%;
+}
 
-    padding-left:5%;
-    position: absolute;
-     bottom: 62%;
-    }
-    .hospitalselector{
-      position: absolute;
-       bottom: 1%;
-       left: 10px;
-      overflow:scroll;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .searchbar{
-
-    position: absolute;
-    bottom: 51%;
-
-    }
-
-    .zipcode{
-
-    background-color: grey;
-    position: absolute;
-     bottom: 85%;
-    right:1%;
-
-    }
-
-    .icons{
-
-      background-color: yellow;
-      position: absolute;
-       bottom: 85%;
-      left:2%;
-
-
-    }
+.hospitalselector{
+  position: absolute;
+  bottom: 1%;
+  overflow:scroll;
+  -webkit-overflow-scrolling: touch;
+}
