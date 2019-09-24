@@ -6,15 +6,8 @@ import { Component, OnInit, HostListener } from '@angular/core';
   styleUrls: ['./searchbar.component.css']
 })
 export class SearchbarComponent implements OnInit {
-  public innerHeight: any;
-  public innerWidth: any;
 
-  @HostListener('window:resize', ['$event'])
-  onResize(event) {
-    this.innerWidth = window.innerWidth;
-    this.innerHeight= window.innerHeight;
-    this.resize()
-  }
+
   constructor() { }
 
   ngOnInit() {
