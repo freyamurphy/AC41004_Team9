@@ -23,7 +23,7 @@ export class HomepageComponent implements OnInit {
        public innerHeight: any;
        public innerWidth: any;
 
-
+        isHidden: boolean;
      
        constructor(private sqlapi:SqlapiService ,private locate:GelocatorService , private classmanager:ClassmanagerService ) { }
 
@@ -116,6 +116,7 @@ export class HomepageComponent implements OnInit {
     ngOnInit() {
         this.innerWidth = window.innerWidth;
           this.innerHeight= window.innerHeight;
+        this.isHidden = true;
     }
 
 
