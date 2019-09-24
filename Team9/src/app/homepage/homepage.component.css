@@ -68,7 +68,7 @@ body, html {
   position: absolute;
   left: 30px;
   top: 100px;
-  
+
 }
 
 .distanceslider {
@@ -88,4 +88,10 @@ body, html {
   bottom: 1%;
   overflow:scroll;
   -webkit-overflow-scrolling: touch;
+}
+
+.center-div
+{
+     padding-left: 30%;
+     width: 100px;
 }

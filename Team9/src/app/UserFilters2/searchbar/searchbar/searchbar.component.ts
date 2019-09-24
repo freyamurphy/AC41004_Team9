@@ -9,12 +9,8 @@ export class SearchbarComponent implements OnInit {
   public innerHeight: any;
   public innerWidth: any;
 
-  @HostListener('window:resize', ['$event'])
-  onResize(event) {
-    this.innerWidth = window.innerWidth;
-    this.innerHeight= window.innerHeight;
-    this.resize()
-  }
+  //@HostListener('window:resize', ['$event'])
+
   constructor() { }
 
   ngOnInit() {
@@ -27,8 +23,6 @@ export class SearchbarComponent implements OnInit {
     console.log("t");
       document.getElementById("hospitals").scrollIntoView({behavior: 'smooth'});
     }
-
-onResize()
 
 //Search function
   searchFunction() {

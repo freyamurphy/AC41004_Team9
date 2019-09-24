@@ -64,18 +64,14 @@
         </div>
         <div class="row" >
           <div class="col-md-auto" style="width: 40%; height: 100%" id="hospitals">
-            <app-select></app-select>
-
+            <div class="center-div"><app-select></app-select></div>
             <app-hospitalselecter></app-hospitalselecter>
-
             </div>
             <div class="col-md-auto">
               <app-map style="height:200px; width: 200px; position: absolute;"
               [style.height.px]="getheight(100)"[style.width.px]="getwidth(55)">
               </app-map>
             </div>
-
-
           </div>
 
 
