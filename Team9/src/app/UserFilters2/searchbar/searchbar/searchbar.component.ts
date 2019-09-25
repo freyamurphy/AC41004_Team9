@@ -6,8 +6,6 @@ import { Component, OnInit, HostListener } from '@angular/core';
   styleUrls: ['./searchbar.component.css']
 })
 export class SearchbarComponent implements OnInit{
-
-
   public innerHeight: any;
   public innerWidth: any;
 
