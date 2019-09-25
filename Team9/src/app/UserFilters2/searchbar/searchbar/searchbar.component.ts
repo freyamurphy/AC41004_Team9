@@ -21,15 +21,13 @@ export class SearchbarComponent implements OnInit{
 
   scroll(){
 
- alert(document.getElementById("name").value);
-
-      if(document.getElementById("myInput").value!='');
+      if(document.getElementById("myInput").value);
 {
-      document.getElementById("hospitals").scrollIntoView({behavior: 'smooth'});
-      document.getElementById("myInput").value='';
-
+  alert("Testing");
+  document.getElementById("hospitals").scrollIntoView({behavior: 'smooth'});
+  document.getElementById("myInput").value='';
+  document.getElementById("state").value='';
 }
-
 
     }
 
