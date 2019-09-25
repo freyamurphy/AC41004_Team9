@@ -20,16 +20,9 @@ export class SearchbarComponent implements OnInit{
 }
 
   scroll(){
-
-      if(document.getElementById("myInput").value);
-{
-  alert("Testing");
-  document.getElementById("hospitals").scrollIntoView({behavior: 'smooth'});
-  document.getElementById("myInput").value='';
-  document.getElementById("state").value='';
-}
-
-    }
-
-
+    document.getElementById("hospitals").scrollIntoView({behavior:"smooth"});
+    
   }
+
+
+}
