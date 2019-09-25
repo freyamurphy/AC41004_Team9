@@ -20,7 +20,7 @@ export class SearchbarComponent implements OnInit{
 }
 
   scroll(){
-
+    document.getElementById("hospitals").scrollIntoView({behavior:"smooth"});
     
   }
 
