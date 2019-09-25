@@ -5,8 +5,10 @@ import { Component, OnInit, HostListener } from '@angular/core';
   templateUrl: './searchbar.component.html',
   styleUrls: ['./searchbar.component.css']
 })
-export class SearchbarComponent implements OnInit {
+  public innerHeight: any;
+  public innerWidth: any;
 
+  //@HostListener('window:resize', ['$event'])
 
   constructor() { }
 
@@ -20,8 +22,6 @@ export class SearchbarComponent implements OnInit {
     console.log("t");
       document.getElementById("hospitals").scrollIntoView({behavior: 'smooth'});
     }
-
-
 
 //Search function
   searchFunction() {
