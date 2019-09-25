@@ -5,6 +5,8 @@ import { Component, OnInit, HostListener } from '@angular/core';
   templateUrl: './searchbar.component.html',
   styleUrls: ['./searchbar.component.css']
 })
+
+
 export class SearchbarComponent implements OnInit{
   public innerHeight: any;
   public innerWidth: any;
@@ -17,13 +19,17 @@ export class SearchbarComponent implements OnInit{
 
 }
 
-
-
   scroll(){
-    console.log("t");
-      document.getElementById("hospitals").scrollIntoView({behavior: 'smooth'});
+
+      if(document.getElementById("myInput").value);
+{
+  alert("Testing");
+  document.getElementById("hospitals").scrollIntoView({behavior: 'smooth'});
+  document.getElementById("myInput").value='';
+  document.getElementById("state").value='';
+}
+
     }
 
 
-
-}
+  }

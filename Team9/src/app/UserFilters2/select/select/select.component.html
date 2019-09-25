@@ -1,10 +1,11 @@
-<mat-form-field>
+<mat-form-field >
     <mat-label>Sort By</mat-label>
     <mat-select [(value)]="selected">
+
         <mat-option>None</mat-option>
-        <mat-option value="Distance" >{{filterOptions[0]}}</mat-option>
-        <mat-option value="Price" >{{filterOptions[1]}}</mat-option>
+        <mat-option value="Distance" name="Distance" (click)="Test()">{{filterOptions[0]}}</mat-option>
+        <mat-option value="Price" name="Price" (click)="Test()">{{filterOptions[1]}}</mat-option>
+
     </mat-select>
 </mat-form-field>
 
-      <p>You selected: {{selected}}</p>

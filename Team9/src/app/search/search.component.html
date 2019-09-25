@@ -7,7 +7,7 @@
 <div class="search-container">
 
     <form action="searchData.php" method="get">
-        <input type="text" name="search" id ="search" placeholder="Search..." required> &nbsp;
+        <input (keydown.enter)="scroll()" type="text" name="search" id ="search" placeholder="Search..." required>;
         <select class="form-control my-2" name="state">
             <option value="" disabled selected hidden>Select State</option>
             <option value="AL">Alabama</option>

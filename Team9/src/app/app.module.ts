@@ -32,6 +32,7 @@ import { SqlapiService } from './sqlapi.service';
 import { ComunicationService } from './comunication.service';
 import { GeolocationComponent } from './geolocation/geolocation.component';
 
+import { ManuallocationComponent } from './manuallocation/manuallocation/manuallocation.component';
 
 
 
@@ -51,7 +52,8 @@ import { GeolocationComponent } from './geolocation/geolocation.component';
     RangesliderComponent,
     SearchbarComponent,
     SelectComponent,
-    GeolocationComponent
+    GeolocationComponent,
+    ManuallocationComponent
 
 
   ],
