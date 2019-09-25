@@ -25,10 +25,13 @@ import { HospitalselecterComponent } from './hospitalselecter/hospitalselecter.c
 import { RangesliderComponent } from './UserFilters2/rangeslider/rangeslider.component';
 import { SearchbarComponent } from './UserFilters2/searchbar/searchbar/searchbar.component';
 import { SelectComponent } from './UserFilters2/select/select/select.component';
+import { SearchComponent } from './search/search.component';
+
 // services
 import { SqlapiService } from './sqlapi.service';
 import { ComunicationService } from './comunication.service';
 
+ 
 
 
 @NgModule({
@@ -39,11 +42,15 @@ import { ComunicationService } from './comunication.service';
     HomepageComponent,
     MapComponent,
     TestpageComponent,
+
+    SearchComponent,
+
     UilocationfinderComponent,
     HospitalselecterComponent,
     RangesliderComponent,
     SearchbarComponent,
     SelectComponent
+
 
   ],
   imports: [
