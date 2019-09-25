@@ -1,9 +1,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="searchbar" [style.width.px]="225" [style.height.px]="50">
+
     <div class="search">
         <input (keydown.enter)="scroll()" input type="text" id="myInput" placeholder="Search for hospital..." />
         <button type="submit" (click)="scroll()" ><i class="fa fa-search"></i></button>
-        <select class="form-control my-2" name="state">
+        <select class="form-control my-2" name="state" id="state">
+
           <option value="" disabled selected hidden>Select State</option>
           <option value="AL">Alabama</option>
           <option value="AK">Alaska</option>
@@ -57,6 +59,7 @@
           <option value="WI">Wisconsin</option>
           <option value="WY">Wyoming</option>
       </select>
+
     </div>
 
 
