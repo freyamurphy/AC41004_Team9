@@ -32,6 +32,8 @@ function on sql is named
         return res['name'];
      }));
   }
+
+
   searchWithStateAndDRGCodeFunction( ): Observable<any> {
     return this.http.get("http://localhost/phptest/echotest?state=NY&condition_Code=039").pipe(
       map((res) => {

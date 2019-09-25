@@ -33,8 +33,17 @@ arrayofstuff:any;
   constructor(private sqlapi:SqlapiService ,private locate:GelocatorService , private classmanager:ClassmanagerService ) { }
 
   ngOnInit() {
-    this.sqlapi.searchWithStateAndDRGCodeFunction( ).subscribe((res:any;) => {this.arrayofstuff = res;});
+  //  this.sqlapi.searchWithStateAndDRGCodeFunction( ).subscribe((res:any;) => {this.arrayofstuff = res;});
 //this.sqlapi.getlocation(this.usersIPAddress).subscribe((res: any) => {this.userlocation =JSON.stringify(res);});
+
+
+ this.sqlapi.searchWithStateAndDRGCodeFunction().subscribe((res: any) => {this.arrayofstuff =res;});
+
+
+
+
+
+
 
 ////      TODO
       //this.locate.getIpCliente().subscribe((res: any) => {this.testip =res.ip;});
