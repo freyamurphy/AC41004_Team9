@@ -30,9 +30,10 @@ import { SearchComponent } from './search/search.component';
 // services
 import { SqlapiService } from './sqlapi.service';
 import { ComunicationService } from './comunication.service';
+import { GeolocationComponent } from './geolocation/geolocation.component';
+
 import { ManuallocationComponent } from './manuallocation/manuallocation/manuallocation.component';
 
- 
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { ManuallocationComponent } from './manuallocation/manuallocation/manuall
     RangesliderComponent,
     SearchbarComponent,
     SelectComponent,
+    GeolocationComponent,
     ManuallocationComponent
 
 
