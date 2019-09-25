@@ -1,0 +1,15 @@
+#select {
+
+    width: 275%
+}
+
+#label {
+  width: 275%
+}
+
+.parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

@@ -1,3 +1,17 @@
 .search{
     display: inline-block; /* the default for span */
 }
+
+#formSelect {
+
+  width: 100%
+}
+
+#state {
+  width: 100%
+}
+
+#search {
+  width: 100%
+
+}
