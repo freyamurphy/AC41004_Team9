@@ -1,6 +1,9 @@
 body, html {
   height: 100%;
 }
+.sel {
+  background-image: url("../../Images/Love.jpg");
+}
 .bg {
   /* The image used */
   background-image: url("../../Images/Background7.jpg");

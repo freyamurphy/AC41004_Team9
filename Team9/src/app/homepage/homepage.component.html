@@ -7,15 +7,14 @@
 <body [style.height.px]="getheight(100)" >
 
   <div class="bg">
-    <h1 style="text-align: center; color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">Freedom 4 U</h1>
-    <div style="margin-left:42%; margin-top: 9%">
+    <h1 class="font-weight-bold" style="font-family: Roboto, sans-serif;text-align: center; color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; ">Freedom 4 U</h1>
+    <div style="margin-left:42%; margin-top: 15%" class="search">
       <!--<small style="height: 50%; text-align: center; color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">Freedom isn't free</small>-->
       <app-searchbar style="width: 20%;"></app-searchbar>
       <br>
     </div>
   </div>
   <div class="container" ng-hide="isHidden">
-
         <div class="col-sm">
           <!--<app-rangeslider></app-rangeslider>-->
 
@@ -54,8 +53,9 @@
           </div>
         -->
           <div class="col-sm">
-
-
+            
+            <app-select></app-select>
+            
           </div>
           <div class="col-sm">
 
