@@ -3,8 +3,7 @@ import { SqlapiService }from '../sqlapi.service';
 import { searchWithStateAndDRGCodeInterface }from '../classmanager.service';
 import { GelocatorService }from '../gelocator.service';
 import { ClassmanagerService }from '../classmanager.service';
-
-
+import { ComunicationService } from '../comunication.service';
 
 @Component({
   selector: 'app-testpage',
@@ -30,19 +29,58 @@ arrayofstuff:any;
   testofvarpassing:any;
   testofvarpassing2:any;
 
-  constructor(private sqlapi:SqlapiService ,private locate:GelocatorService , private classmanager:ClassmanagerService ) { }
+  constructor(private sqlapi:SqlapiService ,private locate:GelocatorService , private classmanager:ClassmanagerService , private comunicate:ComunicationService ) { }
 
   ngOnInit() {
+
+
+
+     this.comunicate.runsearch("a","b");
+     this.comunicate.getsearchresults().subscribe((res: any) => {this.arrayofstuff =res;});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   //  this.sqlapi.searchWithStateAndDRGCodeFunction( ).subscribe((res:any;) => {this.arrayofstuff = res;});
 //this.sqlapi.getlocation(this.usersIPAddress).subscribe((res: any) => {this.userlocation =JSON.stringify(res);});
 
 
- this.sqlapi.searchWithStateAndDRGCodeFunction().subscribe((res: any) => {this.arrayofstuff =res;});
+ //this.sqlapi.searchWithStateAndDRGCodeFunction().subscribe((res: any) => {this.arrayofstuff =res;});
 
 
-this.testdistances = this.locate.getdistance(56.4643,-3.0379,56.4620,-2.9707);
+///this.testdistances = this.locate.getdistance(56.4643,-3.0379,56.4620,-2.9707);
 
- 
+
 ////      TODO
       //this.locate.getIpCliente().subscribe((res: any) => {this.testip =res.ip;});
 
