@@ -15,10 +15,13 @@ export class SelectComponent {
   filterOptions: string[] = ["Distance","Price"];
 
 
+Test(){
+  alert("This function will sort the table");
+}
 
   sortTable(n) {
           var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-          table = document.getElementById("hospitalList");
+          table = document.getElementById("hospitals");
           switching = true;
           //Set the sorting direction to ascending:
           dir = "asc";
