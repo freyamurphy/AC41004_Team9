@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Observable, throwError, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-//import { test }from '../classmanager.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,14 +17,14 @@ test:any;
 
 
 
-   constructor(private http: HttpClient) { }
+   constructor(private http: HttpClient, ) { }
 
 /*
 GET
 test data is in the following format '{"data":[{"first":"a","last":"b"},{"first":"a","last":"b"}}]
 will use class from class manager tomerge
 
-function on sql is named 
+function on sql is named
 */
    gettestdata(): Observable<any> {
      return this.http.get(this.baseUrl).pipe(
@@ -32,10 +32,16 @@ function on sql is named
         return res['name'];
      }));
   }
+  searchWithStateAndDRGCodeFunction( ): Observable<any> {
+    return this.http.get("http://localhost/phptest/echotest?state=NY&condition_Code=039").pipe(
+      map((res) => {
+       return res['data'];
+    }));
+ }
 
     postTestData(data : any): Observable<any> {
       return this.http.post<any>(this.baseUrl, "Hello")
-    
+
 
 
     }

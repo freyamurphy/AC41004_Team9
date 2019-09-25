@@ -1,6 +1,6 @@
 import { Component, OnInit ,AfterViewInit} from '@angular/core';
 import { SqlapiService }from '../sqlapi.service';
-import { test }from '../classmanager.service';
+import { searchWithStateAndDRGCodeInterface }from '../classmanager.service';
 import { GelocatorService }from '../gelocator.service';
 import { ClassmanagerService }from '../classmanager.service';
 
@@ -24,7 +24,7 @@ data:any;
 
 
 
-
+arrayofstuff:any;
 
 
   testofvarpassing:any;
@@ -33,8 +33,8 @@ data:any;
   constructor(private sqlapi:SqlapiService ,private locate:GelocatorService , private classmanager:ClassmanagerService ) { }
 
   ngOnInit() {
-
-
+    this.sqlapi.searchWithStateAndDRGCodeFunction( ).subscribe((res:any;) => {this.arrayofstuff = res;});
+//this.sqlapi.getlocation(this.usersIPAddress).subscribe((res: any) => {this.userlocation =JSON.stringify(res);});
 
 ////      TODO
       //this.locate.getIpCliente().subscribe((res: any) => {this.testip =res.ip;});
