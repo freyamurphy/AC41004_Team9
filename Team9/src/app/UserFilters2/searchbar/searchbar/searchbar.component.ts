@@ -20,10 +20,9 @@ export class SearchbarComponent implements OnInit{
 
 
   scroll(){
+    
     console.log("t");
       document.getElementById("hospitals").scrollIntoView({behavior: 'smooth'});
     }
 
 
-
-}
