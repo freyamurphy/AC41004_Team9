@@ -21,7 +21,7 @@ data:any;
 
 
 
-
+testdistances:any;
 
 
 arrayofstuff:any;
@@ -40,11 +40,9 @@ arrayofstuff:any;
  this.sqlapi.searchWithStateAndDRGCodeFunction().subscribe((res: any) => {this.arrayofstuff =res;});
 
 
+this.testdistances = this.locate.getdistance(56.4643,-3.0379,56.4620,-2.9707);
 
-
-
-
-
+ 
 ////      TODO
       //this.locate.getIpCliente().subscribe((res: any) => {this.testip =res.ip;});
 
