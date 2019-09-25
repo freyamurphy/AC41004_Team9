@@ -81,9 +81,6 @@ constructor(private interact:ComunicationService) { }
 
 
 
-
-
-
 ngOnInit() {
   this.innerWidth = window.innerWidth;
   this.innerHeight= window.innerHeight;
