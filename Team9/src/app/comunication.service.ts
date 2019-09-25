@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Subject} from 'rxjs';
 import { Observable } from 'rxjs';
+import { searchWithStateAndDRGCodeInterface }from './classmanager.service';
+import { SqlapiService }from './sqlapi.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +13,21 @@ focusedlocation$ = this.focusedlocationSource.asObservable();
 
 
 
-  constructor() { }
+private arrayofstufflocationSource = new Subject<any>();
+arrayofstuff$ = this.arrayofstufflocationSource.asObservable();
+
+
+
+  constructor(private sqlapi:SqlapiService ) { }
+
+
+runsearch(state,code) {
+  this.sqlapi.searchWithStateAndDRGCodeFunction().subscribe((res: any) => {this.arrayofstuff$ =res;});
+}
+
+getsearchresults(): Observable<any> {
+    return this.arrayofstufflocationSource.asObservable();
+}
 
 // recieves the location information.
 setfocusedlocation(locationInput:any)
