@@ -26,11 +26,10 @@
     </div>-->
 <div class="hospitalselector"  >
   <div class="list-group" *ngFor = "let hospital of hospitalList | paginate: { itemsPerPage: 10  , currentPage: p } ; let i = index" >
-    <a    id={{i}} class="list-group-item list-group-item-action flex-column align-items-start" (click)="highlight(i);">
+    <a id={{i}} class="list-group-item list-group-item-action flex-column align-items-start" (click)="highlight(i);">
       <div class="d-flex w-100 justify-content-between" >
-        <h6 class="mb-1">{{hospitalList[i].hospital}}</h6>
-
-        <h6 class="mb-2">Price: ${{ hospital.cost }} </h6>
+        <h6 class="mb-1" name={{hospitalList[i].hospital}}>{{hospitalList[i].hospital}}</h6>
+        <h6 class="mb-2"name='{{hospital.cost}}'>Price: ${{ hospital.cost }} </h6>
 
       </div>
       <small>Distance</small>
