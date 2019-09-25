@@ -30,6 +30,7 @@ import { SearchComponent } from './search/search.component';
 // services
 import { SqlapiService } from './sqlapi.service';
 import { ComunicationService } from './comunication.service';
+import { ManuallocationComponent } from './manuallocation/manuallocation/manuallocation.component';
 
  
 
@@ -49,7 +50,8 @@ import { ComunicationService } from './comunication.service';
     HospitalselecterComponent,
     RangesliderComponent,
     SearchbarComponent,
-    SelectComponent
+    SelectComponent,
+    ManuallocationComponent
 
 
   ],
