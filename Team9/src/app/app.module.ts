@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-
-
 // team imports
 import { AgmCoreModule } from '@agm/core';// used for linking with google maps
 import { HttpClientModule } from '@angular/common/http';// for linking with the backend node server
@@ -65,7 +63,7 @@ import { ComunicationService } from './comunication.service';
     MatSelectModule,
     NgxPaginationModule,
     BrowserAnimationsModule,
-    AgmCoreModule.forRoot({apiKey: ''})
+    AgmCoreModule.forRoot({apiKey: 'AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8'})
   ],
   providers: [
     SqlapiService,
