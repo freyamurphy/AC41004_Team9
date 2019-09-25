@@ -34,7 +34,7 @@ function on sql is named
 
 
   searchWithStateAndDRGCodeFunction( ): Observable<any> {
-    return this.http.get("http://localhost/phptest/echotest?state=NY&condition_Code=039").pipe(
+    return this.http.get("https://zeno.computing.dundee.ac.uk/2019-projects/team9/AC41004_Team9/echotest.php?state=NY&condition_Code=039").pipe(
       map((res) => {
        return res['data'];
     }));
