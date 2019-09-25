@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-
-
 // team imports
 import { AgmCoreModule } from '@agm/core';// used for linking with google maps
 import { HttpClientModule } from '@angular/common/http';// for linking with the backend node server
@@ -27,10 +25,13 @@ import { HospitalselecterComponent } from './hospitalselecter/hospitalselecter.c
 import { RangesliderComponent } from './UserFilters2/rangeslider/rangeslider.component';
 import { SearchbarComponent } from './UserFilters2/searchbar/searchbar/searchbar.component';
 import { SelectComponent } from './UserFilters2/select/select/select.component';
+import { SearchComponent } from './search/search.component';
+
 // services
 import { SqlapiService } from './sqlapi.service';
 import { ComunicationService } from './comunication.service';
 
+ 
 
 
 @NgModule({
@@ -41,11 +42,15 @@ import { ComunicationService } from './comunication.service';
     HomepageComponent,
     MapComponent,
     TestpageComponent,
+
+    SearchComponent,
+
     UilocationfinderComponent,
     HospitalselecterComponent,
     RangesliderComponent,
     SearchbarComponent,
     SelectComponent
+
 
   ],
   imports: [
@@ -58,7 +63,7 @@ import { ComunicationService } from './comunication.service';
     MatSelectModule,
     NgxPaginationModule,
     BrowserAnimationsModule,
-    AgmCoreModule.forRoot({apiKey: ''})
+    AgmCoreModule.forRoot({apiKey: 'AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8'})
   ],
   providers: [
     SqlapiService,

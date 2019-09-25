@@ -13,8 +13,7 @@ export class SqlapiService {
 
 test:any;
   baseUrl = 'http://localhost/phptest/test.php';
-
-
+//baseUrl = 'https://zeno.computing.dundee.ac.uk/2019-projects/team9/AC41004_Team9/Team9/angular-php/backend/api/search.php';
 
 
    constructor(private http: HttpClient, ) { }
