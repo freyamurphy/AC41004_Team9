@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class SharelocationService {
-  private messageSource = new BehaviorSubject('None');
+  private messageSource = new BehaviorSubject('');
   currentMessage = this.messageSource.asObservable();
 
   constructor() { }

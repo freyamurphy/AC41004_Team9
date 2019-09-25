@@ -11,6 +11,10 @@ import { HttpClient } from '@angular/common/http';
 export class GeolocationComponent implements OnInit {
   lat: any;
   long: any;
+  zipcode : any;
+  baseUrl : string;
+  temp: any;
+  text: any;
   constructor(private share: SharelocationService, private http: HttpClient) {
     this.showPosition = this.showPosition.bind(this);
    }
@@ -20,9 +24,6 @@ export class GeolocationComponent implements OnInit {
   }
 
   getLocation() {
-    //this.share.changeMessage(this.lat + "" + this.long)
-    
-    
     console.log("button has been clicked.")
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.showPosition, this.showError);
@@ -36,25 +37,38 @@ export class GeolocationComponent implements OnInit {
   }
 
   showPosition(position) {
-    //this.lat = position.coords.latitude;
-    //this.long = position.coords.longitude;
     var lat = position.coords.latitude;
     var lng = position.coords.longitude;
     console.log("Lat: " +  position.coords.latitude);
     console.log("Lng: " + position.coords.longitude);
     this.reverseGeo(lat,lng);
-    //this.share.changeMessage("lat: " + lat + "," + + " lng" + lng);
   }
+  
+  showError(error) {
+    console.log(error)
+  }
+  //---------------------------------------------
   reverseGeo(lat: any, lng: any){
     var reverseUrl = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat + "," + lng +"&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8"
     this.http.get(reverseUrl).subscribe(data => {
       var temp = data['results'];
-    this.share.changeMessage(temp[0].formatted_address);
+    this.text = (temp[0].formatted_address);
+    });
     
+  }
+  getMLocation()
+  {
+
+    this.zipcode = ((document.getElementById("addressM") as HTMLInputElement).value);
+    
+    this.baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + this.zipcode + "&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8&region=US";
+    
+    this.http.get(this.baseUrl).subscribe(data => {
+      this.temp = data['results'];
+      this.temp = (this.temp[0].geometry.bounds.northeast);
     });
   }
-  showError(error) {
-    console.log(error)
+  resetText(){
+    this.text = "";
   }
-
 }

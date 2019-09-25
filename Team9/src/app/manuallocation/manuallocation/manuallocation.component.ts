@@ -24,15 +24,7 @@ export class ManuallocationComponent implements OnInit {
     this.share.currentMessage.subscribe(message => this.message = message)
     //this.setLocation();
   }
-  setLocation(){
-    var t = JSON.stringify(this.message);
-    console.log(this.message);
-    /*this.reverseUrl = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+this.message+"&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8"
-    this.http.get(this.reverseUrl).subscribe(data => {
-      this.temp2 = data['results'];
-      console.log(this.temp[0]);
-    });*/
-  }
+
   getLocation()
   {
     console.log(this.message);
