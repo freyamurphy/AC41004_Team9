@@ -24,11 +24,9 @@ export class ManuallocationComponent implements OnInit {
     
     this.baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=99501&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8";
     
-    this.http.get(this.baseUrl).subscribe(value=>{
-      this.temp = JSON.stringify(value);
-      this.temp = JSON.parse(this.temp);
-      console.log(this.temp);
-}, error=>{ });;
+    this.http.get(this.baseUrl).subscribe(data => {
+      console.log(data['results']);
+    });
   }
 }
 
