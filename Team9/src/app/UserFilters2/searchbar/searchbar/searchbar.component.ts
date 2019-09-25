@@ -5,6 +5,9 @@ import { Component, OnInit, HostListener } from '@angular/core';
   templateUrl: './searchbar.component.html',
   styleUrls: ['./searchbar.component.css']
 })
+export class SearchbarComponent implements OnInit{
+
+
   public innerHeight: any;
   public innerWidth: any;
 
