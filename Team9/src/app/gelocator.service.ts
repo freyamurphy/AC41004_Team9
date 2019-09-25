@@ -81,12 +81,10 @@ export class GelocatorService {
 
   getIpCliente(): Observable<any> {
     this.ipAddress= this.http.get<any>('https://jsonip.com');
-
-return this.http.get<any>('https://jsonip.com');
-
-
-
+    return this.http.get<any>('https://jsonip.com');
   }
+
+  
   getlocation(newName: string): Observable<any> {
     var temp = 'https://geoipify.whoisxmlapi.com/api/v1?apiKey=at_5hXi7N8OgGcRzk6qfCaApUVnndTIN&ipAddress='+newName;//+(hello);
     console.log(newName);
@@ -110,7 +108,7 @@ return this.http.get<any>('https://jsonip.com');
 
   deg2rad(deg) {
     return deg * (Math.PI/180);
-}
+  }
 
 getlocationfromaddress(state: string,address: string): Observable<any>{
 var addressFull = "";
