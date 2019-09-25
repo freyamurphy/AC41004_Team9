@@ -58,7 +58,7 @@ import { ComunicationService } from './comunication.service';
     MatSelectModule,
     NgxPaginationModule,
     BrowserAnimationsModule,
-    AgmCoreModule.forRoot({apiKey: ''})
+    AgmCoreModule.forRoot({apiKey: 'AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8'})
   ],
   providers: [
     SqlapiService,
