@@ -8,7 +8,7 @@
 
   <div class="bg">
     <h1 class="font-weight-bold" style="font-family: Roboto, sans-serif;text-align: center; color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; ">Freedom 4 U</h1>
-    <div style="margin-left:42%; margin-top: 15%" class="search">
+    <div style="margin-left:42%;  text-align: center; margin-top: 15%" class="search">
       <!--<small style="height: 50%; text-align: center; color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">Freedom isn't free</small>-->
       <app-searchbar style="width: 20%;"></app-searchbar>
       <br>
@@ -26,8 +26,8 @@
 
       </div>
       <div class="row">
-
          <!--<div class="col-sm" style="top: 20px">
+
 
             <app-searchbar style=" display: table-cell; width:100px;"></app-searchbar>
             <app-select style=" display: table-cell; "></app-select>
@@ -53,8 +53,7 @@
           </div>
         -->
           <div class="col-sm">
-            
-            
+
           </div>
           <div class="col-sm">
 
@@ -73,6 +72,70 @@
             </div>
           </div>
 
+
+<!---
+<div class="searchbar" [style.width.px]="getwidth(40)" [style.height.px]="getheight(10)">
+
+<input input type="text" id="myInput" (keyup)="searchFunction()" placeholder="Search for country..."/>&nbsp;&nbsp;
+<br>
+<button (click)="sortTable(0)">Distance</button> &nbsp;
+<button (click)="sortTable(1)">Price</button>
+-->
+<!--
+<table id="myTable">
+    <tr>
+        <th>Distance</th>
+        <th>Price</th>
+        <th>Name</th>
+        <th>Country</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>1232</td>
+        <td>Berglunds snabbkop</td>
+        <td>Sweden</td>
+    </tr>
+    <tr>
+        <td>1332</td>
+        <td>1232123</td>
+        <td>North/South</td>
+        <td>UK</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>1</td>
+        <td>Alfreds Futterkiste</td>
+        <td>Germany</td>
+    </tr>
+    <tr>
+        <td>190</td>
+        <td>123223</td>
+        <td>Koniglich Essen</td>
+        <td>Germany</td>
+    </tr>
+    <tr>
+        <td>1231</td>
+        <td>43342</td>
+        <td>Magazzini Alimentari Riuniti</td>
+        <td>Italy</td>
+    </tr>
+    <tr>
+        <td>9022</td>
+        <td>48942</td>
+        <td>Dundee</td>
+        <td>UK</td>
+    </tr>
+</table>
+
+</div>
+-->
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/6.6.2/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
 
 <!-- Initialize Firebase -->
 <script src="/__/firebase/init.js"></script>
