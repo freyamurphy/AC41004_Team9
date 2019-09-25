@@ -32,7 +32,7 @@ import { SqlapiService } from './sqlapi.service';
 import { ComunicationService } from './comunication.service';
 import { GeolocationComponent } from './geolocation/geolocation.component';
 
- 
+
 
 
 @NgModule({
@@ -65,7 +65,7 @@ import { GeolocationComponent } from './geolocation/geolocation.component';
     MatSelectModule,
     NgxPaginationModule,
     BrowserAnimationsModule,
-    AgmCoreModule.forRoot({apiKey: 'AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8'})
+    AgmCoreModule.forRoot({apiKey: ''})
   ],
   providers: [
     SqlapiService,
