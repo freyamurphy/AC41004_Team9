@@ -13,8 +13,7 @@ export class SqlapiService {
 
 test:any;
   baseUrl = 'http://localhost/phptest/test.php';
-
-
+//baseUrl = 'https://zeno.computing.dundee.ac.uk/2019-projects/team9/AC41004_Team9/Team9/angular-php/backend/api/search.php';
 
 
    constructor(private http: HttpClient) { }
@@ -24,7 +23,7 @@ GET
 test data is in the following format '{"data":[{"first":"a","last":"b"},{"first":"a","last":"b"}}]
 will use class from class manager tomerge
 
-function on sql is named 
+function on sql is named
 */
    gettestdata(): Observable<any> {
      return this.http.get(this.baseUrl).pipe(
@@ -35,7 +34,7 @@ function on sql is named
 
     postTestData(data : any): Observable<any> {
       return this.http.post<any>(this.baseUrl, "Hello")
-    
+
 
 
     }
