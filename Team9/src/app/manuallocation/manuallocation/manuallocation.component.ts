@@ -22,10 +22,11 @@ export class ManuallocationComponent implements OnInit {
     this.zipcode = ((document.getElementById("addressM") as HTMLInputElement).value);
     console.log("H");
     
-    this.baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=99501&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8";
+    this.baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + this.zipcode + "&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8&region=US";
     
     this.http.get(this.baseUrl).subscribe(data => {
-      console.log(data['results']);
+      this.temp = data['results'];
+      console.log(this.temp[0].geometry.bounds.northeast);
     });
   }
 }
