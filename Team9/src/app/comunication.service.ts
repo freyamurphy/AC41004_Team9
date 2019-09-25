@@ -22,10 +22,15 @@ arrayofstuff$ = this.arrayofstufflocationSource.asObservable();
 
 
 runsearch(state,code) {
+    console.log("runsearch");
+     console.log(state+code);
   this.sqlapi.searchWithStateAndDRGCodeFunction().subscribe((res: any) => {this.arrayofstuff$ =res;});
+
 }
 
 getsearchresults(): Observable<any> {
+    console.log("get search ");
+        console.log(this.arrayofstufflocationSource);
     return this.arrayofstufflocationSource.asObservable();
 }
 

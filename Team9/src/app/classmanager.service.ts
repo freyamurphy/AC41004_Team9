@@ -40,8 +40,7 @@ last: string
  ) {}
 }
 //-------------------------------------------------------
-
-
+ 
 export interface searchWithStateAndDRGCodeInterface {
   pricingID:any;
   totalDischarges:any;
