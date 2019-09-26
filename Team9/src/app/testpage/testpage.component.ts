@@ -11,7 +11,7 @@ import { ComunicationService } from '../comunication.service';
   templateUrl: './testpage.component.html',
   styleUrls: ['./testpage.component.css']
 })
-export class TestpageComponent implements OnInit {
+export class TestpageComponent implements OnInit,AfterViewInit {
 data:any;
     array_or_test_clases: any;
         testip: any;
