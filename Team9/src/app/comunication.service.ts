@@ -24,7 +24,7 @@ arrayofstuff$ = this.arrayofstufflocationSource.asObservable();
 runsearch(state,code) {
     console.log("runsearch");
      console.log(state+code);
-  this.sqlapi.searchWithStateAndDRGCodeFunction().subscribe((res: any) => {this.arrayofstuff$ =res;});
+  this.sqlapi.searchWithStateAndDRGCodeFunction("NY","032").subscribe((res: any) => {this.arrayofstuff$ =res;});
 
 }
 
@@ -51,5 +51,9 @@ resetfocused(){
 this.focusedlocationSource.next({lat: 56.4620, lng: -2.9707});
 
 }
+
+
+
+
 
 }
