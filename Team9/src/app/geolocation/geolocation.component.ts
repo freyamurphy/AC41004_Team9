@@ -92,10 +92,11 @@ export class GeolocationComponent implements OnInit {
     this.baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + this.addressInput + "&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8&region=US";
     //This url request to Google to get an array containing the possible addresses 
     this.http.get(this.baseUrl).subscribe(data => {
+
       this.temp = data['results'];
-      var temp2 = (this.temp[0].formatted_address);
-      if(typeof temp2 == 'undefined'){
-        console.log("yay");
+      console.log(this.temp.length);
+      if(this.temp.length ==0  ){
+        this.text="Can't find address";
       }
       else{
         this.text = (this.temp[0].formatted_address);
