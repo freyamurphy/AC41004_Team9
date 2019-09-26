@@ -18,7 +18,7 @@ data:any;
         setPosition: any;
 
 
-
+value:any;
 
 testdistances:any;
 
@@ -35,8 +35,8 @@ arrayofstuff:any;
 
 
 
-     this.comunicate.runsearch("a","b");
-     this.comunicate.getsearchresults().subscribe((res: any) => {this.arrayofstuff =res;});
+    // this.comunicate.runsearch("a","b");
+  //   this.comunicate.getsearchresults().subscribe((res: any) => {this.arrayofstuff =res;});
 
 
 

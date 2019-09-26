@@ -19,7 +19,7 @@ export class GeolocationComponent implements OnInit {
   baseUrl : string;
   temp: any;
   text: any;
-  textValue = "";
+  textValue = "";// state
   public searchControl: FormControl;
   @ViewChild("search", {static:false})
   public searchElementRef: ElementRef;
@@ -27,7 +27,7 @@ export class GeolocationComponent implements OnInit {
   constructor( private http: HttpClient, private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone, private comunicate:ComunicationService) {
     this.showPosition = this.showPosition.bind(this);
-    
+
    }
 
   ngOnInit() {
@@ -59,12 +59,12 @@ export class GeolocationComponent implements OnInit {
     console.log("button has been clicked.")
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.showPosition, this.showError);
-      
+
     }
     else {
       console.log("Geolocation is not supported by this browser.")
     }
-    
+
 
   }
 
@@ -77,9 +77,9 @@ export class GeolocationComponent implements OnInit {
     this.comunicate.setuserlocation(position.coords.latitude , position.coords.longitude);
 
   }
-  
+
   showError(error) {
-    console.log(error)
+    console.log(error);
   }
   //---------------------------------------------
   reverseGeo(lat: any, lng: any){
@@ -87,21 +87,30 @@ export class GeolocationComponent implements OnInit {
     this.http.get(reverseUrl).subscribe(data => {
       var temp = data['results'];
     this.text = (temp[0].formatted_address);
+    this.sendtocomunicationservice(temp[0]);
     });
-    
+
   }
+
+sendtocomunicationservice(locationInput:any){
+this.comunicate.setuseraddress(locationInput);
+  console.log(locationInput);
+}
+
+
   getMLocation()
   {
 
     this.zipcode = ((document.getElementById("addressBox") as HTMLInputElement).value);
-    
+
     this.baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + this.zipcode + "&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8&region=US";
-    
+
     this.http.get(this.baseUrl).subscribe(data => {
       this.temp = data['results'];
       this.text = (this.temp[0].formatted_address);
       console.log(this.text);
-      
+      this.sendtocomunicationservice(this.temp[0]);
+
     });
   }
   resetText(){

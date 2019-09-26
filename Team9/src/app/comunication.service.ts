@@ -20,19 +20,56 @@ arrayofstuff$ = this.arrayofstufflocationSource.asObservable();
 private userlocationSource = new Subject<any>();
 userlocation$ = this.userlocationSource.asObservable();
 
+private useruseraddressSource = new Subject<any>();
+useraddress$ = this.useruseraddressSource.asObservable();
+
+
+
+
+
+
   constructor(private sqlapi:SqlapiService ) { }
 
 // runs a search
-runsearch(state,code) {
-    console.log("runsearch");
-     console.log(state+code);
-  this.sqlapi.searchWithStateAndDRGCodeFunction("NY","032").subscribe((res: any) => {this.arrayofstufflocationSource.next(res);});
+runsearch(code) {
+// todo make sure this runs as an * if there is no address
+  console.log("runnign a sql seaech inside communicaton manager with code ",code);
+ 
+
+//this.useruseraddressSource  todo escape this shit
+  this.sqlapi.searchWithStateAndDRGCodeFunction("CA",code).subscribe((res: any) => {this.arrayofstufflocationSource.next(res);});
 
 }
 // returns search results from runsearch function
 getsearchresults(): Observable<any> {
+
     return this.arrayofstufflocationSource.asObservable();
 }
+
+getstatefromaddress(locationInput:any):string{
+    for(let i = 0 ; i < locationInput.address_components.length; i++)
+    {
+        if(locationInput.address_components[i].types[0]=="administrative_area_level_1")
+        {
+          console.log(locationInput.address_components[i].short_name);
+          return locationInput.address_components[i].short_name;
+        }
+    }
+//todo check if this can ever be missed (not likely)
+}
+
+
+
+setuseraddress(locationInput:any)
+{
+    this.useruseraddressSource.next(this.getstatefromaddress(locationInput));
+
+}
+// get the location the map is focused on
+getuseraddress(): Observable<any> {
+    return this.useruseraddressSource.asObservable();
+}
+
 
 
 
@@ -52,11 +89,16 @@ resetfocused(){
 }
 
 
+
+
+
+
+
 setuserlocation(lat,long){
-  console.log(lat,long,"aaaa");
-  //this.userlat=lat;
-  //this.userlong=long;
-//  this.resetfocused();
+
+  this.userlat=lat;
+  this.userlong=long;
+ this.resetfocused();
 }
 
 

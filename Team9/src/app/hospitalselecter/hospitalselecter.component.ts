@@ -38,8 +38,8 @@ ngOnInit() {
   this.innerWidth = window.innerWidth;
   this.innerHeight= window.innerHeight;
   //this.interact.runsearch("a","b");
-  //this.interact.getsearchresults().subscribe((res: any) => {this.hospitalList =res;console.log(res);});
-this.sqlapi.searchWithStateAndDRGCodeFunction("NY","033").subscribe((res: any) => {this.hospitalList =res;});
+  this.interact.getsearchresults().subscribe((res: any) => {this.hospitalList =res;console.log(res);});
+//this.sqlapi.searchWithStateAndDRGCodeFunction("NY","033").subscribe((res: any) => {this.hospitalList =res;});
 }
 @HostListener('window:resize', ['$event'])
 onResize(event) {
