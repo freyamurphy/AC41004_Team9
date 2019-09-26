@@ -13,6 +13,7 @@ focusedlocation$ = this.focusedlocationSource.asObservable();
 
 userlat:any=0;
 userlong:any=0;
+usersort:any;
 
 private arrayofstufflocationSource = new Subject<any>();
 arrayofstuff$ = this.arrayofstufflocationSource.asObservable();
@@ -34,7 +35,7 @@ useraddress$ = this.useruseraddressSource.asObservable();
 runsearch(code) {
 // todo make sure this runs as an * if there is no address
   console.log("runnign a sql seaech inside communicaton manager with code ",code);
- 
+
 
 //this.useruseraddressSource  todo escape this shit
   this.sqlapi.searchWithStateAndDRGCodeFunction("CA",code).subscribe((res: any) => {this.arrayofstufflocationSource.next(res);});
@@ -58,7 +59,12 @@ getstatefromaddress(locationInput:any):string{
 //todo check if this can ever be missed (not likely)
 }
 
+sortPriceFunction(){
+this.usersort=this.getsearchresults();
+alert(this.usersort.next(res));
 
+
+}
 
 setuseraddress(locationInput:any)
 {
