@@ -11,7 +11,7 @@ import { map, catchError } from 'rxjs/operators';
 })
 export class GelocatorService {
 
-  
+
   ipAddress:any;
   location:any;
 
@@ -27,72 +27,40 @@ export class GelocatorService {
   longInContext:any;
 
 
-  getuserlatitude(){
-
-  return this.userlat;
-  }
-
-  getuserlongitude(){
-
-  return this.userlong;
-  }
-
-
-  getLatitudeInContext(){
-
-
-  return this.latInContext;
-  }
-
-  getLongitudeInContext(){
-
-
-  return this.longInContext;
-  }
-
-
-
-  setuserlatitude(a){
-
-  this.userlat=a;
-  }
-
-  setuserlongitude(a){
-
-  this.userlong=a;
-  }
-
-
-  setLatitudeInContext(a){
-
-  this.latInContext=a;
-
-  }
-
-  setLongitudeInContext(a){
-
-   this.longInContext=a;
-
-  }
-
-
+ 
 
 
 
   getIpCliente(): Observable<any> {
     this.ipAddress= this.http.get<any>('https://jsonip.com');
-
-return this.http.get<any>('https://jsonip.com');
-
-
-
+    return this.http.get<any>('https://jsonip.com');
   }
+
+
   getlocation(newName: string): Observable<any> {
     var temp = 'https://geoipify.whoisxmlapi.com/api/v1?apiKey=at_5hXi7N8OgGcRzk6qfCaApUVnndTIN&ipAddress='+newName;//+(hello);
     console.log(newName);
     return this.http.get<any>(temp);
   }
 
+
+  getdistance(lat1,lon1,lat2,lon2) {
+    var R = 6371; // Radius of the earth in km
+    var dLat = this.deg2rad(lat2-lat1);  // deg2rad below
+    var dLon = this.deg2rad(lon2-lon1);
+    var a =
+      Math.sin(dLat/2) * Math.sin(dLat/2) +
+      Math.cos(this.deg2rad(lat1)) * Math.cos(this.deg2rad(lat2)) *
+      Math.sin(dLon/2) * Math.sin(dLon/2)
+      ;
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    var d = R * c; // Distance in km
+    return d;
+  }
+
+  deg2rad(deg) {
+    return deg * (Math.PI/180);
+  }
 
 getlocationfromaddress(state: string,address: string): Observable<any>{
 var addressFull = "";

@@ -1,6 +1,11 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { ComunicationService } from '../comunication.service';
 import { Subscription } from 'rxjs/Subscription';
+import { ClassmanagerService }from '../classmanager.service';
+import { Observable, throwError, of  } from 'rxjs';
+import { SqlapiService }from '../sqlapi.service';
+
+
 
 @Component({
   selector: 'app-hospitalselecter',
@@ -10,64 +15,13 @@ import { Subscription } from 'rxjs/Subscription';
 
 export class HospitalselecterComponent implements OnInit {
 
-  hospitalList: any = [
-  {
-    dRGDefinition: 39,
-    description: "EXTRACRANIAL PROCEDURES ",
-    hospital: "SOUTHEAST ALABAMA MEDICAL CENTER",
-    cost : 4000,
-    lat: 56.4643,
-    lng: -3.0379,
-  },
-  {
-    dRGDefinition: 41,
-    description: "TOE AMPUTATION",
-    hospital: "NORTH TEXAS MEDICAL SCHOOL",
-    cost : 4003,
-    lat: 56.4762,
-    lng: -2.9856,
+hospitalList: any[]=[];
 
-  },
-  {
-    dRGDefinition: 15,
-    description: "BROKEN LEG SURGERY",
-    hospital: "WASHINGTON MEDICAL",
-    cost : 210,
-    lat: 56.4643,
-    lng: -3.0379,
-
-  },
-  {
-    dRGDefinition: 10,
-    description: "CRACKED RIB",
-    hospital: "EASTERN MICHIGAN",
-    cost : 953,
-    lat: 56.4643,
-    lng: -3.0379,
-
-  },
-  {
-    dRGDefinition: 29,
-    description: "FRACTURED WRIST",
-    hospital: "NORTH-EASTERN KENTUCKY WALK-IN CENTRE",
-    cost : 120,
-    lat: 56.4643,
-    lng: -3.0379,
-
-  },
-  {
-    dRGDefinition: 93,
-    description: "BURNT RETINA",
-    hospital: "CALIFORNA CENTRAL",
-    cost : 60000,
-    lat: 56.4643,
-    lng: -3.0379,
-
-  },
-];
 
 public innerHeight: any;
 public innerWidth: any;
+public code: any;
+public state: any;
  testvar:any;
 
 oldcontext:any;// used for selecting in the function highlight
@@ -77,19 +31,21 @@ boolforselector:any="white";
 p: number = 1;
 
 
-constructor(private interact:ComunicationService) { }
-
+constructor(private interact:ComunicationService, private database:ClassmanagerService,private sqlapi:SqlapiService ) { }
 
 
 ngOnInit() {
   this.innerWidth = window.innerWidth;
   this.innerHeight= window.innerHeight;
+  //this.interact.runsearch("a","b");
+  //this.interact.getsearchresults().subscribe((res: any) => {this.hospitalList =res;console.log(res);});
+this.sqlapi.searchWithStateAndDRGCodeFunction("NY","033").subscribe((res: any) => {this.hospitalList =res;});
 }
 @HostListener('window:resize', ['$event'])
 onResize(event) {
   this.innerWidth = window.innerWidth;
   this.innerHeight= window.innerHeight;
-  this.resize()
+
 }
 getheight(heightpercentage){
 var tempvar =(this.innerHeight/100)*heightpercentage;
@@ -166,12 +122,9 @@ putinfocus(index){
 
 }
 
-
-resize(){
-
-
-
-
+testfunction(){
+  console.log("a");
+  console.log(this.hospitalList);
 }
 
 //[style.height]="getheight(50)"[style.width]="getwidth(50)"
