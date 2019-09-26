@@ -38,7 +38,7 @@ runsearch(code) {
 
 
 //this.useruseraddressSource  todo escape this shit
-  this.sqlapi.searchWithStateAndDRGCodeFunction("CA",code).subscribe((res: any) => {this.arrayofstufflocationSource.next(res);});
+  this.sqlapi.searchWithStateAndDRGCodeFunction("CA",code).subscribe((res: any) => {this.arrayofstufflocationSource.next(res);this.usersort=res;this.sortPriceFunction();});
 
 }
 // returns search results from runsearch function
@@ -60,11 +60,17 @@ getstatefromaddress(locationInput:any):string{
 }
 
 sortPriceFunction(){
-this.usersort=this.getsearchresults();
-alert(this.usersort.next(res));
 
+ for(var n=0 ; n<=this.usersort.length-1; n++)
+  {
+   console.log(n,this.usersort[n].averageTotalPayments);
+ }
 
 }
+
+
+
+
 
 setuseraddress(locationInput:any)
 {
