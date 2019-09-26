@@ -1,9 +1,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<div class="searchbar" [style.width.px]="225" [style.height.px]="50">
+<div class="searchbar">
 
 
     <form action="https://zeno.computing.dundee.ac.uk/2019-projects/team9/AC41004_Team9/Team9/angular-php/backend/api/search.php" method="get">
-      <input aria-label="Searchbar for condition" (keydown.enter)="scroll()" style="margin-top:100px" input type="text" id="search" name="Search for DRG Code or Description of Condition" placeholder="DRG Code/Description of Condition" required/>
-      
+      <input aria-label="Searchbar for condition" (keydown.enter)="scroll()" input type="text" id="search" name="Search for DRG Code or Description of Condition" placeholder="DRG Code/Description of Condition" required/>
+      <br>
       <button mat-raised-button color="primary" id= "formSelect" value="submit" (click)="scroll()">Search</button>
-  
