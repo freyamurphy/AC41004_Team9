@@ -11,13 +11,14 @@ export class ComunicationService {
 private focusedlocationSource = new Subject<any>();
 focusedlocation$ = this.focusedlocationSource.asObservable();
 
-userlat:any;
-userlong:any;
+userlat:any=0;
+userlong:any=0;
 
 private arrayofstufflocationSource = new Subject<any>();
 arrayofstuff$ = this.arrayofstufflocationSource.asObservable();
 
-
+private userlocationSource = new Subject<any>();
+userlocation$ = this.userlocationSource.asObservable();
 
   constructor(private sqlapi:SqlapiService ) { }
 
@@ -47,11 +48,12 @@ getfocusedlocation(): Observable<any> {
 
 // reset the map to the user location/
 resetfocused(){
-this.focusedlocationSource.next({lat:this.userlat, lng:this.userlong});
+  this.focusedlocationSource.next({lat:this.userlat, lng:this.userlong});
 }
 
 
 setuserlocation(lat,long){
+  console.log(lat,long,"aaaa");
   //this.userlat=lat;
   //this.userlong=long;
 //  this.resetfocused();
