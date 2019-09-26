@@ -34,7 +34,7 @@ useraddress$ = this.useruseraddressSource.asObservable();
 runsearch(code) {
 // todo make sure this runs as an * if there is no address
   console.log("runnign a sql seaech inside communicaton manager with code ",code);
- 
+console.log(this.useruseraddressSource);
 
 //this.useruseraddressSource  todo escape this shit
   this.sqlapi.searchWithStateAndDRGCodeFunction("CA",code).subscribe((res: any) => {this.arrayofstufflocationSource.next(res);});
@@ -57,6 +57,10 @@ getstatefromaddress(locationInput:any):string{
     }
 //todo check if this can ever be missed (not likely)
 }
+
+
+
+
 
 
 
