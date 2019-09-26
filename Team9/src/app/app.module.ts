@@ -15,6 +15,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import {MatButtonModule} from '@angular/material/button';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {MatInputModule} from '@angular/material';
+import {MatTooltipModule} from '@angular/material/tooltip';
 //pages
 import { UserfiltersComponent } from './userfilters/userfilters.component';
 import { MapoutlineareasTESTComponent } from './mapoutlineareas-test/mapoutlineareas-test.component';
@@ -67,7 +68,7 @@ import { ManuallocationComponent } from './manuallocation/manuallocation/manuall
     MatListModule,
     MatButtonModule,
     MatSelectModule,
-
+    MatTooltipModule,
     MatInputModule,
     ReactiveFormsModule,
     FormsModule,
