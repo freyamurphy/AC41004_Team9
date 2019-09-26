@@ -100,7 +100,6 @@ export class GeolocationComponent implements OnInit {
     this.http.get(this.baseUrl).subscribe(data => {
       this.temp = data['results'];
       this.text = (this.temp[0].formatted_address);
-      console.log(this.text);
       
     });
   }
