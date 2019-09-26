@@ -68,10 +68,11 @@ hospitalHandler(dataset){
         this.getlocationfromaddress(dataset[i].State,dataset[i].StreetAddress).subscribe((res: any) => {templat= res.geometry.lat; templng= res.geometry.lng});;
 if(templat!=1000){
         this.sqlapi.inserthospical(dataset[i].providers_ID,templat,templng);
-)
+
 
       }
 
+}
 }
 getlocationfromaddress(state: string,address: string): Observable<any>{
 
