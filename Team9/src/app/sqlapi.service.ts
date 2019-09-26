@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Observable, throwError, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-//import { test }from '../classmanager.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ test:any;
 //baseUrl = 'https://zeno.computing.dundee.ac.uk/2019-projects/team9/AC41004_Team9/Team9/angular-php/backend/api/search.php';
 
 
-   constructor(private http: HttpClient) { }
+   constructor(private http: HttpClient, ) { }
 
 /*
 GET
@@ -31,6 +31,16 @@ function on sql is named
         return res['name'];
      }));
   }
+
+
+  searchWithStateAndDRGCodeFunction(state, drgcode ): Observable<any> {
+var temp = "https://zeno.computing.dundee.ac.uk/2019-projects/team9/AC41004_Team9/echotest.php?state=\""+state+"\"&condition_Code="+drgcode+";";
+
+    return this.http.get(temp).pipe(
+      map((res) => {
+       return res['data'];
+    }));
+ }
 
     postTestData(data : any): Observable<any> {
       return this.http.post<any>(this.baseUrl, "Hello")

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ElementRef, NgZone, OnInit, ViewChild, Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MapsAPILoader } from '@agm/core';
+import { ComunicationService } from '../comunication.service';
 
 
 
@@ -24,7 +25,7 @@ export class GeolocationComponent implements OnInit {
   public searchElementRef: ElementRef;
 
   constructor( private http: HttpClient, private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone) {
+    private ngZone: NgZone, private comunicate:ComunicationService) {
     this.showPosition = this.showPosition.bind(this);
     
    }
@@ -73,6 +74,8 @@ export class GeolocationComponent implements OnInit {
     console.log("Lat: " +  position.coords.latitude);
     console.log("Lng: " + position.coords.longitude);
     this.reverseGeo(lat,lng);
+    this.comunicate.setuserlocation(position.coords.latitude , position.coords.longitude);
+
   }
   
   showError(error) {
