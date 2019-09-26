@@ -36,6 +36,7 @@ import { ComunicationService } from './comunication.service';
 import { GeolocationComponent } from './geolocation/geolocation.component';
 
 import { ManuallocationComponent } from './manuallocation/manuallocation/manuallocation.component';
+import { UserhelpComponent } from './help/userhelp/userhelp.component';
 
 
 
@@ -56,7 +57,8 @@ import { ManuallocationComponent } from './manuallocation/manuallocation/manuall
     SearchbarComponent,
     SelectComponent,
     GeolocationComponent,
-    ManuallocationComponent
+    ManuallocationComponent,
+    UserhelpComponent
 
 
   ],
