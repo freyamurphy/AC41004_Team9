@@ -40,7 +40,9 @@ arrayofstuff:any;
 
 
 
-
+     setTimeout( ()=>{
+   console.log(this.arrayofstuff);
+    }, 5000)
 
 
 

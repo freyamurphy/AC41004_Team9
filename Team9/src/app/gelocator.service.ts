@@ -27,55 +27,7 @@ export class GelocatorService {
   longInContext:any;
 
 
-  getuserlatitude(){
-
-  return this.userlat;
-  }
-
-  getuserlongitude(){
-
-  return this.userlong;
-  }
-
-
-  getLatitudeInContext(){
-
-
-  return this.latInContext;
-  }
-
-  getLongitudeInContext(){
-
-
-  return this.longInContext;
-  }
-
-
-
-  setuserlatitude(a){
-
-  this.userlat=a;
-  }
-
-  setuserlongitude(a){
-
-  this.userlong=a;
-  }
-
-
-  setLatitudeInContext(a){
-
-  this.latInContext=a;
-
-  }
-
-  setLongitudeInContext(a){
-
-   this.longInContext=a;
-
-  }
-
-
+ 
 
 
 
@@ -84,7 +36,7 @@ export class GelocatorService {
     return this.http.get<any>('https://jsonip.com');
   }
 
-  
+
   getlocation(newName: string): Observable<any> {
     var temp = 'https://geoipify.whoisxmlapi.com/api/v1?apiKey=at_5hXi7N8OgGcRzk6qfCaApUVnndTIN&ipAddress='+newName;//+(hello);
     console.log(newName);

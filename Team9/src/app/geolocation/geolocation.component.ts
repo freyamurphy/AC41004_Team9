@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ComunicationService } from '../comunication.service';
 
 @Component({
   selector: 'app-geolocation',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GeolocationComponent implements OnInit {
 
-  constructor() { }
+  constructor( private comunicate:ComunicationService) { }
 
   ngOnInit() {
   }
@@ -25,6 +26,8 @@ export class GeolocationComponent implements OnInit {
   showPosition(position) {
     console.log("Lat: " + position.coords.latitude)
     console.log("Lng: " + position.coords.longitude)
+    this.comunicate.setuserlocation(position.coords.latitude , position.coords.longitude);
+
   }
 
   showError(error) {
