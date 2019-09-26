@@ -37,6 +37,7 @@ import { GeolocationComponent } from './geolocation/geolocation.component';
 
 import { ManuallocationComponent } from './manuallocation/manuallocation/manuallocation.component';
 import { UserhelpComponent } from './help/userhelp/userhelp.component';
+import { BackComponent } from './back/back/back.component';
 
 
 
@@ -58,7 +59,8 @@ import { UserhelpComponent } from './help/userhelp/userhelp.component';
     SelectComponent,
     GeolocationComponent,
     ManuallocationComponent,
-    UserhelpComponent
+    UserhelpComponent,
+    BackComponent
 
 
   ],
