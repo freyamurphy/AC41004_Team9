@@ -123,8 +123,8 @@ putinfocus(index){
 }
 
 testfunction(){
-  console.log("a");
-  console.log(this.hospitalList);
+//  console.log("a");
+//  console.log(this.hospitalList);
 }
 
 //[style.height]="getheight(50)"[style.width]="getwidth(50)"

@@ -3,6 +3,7 @@ import { Subject} from 'rxjs';
 import { Observable } from 'rxjs';
 import { searchWithStateAndDRGCodeInterface }from './classmanager.service';
 import { SqlapiService }from './sqlapi.service';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
@@ -24,50 +25,67 @@ private useruseraddressSource = new Subject<any>();
 useraddress$ = this.useruseraddressSource.asObservable();
 
 
+resultlength:any;
+userstate:any;
 
-
-
-
-  constructor(private sqlapi:SqlapiService ) { }
+  constructor(private http: HttpClient,private sqlapi:SqlapiService ) { }
 
 // runs a search
 runsearch(code) {
 // todo make sure this runs as an * if there is no address
   console.log("runnign a sql seaech inside communicaton manager with code ",code);
-console.log(this.useruseraddressSource);
+   console.log(this.userstate);
+  this.sqlapi.searchWithStateAndDRGCodeFunction(this.userstate,code).subscribe((res: any) => {this.arrayofstufflocationSource.next(res);this.resultlength=res.length;this.hospitalHandler(res);});
 
-//this.useruseraddressSource  todo escape this shit
-  this.sqlapi.searchWithStateAndDRGCodeFunction("CA",code).subscribe((res: any) => {this.arrayofstufflocationSource.next(res);});
+
 
 }
 // returns search results from runsearch function
-getsearchresults(): Observable<any> {
-
+getsearchresults(): Observable<any>
+{
     return this.arrayofstufflocationSource.asObservable();
 }
 
 getstatefromaddress(locationInput:any):string{
+
     for(let i = 0 ; i < locationInput.address_components.length; i++)
     {
         if(locationInput.address_components[i].types[0]=="administrative_area_level_1")
         {
           console.log(locationInput.address_components[i].short_name);
+          this.userstate=locationInput.address_components[i].short_name;
           return locationInput.address_components[i].short_name;
         }
     }
 //todo check if this can ever be missed (not likely)
 }
 
+hospitalHandler(dataset){
+
+      for(let i = 0 ; i < this.resultlength; i++){
+        var templat=1000;
+        var templng=1000;
+        this.getlocationfromaddress(dataset[i].State,dataset[i].StreetAddress).subscribe((res: any) => {templat= res.geometry.lat; templng= res.geometry.lng});;
+        this.sqlapi.inserthospical(dataset[i].providers_ID,templat,templng);
 
 
+      }
 
+}
+getlocationfromaddress(state: string,address: string): Observable<any>{
+
+var apikey="AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8";
+
+var temp = "https://maps.googleapis.com/maps/api/geocode/json?address="+address+" "+state+"&key="+apikey;
+//    https://maps.googleapis.com/maps/api/geocode/json?address=90210&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8;
+return this.http.get<any>(temp);
+}
 
 
 
 setuseraddress(locationInput:any)
 {
     this.useruseraddressSource.next(this.getstatefromaddress(locationInput));
-
 }
 // get the location the map is focused on
 getuseraddress(): Observable<any> {
