@@ -15,21 +15,13 @@ export class SearchbarComponent implements OnInit{
 
   constructor() { }
 
-  ngOnInit() {
-
-}
+  ngOnInit() {}
 
   scroll(){
     document.getElementById("hospitals").scrollIntoView({behavior:"smooth"});
-
   }
 
 
-submit(){
-
-
-  
-}
-
+  submit(){}
 
 }

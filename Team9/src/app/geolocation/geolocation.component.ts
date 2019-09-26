@@ -5,8 +5,6 @@ import { FormControl } from '@angular/forms';
 import { MapsAPILoader } from '@agm/core';
 import { ComunicationService } from '../comunication.service';
 
-
-
 @Component({
   selector: 'app-geolocation',
   templateUrl: './geolocation.component.html',
@@ -15,7 +13,7 @@ import { ComunicationService } from '../comunication.service';
 export class GeolocationComponent implements OnInit {
   lat: any;
   long: any;
-  zipcode : any;
+  addressInput : any;
   baseUrl : string;
   temp: any;
   text: any;
@@ -45,11 +43,6 @@ export class GeolocationComponent implements OnInit {
           if (place.geometry === undefined || place.geometry === null) {
             return;
           }
-
-          //set latitude, longitude and zoom
-          /*this.latitude = place.geometry.location.lat();
-          this.longitude = place.geometry.location.lng();
-          this.zoom = 12;*/
         });
       });
     });
@@ -67,7 +60,6 @@ export class GeolocationComponent implements OnInit {
     
 
   }
-
   showPosition(position) {
     var lat = position.coords.latitude;
     var lng = position.coords.longitude;
@@ -82,6 +74,7 @@ export class GeolocationComponent implements OnInit {
     console.log(error)
   }
   //---------------------------------------------
+  //Function to take a lat and long and turn them into an address
   reverseGeo(lat: any, lng: any){
     var reverseUrl = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat + "," + lng +"&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8"
     this.http.get(reverseUrl).subscribe(data => {
@@ -90,18 +83,28 @@ export class GeolocationComponent implements OnInit {
     });
     
   }
+  //Function to get location if entered by the user manual
   getMLocation()
   {
 
-    this.zipcode = ((document.getElementById("addressBox") as HTMLInputElement).value);
-    
-    this.baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + this.zipcode + "&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8&region=US";
-    
+    this.addressInput = ((document.getElementById("addressBox") as HTMLInputElement).value);
+    //Gets users address input
+    this.baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + this.addressInput + "&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8&region=US";
+    //This url request to Google to get an array containing the possible addresses 
     this.http.get(this.baseUrl).subscribe(data => {
+
       this.temp = data['results'];
-      this.text = (this.temp[0].formatted_address);
+      console.log(this.temp.length);
+      if(this.temp.length ==0  ){
+        this.text="Can't find address";
+      }
+      else{
+        this.text = (this.temp[0].formatted_address);
+        console.log(this.text)
+      }
       
     });
+    //Requests data from Google and accesses the first full address that the JSON from google contains
   }
   resetText(){
     this.text = "";
