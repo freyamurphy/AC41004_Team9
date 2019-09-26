@@ -16,9 +16,7 @@ value:any;
 
   constructor(private comunicate:ComunicationService) { }
 
-  ngOnInit() {
-
-}
+  ngOnInit() {}
 
 
 submitfunction(){
@@ -31,10 +29,10 @@ submitfunction(){
 
   scroll(){
     document.getElementById("hospitals").scrollIntoView({behavior:"smooth"});
-
   }
 
 
+ 
 submit(){
  console.log(this.value);
  this.comunicate.runsearch(this.value);
@@ -42,5 +40,5 @@ submit(){
 
 }
 
-
+ 
 }
