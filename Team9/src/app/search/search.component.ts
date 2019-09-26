@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-search',
@@ -11,7 +13,12 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
   }
-  
+
+
+
+
+
+ 
 //sort function
  sortTable(n) {
         var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;

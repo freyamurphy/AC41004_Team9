@@ -19,7 +19,7 @@ data:any;
         setPosition: any;
 
 
-
+value:any;
 
 testdistances:any;
 

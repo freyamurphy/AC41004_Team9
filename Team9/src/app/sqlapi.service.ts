@@ -34,8 +34,10 @@ function on sql is named
 
 
   searchWithStateAndDRGCodeFunction(state, drgcode ): Observable<any> {
+    console.log("inside sqlapi");
+        console.log(state, drgcode );
 var temp = "https://zeno.computing.dundee.ac.uk/2019-projects/team9/AC41004_Team9/echotest.php?state="+state+"&condition_Code="+drgcode;
-
+  console.log(temp );
     return this.http.get(temp).pipe(
       map((res) => {
        return res['data'];
@@ -48,6 +50,21 @@ var temp = "https://zeno.computing.dundee.ac.uk/2019-projects/team9/AC41004_Team
 
 
     }
+
+
+//accepts provider id returns a value if it has one if not it finds it and inserts it into the database..
+inserthospical(data,lat,long) {
+
+      var temp = "https://zeno.computing.dundee.ac.uk/2019-projects/team9/AC41004_Team9/hospitalone.php?ID="+data+"&lat="+lat+"&lng="+long;
+console.log("inswerting "+lat +"  "+ long+ "   " +data);
+    this.http.get(temp);
+
+
+}
+
+
+
+
 
 
     sliderTest(): Observable<number> {

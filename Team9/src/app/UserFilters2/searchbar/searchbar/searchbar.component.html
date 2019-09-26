@@ -2,7 +2,7 @@
 <div class="searchbar">
 
 
-    <form action="https://zeno.computing.dundee.ac.uk/2019-projects/team9/AC41004_Team9/Team9/angular-php/backend/api/search.php" method="get">
-      <input aria-label="Searchbar for condition" (keydown.enter)="scroll()" input type="text" id="search" name="Search for DRG Code or Description of Condition" placeholder="DRG Code/Description of Condition" required/>
-      <br>
-      <button mat-raised-button color="primary" id= "formSelect" value="submit" (click)="scroll()">Search</button>
+ 
+      <input style="margin-top:100px" input type="text"  [(ngModel)]="value"  id="search" name="Search for DRG Code or Description of Condition" placeholder="DRG Code/Description of Condition" required/>
+
+      <button mat-raised-button color="primary" id= "formSelect" (click)="submit()" value="submit">Search</button>
