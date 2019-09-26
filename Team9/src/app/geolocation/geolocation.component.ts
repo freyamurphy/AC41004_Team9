@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import {SharelocationService} from '../manuallocation/sharelocation.service'
-import { analyzeAndValidateNgModules } from '@angular/compiler';
+/// <reference types="@types/googlemaps" />
 import { HttpClient } from '@angular/common/http';
+import { ElementRef, NgZone, OnInit, ViewChild, Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { MapsAPILoader } from '@agm/core';
+
+
 
 @Component({
   selector: 'app-geolocation',
@@ -15,12 +18,40 @@ export class GeolocationComponent implements OnInit {
   baseUrl : string;
   temp: any;
   text: any;
-  constructor(private share: SharelocationService, private http: HttpClient) {
+  textValue = "";
+  public searchControl: FormControl;
+  @ViewChild("search", {static:false})
+  public searchElementRef: ElementRef;
+
+  constructor( private http: HttpClient, private mapsAPILoader: MapsAPILoader,
+    private ngZone: NgZone) {
     this.showPosition = this.showPosition.bind(this);
+    
    }
 
   ngOnInit() {
+    this.searchControl = new FormControl();
+    this.mapsAPILoader.load().then(() => {
+      let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
+        types: ["address"]
+      });
+      autocomplete.addListener("place_changed", () => {
+        this.ngZone.run(() => {
+          //get the place result
+          let place: google.maps.places.PlaceResult = autocomplete.getPlace();
 
+          //verify result
+          if (place.geometry === undefined || place.geometry === null) {
+            return;
+          }
+
+          //set latitude, longitude and zoom
+          /*this.latitude = place.geometry.location.lat();
+          this.longitude = place.geometry.location.lng();
+          this.zoom = 12;*/
+        });
+      });
+    });
   }
 
   getLocation() {
@@ -59,7 +90,7 @@ export class GeolocationComponent implements OnInit {
   getMLocation()
   {
 
-    this.zipcode = ((document.getElementById("addressM") as HTMLInputElement).value);
+    this.zipcode = ((document.getElementById("addressBox") as HTMLInputElement).value);
     
     this.baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + this.zipcode + "&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8&region=US";
     

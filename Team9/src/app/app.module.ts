@@ -13,7 +13,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {MatButtonModule} from '@angular/material/button';
-
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import {MatInputModule} from '@angular/material';
 //pages
 import { UserfiltersComponent } from './userfilters/userfilters.component';
 import { MapoutlineareasTESTComponent } from './mapoutlineareas-test/mapoutlineareas-test.component';
@@ -26,7 +27,8 @@ import { RangesliderComponent } from './UserFilters2/rangeslider/rangeslider.com
 import { SearchbarComponent } from './UserFilters2/searchbar/searchbar/searchbar.component';
 import { SelectComponent } from './UserFilters2/select/select/select.component';
 import { SearchComponent } from './search/search.component';
-
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 // services
 import { SqlapiService } from './sqlapi.service';
 import { ComunicationService } from './comunication.service';
@@ -65,9 +67,19 @@ import { ManuallocationComponent } from './manuallocation/manuallocation/manuall
     MatListModule,
     MatButtonModule,
     MatSelectModule,
+
+    MatInputModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatAutocompleteModule,
+    MatBottomSheetModule,
     NgxPaginationModule,
     BrowserAnimationsModule,
-    AgmCoreModule.forRoot({apiKey: 'AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8'})
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8',
+      libraries: ['geometry', 'places']
+    }),
+    ReactiveFormsModule
   ],
   providers: [
     SqlapiService,
