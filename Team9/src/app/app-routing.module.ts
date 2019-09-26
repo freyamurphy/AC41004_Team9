@@ -9,6 +9,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { MapComponent } from './map/map.component';
 import { TestpageComponent } from './testpage/testpage.component';
 import { HospitalselecterComponent } from './hospitalselecter/hospitalselecter.component';
+import { GeolocationComponent } from './geolocation/geolocation.component';
 
 
 
@@ -23,7 +24,8 @@ const routes: Routes = [
   { path: 'hospital', component: HospitalselecterComponent},
   { path: 'map', component: MapComponent},
   { path: 'testpage', component: TestpageComponent},
-  { path: 'userfilters', component: UserfiltersComponent}
+  { path: 'userfilters', component: UserfiltersComponent},
+  { path: 'geolocation', component: GeolocationComponent},
 
 
 

@@ -34,9 +34,6 @@ p: number = 1;
 constructor(private interact:ComunicationService, private database:ClassmanagerService,private sqlapi:SqlapiService ) { }
 
 
-
-
-
 ngOnInit() {
   this.innerWidth = window.innerWidth;
   this.innerHeight= window.innerHeight;

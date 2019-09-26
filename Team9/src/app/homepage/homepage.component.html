@@ -12,6 +12,8 @@
       <!--<small style="height: 50%; text-align: center; color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">Freedom isn't free</small>-->
       <app-searchbar style="width: 20%;"></app-searchbar>
       <br>
+      <app-manuallocation></app-manuallocation>
+      <app-geolocation></app-geolocation>
     </div>
   </div>
   <div class="container" ng-hide="isHidden">
@@ -26,33 +28,10 @@
 
       </div>
       <div class="row">
-         <!--<div class="col-sm" style="top: 20px">
 
-
-            <app-searchbar style=" display: table-cell; width:100px;"></app-searchbar>
-            <app-select style=" display: table-cell; "></app-select>
-
-
-            <div style=" display: table-cell; margin-left:100px;"  >
-              <button class="zipcodebutton"  id ="44" (click)="getuserlocation()"   style=" margin-left:50px;">autofind location</button>
-              <p style=" display: table-cell; margin-left:50px;  float:left;">or</p>
-              <div id="99" class="zipcodecover" [style.width.px]="100" [style.height.px]="40">
-                <div class="loader" ></div><p>getting location</p>
-              </div>
-
-            </div>
-
-            <div style=" display: table-cell; margin-left:100px;">
-              <button class="search"  id ="44"   >search</button>
-              <div id="999" class="zipcodecover" [style.width.px]="getwidth(37)" [style.height.px]="getheight(13)">
-                <div class="loader" ></div><p>getting location</p>
-              </div>
-            </div>
-
-            <br>
-          </div>
-        -->
+         
           <div class="col-sm">
+
 
           </div>
           <div class="col-sm">
@@ -62,8 +41,12 @@
         </div>
         <div class="row" >
           <div class="col-md-auto" style="width: 40%; height: 100%" id="hospitals">
-            <div class="center-div"><app-select></app-select></div>
-            <app-hospitalselecter></app-hospitalselecter>
+            <div class="center-div">
+              <app-select></app-select>
+              
+
+            </div>
+              <app-hospitalselecter></app-hospitalselecter>
             </div>
             <div class="col-md-auto">
               <app-map style="height:200px; width: 200px; position: absolute;"
