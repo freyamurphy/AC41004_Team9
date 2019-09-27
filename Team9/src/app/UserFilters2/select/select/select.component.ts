@@ -1,6 +1,5 @@
-import {Component} from '@angular/core';
-
-
+import { Component, OnInit, HostListener } from '@angular/core';
+import { ComunicationService } from '../../../comunication.service';
 /**
  * @title Basic select
  */
@@ -14,14 +13,22 @@ import {Component} from '@angular/core';
 export class SelectComponent {
   filterOptions: string[] = ["Distance","Price"];
 
+  constructor(private comunicate:ComunicationService) { }
 
-Test(){
-  alert("This function will sort the table");
+
+  srotPrice(){
+     this.comunicate.sortPriceFunction();
+ }
+
+ srotDistance(){
+
+
 }
 
+//TBC
   sortTable(n) {
           var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-          table = document.getElementById("hospitals");
+          table = document.getElementById("hospital");
           switching = true;
           //Set the sorting direction to ascending:
           dir = "asc";
@@ -73,6 +80,8 @@ Test(){
               }
           }
       }
+
+
 
 
 }
