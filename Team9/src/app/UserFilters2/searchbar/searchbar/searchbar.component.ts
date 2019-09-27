@@ -22,11 +22,8 @@ export class SearchbarComponent implements OnInit{
   }
 
 
-submitfunction(){
-
-
-
-}
+  submitfunction(){
+  }
 
 
 
