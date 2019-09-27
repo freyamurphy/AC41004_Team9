@@ -107,9 +107,14 @@ this.comunicate.setuseraddress(locationInput);
 
     this.http.get(this.baseUrl).subscribe(data => {
       this.temp = data['results'];
-      this.text = (this.temp[0].formatted_address);
-
-      console.log(this.text);
+      console.log(this.temp.length);
+      if(this.temp.length ==0  ){
+        this.text="Can't find address";
+      }
+      else{
+        this.text = (this.temp[0].formatted_address);
+        console.log(this.text)
+      }
       this.sendtocomunicationservice(this.temp[0]);
 
  
