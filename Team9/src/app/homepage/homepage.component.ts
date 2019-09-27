@@ -13,7 +13,6 @@ import { ClassmanagerService }from '../classmanager.service';
 })
 export class HomepageComponent implements OnInit {
 
-
        userlocation;
        usersIPAddress;
        userlat;

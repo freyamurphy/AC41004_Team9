@@ -28,8 +28,8 @@
   <div class="list-group" *ngFor = "let hospital of hospitalList | paginate: { itemsPerPage: 10  , currentPage: p } ; let i = index" >
     <a id={{i}} class="list-group-item list-group-item-action flex-column align-items-start" (click)="highlight(i);">
       <div class="d-flex w-100 justify-content-between" >
-        <h6 class="mb-1"  tabindex="2">{{hospital.providerName}}</h6>
-        <h6 class="mb-2"  tabindex="2">Price: ${{hospital.averageTotalPayments}} </h6>
+        <h6 class="mb-1" tabindex="6">{{hospital.providerName}}</h6>
+        <h6 class="mb-2" tabindex="7">Price: {{hospital.averageTotalPayments | currency}} </h6>
       </div>
       <small name="Distance">Distance</small>
     </a>

@@ -1,10 +1,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
-<button   color="primary" (click)="getLocation()" matTooltip="Find your location automatically"
+<button tabindex="1" color="primary" (click)="getLocation()" matTooltip="Find your location automatically"
     ><i class="fa fa-map-marker"></i>
 </button>
- 
+
 <br>
-<input class="auto"(keydown.backspace)="resetText()" (focusout)="getMLocation()" (keydown.enter)="getMLocation()" name="addressBox" id ="addressBox" placeholder="Enter Address" value="{{text}}" [(ngModel)]="textValue"  #search [formControl]="searchControl"  required>
+<input tabindex="2" class="auto"(keydown.backspace)="resetText()" (focusout)="getMLocation()" (keydown.enter)="getMLocation()" name="addressBox" id ="addressBox" placeholder="Enter Address" value="{{text}}" [(ngModel)]="textValue"  #search [formControl]="searchControl"  required>
 <!--<button  (click)="getMLocation()"><i class="fa fa-search"></i></button>-->
- 
