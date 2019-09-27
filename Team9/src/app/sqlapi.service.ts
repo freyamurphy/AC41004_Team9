@@ -35,6 +35,8 @@ function on sql is named
 
   searchWithStateAndDRGCodeFunction(state, drgcode ): Observable<any> {
     console.log("inside sqlapi");
+    state="AL";
+    drgcode=64;
         console.log(state, drgcode );
 var temp = "https://zeno.computing.dundee.ac.uk/2019-projects/team9/AC41004_Team9/echotest.php?state="+state+"&condition_Code="+drgcode;
   console.log(temp );
@@ -71,9 +73,13 @@ inserthospical(data:string,lat:string,long:string) {
        var temp = "https://zeno.computing.dundee.ac.uk/2019-projects/team9/AC41004_Team9/hospitalone.php?ID="+data+"&lat="+lat+"&lng="+long;
   //    https://zeno.computing.dundee.ac.uk/2019-projects/team9/AC41004_Team9/hospitalone.php?ID=50002&lat=37.6334549&lng=-122.0879165
   console.log(temp );
+  console.log(sql );
    //this.http.post(`${this.baseUrl}/store`, { data: car })
-var a = this.http.get(temp);
-console.log("inswerting -"+lat +"-  -"+ long+ "-   -" +data+"-");
+ return  this.http.get(temp).pipe(
+   map((res) => {
+    return res['data'];
+ }));
+
 
 }
 

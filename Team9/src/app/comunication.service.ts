@@ -65,29 +65,27 @@ hospitalHandler(dataset){
 
   var templat =new Array(1000);
   var templng =new Array(1000);
-      for(let i = 0 ; i < 10; i++)
+      for(let i = 0 ; i < this.resultlength; i++)
       {
         templat[i]=1000;
          templng[i]=1000;
          console.log(dataset[i].lat);
          if(dataset[i].lat ==null){
           this.getlocationfromaddress(dataset[i].State,dataset[i].StreetAddress).subscribe((res: any) => {templat[i]=res.results[0].geometry.location.lat ;templng[i]=res.results[0].geometry.location.lng;console.log("long"+res.results[0].geometry.location.lng);console.log("lat"+res.results[0].geometry.location.lat);});//templat= res.geometry.lat; templng= res.geometry.lng
-}
-          if(templng[i]!=1000 && templng[i]!=undefined)
-          {
-          //
           }
+
 
 
       }
 
       setTimeout( ()=>{
-        for(let i = 0 ; i < 10; i++)
+        for(let i = 0 ; i < this.resultlength; i++)
         {
           if(templng[i]!=1000 && templng[i]!=undefined)
           {
-            this.sqlapi.inserthospical(dataset[i].providers_ID,templat[i],templng[i]);
+            this.sqlapi.inserthospical(dataset[i].providers_ID,templat[i],templng[i]).subscribe((res: any) => {console.log(res);});
         }
+
         }
       }, 10000)
 
