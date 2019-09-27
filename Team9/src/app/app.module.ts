@@ -29,6 +29,8 @@ import { SearchbarComponent } from './UserFilters2/searchbar/searchbar/searchbar
 import { SelectComponent } from './UserFilters2/select/select/select.component';
 import { SearchComponent } from './search/search.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 // services
 import { SqlapiService } from './sqlapi.service';
@@ -74,6 +76,8 @@ import { BackComponent } from './back/back/back.component';
     MatSelectModule,
     MatTooltipModule,
     MatInputModule,
+    MatSnackBarModule,
+    MatDialogModule,
     ReactiveFormsModule,
     FormsModule,
     MatAutocompleteModule,
