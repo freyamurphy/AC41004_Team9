@@ -117,7 +117,7 @@ this.comunicate.setuseraddress(locationInput);
         this.sendtocomunicationservice(this.temp[0]);
 
       }
-
+//test
  
     });
   }
