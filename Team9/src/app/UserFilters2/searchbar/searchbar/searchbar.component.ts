@@ -11,12 +11,15 @@ import { ComunicationService } from '../../../comunication.service';
 export class SearchbarComponent implements OnInit{
   public innerHeight: any;
   public innerWidth: any;
-value:any;
+  value:any;
+  placeholder : string = "Search for DRG Code or Description of Condition";
   //@HostListener('window:resize', ['$event'])
 
   constructor(private comunicate:ComunicationService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    //this.placeholder = "hello";
+  }
 
 
 submitfunction(){
