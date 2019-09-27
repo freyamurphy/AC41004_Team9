@@ -62,17 +62,36 @@ getstatefromaddress(locationInput:any):string{
 
 hospitalHandler(dataset){
 
-      for(let i = 0 ; i < this.resultlength; i++){
-        var templat=1000;
-        var templng=1000;
-        this.getlocationfromaddress(dataset[i].State,dataset[i].StreetAddress).subscribe((res: any) => {templat= res.geometry.lat; templng= res.geometry.lng});;
-if(templat!=1000){
-        this.sqlapi.inserthospical(dataset[i].providers_ID,templat,templng);
+
+  var templat =new Array(1000);
+  var templng =new Array(1000);
+      for(let i = 0 ; i < 10; i++)
+      {
+        templat[i]=1000;
+         templng[i]=1000;
+         console.log(dataset[i].lat);
+         if(dataset[i].lat ==null){
+          this.getlocationfromaddress(dataset[i].State,dataset[i].StreetAddress).subscribe((res: any) => {templat[i]=res.results[0].geometry.location.lat ;templng[i]=res.results[0].geometry.location.lng;console.log("long"+res.results[0].geometry.location.lng);console.log("lat"+res.results[0].geometry.location.lat);});//templat= res.geometry.lat; templng= res.geometry.lng
+}
+          if(templng[i]!=1000 && templng[i]!=undefined)
+          {
+          //
+          }
 
 
       }
 
-}
+      setTimeout( ()=>{
+        for(let i = 0 ; i < 10; i++)
+        {
+          if(templng[i]!=1000 && templng[i]!=undefined)
+          {
+            this.sqlapi.inserthospical(dataset[i].providers_ID,templat[i],templng[i]);
+        }
+        }
+      }, 10000)
+
+
 }
 getlocationfromaddress(state: string,address: string): Observable<any>{
 
