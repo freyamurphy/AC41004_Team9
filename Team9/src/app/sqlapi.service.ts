@@ -68,10 +68,16 @@ var temp = "https://zeno.computing.dundee.ac.uk/2019-projects/team9/AC41004_Team
 
 
 //accepts provider id returns a value if it has one if not it finds it and inserts it into the database..
-inserthospical(data:string,lat:string,long:string) {
+inserthospical(data:string,lat:string,long:string): Observable<any>  {
 
        var temp = "https://zeno.computing.dundee.ac.uk/2019-projects/team9/AC41004_Team9/hospitalone.php?ID="+data+"&lat="+lat+"&lng="+long;
-  //    https://zeno.computing.dundee.ac.uk/2019-projects/team9/AC41004_Team9/hospitalone.php?ID=50002&lat=37.6334549&lng=-122.0879165
+
+
+
+       var sql = "update providers set lat =" +lat +" , lng="+long+"  where ID ="+data+";";
+
+console.log("inswerting -"+lat +"-  -"+ long+ "-   -" +data+"-");
+
   console.log(temp );
   console.log(sql );
    //this.http.post(`${this.baseUrl}/store`, { data: car })
