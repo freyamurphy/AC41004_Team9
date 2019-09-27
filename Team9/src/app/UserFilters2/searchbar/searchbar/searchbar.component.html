@@ -1,12 +1,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="searchbar">
-
-
-
-
-      <input  placeholder="{{placeholder}}" style="margin-top:00px" input type="text"  [(ngModel)]="value"  id="search" name="Search for DRG Code or Description of Condition" placeholder="DRG Code/Description of Condition" required/>
-<br>
-
+      <input style="margin-top:00px" input type="text"  [(ngModel)]="value"  id="search" name="Search for DRG Code or Description of Condition" placeholder="DRG Code/Description of Condition" tabindex="3" required/>
+      <br>
+      <button mat-raised-button color="primary" id= "formSelect" (click)="submit()" value="submit" tabindex="4">Search</button>
 
 
 
