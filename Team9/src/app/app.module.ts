@@ -16,6 +16,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {MatInputModule} from '@angular/material';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatTableModule} from '@angular/material/table';
 //pages
 import { UserfiltersComponent } from './userfilters/userfilters.component';
 import { MapoutlineareasTESTComponent } from './mapoutlineareas-test/mapoutlineareas-test.component';
@@ -78,6 +79,7 @@ import { BackComponent } from './back/back/back.component';
     MatInputModule,
     MatSnackBarModule,
     MatDialogModule,
+    MatTableModule,
     ReactiveFormsModule,
     FormsModule,
     MatAutocompleteModule,
