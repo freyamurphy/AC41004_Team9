@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { ComunicationService } from '../../../comunication.service';
+import { SqlapiService } from 'src/app/sqlapi.service';
 
 @Component({
   selector: 'app-searchbar',
@@ -18,16 +19,18 @@ export class SearchbarComponent implements OnInit{
 
   //@HostListener('window:resize', ['$event'])
 
-  constructor(private interact:ComunicationService) { }
+  constructor(private interact:ComunicationService, private sql:SqlapiService) { }
 
   ngOnInit() {
     //this.placeholder = "hello";
-    this.interact.getsearchresults().subscribe((res: any) => {this.list =res;console.log(res);});
+
+    this.sql.hellolenny(this.value).subscribe((res: any) => {this.list =res;console.log(res);});
+
+
  
   }
 
   autocomplete(){
-    //this.interact.runsearch(this.value);
     console.log(this.list[0]);
   }
 submitfunction(){
