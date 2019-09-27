@@ -25,6 +25,10 @@ private useruseraddressSource = new Subject<any>();
 useraddress$ = this.useruseraddressSource.asObservable();
 
 
+private autoCompleteSource = new Subject<any>();
+autoComplete$ = this.autoCompleteSource.asObservable();
+
+
 
 resultlength:any;
 userstate:any;
@@ -41,6 +45,33 @@ runsearch(code) {
 
 
 }
+
+
+
+//to use put the following in init setautoComplete(what you are searching for ) and subscibe to getautocompete
+setautoComplete(locationInput:any)
+{
+
+  this.sqlapi.hellolenny(locationInput).subscribe((res: any) => {this.autoCompleteSource.next(res)});
+
+
+}
+
+getautoComplete(): Observable<any> {
+
+
+    return this.autoCompleteSource.asObservable();
+}
+
+
+
+
+
+
+
+
+
+
 // returns search results from runsearch function
 getsearchresults(): Observable<any>
 {
