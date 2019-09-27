@@ -16,6 +16,7 @@ import { SqlapiService }from '../sqlapi.service';
 export class HospitalselecterComponent implements OnInit {
 
 hospitalList: any[]=[];
+//test
 
 
 public innerHeight: any;
