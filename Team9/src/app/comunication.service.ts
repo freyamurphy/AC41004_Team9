@@ -77,8 +77,7 @@ sortPriceFunction(){
       }
 */
 var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
- //  table = document.getElementById("myTable");
-   //table=this.usersort;
+
    switching = true;
    //Set the sorting direction to ascending:
    dir = "asc";
@@ -96,9 +95,7 @@ var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
            shouldSwitch = false;
            /*Get the two elements you want to compare,
            one from current row and one from the next:*/
-          // x = rows[i].getElementsByTagName("TD")[n];
            x = rows[i].averageTotalPayments;
-          // y = rows[i + 1].getElementsByTagName("TD")[n];
            y = rows[i + 1].averageTotalPayments;
            /*check if the two rows should switch place,
            based on the direction, asc or desc:*/
@@ -119,7 +116,6 @@ var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
        if (shouldSwitch) {
            /*If a switch has been marked, make the switch
            and mark that a switch has been done:*/
-      //     rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
            [this.usersort[i+1], this.usersort[i]] = [this.usersort[i], this.usersort[i+1]]
            switching = true;
            //Each time a switch is done, increase this count by 1:
@@ -135,8 +131,6 @@ var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
    }
 
         return this.usersort;
-    //  return this.usersort.reverse();
-
 
 
 }
