@@ -65,9 +65,9 @@ hospitalHandler(dataset){
       for(let i = 0 ; i < this.resultlength; i++){
         var templat=1000;
         var templng=1000;
-        this.getlocationfromaddress(dataset[i].State,dataset[i].StreetAddress).subscribe((res: any) => {templat= res.geometry.lat; templng= res.geometry.lng});;
+      //  this.getlocationfromaddress(dataset[i].State,dataset[i].StreetAddress).subscribe((res: any) => {templat= res.geometry.lat; templng= res.geometry.lng});;
 if(templat!=1000){
-        this.sqlapi.inserthospical(dataset[i].providers_ID,templat,templng);
+    //    this.sqlapi.inserthospical(dataset[i].providers_ID,templat,templng);
 
 
       }
