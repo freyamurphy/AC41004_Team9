@@ -1,7 +1,9 @@
 <agm-map [latitude]="focusLocation.lat" [longitude]="focusLocation.lng"
   [zoom]="zoom"
-  style="height:100%; width: 100% ;"
+  style="height:100%; width: 100%;"
   >
+
+<div class="mapContainer">
 
   <!-- loop through each hospital -->
   <ng-template ngFor let-item [ngForOf]="top20Providers" let-i="index" [ngForTrackBy]="trackByFn">
@@ -15,4 +17,5 @@
       </agm-info-window>
     </agm-marker>
   </ng-template>
+</div>
 </agm-map>
