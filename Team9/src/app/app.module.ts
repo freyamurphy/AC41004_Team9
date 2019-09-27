@@ -75,7 +75,7 @@ import { ComunicationService } from './comunication.service';
 import { GeolocationComponent } from './geolocation/geolocation.component';
 
 
-
+import {MatTableModule} from '@angular/material/table';
 import { ManuallocationComponent } from './manuallocation/manuallocation/manuallocation.component';
 
 import { UserhelpComponent } from './help/userhelp/userhelp.component';
