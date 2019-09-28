@@ -30,6 +30,11 @@ export class GeolocationComponent implements OnInit {
 
    }
 
+ openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
+  }
   ngOnInit() {
     this.searchControl = new FormControl();
     this.mapsAPILoader.load().then(() => {
@@ -98,29 +103,30 @@ this.comunicate.setuseraddress(locationInput);
 }
 
 
-  getMLocation()
-  {
+getMLocation()
+{
 
-    this.zipcode = ((document.getElementById("addressBox") as HTMLInputElement).value);
+  this.zipcode = ((document.getElementById("addressBox") as HTMLInputElement).value);
 
-    this.baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + this.zipcode + "&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8&region=US";
+  this.baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + this.zipcode + "&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8&region=US";
 
-    this.http.get(this.baseUrl).subscribe(data => {
-      this.temp = data['results'];
-      console.log(this.temp.length);
-      if(this.temp.length ==0  ){
-        this.text="Can't find address";
-      }
-      else{
-        this.text = (this.temp[0].formatted_address);
-        console.log(this.text);
-        this.sendtocomunicationservice(this.temp[0]);
+  this.http.get(this.baseUrl).subscribe(data => {
+    this.temp = data['results'];
+    if(this.temp.length == 0){
+      this.error = true;
+      this.text=' ';
+      this.openSnackBar("Invalid address", "");
+    }
+    else{
+      this.error = false;
+      this.text = (this.temp[0].formatted_address);
+      this.sendtocomunicationservice(this.temp[0]);
 
-      }
+    }
 //test
- 
-    });
-  }
+
+  });
+}
   resetText(){
     this.text = "";
   }
