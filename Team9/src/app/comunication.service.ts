@@ -38,7 +38,7 @@ userstate:any;
 // runs a search
 runsearch(code) {
 // todo make sure this runs as an * if there is no address
-  console.log("runnign a sql seaech inside communicaton manager with code ",code);
+  console.log("runnign a sql search inside communicaton manager with code ",code);
    console.log(this.userstate);
   this.sqlapi.searchWithStateAndDRGCodeFunction(this.userstate,code).subscribe((res: any) => {this.arrayofstufflocationSource.next(res);this.resultlength=res.length;this.hospitalHandler(res);});
 
@@ -163,7 +163,10 @@ resetfocused(){
 
 
 
-
+getuserlocation(){
+  console.log("inside get user location function");
+  return {lat:this.userlat, lng:this.userlong};
+}
 
 
 
