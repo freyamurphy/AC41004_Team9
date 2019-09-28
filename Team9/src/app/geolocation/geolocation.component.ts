@@ -4,7 +4,7 @@ import { ElementRef, NgZone, OnInit, ViewChild, Component } from '@angular/core'
 import { FormControl } from '@angular/forms';
 import { MapsAPILoader } from '@agm/core';
 import { ComunicationService } from '../comunication.service';
-
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 
 @Component({
@@ -20,17 +20,17 @@ export class GeolocationComponent implements OnInit {
   temp: any;
   text: any;
   textValue = "";// state
+  error: boolean = false;
   public searchControl: FormControl;
   @ViewChild("search", {static:false})
   public searchElementRef: ElementRef;
 
   constructor( private http: HttpClient, private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone, private comunicate:ComunicationService) {
+    private ngZone: NgZone, private comunicate:ComunicationService, private _snackBar: MatSnackBar) {
     this.showPosition = this.showPosition.bind(this);
 
    }
-
- openSnackBar(message: string, action: string) {
+   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
       duration: 2000,
     });
@@ -50,27 +50,20 @@ export class GeolocationComponent implements OnInit {
           if (place.geometry === undefined || place.geometry === null) {
             return;
           }
-
-          //set latitude, longitude and zoom
-          /*this.latitude = place.geometry.location.lat();
-          this.longitude = place.geometry.location.lng();
-          this.zoom = 12;*/
         });
       });
     });
   }
 
   getLocation() {
-    console.log("button has been clicked.")
+    this.error = false;
+    console.log("button has been clicked.");
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.showPosition, this.showError);
-
     }
     else {
-      console.log("Geolocation is not supported by this browser.")
+      console.log("Geolocation is not supported by this browser.");
     }
-
-
   }
 
   showPosition(position) {
@@ -91,8 +84,8 @@ export class GeolocationComponent implements OnInit {
     var reverseUrl = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat + "," + lng +"&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8"
     this.http.get(reverseUrl).subscribe(data => {
       var temp = data['results'];
-    this.text = (temp[0].formatted_address);
-    this.sendtocomunicationservice(temp[0]);
+      this.text = (temp[0].formatted_address);
+      this.sendtocomunicationservice(temp[0]);
     });
 
   }
@@ -103,30 +96,30 @@ this.comunicate.setuseraddress(locationInput);
 }
 
 
-getMLocation()
-{
+  getMLocation()
+  {
 
-  this.zipcode = ((document.getElementById("addressBox") as HTMLInputElement).value);
+    this.zipcode = ((document.getElementById("addressBox") as HTMLInputElement).value);
 
-  this.baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + this.zipcode + "&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8&region=US";
+    this.baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + this.zipcode + "&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8&region=US";
 
-  this.http.get(this.baseUrl).subscribe(data => {
-    this.temp = data['results'];
-    if(this.temp.length == 0){
-      this.error = true;
-      this.text=' ';
-      this.openSnackBar("Invalid address", "");
-    }
-    else{
-      this.error = false;
-      this.text = (this.temp[0].formatted_address);
-      this.sendtocomunicationservice(this.temp[0]);
+    this.http.get(this.baseUrl).subscribe(data => {
+      this.temp = data['results'];
+      if(this.temp.length == 0){
+        this.error = true;
+        this.text=' ';
+        this.openSnackBar("Invalid address", "");
+      }
+      else{
+        this.error = false;
+        this.text = (this.temp[0].formatted_address);
+        this.sendtocomunicationservice(this.temp[0]);
 
-    }
+      }
 //test
 
-  });
-}
+    });
+  }
   resetText(){
     this.text = "";
   }
