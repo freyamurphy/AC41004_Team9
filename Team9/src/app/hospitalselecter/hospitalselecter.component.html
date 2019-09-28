@@ -11,7 +11,7 @@
         <h6 class="mb-1" tabindex="6">{{hospital.providerName}}</h6>
         <h6 class="mb-2" tabindex="6">Price: {{hospital.averageTotalPayments | currency}} </h6>
       </div>
-      <small name="Distance">Distance</small><p>{{getdistance(hospital.providers_ID,i,p)}} Miles</p>  
+      <small name="Distance">Distance</small><p>{{getdistance(hospital.providers_ID,i,p)| number:'.0'}} Miles</p>  
     </a>
   </div>
 <pagination-controls (pageChange)="p = $event"></pagination-controls>

@@ -92,6 +92,7 @@ export class GeolocationComponent implements OnInit {
 
 sendtocomunicationservice(locationInput:any){
 this.comunicate.setuseraddress(locationInput);
+
   console.log(locationInput);
 }
 
@@ -114,6 +115,7 @@ this.comunicate.setuseraddress(locationInput);
         this.error = false;
         this.text = (this.temp[0].formatted_address);
         this.sendtocomunicationservice(this.temp[0]);
+            this.comunicate.setuserlocation(this.temp[0].geometry.location.lat,this.temp[0].geometry.location.lng);
 
       }
 //test

@@ -178,6 +178,10 @@ getstatefromaddress(locationInput:any):string{
 //todo check if this can ever be missed (not likely)
 }
 
+
+
+
+
 hospitalHandler(dataset){
 
 
@@ -250,14 +254,14 @@ resetfocused(){
 
 
 getuserlocation(){
-  console.log("inside get user location function");
+  //console.log("inside get user location function");
   return {lat:this.userlat, lng:this.userlong};
 }
 
 
 
 setuserlocation(lat,long){
-
+console.log("user location set ");
   this.userlat=lat;
   this.userlong=long;
  this.resetfocused();
