@@ -3,20 +3,19 @@
 
 
 
-
-      <input  (keydown)="autocomplete()" placeholder="{{placeholder}}" style="margin-top:00px" input type="text"  [(ngModel)]="value"  id="search" name="Search for DRG Code or Description of Condition" placeholder="DRG Code/Description of Condition" tabindex="3"  required/>
+      <input style="margin-top:00px"  type="text"  
+            [(ngModel)]="value"  id="search" placeholder="DRG Code/Description of Condition" 
+            list="conditionList" 
+            [(ngModel)]='selected' (change)="autocomplete(selected)" required/>
+      <datalist id="conditionList">
+            <select>
+                  <option *ngFor="let item of list" [value]="item.Description"></option> 
+            </select>
+      </datalist>
       <br>
-      <button mat-raised-button color="primary" id= "formSelect" (click)="submit()" value="submit" tabindex="4" >Search</button>
+      <button mat-raised-button color="primary" id= "formSelect" (click)="submit()" value="submit">Search</button>
 
 
 
 
-      <!--   this fucking works
-
-            <input style="margin-top:100px" input type="text"  [(ngModel)]="value"  id="search" name="Search for DRG Code or Description of Condition" placeholder="DRG Code/Description of Condition" required/>
-
-            <button mat-raised-button color="primary" id= "formSelect" (click)="submit()" value="submit">Search</button>
-
-
-
--->
+    
