@@ -191,7 +191,7 @@ hospitalHandler(dataset){
       {
         templat[i]=1000;
          templng[i]=1000;
-         console.log(dataset[i].lat);
+      //   console.log(dataset[i].lat);
          if(dataset[i].lat ==null){
           this.getlocationfromaddress(dataset[i].State,dataset[i].StreetAddress).subscribe((res: any) => {templat[i]=res.results[0].geometry.location.lat ;templng[i]=res.results[0].geometry.location.lng;console.log("long"+res.results[0].geometry.location.lng);console.log("lat"+res.results[0].geometry.location.lat);});//templat= res.geometry.lat; templng= res.geometry.lng
           }
