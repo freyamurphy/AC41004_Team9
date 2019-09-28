@@ -3,27 +3,7 @@
 </head>
 
 <body>
-<!--<div class="table-responsive-sm">
-    <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">Condition</th>
-            <th scope="col">Hospital Name</th>
-            <th scope="col">Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let hospital of hospitalList">
-            <td>{{ hospital.description }}</td>
-            <td>{{ hospital.hospital }}</td>
-            <td>{{ hospital.cost }}</td>
 
-          </tr>
-<button (click)="testfunction()" type="button" name="button">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</button>
-
-        </tbody>
-      </table>
-    </div>-->
 <div class="hospitalselector"  >
   <div class="list-group" *ngFor = "let hospital of hospitalList | paginate: { itemsPerPage: 10  , currentPage: p } ; let i = index" >
     <a id={{i}} class="list-group-item list-group-item-action flex-column align-items-start" (click)="highlight(i);" (keyup.enter)="highlight(i);">

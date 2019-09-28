@@ -98,6 +98,7 @@ var temp = "https://zeno.computing.dundee.ac.uk/2019-projects/team9/AC41004_Team
 
   return this.http.get(temp).pipe(
     map((res) => {
+      
      return res['data'];
   }));
 }

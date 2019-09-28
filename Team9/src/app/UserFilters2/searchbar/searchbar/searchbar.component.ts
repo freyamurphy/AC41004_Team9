@@ -7,52 +7,39 @@ import { SqlapiService } from 'src/app/sqlapi.service';
   templateUrl: './searchbar.component.html',
   styleUrls: ['./searchbar.component.css']
 })
-
-
 export class SearchbarComponent implements OnInit{
   public innerHeight: any;
   public innerWidth: any;
-
+  t;
+  selected: string = "";
   value:any;
   list: any[] =[];
   placeholder : string = "Search for DRG Code or Description of Condition";
-
-  //@HostListener('window:resize', ['$event'])
-
   constructor(private interact:ComunicationService, private sql:SqlapiService) { }
 
   ngOnInit() {
     //this.placeholder = "hello";
-
-    this.sql.hellolenny(this.value).subscribe((res: any) => {this.list =res;console.log(res);});
-
-
- 
+    this.interact.getautoComplete().subscribe((res: any) => {this.list =res;console.log(res);});
+    this.t = this.interact.setautoComplete("");
+    //console.log(t);
   }
 
-  autocomplete(){
-    console.log(this.list[0]);
+  autocomplete(name){
+    console.log(name);
+    console.log(this.selected);
+
   }
-submitfunction(){
-
-
-
-}
-
-
 
   scroll(){
     document.getElementById("hospitals").scrollIntoView({behavior:"smooth"});
   }
 
-
-
-submit(){
- console.log(this.value);
- this.interact.runsearch(this.value);
-//////////////////////////////
-
-}
-
-
+  submit(){
+    console.log(this.value);
+    this.interact.runsearch(this.value);
+    this.scroll();
+  }
+  reset(){
+    this.selected="";
+  }
 }
