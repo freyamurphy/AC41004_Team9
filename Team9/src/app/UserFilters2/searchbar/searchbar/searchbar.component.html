@@ -4,8 +4,8 @@
 
 
       <input style="margin-top:00px"  type="text"  
-            [(ngModel)]="value"  id="search" placeholder="DRG Code/Description of Condition" 
-            list="conditionList" 
+            id="search" placeholder="DRG Code/Description of Condition" 
+            list="conditionList" (keydown.backspace)="reset()"
             [(ngModel)]='selected' (change)="autocomplete(selected)" required/>
       <datalist id="conditionList">
             <select>

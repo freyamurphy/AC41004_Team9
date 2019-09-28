@@ -29,15 +29,17 @@ export class SearchbarComponent implements OnInit{
     console.log(this.selected);
 
   }
-  submitfunction(){
-  }
 
   scroll(){
     document.getElementById("hospitals").scrollIntoView({behavior:"smooth"});
   }
 
   submit(){
-  console.log(this.value);
-  this.interact.runsearch(this.value);
+    console.log(this.value);
+    this.interact.runsearch(this.value);
+    this.scroll();
+  }
+  reset(){
+    this.selected="";
   }
 }
