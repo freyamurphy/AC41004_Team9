@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { ClassmanagerService }from '../classmanager.service';
 import { Observable, throwError, of  } from 'rxjs';
 import { SqlapiService }from '../sqlapi.service';
-
+import { GelocatorService }from '../gelocator.service';
 
 
 @Component({
@@ -31,7 +31,7 @@ boolforselector:any="white";
 p: number = 1;
 
 
-constructor(private interact:ComunicationService, private database:ClassmanagerService,private sqlapi:SqlapiService ) { }
+constructor(private interact:ComunicationService, private database:ClassmanagerService,private sqlapi:SqlapiService ,private locate:GelocatorService) { }
 
 
 ngOnInit() {
@@ -45,17 +45,25 @@ ngOnInit() {
 onResize(event) {
   this.innerWidth = window.innerWidth;
   this.innerHeight= window.innerHeight;
-
 }
 getheight(heightpercentage){
-var tempvar =(this.innerHeight/100)*heightpercentage;
-return tempvar.toString();
+  var tempvar =(this.innerHeight/100)*heightpercentage;
+  return tempvar.toString();
 }
 
 getwidth(widthpercentage){
-var tempvar =(this.innerWidth/100)*widthpercentage;
-return tempvar.toString();
+  var tempvar =(this.innerWidth/100)*widthpercentage;
+  return tempvar.toString();
 }
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+getdistance(hospitalID,index,pagenumber){
+  var userlocation = this.interact.getuserlocation();
+//  console.log(userlocation.lat," aa ",userlocation.lng);
+  return  this.locate.getdistance(this.hospitalList[index*pagenumber].lat,this.hospitalList[index*pagenumber].lng,userlocation.lat,userlocation.lng);
+
+
+}
+
 
 senddatatocommunicationservice(data:any){
   this.interact.setfocusedlocation(data);

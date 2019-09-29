@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+ 
 
 </head>
 <body [style.height.px]="getheight(100)" >
+
 <!--Elements in the background-->
-  <div class="bg">
+<div class="bg" id="test">
+<button (click)="turnbig()">zoom</button>
+<button (click)="turnsmall()">shrink</button>
+
     <h1 id="top" class="font-weight-bold" style="font-family: Roboto, sans-serif;text-align: center; color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; ">Freedom 4 U</h1>
     <div class="FrontEndUIElements">
 

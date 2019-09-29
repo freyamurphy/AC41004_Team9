@@ -27,7 +27,7 @@ export class GelocatorService {
   longInContext:any;
 
 
- 
+
 
 
 
@@ -55,7 +55,7 @@ export class GelocatorService {
       ;
     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
     var d = R * c; // Distance in km
-    return d;
+    return (d*1000/1600).toFixed(1);
   }
 
   deg2rad(deg) {
