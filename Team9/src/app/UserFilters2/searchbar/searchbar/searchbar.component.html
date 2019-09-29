@@ -5,7 +5,7 @@
 
       <input style="margin-top:00px"  type="text"  
             id="search" placeholder="DRG Code/Description of Condition" 
-            list="conditionList" 
+            list="conditionList" (keydown.enter)="submit()"
             [(ngModel)]='selected' (change)="autocomplete(selected)" required/>
       <datalist id="conditionList">
             <select>

@@ -37,7 +37,10 @@ export class SearchbarComponent implements OnInit{
   submit(){
     console.log(this.value);
     this.interact.runsearch(this.value);
+    document.getElementById("bottom").style.display = "block";
+
     this.scroll();
+    
   }
   reset(){
     this.selected="";
