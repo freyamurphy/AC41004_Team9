@@ -6,7 +6,7 @@
 </button>
 
 <br>
-<input tabindex="2" class="auto"(keydown.backspace)="resetText()" (focusout)="getMLocation()"
+<input tabindex="2" class="auto" (focusout)="getMLocation()"
  (keydown.enter)="getMLocation()" name="addressBox" id ="addressBox" placeholder="Enter Address" 
  value="{{text}}" [(ngModel)]="textValue"  #search [formControl]="searchControl"  required>
 
