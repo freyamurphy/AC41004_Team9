@@ -28,14 +28,31 @@ for rowIndex in range(len(rows)):
     if insertedConditionIDs[conditionCode].get(providerID) is None:
         insertedConditionIDs[conditionCode][providerID] = {}
     if insertedConditionIDs[conditionCode][providerID].get(year) is None:
+        insertedConditionIDs[conditionCode][providerID][year] = {
+            "totalDischarges": totalDischarges,
+            "averageCoveredCharges": averageCoveredCharges,
+            "averageTotalPayments": averageTotalPayments,
+            "averageMedicarePayments": averageMedicarePayments,
+        }
+
+for conditionCode in insertedConditionIDs:
+    providerDict = insertedConditionIDs[conditionCode]
+    for providerID in providerDict:
+        yearDict = providerDict[providerID]
+        mostRecentYear = max(list(yearDict.keys()))
+
+        totalDischarges = yearDict[mostRecentYear].get("totalDischarges")
+        averageCoveredCharges = yearDict[mostRecentYear].get("averageCoveredCharges")
+        averageTotalPayments = yearDict[mostRecentYear].get("averageTotalPayments")
+        averageMedicarePayments = yearDict[mostRecentYear].get("averageMedicarePayments")
 
         statement = (
-            "INSERT INTO `Pricing`(`providesID`,`conditionCode`, `totalDischarges`"
+            "INSERT INTO `Pricing`(`providerID`,`conditionCode`, `totalDischarges`"
             ", `averageCoveredCharges`, `averageTotalPayments`,"
             "`averageMedicarePayments`, `year`"
             f")VALUES({providerID}, {conditionCode}, {totalDischarges},"
             f" {averageCoveredCharges}, {averageTotalPayments}, {averageMedicarePayments}, "
-            f"{year}) \n"
+            f"{mostRecentYear}) \n"
         )
 
         outputFile.write(statement)
