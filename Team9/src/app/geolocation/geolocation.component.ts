@@ -99,7 +99,7 @@ export class GeolocationComponent implements OnInit {
 
   getMLocation()
   {
-
+//test
     this.zipcode = ((document.getElementById("addressBox") as HTMLInputElement).value);
     this.zipcode = this.zipcode.replace('#','');
     this.baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + this.zipcode + "&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8&region=US";
