@@ -36,10 +36,10 @@ p: number = 1;
 
 constructor(private interact:ComunicationService, private database:ClassmanagerService,private sqlapi:SqlapiService ,private locate:GelocatorService) { }
 
-steven(index):any{
-  var display = this.hospitalList[index].averageTotalPayments - this.hospitalList[index].averageMedicarePayments;
-  //var t = this.hospitalList[index];
-  console.log(display);
+steven(index, pagenumber):any{
+  var display = this.hospitalList[(index*pagenumber)+index+1].averageTotalPayments - this.hospitalList[(index*pagenumber)+index+1].averageMedicarePayments;
+  var t = this.hospitalList[index];
+  console.log("Index: ", index, " page: ", pagenumber, " display: ", display);
   return display;
 }
 ngOnInit() {
