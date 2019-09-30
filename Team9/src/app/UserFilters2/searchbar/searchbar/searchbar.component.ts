@@ -9,6 +9,7 @@ import {INgxSelectOption} from '../../../../../node_modules/ngx-select-ex/ngx-se
   styleUrls: ['./searchbar.component.css']
 })
 export class SearchbarComponent implements OnInit, OnDestroy{
+  code: any;
   ngOnDestroy(): void {
     throw new Error("Method not implemented.");
   }
@@ -24,7 +25,7 @@ export class SearchbarComponent implements OnInit, OnDestroy{
   public innerHeight: any;
   public innerWidth: any;
   t;
-  selected: string = "";
+  selected: any;
   list: any[] =[];
   description: any[] = [];
   placeholder : string = "Search for DRG Code or Description of Condition";
@@ -52,11 +53,11 @@ public doOpen = () => console.log('SingleDemoComponent.doOpen');
 
 public doClose = () => console.log('SingleDemoComponent.doClose');
 
-public doSelect = (value: any) => console.log('SingleDemoComponent.doSelect', value);
+public doSelect = (value: any) => { console.log(value); this.selected = value};;
 
 public doRemove = (value: any) => console.log('SingleDemoComponent.doRemove', value);
 
-public doSelectOptions = (options: INgxSelectOption[]) => console.log('SingleDemoComponent.doSelectOptions', options);
+public doSelectOptions = (options: INgxSelectOption[]) =>{};
   ngOnInit() {
     //this.placeholder = "hello";
     this.interact.getautoComplete().subscribe((res: any) => {
@@ -71,7 +72,15 @@ public doSelectOptions = (options: INgxSelectOption[]) => console.log('SingleDem
     this.t = this.interact.setautoComplete("");
     //console.log(t);
   }
-
+ auto(){
+    for(var i = 0; i < this.list.length; i++){
+      if(this.selected == this.list[i].Description)
+      {
+        this.code = this.list[i].conditionsCode;
+      }
+      //console.log(i);
+    }
+  }
   autocomplete(name){
     //console.log(name);
     //console.log(this.selected);
@@ -85,13 +94,17 @@ public doSelectOptions = (options: INgxSelectOption[]) => console.log('SingleDem
   }
 
   submit(){
+    console.log(this.selected);
+    this.auto();
+    console.log(this.code);
+
     var addressBox = (document.getElementById("addressBox") as HTMLInputElement).value;
     if(!addressBox){
       addressBox = "216 N Meech Rd, Dansville, MI 48819, USA";
       (document.getElementById("addressBox") as HTMLInputElement).value = addressBox;
       
     }
-    this.interact.runsearch(this.selected);
+    this.interact.runsearch(this.code);
     document.getElementById("bottom").style.display = "block";
 
     this.scroll();
