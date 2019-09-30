@@ -39,7 +39,7 @@ constructor(private interact:ComunicationService, private database:ClassmanagerS
 steven(index):any{
   var display = this.hospitalList[index].averageTotalPayments - this.hospitalList[index].averageMedicarePayments;
   //var t = this.hospitalList[index];
-  console.log(display);
+//  console.log(display);
   return display;
 }
 ngOnInit() {
@@ -66,7 +66,7 @@ getwidth(widthpercentage){
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 getdistance(hospitalID,index,pagenumber){
   var userlocation = this.interact.getuserlocation();
-//  console.log(userlocation.lat," aa ",userlocation.lng);
+  console.log(userlocation.lat," aa ",userlocation.lng);
   return  this.locate.getdistance(this.hospitalList[index*pagenumber].lat,this.hospitalList[index*pagenumber].lng,userlocation.lat,userlocation.lng);
 
 
@@ -74,11 +74,22 @@ getdistance(hospitalID,index,pagenumber){
 
 
 senddatatocommunicationservice(data:any){
+
   this.interact.setfocusedlocation(data);
 }
 
 
+getColor(index,pagenumber)
+{
+  if(this.hospitalList[index*pagenumber].pricingYEAR <2012)
+  {
 
+    return "red";
+
+  }
+  return "green";
+
+}
 
 
 

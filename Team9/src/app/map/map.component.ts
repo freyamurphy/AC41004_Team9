@@ -11,11 +11,9 @@ import { Subscription } from 'rxjs/Subscription';
 export class MapComponent implements OnInit {
   zoom = 12;
 
-  userLocation = {lat: 56.4620, lng: -2.9707};
+  userLocation = {lat: 0, lng: 0};
+
   providers:any;
-
-
-
 
   focusLocation = this.userLocation;
 
@@ -44,8 +42,9 @@ export class MapComponent implements OnInit {
 
     this.subscription = this.interact.getfocusedlocation().subscribe(
       message => {
-        this.userLocation.lat = message.lat;
-        this.userLocation.lng = message.lng;
+        this.focusLocation.lat = message.lat;
+        this.focusLocation.lng = message.lng;
+        console.log("changed focsed location");
       });
 
     setTimeout( () => {}, 5000)

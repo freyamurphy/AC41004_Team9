@@ -42,13 +42,13 @@ export class SearchbarComponent implements OnInit{
     if(!addressBox){
       addressBox = "216 N Meech Rd, Dansville, MI 48819, USA";
       (document.getElementById("addressBox") as HTMLInputElement).value = addressBox;
-      
+
     }
     this.interact.runsearch(this.selected);
     document.getElementById("bottom").style.display = "block";
 
     this.scroll();
-    
+
   }
   reset(){
     this.selected="";
