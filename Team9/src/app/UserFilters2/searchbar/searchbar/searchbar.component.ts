@@ -36,8 +36,6 @@ export class SearchbarComponent implements OnInit{
   submit(){
     var addressBox = (document.getElementById("addressBox") as HTMLInputElement).value;
     if(!this.selected){
-      console.log("yay");
-
       this.selected = "FOOT PROCEDURES W CC";
     }
     if(!addressBox){
