@@ -5,11 +5,11 @@
 
       <input style="margin-top:00px"  type="text"
             id="search" placeholder="DRG Code/Description of Condition"
-            list="conditionList" (keydown.enter)="submit()" (keydown.backspace)="reset()"
+            list="conditionList" (keydown.enter)="submit()"
             [(ngModel)]='selected' (change)="autocomplete(selected)" required/>
       <datalist id="conditionList">
             <select>
-                  <option *ngFor="let item of list" [value]="item.Description"></option>
+                  <option *ngFor="let item of list" [value]="item.Description"></option> 
             </select>
       </datalist>
       <br>
