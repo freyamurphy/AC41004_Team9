@@ -14,6 +14,8 @@ export class SearchbarComponent implements OnInit{
   selected: string = "";
   list: any[] =[];
   placeholder : string = "Search for DRG Code or Description of Condition";
+  i: any;
+  code: any;
   constructor(private interact:ComunicationService, private sql:SqlapiService) { }
 
   ngOnInit() {
@@ -22,7 +24,7 @@ export class SearchbarComponent implements OnInit{
     this.t = this.interact.setautoComplete("");
     //console.log(t);
   }
-
+  
   autocomplete(name){
     console.log(name);
     console.log(this.selected);
@@ -32,19 +34,25 @@ export class SearchbarComponent implements OnInit{
   scroll(){
     document.getElementById("hospitals").scrollIntoView({behavior:"smooth"});
   }
-
+  auto(){
+    for(var i = 0; i < this.list.length; i++){
+      if(this.selected == this.list[i].Description)
+      {
+        this.code = this.list[i].conditionsCode;
+      }
+      //console.log(i);
+    }
+  }
   submit(){
     var addressBox = (document.getElementById("addressBox") as HTMLInputElement).value;
     if(!this.selected){
-
       this.selected = "FOOT PROCEDURES W CC";
     }
     if(!addressBox){
       addressBox = "216 N Meech Rd, Dansville, MI 48819, USA";
       (document.getElementById("addressBox") as HTMLInputElement).value = addressBox;
-
     }
-    this.interact.runsearch(this.selected);
+    this.interact.runsearch(this.code);
     document.getElementById("bottom").style.display = "block";
 
     this.scroll();

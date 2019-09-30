@@ -7,10 +7,10 @@
             id="search" placeholder="DRG Code/Description of Condition" tabindex="5"
             list="conditionList" (keydown.enter)="submit()"
             [(ngModel)]='selected' (change)="autocomplete(selected)" required/>
-      <datalist id="conditionList">
-            <select>
-                  <option *ngFor="let item of list" [value]="item.Description"></option>
+      <datalist id="conditionList" >
+            <select >
+                  <option *ngFor="let item of list; let i = index" [ngValue]="i" [value]="item.Description"></option>
             </select>
       </datalist>
       <br>
-      <button mat-raised-button color="primary" tabindex="6" id= "formSelect" (click)="submit()"value="submit">Search</button>
+      <button mat-raised-button color="primary" tabindex="6" id= "formSelect" (click)="submit(); auto()"value="submit">Search</button>
