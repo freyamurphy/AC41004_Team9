@@ -43,7 +43,6 @@ export class SearchbarComponent implements OnInit{
       (document.getElementById("addressBox") as HTMLInputElement).value = addressBox;
       
     }
-    console.log(this.selected);
     this.interact.runsearch(this.selected);
     document.getElementById("bottom").style.display = "block";
 
