@@ -9,9 +9,9 @@
     <a id={{i}} class="list-group-item list-group-item-action flex-column align-items-start" (click)="highlight(i);" (keyup.enter)="highlight(i);">
       <div class="d-flex w-100 justify-content-between" >
         <h6 class="mb-1"tabindex="1">{{hospital.providerName}}</h6>
-        <h6 class="mb-2" tabindex="1">Price: {{hospital.averageTotalPayments | currency}} </h6>
+        <h6 class="mb-2" tabindex="1">Price: {{steven(i) | currency}} </h6>
       </div>
-      <small tabindex="1" name="Distance">Distance</small><p tabindex="1">{{getdistance(hospital.providers_ID,i,p)| number:'.0'}} Miles</p>  
+      <small tabindex="1" name="Distance">Distance</small><p tabindex="1">{{getdistance(hospital.providers_ID,i,p)| number:'.0'}} Miles</p>
     </a>
   </div>
 <pagination-controls tabindex="1" (pageChange)="p = $event"></pagination-controls>
