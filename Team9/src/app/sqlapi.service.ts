@@ -36,7 +36,7 @@ function on sql is named
   searchWithStateAndDRGCodeFunction(state, drgcode ): Observable<any> {
     console.log("inside sqlapi");
 //    state="AL";
-  //  drgcode=64;
+    drgcode=64;
         console.log(state, drgcode );
 var temp = "https://zeno.computing.dundee.ac.uk/2019-projects/team9/AC41004_Team9/echotest.php?state="+state+"&condition_Code="+drgcode;
   console.log(temp );
