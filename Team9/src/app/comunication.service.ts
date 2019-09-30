@@ -43,7 +43,6 @@ userstate:any;
 runsearch(code) {
 // todo make sure this runs as an * if there is no address
 
-
   this.sqlapi.searchWithStateAndDRGCodeFunction(this.userstate,code).subscribe((res: any) =>
   {
     this.arrayOfObjectsFromSQLSource.next(res);
@@ -51,10 +50,8 @@ runsearch(code) {
     this.hospitalHandler(res);
     this.usersort=res;
     this.distancecalcvariable=res;
-    this.sortPriceFunction();
+  //  this.sortPriceFunction();
   });
-
-
 
 }
 
@@ -101,6 +98,7 @@ sortPriceFunction(){
 //Set the sorting direction to ascending:
 
 console.log("zhen said hi ");
+
 var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
 
    switching = true;
@@ -108,30 +106,34 @@ var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
    dir = "asc";
    /*Make a loop that will continue until
    no switching has been done:*/
+  // var distance= this.locate.getdistance(this.usersort[1].lat,this.usersort[1].lng,this.userlat,this.userlong);
+  // console.log("distance",distance);
    while (switching) {
        //start by saying: no switching is done:
        switching = false;
        rows = this.usersort;
-      // rows=this.usersort.rows;
+    //   console.log("rows length",rows.length, "result length",this.resultlength);
        /*Loop through all table rows (except the
        first, which contains table headers):*/
-       for (i = 0; i < (rows.length - 1); i++) {
+     for (i = 0; i < (rows.length - 1); i++) {
+        //    for (i = 0; i < ; i++) {
            //start by saying there should be no switching:
            shouldSwitch = false;
            /*Get the two elements you want to compare,
            one from current row and one from the next:*/
-           x = rows[i].averageTotalPayments-rows[i].averageMedicarePayments;
-           y = rows[i + 1].averageTotalPayments-rows[i+1].averageMedicarePayments;
+           //rows[i].averageMedicarePayments;
+          x = rows[i].averageTotalPayments-rows[i].averageMedicarePayments;
+          y = rows[i + 1].averageTotalPayments-rows[i+1].averageMedicarePayments;
            /*check if the two rows should switch place,
            based on the direction, asc or desc:*/
            if (dir == "asc") {
-               if (x > y) {
+               if ( x > y  ) {
                    //if so, mark as a switch and break the loop:
                    shouldSwitch= true;
                    break;
                }
            } else if (dir == "desc") {
-               if (x < y) {
+               if ( x < y) {
                    //if so, mark as a switch and break the loop:
                    shouldSwitch = true;
                    break;
@@ -231,7 +233,7 @@ var apikey="AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8";
 
 var temp = "https://maps.googleapis.com/maps/api/geocode/json?address="+address+" "+state+"&key="+apikey;
 //    https://maps.googleapis.com/maps/api/geocode/json?address=90210&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8;
-return this.http.get<any>(temp).subscribe((res: any) => {console.log(res);});;
+//return this.http.get<any>(temp).subscribe((res: any) => {console.log(res);});
 }
 
 

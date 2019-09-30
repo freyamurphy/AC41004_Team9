@@ -67,6 +67,7 @@ getwidth(widthpercentage){
 getdistance(hospitalID,index,pagenumber){
   var userlocation = this.interact.getuserlocation();
   console.log(userlocation.lat," aa ",userlocation.lng);
+  console.log("Testing",index ,pagenumber);
   return  this.locate.getdistance(this.hospitalList[index*pagenumber].lat,this.hospitalList[index*pagenumber].lng,userlocation.lat,userlocation.lng);
 
 
