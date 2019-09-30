@@ -2,7 +2,16 @@
   [zoom]="zoom"
   style="height:100%; width: 100%;"
   >
-  
+
+  <agm-marker [latitude]="focusLocation.lat" [longitude]="focusLocation.lng"
+    [label]=""
+    [iconUrl]="'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'">
+  </agm-marker>
+
+  <agm-circle [latitude]="focusLocation.lat" [longitude]="focusLocation.lng"
+    [radius]="5000">
+  </agm-circle>
+
   <div class="mapContainer">
     <agm-marker-cluster
       [imagePath]="'https://googlemaps.github.io/js-marker-clusterer/images/m'">
