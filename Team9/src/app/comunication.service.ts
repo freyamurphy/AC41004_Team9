@@ -42,8 +42,8 @@ userstate:any;
 // runs a search
 runsearch(code) {
 // todo make sure this runs as an * if there is no address
-  console.log("runnign a sql search inside communicaton manager with code ",code);
-  console.log(this.userstate);
+
+
   this.sqlapi.searchWithStateAndDRGCodeFunction(this.userstate,code).subscribe((res: any) =>
   {
     this.arrayOfObjectsFromSQLSource.next(res);
@@ -219,7 +219,12 @@ hospitalHandler(dataset){
          templng[i]=1000;
       //   console.log(dataset[i].lat);
          if(dataset[i].lat ==null){
-          this.getlocationfromaddress(dataset[i].State,dataset[i].StreetAddress).subscribe((res: any) => {templat[i]=res.results[0].geometry.location.lat ;templng[i]=res.results[0].geometry.location.lng;console.log("long"+res.results[0].geometry.location.lng);console.log("lat"+res.results[0].geometry.location.lat);});//templat= res.geometry.lat; templng= res.geometry.lng
+          this.getlocationfromaddress(dataset[i].State,dataset[i].StreetAddress).subscribe((res: any) => {
+            templat[i]=res.results[0].geometry.location.lat;
+            templng[i]=res.results[0].geometry.location.lng;
+          //  console.log("long"+res.results[0].geometry.location.lng);
+            //console.log("lat"+res.results[0].geometry.location.lat);
+          });//templat= res.geometry.lat; templng= res.geometry.lng
           }
 
 
@@ -265,6 +270,7 @@ getuseraddress(): Observable<any> {
 // set the location the map is focusing on
 setfocusedlocation(locationInput:any)
 {
+  console.log("locationInput ", locationInput);
   this.focusedlocationSource.next(locationInput);
 }
 // get the location the map is focused on
