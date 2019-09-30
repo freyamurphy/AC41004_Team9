@@ -3,41 +3,22 @@
 </head>
 
 <body>
-<!--<div class="table-responsive-sm">
-    <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">Condition</th>
-            <th scope="col">Hospital Name</th>
-            <th scope="col">Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let hospital of hospitalList">
-            <td>{{ hospital.description }}</td>
-            <td>{{ hospital.hospital }}</td>
-            <td>{{ hospital.cost }}</td>
 
-          </tr>
-<button (click)="testfunction()" type="button" name="button">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</button>
-
-        </tbody>
-      </table>
-    </div>-->
 <div class="hospitalselector"  >
-  <div class="list-group" *ngFor = "let hospital of hospitalList | paginate: { itemsPerPage: 10  , currentPage: p } ; let i = index" >
+  <div class="list-group" *ngFor = "let hospital of hospitalList | paginate: { itemsPerPage: 5  , currentPage: p } ; let i = index" >
     <a id={{i}} class="list-group-item list-group-item-action flex-column align-items-start" (click)="highlight(i);" (keyup.enter)="highlight(i);">
       <div class="d-flex w-100 justify-content-between" >
-        <h6 class="mb-1" tabindex="6">{{hospital.providerName}}</h6>
-        <h6 class="mb-2" tabindex="6">Price: {{hospital.averageTotalPayments | currency}} </h6>
+        <h6 class="mb-1"tabindex="1">{{hospital.providerName}}</h6>
+        <h6 class="mb-2" tabindex="1">Price: {{hospital.averageTotalPayments | currency}} </h6>
       </div>
-      <small name="Distance">Distance</small>
+      <small tabindex="1" name="Distance">Distance</small><p tabindex="1">{{getdistance(hospital.providers_ID,i,p)| number:'.0'}} Miles</p>  
     </a>
   </div>
-<pagination-controls (pageChange)="p = $event"></pagination-controls>
+<pagination-controls tabindex="1" (pageChange)="p = $event"></pagination-controls>
 
 
 </div>
+
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

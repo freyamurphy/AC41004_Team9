@@ -90,21 +90,26 @@ export class GeolocationComponent implements OnInit {
 
   }
 
-sendtocomunicationservice(locationInput:any){
-this.comunicate.setuseraddress(locationInput);
-  console.log(locationInput);
-}
+  sendtocomunicationservice(locationInput:any){
+  this.comunicate.setuseraddress(locationInput);
+
+    console.log(locationInput);
+  }
 
 
   getMLocation()
   {
 
     this.zipcode = ((document.getElementById("addressBox") as HTMLInputElement).value);
-
+    this.zipcode = this.zipcode.replace('#','');
     this.baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + this.zipcode + "&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8&region=US";
 
     this.http.get(this.baseUrl).subscribe(data => {
       this.temp = data['results'];
+      console.log(this.temp);
+      console.log(this.zipcode);
+      
+      
       if(this.temp.length == 0){
         this.error = true;
         this.text=' ';
@@ -114,10 +119,11 @@ this.comunicate.setuseraddress(locationInput);
         this.error = false;
         this.text = (this.temp[0].formatted_address);
         this.sendtocomunicationservice(this.temp[0]);
+            this.comunicate.setuserlocation(this.temp[0].geometry.location.lat,this.temp[0].geometry.location.lng);
 
       }
 //test
- 
+
     });
   }
   resetText(){
