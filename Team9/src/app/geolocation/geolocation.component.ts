@@ -108,8 +108,8 @@ export class GeolocationComponent implements OnInit {
       this.temp = data['results'];
       console.log(this.temp);
       console.log(this.zipcode);
-      
-      
+
+
       if(this.temp.length == 0){
         this.error = true;
         this.text=' ';
@@ -125,6 +125,7 @@ export class GeolocationComponent implements OnInit {
 //test
 
     });
+
   }
   resetText(){
     this.text = "";

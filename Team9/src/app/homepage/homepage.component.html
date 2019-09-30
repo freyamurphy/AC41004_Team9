@@ -9,13 +9,11 @@
 <div id="top" style="display: hidden"></div>
 <!--Elements in the background-->
 <div class="bg" id="test">
-  <button (click)="turnsmall()"><i class="fa fa-search-minus"></i></button>
+  <button (click)="turnsmall()" id="Decrease Font Size" name="Decrease Font Size" tabindex="1"><i class="fa fa-search-minus"></i></button>
   <br>
-  <button (click)="turnbig()"><i class="fa fa-search-plus"></i></button> 
-
+  <button (click)="turnbig()" id="Increase Font Size" name="Increase Font Size" tabindex="2"><i class="fa fa-search-plus"></i></button>
     <h1  class="font-weight-bold" style="font-family: Roboto, sans-serif;text-align: center; color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; ">Freedom 4 U</h1>
     <div class="FrontEndUIElements">
-
       <app-geolocation></app-geolocation>
       <app-searchbar></app-searchbar>
       <input hidden id="lat" value="none"/>
@@ -25,24 +23,28 @@
   <!--Elements on the bottom part of the page-->
   <div id="bottom" style="display: none;">
         <div class="row" >
-          <div class="col-md-auto" style="width: 40%; height: 100%" id="hospitals">
+          <div class="col-md-auto" style="width: 45%; height: 98%" id="hospitals">
             <div class="center-div">
               <app-back></app-back>
               <app-select></app-select>
 
             </div>
             <div >
-              <mat-label   id="label" name="Sort By">within Distance</mat-label>
+              <mat-label  tabindex="7" id="label" name="Sort By">Within Distance</mat-label>
               <mat-select    id="select">
                   <mat-option>None</mat-option>
-                  <mat-option tabindex="6"   (click)="limitByDistance(100)">100</mat-option>
-                  <mat-option tabindex="6"   (click)="limitByDistance(500)">500</mat-option>
+                  <mat-option tabindex="7"   (click)="limitByDistance(20)">20</mat-option>
+                  <mat-option tabindex="7"   (click)="limitByDistance(100)">100</mat-option>
+                  <mat-option tabindex="7"   (click)="limitByDistance(500)">500</mat-option>
+                  <mat-option tabindex="7"   (click)="limitByDistance(100000)">Any distance</mat-option>
+
+
               </mat-select>
               </div>
             <app-hospitalselecter></app-hospitalselecter>
             </div>
-            <div class="col-md-auto">
-              <app-map style="height:100%; width: 100%; position: absolute;"
+            <div class="col-md-auto" style="width:40%; margin-top:20px;margin-bottom:20px;border-radius: 25px;">
+              <app-map style="height:98%; width: 100%; position: absolute; border-radius: 25px;"
               [style.height.px]="getheight(100)"[style.width.px]="getwidth(50)">
               </app-map>
             </div>
