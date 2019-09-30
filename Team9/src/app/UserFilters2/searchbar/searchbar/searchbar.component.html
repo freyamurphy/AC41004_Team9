@@ -1,21 +1,37 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <div class="searchbar">
 
 
 
-      <input style="margin-top:00px"  type="text"  
+      <!--<input style="margin-top:00px"  type="text"  
             id="search" placeholder="DRG Code/Description of Condition" 
-            list="conditionList" (keydown.enter)="submit()"
+            list="conditionList" (keydown.enter)="submit()" (focusout)="complete()"
             [(ngModel)]='selected' (change)="autocomplete(selected)" required/>
       <datalist id="conditionList">
             <select>
                   <option *ngFor="let item of list" [value]="item.Description"></option> 
             </select>
-      </datalist>
+      </datalist>-->
+      <ngx-select    
+              
+            [formControl]="ngxControl"
+            [allowClear]="true"
+            [defaultValue]="doNgxDefault()"
+            [items]="description"
+            placeholder="No condition selected"
+            (typed)="inputTyped('ngx-select', $event)"
+            (focus)="doFocus()"
+            (blur)="doBlur()"
+            (open)="doOpen()"
+            (close)="doClose()"
+            (select)="doSelect($event)"
+            (remove)="doRemove($event)"
+            (selectionChanges)="doSelectOptions($event)">
+
+
+      </ngx-select>
+      
       <br>
-      <button mat-raised-button color="primary" id= "formSelect" (click)="submit()"value="submit">Search</button>
-
-
-
-
-    
+      <button mat-raised-button color="primary" tabindex="6" id= "formSelect" (click)="submit();"
+      value="submit" >Search</button>
