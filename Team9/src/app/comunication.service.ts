@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { searchWithStateAndDRGCodeInterface }from './classmanager.service';
 import { SqlapiService }from './sqlapi.service';
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
+import { GelocatorService }from './gelocator.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -18,8 +19,8 @@ userlong:any=0;
 usersort:any;
 
 
-private arrayofstufflocationSource = new Subject<any>();
-arrayofstuff$ = this.arrayofstufflocationSource.asObservable();
+private arrayOfObjectsFromSQLSource = new Subject<any>();
+arrayofstuff$ = this.arrayOfObjectsFromSQLSource.asObservable();
 
 private userlocationSource = new Subject<any>();
 userlocation$ = this.userlocationSource.asObservable();
@@ -31,12 +32,12 @@ useraddress$ = this.useruseraddressSource.asObservable();
 private autoCompleteSource = new Subject<any>();
 autoComplete$ = this.autoCompleteSource.asObservable();
 
-
-
+tempvar:any;
+distancecalcvariable:any;
 resultlength:any;
 userstate:any;
 
-  constructor(private http: HttpClient,private sqlapi:SqlapiService ) { }
+  constructor(private http: HttpClient,private sqlapi:SqlapiService ,private locate:GelocatorService) { }
 
 // runs a search
 runsearch(code) {
@@ -45,10 +46,11 @@ runsearch(code) {
   console.log(this.userstate);
   this.sqlapi.searchWithStateAndDRGCodeFunction(this.userstate,code).subscribe((res: any) =>
   {
-    this.arrayofstufflocationSource.next(res);
+    this.arrayOfObjectsFromSQLSource.next(res);
     this.resultlength=res.length;
     this.hospitalHandler(res);
     this.usersort=res;
+    this.distancecalcvariable=res;
     this.sortPriceFunction();
   });
 
@@ -72,6 +74,30 @@ getautoComplete(): Observable<any> {
 
     return this.autoCompleteSource.asObservable();
 }
+
+
+
+limitdataByDistance(number){
+   let reservationArr :  any  = [];
+for(var i = 0; i < this.resultlength; i++){
+//console.log(this.locate.getdistance(this.distancecalcvariable[i].lat,this.distancecalcvariable[i].lng,this.userlat,this.userlong));
+if(this.locate.getdistance(this.distancecalcvariable[i].lat,this.distancecalcvariable[i].lng,this.userlat,this.userlong) < number){
+
+// delete row
+ reservationArr.push(this.distancecalcvariable[i]);
+
+}
+
+
+}
+
+this.arrayOfObjectsFromSQLSource.next(reservationArr);
+
+}
+
+
+
+
 
 
 
@@ -161,7 +187,7 @@ var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
 // returns search results from runsearch function
 getsearchresults(): Observable<any>
 {
-    return this.arrayofstufflocationSource.asObservable();
+    return this.arrayOfObjectsFromSQLSource.asObservable();
 }
 
 getstatefromaddress(locationInput:any):string{
