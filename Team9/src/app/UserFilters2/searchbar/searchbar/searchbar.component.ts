@@ -36,7 +36,6 @@ export class SearchbarComponent implements OnInit{
   submit(){
     var addressBox = (document.getElementById("addressBox") as HTMLInputElement).value;
     if(!this.selected){
-      console.log("yay");
 
       this.selected = "FOOT PROCEDURES W CC";
     }
@@ -45,7 +44,6 @@ export class SearchbarComponent implements OnInit{
       (document.getElementById("addressBox") as HTMLInputElement).value = addressBox;
       
     }
-    console.log(this.selected);
     this.interact.runsearch(this.selected);
     document.getElementById("bottom").style.display = "block";
 
