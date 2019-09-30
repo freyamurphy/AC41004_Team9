@@ -81,7 +81,7 @@ import { ManuallocationComponent } from './manuallocation/manuallocation/manuall
 import { UserhelpComponent } from './help/userhelp/userhelp.component';
 
 import { BackComponent } from './back/back/back.component';
-
+//test
 
 
 
