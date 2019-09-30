@@ -17,7 +17,9 @@ constructor(private comunicate:ComunicationService) { }
 
 
 sortPrice(){
+
      this.comunicate.sortPriceFunction();
+
  }
 
 

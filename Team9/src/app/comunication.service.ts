@@ -97,27 +97,8 @@ this.arrayOfObjectsFromSQLSource.next(reservationArr);
 
 
 
-
-
-
-
 sortPriceFunction(){
 //Set the sorting direction to ascending:
-/*
-  var temp ;
-      for(let i=0; i<this.usersort.length; i++) {
-
-          for(let j=this.usersort.length-1; j>i; j--) {
-              if(this.usersort[j].averageTotalPayments < this.usersort[j-1].averageTotalPayments)
-              {
-                //  [this.usersort[j+1], this.usersort[j]] = [this.usersort[j], this.usersort[j+1]];
-  temp=this.usersort[j-1];
-  this.usersort[j-1]=this.usersort[j];
-  this.usersort[j]=temp;
-              }
-          }
-      }
-*/
 
 console.log("zhen said hi ");
 var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
@@ -139,8 +120,8 @@ var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
            shouldSwitch = false;
            /*Get the two elements you want to compare,
            one from current row and one from the next:*/
-           x = rows[i].averageTotalPayments;
-           y = rows[i + 1].averageTotalPayments;
+           x = rows[i].averageTotalPayments-rows[i].averageMedicarePayments;
+           y = rows[i + 1].averageTotalPayments-rows[i+1].averageMedicarePayments;
            /*check if the two rows should switch place,
            based on the direction, asc or desc:*/
            if (dir == "asc") {
