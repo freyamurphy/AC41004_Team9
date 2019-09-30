@@ -42,8 +42,16 @@ userstate:any;
 // runs a search
 runsearch(code) {
 // todo make sure this runs as an * if there is no address
-  console.log("runnign a sql search inside communicaton manager with code ",code);
-  console.log(this.userstate);
+
+if(this.userstate == undefined){
+this.userstate="CA";
+
+}
+
+if(code == undefined){
+code=64;
+
+}
   this.sqlapi.searchWithStateAndDRGCodeFunction(this.userstate,code).subscribe((res: any) =>
   {
     this.arrayOfObjectsFromSQLSource.next(res);

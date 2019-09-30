@@ -11,11 +11,9 @@ import { Subscription } from 'rxjs/Subscription';
 export class MapComponent implements OnInit {
   zoom = 12;
 
-  userLocation = {lat: 56.4620, lng: -2.9707};
+  userLocation = {lat: 0, lng: 0};
+
   providers:any;
-
-
-
 
   focusLocation = this.userLocation;
 
