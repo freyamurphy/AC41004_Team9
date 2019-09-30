@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
- 
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
@@ -29,7 +29,16 @@
             <div class="center-div">
               <app-back></app-back>
               <app-select></app-select>
+
             </div>
+            <div >
+              <mat-label   id="label" name="Sort By">within Distance</mat-label>
+              <mat-select    id="select">
+                  <mat-option>None</mat-option>
+                  <mat-option tabindex="6"   (click)="limitByDistance(100)">100</mat-option>
+                  <mat-option tabindex="6"   (click)="limitByDistance(500)">500</mat-option>
+              </mat-select>
+              </div>
             <app-hospitalselecter></app-hospitalselecter>
             </div>
             <div class="col-md-auto">

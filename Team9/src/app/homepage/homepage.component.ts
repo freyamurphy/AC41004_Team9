@@ -4,7 +4,7 @@ import { HostListener } from "@angular/core";
 import { SqlapiService }from '../sqlapi.service';
 import { GelocatorService }from '../gelocator.service';
 import { ClassmanagerService }from '../classmanager.service';
-
+import { ComunicationService } from '../comunication.service';
 
 @Component({
   selector: 'app-homepage',
@@ -29,7 +29,7 @@ export class HomepageComponent implements OnInit {
 
         isHidden: boolean;
 
-       constructor(private sqlapi:SqlapiService ,private locate:GelocatorService , private classmanager:ClassmanagerService ) { }
+       constructor(private sqlapi:SqlapiService ,private locate:GelocatorService , private classmanager:ClassmanagerService ,private interact:ComunicationService) { }
 
 
     ngOnInit() {
@@ -71,6 +71,18 @@ export class HomepageComponent implements OnInit {
                   document.getElementById('test').style.lineHeight=(--this.curlineheight)+'pt';
               }
           }
+
+
+
+    limitByDistance(limitNumber){
+this.interact.limitdataByDistance(limitNumber);
+
+
+
+    }
+
+
+
 
     // this needs to be in master
     getuserlocation()
