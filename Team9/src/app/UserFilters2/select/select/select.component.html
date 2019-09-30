@@ -1,11 +1,11 @@
 <div class="parent">
   <mat-form-field>
     <div style="text-align:center;">
-      <mat-label tabindex="1" id="label" name="Sort By">Sort By</mat-label>
-      <mat-select tabindex="1" [(value)]="selected" id="select">
-          <mat-option tabindex="1">None</mat-option>
-          <mat-option tabindex="1" value="Distance" name="Distance" >{{filterOptions[0]}}</mat-option>
-          <mat-option tabindex="1" value="Price" name="Price" (click)="sortPrice()">{{filterOptions[1]}}</mat-option>
+      <mat-label tabindex="7" id="label" name="Sort By">Sort By</mat-label>
+      <mat-select tabindex="7" [(value)]="selected" id="select">
+          <mat-option>None</mat-option>
+          <mat-option tabindex="7" value="Distance" name="Distance">{{filterOptions[0]}}</mat-option>
+          <mat-option tabindex="7" value="Price" name="Price" (click)="sortPrice()">{{filterOptions[1]}}</mat-option>
       </mat-select>
       </div>
   </mat-form-field>
