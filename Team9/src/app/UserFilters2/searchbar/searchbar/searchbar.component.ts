@@ -37,7 +37,7 @@ export class SearchbarComponent implements OnInit{
     var addressBox = (document.getElementById("addressBox") as HTMLInputElement).value;
     if(!this.selected){
 
-      this.selected = "";
+      this.selected = "FOOT PROCEDURES W CC";
     }
     if(!addressBox){
       addressBox = "216 N Meech Rd, Dansville, MI 48819, USA";

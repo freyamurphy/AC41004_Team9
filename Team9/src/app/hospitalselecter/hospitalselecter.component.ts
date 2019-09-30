@@ -79,7 +79,17 @@ senddatatocommunicationservice(data:any){
 }
 
 
+getColor(index,pagenumber)
+{
+  if(this.hospitalList[index*pagenumber].pricingYEAR <2012)
+  {
 
+    return "red";
+
+  }
+  return "green";
+
+}
 
 
 
