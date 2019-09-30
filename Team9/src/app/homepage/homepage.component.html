@@ -2,16 +2,18 @@
 <html>
 <head>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 <body [style.height.px]="getheight(100)" >
-
+<div id="top" style="display: hidden"></div>
 <!--Elements in the background-->
 <div class="bg" id="test">
-<button (click)="turnbig()">zoom</button>
-<button (click)="turnsmall()">shrink</button>
+  <button (click)="turnsmall()"><i class="fa fa-search-minus"></i></button>
+  <br>
+  <button (click)="turnbig()"><i class="fa fa-search-plus"></i></button> 
 
-    <h1 id="top" class="font-weight-bold" style="font-family: Roboto, sans-serif;text-align: center; color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; ">Freedom 4 U</h1>
+    <h1  class="font-weight-bold" style="font-family: Roboto, sans-serif;text-align: center; color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; ">Freedom 4 U</h1>
     <div class="FrontEndUIElements">
 
       <app-geolocation></app-geolocation>
@@ -21,6 +23,7 @@
     </div>
   </div>
   <!--Elements on the bottom part of the page-->
+  <div id="bottom" style="display: none;">
         <div class="row" >
           <div class="col-md-auto" style="width: 40%; height: 100%" id="hospitals">
             <div class="center-div">
@@ -44,7 +47,7 @@
               </app-map>
             </div>
           </div>
-
+        </div>
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="/__/firebase/6.6.2/firebase-app.js"></script>
 

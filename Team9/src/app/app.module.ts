@@ -13,7 +13,7 @@ import { AppComponent } from './app.component';
 import { AgmCoreModule } from '@agm/core';// used for linking with google maps
 
 import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
- 
+
 import { HttpClientModule } from '@angular/common/http';// for linking with the backend node server
 
 import { HttpModule } from '@angular/http';
@@ -83,7 +83,7 @@ import { ManuallocationComponent } from './manuallocation/manuallocation/manuall
 import { UserhelpComponent } from './help/userhelp/userhelp.component';
 
 import { BackComponent } from './back/back/back.component';
-
+//test
 
 
 

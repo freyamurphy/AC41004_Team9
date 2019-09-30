@@ -12,7 +12,6 @@ export class SearchbarComponent implements OnInit{
   public innerWidth: any;
   t;
   selected: string = "";
-  value:any;
   list: any[] =[];
   placeholder : string = "Search for DRG Code or Description of Condition";
   constructor(private interact:ComunicationService, private sql:SqlapiService) { }
@@ -35,9 +34,23 @@ export class SearchbarComponent implements OnInit{
   }
 
   submit(){
-    console.log(this.value);
-    this.interact.runsearch(this.value);
+    var addressBox = (document.getElementById("addressBox") as HTMLInputElement).value;
+    if(!this.selected){
+      console.log("yay");
+
+      this.selected = "FOOT PROCEDURES W CC";
+    }
+    if(!addressBox){
+      addressBox = "216 N Meech Rd, Dansville, MI 48819, USA";
+      (document.getElementById("addressBox") as HTMLInputElement).value = addressBox;
+      
+    }
+    console.log(this.selected);
+    this.interact.runsearch(this.selected);
+    document.getElementById("bottom").style.display = "block";
+
     this.scroll();
+    
   }
   reset(){
     this.selected="";
