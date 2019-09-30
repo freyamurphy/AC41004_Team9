@@ -1,26 +1,23 @@
 <agm-map [latitude]="focusLocation.lat" [longitude]="focusLocation.lng"
   [zoom]="zoom"
-  style="height:100%; width: 100%;"
+  style="height:100%; width: 100% ;"
   >
-  
-  <div class="mapContainer">
-    <agm-marker-cluster
-      [imagePath]="'https://googlemaps.github.io/js-marker-clusterer/images/m'">
+  <agm-marker-cluster
+    [imagePath]="'https://googlemaps.github.io/js-marker-clusterer/images/m'">
 
-      <!-- loop through each hospital -->
-      <ng-template ngFor let-item [ngForOf]="top20Providers" let-i="index" [ngForTrackBy]="trackByFn">
-        <agm-marker [latitude]="top20Providers[i].lat"
-          [longitude]="top20Providers[i].lng"
-          [label]="">
-          <agm-info-window [disableAutoPan]="true">
-            {{top20Providers[i].providerName}}: ${{
-              top20Providers[i].averageTotalPayments - top20Providers[i].averageMedicarePayments
-            }}
-          </agm-info-window>
-        </agm-marker>
+    <!-- loop through each hospital -->
+    <ng-template ngFor let-item [ngForOf]="top20Providers" let-i="index" [ngForTrackBy]="trackByFn">
+      <agm-marker [latitude]="top20Providers[i].lat"
+        [longitude]="top20Providers[i].lng"
+        [label]="">
+        <agm-info-window [disableAutoPan]="true">
+          {{top20Providers[i].providerName}}: ${{
+            top20Providers[i].averageTotalPayments - top20Providers[i].averageMedicarePayments
+          }}
+        </agm-info-window>
+      </agm-marker>
 
 
-      </ng-template>
-    </agm-marker-cluster>
-  </div>
+    </ng-template>
+  </agm-marker-cluster>
 </agm-map>

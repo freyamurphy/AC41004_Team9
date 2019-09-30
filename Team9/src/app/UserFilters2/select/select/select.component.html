@@ -1,8 +1,8 @@
 <div class="parent">
   <mat-form-field>
     <div style="text-align:center;">
-      <mat-label tabindex="6" id="label" name="Sort By">Sort By</mat-label>
-      <mat-select tabindex="6" [(value)]="selected" id="select">
+      <mat-label id="label" name="Sort By">Sort By</mat-label>
+      <mat-select [(value)]="selected" id="select">
           <mat-option>None</mat-option>
           <mat-option value="Distance" name="Distance" (click)="srotDistance()">{{filterOptions[0]}}</mat-option>
           <mat-option value="Price" name="Price" (click)="srotPrice()">{{filterOptions[1]}}</mat-option>
