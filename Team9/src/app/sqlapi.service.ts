@@ -43,7 +43,7 @@ function on sql is named
 
 
 
-var proceed = true;
+var proceed = false;
 for(var i = 0; i < 1000; i++){
   if(drgcode == i){
     proceed=true;
@@ -52,7 +52,11 @@ for(var i = 0; i < 1000; i++){
 
 }
     console.log(drgcode ==64);
+  if(!proceed){
+drgcode = 64;
+proceed=true;
 
+  }
     if( proceed){
       var temp = "https://zeno.computing.dundee.ac.uk/2019-projects/team9/AC41004_Team9/echotest.php?state="+state+"&condition_Code="+drgcode;
     //  console.log(temp );
