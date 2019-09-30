@@ -43,15 +43,7 @@ userstate:any;
 runsearch(code) {
 // todo make sure this runs as an * if there is no address
 
-if(this.userstate == undefined){
-this.userstate="CA";
 
-}
-
-if(code == undefined){
-code=64;
-
-}
   this.sqlapi.searchWithStateAndDRGCodeFunction(this.userstate,code).subscribe((res: any) =>
   {
     this.arrayOfObjectsFromSQLSource.next(res);
@@ -227,7 +219,12 @@ hospitalHandler(dataset){
          templng[i]=1000;
       //   console.log(dataset[i].lat);
          if(dataset[i].lat ==null){
-          this.getlocationfromaddress(dataset[i].State,dataset[i].StreetAddress).subscribe((res: any) => {templat[i]=res.results[0].geometry.location.lat ;templng[i]=res.results[0].geometry.location.lng;console.log("long"+res.results[0].geometry.location.lng);console.log("lat"+res.results[0].geometry.location.lat);});//templat= res.geometry.lat; templng= res.geometry.lng
+          this.getlocationfromaddress(dataset[i].State,dataset[i].StreetAddress).subscribe((res: any) => {
+            templat[i]=res.results[0].geometry.location.lat;
+            templng[i]=res.results[0].geometry.location.lng;
+            console.log("long"+res.results[0].geometry.location.lng);
+            console.log("lat"+res.results[0].geometry.location.lat);
+          });//templat= res.geometry.lat; templng= res.geometry.lng
           }
 
 
@@ -253,7 +250,7 @@ var apikey="AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8";
 
 var temp = "https://maps.googleapis.com/maps/api/geocode/json?address="+address+" "+state+"&key="+apikey;
 //    https://maps.googleapis.com/maps/api/geocode/json?address=90210&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8;
-return this.http.get<any>(temp);
+return this.http.get<any>(temp).subscribe((res: any) => {console.log(res);});;
 }
 
 
@@ -273,6 +270,7 @@ getuseraddress(): Observable<any> {
 // set the location the map is focusing on
 setfocusedlocation(locationInput:any)
 {
+  console.log("locationInput ", locationInput);
   this.focusedlocationSource.next(locationInput);
 }
 // get the location the map is focused on

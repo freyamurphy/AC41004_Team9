@@ -34,7 +34,7 @@ function on sql is named
 
 
   searchWithStateAndDRGCodeFunction(state, drgcode:int ): Observable<any> {
-    console.log("inside sqlapi");
+//    console.log("inside sqlapi");
 
     // check drg code is a number
 
@@ -43,7 +43,7 @@ function on sql is named
 
 
 
-var proceed = false;
+var proceed = true;
 for(var i = 0; i < 1000; i++){
   if(drgcode == i){
     proceed=true;
@@ -53,9 +53,9 @@ for(var i = 0; i < 1000; i++){
 }
     console.log(drgcode ==64);
 
-    if(!proceed){
+    if( proceed){
       var temp = "https://zeno.computing.dundee.ac.uk/2019-projects/team9/AC41004_Team9/echotest.php?state="+state+"&condition_Code="+drgcode;
-        console.log(temp );
+    //  console.log(temp );
           return this.http.get(temp).pipe(
             map((res) => {
              return res['data'];
