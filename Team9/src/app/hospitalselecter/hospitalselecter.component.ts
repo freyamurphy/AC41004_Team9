@@ -17,12 +17,15 @@ export class HospitalselecterComponent implements OnInit {
 
 hospitalList: any[]=[];
 
-
 public innerHeight: any;
 public innerWidth: any;
 public code: any;
 public state: any;
  testvar:any;
+
+//hospitalPrice: any = (this.hospitalList.averageTotalPayments - this.hospitalList.averageMedicarePrice);
+//console.log(hospitalPrice);
+
 
 oldcontext:any;// used for selecting in the function highlight
 boolforselector:any="white";
@@ -33,7 +36,12 @@ p: number = 1;
 
 constructor(private interact:ComunicationService, private database:ClassmanagerService,private sqlapi:SqlapiService ,private locate:GelocatorService) { }
 
-
+steven(index):any{
+  var display = this.hospitalList[index].averageTotalPayments - this.hospitalList[index].averageMedicarePayments;
+  //var t = this.hospitalList[index];
+  console.log(display);
+  return display;
+}
 ngOnInit() {
   this.innerWidth = window.innerWidth;
   this.innerHeight= window.innerHeight;
