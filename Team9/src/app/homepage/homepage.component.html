@@ -24,17 +24,7 @@
           <div class="col-md-auto" style="width: 40%; height: 100%" id="hospitals">
             <div class="center-div">
               <app-back></app-back>
-              <div class="row">
-                  <div class="column"><app-select></app-select></div>
-                  <div class="column">
-                    <mat-label  id="label" name="Sort By">Within Distance</mat-label>
-                    <mat-select id="select">
-                        <mat-option>None</mat-option>
-                        <mat-option tabindex="6"   (click)="limitByDistance(100)">100</mat-option>
-                        <mat-option tabindex="6"   (click)="limitByDistance(500)">500</mat-option>
-                    </mat-select>
-                  </div>
-              </div>
+              <app-select></app-select>
             </div>
             <app-hospitalselecter></app-hospitalselecter>
             </div>

@@ -1,12 +1,26 @@
-<div class="parent">
-  <mat-form-field>
-    <div style="text-align:center;">
-      <mat-label tabindex="1" id="label" name="Sort By">Sort By</mat-label>
-      <mat-select tabindex="1" [(value)]="selected" id="select">
+<div class="row">
+  <div class="column">
+    <mat-form-field>
+      <div style="text-align:center;">
+        <mat-label tabindex="1" id="label" name="Sort By">Sort By</mat-label>
+        <mat-select tabindex="1" [(value)]="selected" id="select">
           <mat-option tabindex="1">None</mat-option>
           <mat-option tabindex="1" value="Distance" name="Distance" >{{filterOptions[0]}}</mat-option>
           <mat-option tabindex="1" value="Price" name="Price" (click)="sortPrice()">{{filterOptions[1]}}</mat-option>
-      </mat-select>
+        </mat-select>
       </div>
-  </mat-form-field>
+    </mat-form-field>
   </div>
+  <div class="column">
+    <mat-form-field>
+      <div style="text-align:center;">
+        <mat-label  id="label" name="Sort By">Within Distance</mat-label>
+        <mat-select id="select">
+          <mat-option>None</mat-option>
+          <mat-option tabindex="6"   (click)="limitByDistance(100)">100</mat-option>
+          <mat-option tabindex="6"   (click)="limitByDistance(500)">500</mat-option>
+        </mat-select>
+      </div>
+    </mat-form-field>
+  </div>
+</div>
