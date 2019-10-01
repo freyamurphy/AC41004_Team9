@@ -28,9 +28,26 @@ for rowIndex in range(len(rows)):
     if insertedConditionIDs[conditionCode].get(providerID) is None:
         insertedConditionIDs[conditionCode][providerID] = {}
     if insertedConditionIDs[conditionCode][providerID].get(year) is None:
+        yearDict = {
+            "totalDischarges": totalDischarges,
+            "averageCoveredCharges": averageCoveredCharges,
+            "averageTotalPayments": averageTotalPayments,
+            "averageMedicarePayments": averageMedicarePayments,
+        }
+        insertedConditionIDs[conditionCode][providerID][year] = yearDict
+
+for conditionCode in insertedConditionIDs:
+    for providerID in insertedConditionIDs[conditionCode]:
+        recentYear = max(list(insertedConditionIDs[conditionCode][providerID].keys()))
+
+        recentYearDict = insertedConditionIDs[conditionCode][providerID][recentYear]
+        totalDischarges = recentYearDict["totalDischarges"]
+        averageCoveredCharges = recentYearDict["averageCoveredCharges"]
+        averageTotalPayments = recentYearDict["averageTotalPayments"]
+        averageMedicarePayments = recentYearDict["averageMedicarePayments"]
 
         statement = (
-            "INSERT INTO `Pricing`(`providesID`,`conditionCode`, `totalDischarges`"
+            "INSERT INTO `Pricing`(`providerID`,`conditionCode`, `totalDischarges`"
             ", `averageCoveredCharges`, `averageTotalPayments`,"
             "`averageMedicarePayments`, `year`"
             f")VALUES({providerID}, {conditionCode}, {totalDischarges},"
