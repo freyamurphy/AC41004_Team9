@@ -3,6 +3,8 @@ import { ComunicationService } from '../../../comunication.service';
 import { SqlapiService } from 'src/app/sqlapi.service';
 import {FormControl} from '@angular/forms';
 import {INgxSelectOption} from '../../../../../node_modules/ngx-select-ex/ngx-select/ngx-select.interfaces';
+import {MatSnackBar} from '@angular/material/snack-bar';
+
 @Component({
   selector: 'app-searchbar',
   templateUrl: './searchbar.component.html',
@@ -30,7 +32,7 @@ export class SearchbarComponent implements OnInit, OnDestroy{
   description: any[] = [];
   placeholder : string = "Search for DRG Code or Description of Condition";
   //Almost all of this stuff was copied and altered from https://optimistex.github.io/ngx-select-ex/
-  constructor(private interact:ComunicationService, private sql:SqlapiService) {
+  constructor(private interact:ComunicationService, private sql:SqlapiService, private _snackBar: MatSnackBar) {
     this._ngxDefaultTimeout = setTimeout(() => {
       this._ngxDefaultInterval = setInterval(() => {
           const idx = Math.floor(Math.random() * (this.description.length - 1));
@@ -92,7 +94,11 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
   scroll(){
     document.getElementById("hospitals").scrollIntoView({behavior:"smooth"});
   }
-
+openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
+  }
   submit(){
     console.log(this.selected);
     this.auto();
@@ -104,7 +110,12 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
       (document.getElementById("addressBox") as HTMLInputElement).value = addressBox;
       
     }
-    console.log(addressBox + " " + this.code);
+    console.log(addressBox);
+    if(!addressBox.includes(", USA")){
+      //console.log("HELLO");
+      this.openSnackBar("Address is not in the US!", "");
+
+    }
     this.interact.runsearch(this.code);
     document.getElementById("bottom").style.display = "block";
 
