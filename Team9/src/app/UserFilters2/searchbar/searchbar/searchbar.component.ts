@@ -102,14 +102,14 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
     if(!addressBox){
       addressBox = "216 N Meech Rd, Dansville, MI 48819, USA";
       (document.getElementById("addressBox") as HTMLInputElement).value = addressBox;
-      
+
     }
     console.log(addressBox + " " + this.code);
     this.interact.runsearch(this.code);
     document.getElementById("bottom").style.display = "block";
 
     this.scroll();
-    
+
   }
   reset(){
     this.selected="";
