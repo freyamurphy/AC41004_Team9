@@ -5,6 +5,19 @@ body, html {
 .sel {
   background-image: url("../../Images/Love.jpg");
 }
+.Rows
+{
+    display: table;
+    width: 100%; /*Optional*/
+    table-layout: fixed; /*Optional*/
+    border-spacing: 10px; /*Optional*/
+}
+.Column
+{
+    display: table-cell;
+   
+}
+
 .bg {
   /* The image used */
   background-image: url("../../Images/Background7.jpg");
