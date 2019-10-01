@@ -15,11 +15,11 @@ export class SearchbarComponent implements OnInit, OnDestroy{
   ngOnDestroy(): void {
     throw new Error("Method not implemented.");
   }
-  
 
- 
+
+
     public ngxControl = new FormControl();
- 
+
     private _ngxDefaultTimeout;
     private _ngxDefaultInterval;
     private _ngxDefault;
@@ -37,10 +37,13 @@ export class SearchbarComponent implements OnInit, OnDestroy{
       this._ngxDefaultInterval = setInterval(() => {
           const idx = Math.floor(Math.random() * (this.description.length - 1));
           this._ngxDefault = this.description[idx];
+          this.selected = this._ngxDefault;
           // console.log('new default value = ', this._ngxDefault);
         }, 2000);
       }, 2000);
    }
+
+
    public doNgxDefault(): any {
     return this._ngxDefault;
 }
@@ -63,18 +66,19 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
   ngOnInit() {
     //this.placeholder = "hello";
     this.interact.getautoComplete().subscribe((res: any) => {
-      this.list =res; 
+      this.list =res;
       console.log(this.list);
       var i = 0;
       for(let item of this.list){
-        this.description[i] = item.Description; 
+        this.description[i] = item.Description;
         i++;
-      } 
+      }
     });
     this.t = this.interact.setautoComplete("");
     //console.log(t);
   }
  auto(){
+    console.log(this.selected);
     for(var i = 0; i < this.list.length; i++){
       if(this.selected == this.list[i].Description)
       {
@@ -96,7 +100,8 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
   }
 openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
-      duration: 1000,
+      
+      duration: 5000,
     });
   }
   submit(){
@@ -105,21 +110,21 @@ openSnackBar(message: string, action: string) {
     console.log(this.code);
 
     var addressBox = (document.getElementById("addressBox") as HTMLInputElement).value;
-    if(!addressBox){
-      addressBox = "216 N Meech Rd, Dansville, MI 48819, USA";
-      (document.getElementById("addressBox") as HTMLInputElement).value = addressBox;
 
-    }
     console.log(addressBox);
     if(!addressBox.includes(", USA")){
       //console.log("HELLO");
       this.openSnackBar("Address is not in the US!", "");
+      document.getElementById("bottom").style.display = "none";
 
     }
-    this.interact.runsearch(this.code);
-    document.getElementById("bottom").style.display = "block";
+    else{
+      this.interact.runsearch(this.code);
+      document.getElementById("bottom").style.display = "block";
 
-    this.scroll();
+      this.scroll();
+    }
+    
 
   }
   reset(){

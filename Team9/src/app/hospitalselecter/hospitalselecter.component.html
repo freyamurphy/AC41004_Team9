@@ -8,11 +8,11 @@
   <div class="list-group" *ngFor = "let hospital of hospitalList | paginate: { itemsPerPage: 8  , currentPage: p } ; let i = index" >
     <a id={{i}} class="list-group-item list-group-item-action flex-column align-items-start" (click)="highlight(i);" (keyup.enter)="highlight(i);">
       <div class="d-flex w-100 justify-content-between" >
-        <h6 class="mb-1"tabindex="9">{{hospital.providerName}}</h6>
-        <h6 class="mb-2" tabindex="9">Price: {{steven(i) | currency}} </h6>
+        <h6 class="mb-1"tabindex="9">{{ steven2(i,p)}}</h6>
+        <h6 class="mb-2" tabindex="9">Price: {{steven(i,p) | currency}} </h6>
       </div>
       <small tabindex="9" name="Distance">Distance</small><p>{{getdistance(hospital.providers_ID,i,p)| number:'.0'}} Miles</p>
-    <div style="height:20px; width:20px;" [style.background-color]="getColor(i,p)">aaa</div>
+<!--    <div style="height:20px; width:20px;" [style.background-color]="getColor(i,p)">aaa</div>-->
     </a>
   </div>
 

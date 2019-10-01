@@ -43,20 +43,21 @@ function on sql is named
 
 
 
-var proceed = false;
+var proceed = true;
 for(var i = 0; i < 1000; i++){
   if(drgcode == i){
-    proceed=true;
+  //  proceed=true;
 
   }
 
 }
-    console.log(drgcode ==64);
+//    console.log(drgcode ==64);
   if(!proceed){
-drgcode = 64;
-proceed=true;
+//drgcode = 64;
+//proceed=true;
 
   }
+  drgcode = 64;
     if( proceed){
       var temp = "https://zeno.computing.dundee.ac.uk/2019-projects/team9/AC41004_Team9/echotest.php?state="+state+"&condition_Code="+drgcode;
     //  console.log(temp );
