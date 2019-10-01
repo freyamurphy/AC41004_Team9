@@ -50,6 +50,7 @@ runsearch(code) {
     this.resultlength=res.length;
     this.hospitalHandler(res);
     this.usersort=res;
+
     this.distancecalcvariable=res;
     console.log(res);
 //    this.sortPriceFunction();
@@ -80,7 +81,7 @@ getautoComplete(): Observable<any> {
 
 limitdataByDistance(number){
    let reservationArr :  any  = [];
-for(var i = 0; i < this.resultlength; i++){
+for(var i = 0; i < this.resultlength-1; i++){
 //console.log(this.locate.getdistance(this.distancecalcvariable[i].lat,this.distancecalcvariable[i].lng,this.userlat,this.userlong));
 if(this.locate.getdistance(this.distancecalcvariable[i].lat,this.distancecalcvariable[i].lng,this.userlat,this.userlong) < number){
 
@@ -98,87 +99,52 @@ this.arrayOfObjectsFromSQLSource.next(reservationArr);
 
 
 
+ryanssort(whatsort){
+  for(var i = 0; i < this.usersort.length ; i++) {
+    this.usersort[i].Distance = this.locate.getdistance(this.usersort[i].lat,this.usersort[i].lng,this.userlat,this.userlong);
+  }
+var array =  this.usersort;
+  console.log(this.arrayOfObjectsFromSQLSource[0]);
+  if(whatsort==1)
+  {
+    this.arrayOfObjectsFromSQLSource.next(array.sort(this.compareprice));
+  }
+  else
+  {
+    this.arrayOfObjectsFromSQLSource.next(array.sort(this.comparedist));
+  }
 
-
-
-
-sortPriceFunction(){
-//Set the sorting direction to ascending:
-/*
-  var temp ;
-      for(let i=0; i<this.usersort.length; i++) {
-
-          for(let j=this.usersort.length-1; j>i; j--) {
-              if(this.usersort[j].averageTotalPayments < this.usersort[j-1].averageTotalPayments)
-              {
-                //  [this.usersort[j+1], this.usersort[j]] = [this.usersort[j], this.usersort[j+1]];
-  temp=this.usersort[j-1];
-  this.usersort[j-1]=this.usersort[j];
-  this.usersort[j]=temp;
-              }
-          }
-      }
-*/
-
-console.log("zhen said hi ");
-var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-
-   switching = true;
-   //Set the sorting direction to ascending:
-   dir = "asc";
-   /*Make a loop that will continue until
-   no switching has been done:*/
-   while (switching) {
-       //start by saying: no switching is done:
-       switching = false;
-       rows = this.usersort;
-      // rows=this.usersort.rows;
-       /*Loop through all table rows (except the
-       first, which contains table headers):*/
-       for (i = 0; i < (rows.length - 1); i++) {
-           //start by saying there should be no switching:
-           shouldSwitch = false;
-           /*Get the two elements you want to compare,
-           one from current row and one from the next:*/
-           x = rows[i].averageTotalPayments-rows[i].averageMedicarePayments;
-           y = rows[i + 1].averageTotalPayments-rows[i+1].averageMedicarePayments;
-           /*check if the two rows should switch place,
-           based on the direction, asc or desc:*/
-           if (dir == "asc") {
-               if (x > y) {
-                   //if so, mark as a switch and break the loop:
-                   shouldSwitch= true;
-                   break;
-               }
-           } else if (dir == "desc") {
-               if (x < y) {
-                   //if so, mark as a switch and break the loop:
-                   shouldSwitch = true;
-                   break;
-               }
-           }
-       }
-       if (shouldSwitch) {
-           /*If a switch has been marked, make the switch
-           and mark that a switch has been done:*/
-           [this.usersort[i+1], this.usersort[i]] = [this.usersort[i], this.usersort[i+1]]
-           switching = true;
-           //Each time a switch is done, increase this count by 1:
-           switchcount ++;
-       } else {
-           /*If no switching has been done AND the direction is "asc",
-           set the direction to "desc" and run the while loop again.*/
-           if (switchcount == 0 && dir == "asc") {
-               dir = "desc";
-               switching = true;
-           }
-       }
-   }
-
-        return this.usersort;
-
+  for(var i = 0; i < this.usersort.length ; i++) {
+    console.log(array[i].Distance);
+  }
 
 }
+
+
+
+compareprice( a, b ){
+  if ( a.averageTotalPayments-a.averageMedicarePayments < b.averageTotalPayments-b.averageMedicarePayments ){
+    return -1;
+  }
+  if ( a.averageTotalPayments-a.averageMedicarePayments > b.averageTotalPayments-b.averageMedicarePayments ){
+    return 1;
+  }
+  return 0;
+}
+
+comparedist( a, b ){
+  if ( a.Distance  < b.Distance ){
+    console.log(a.Distance  ,"  ", b.Distance , "swap");
+    return -1;
+  }
+  if ( a.Distance  >b.Distance ){
+    return 1;
+  }
+  return 0;
+}
+
+
+
 
 
 
@@ -219,20 +185,18 @@ hospitalHandler(dataset){
         templat[i]=1000;
          templng[i]=1000;
       //   console.log(dataset[i].lat);
-         if(dataset[i].lat ==null){
-          this.getlocationfromaddress(dataset[i].State,dataset[i].StreetAddress).subscribe((res: any) => {
-            templat[i]=res.results[0].geometry.location.lat;
-            templng[i]=res.results[0].geometry.location.lng;
-          //  console.log("long"+res.results[0].geometry.location.lng);
-            //console.log("lat"+res.results[0].geometry.location.lat);
-          });//templat= res.geometry.lat; templng= res.geometry.lng
-          }
+        if(dataset[i].lat ==null){
+            this.getlocationfromaddress(dataset[i].State,dataset[i].StreetAddress).subscribe((res: any) => {
+              templat[i]=res.results[0].geometry.location.lat;
+              templng[i]=res.results[0].geometry.location.lng;
+            });
+        }
 
 
 
       }
 
-      setTimeout( ()=>{
+    setTimeout( ()=>{
         for(let i = 0 ; i < this.resultlength; i++)
         {
           if(templng[i]!=1000 && templng[i]!=undefined)
@@ -295,8 +259,17 @@ getuserlocation(){
 
 setuserlocation(lat,long){
 console.log("user location set ");
+console.log("user location set ");
+console.log("user location set ");
+console.log("user location set ");
+console.log("user location set ");
+console.log("user location set ");
+console.log("user location set ");
+console.log("user location set ");
+console.log(lat," ",long)
   this.userlat=lat;
   this.userlong=long;
+  console.log(this.userlat," ",this.userlong);
  this.resetfocused();
 }
 

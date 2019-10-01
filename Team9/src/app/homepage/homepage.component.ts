@@ -83,7 +83,6 @@ this.interact.limitdataByDistance(limitNumber);
 
 
 
-
     // this needs to be in master
     getuserlocation()
     {
