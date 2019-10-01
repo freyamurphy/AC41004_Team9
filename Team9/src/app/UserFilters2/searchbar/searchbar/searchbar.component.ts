@@ -37,10 +37,13 @@ export class SearchbarComponent implements OnInit, OnDestroy{
       this._ngxDefaultInterval = setInterval(() => {
           const idx = Math.floor(Math.random() * (this.description.length - 1));
           this._ngxDefault = this.description[idx];
+          this.selected = this._ngxDefault;
           // console.log('new default value = ', this._ngxDefault);
         }, 2000);
       }, 2000);
    }
+
+
    public doNgxDefault(): any {
     return this._ngxDefault;
 }
@@ -75,6 +78,7 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
     //console.log(t);
   }
  auto(){
+    console.log(this.selected);
     for(var i = 0; i < this.list.length; i++){
       if(this.selected == this.list[i].Description)
       {
