@@ -94,24 +94,6 @@ this.arrayOfObjectsFromSQLSource.next(reservationArr);
 
 }
 
-newSort(n)
-{
-  var x,y,count=0;
-
-  for (var i=0;i<70;i++){
-if (n==0){
-  x=this.locate.getdistance(this.usersort[i].lat,this.usersort[i].lng,this.userlat,this.userlong);
-  y=this.locate.getdistance(this.usersort[i+1].lat,this.usersort[i+1].lng,this.userlat,this.userlong);
-  console.log("count",count);
-  count ++;
-if (x>y)
-{
-[this.usersort[i+1],this.usersort[i]]=[this.usersort[i],this.usersort[i+1]]
-}
-
-   }
- }
- return this.usersort;
 
 ryanssort(whatsort){
   for(var i = 0; i < this.usersort.length ; i++) {
