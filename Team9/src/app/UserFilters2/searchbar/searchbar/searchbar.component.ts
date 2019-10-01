@@ -104,6 +104,7 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
       (document.getElementById("addressBox") as HTMLInputElement).value = addressBox;
       
     }
+    console.log(addressBox + " " + this.code);
     this.interact.runsearch(this.code);
     document.getElementById("bottom").style.display = "block";
 

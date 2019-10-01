@@ -13,8 +13,10 @@
                   <option *ngFor="let item of list" [value]="item.Description"></option> 
             </select>
       </datalist>-->
+      <div id=search>
       <ngx-select    
-              
+            id="search"
+            style="margin-top:00px"
             [formControl]="ngxControl"
             [allowClear]="true"
             [defaultValue]="doNgxDefault()"
@@ -31,7 +33,6 @@
 
 
       </ngx-select>
-      
-      <br>
+</div>
       <button mat-raised-button color="primary" tabindex="6" id= "formSelect" (click)="submit();"
       value="submit" >Search</button>
