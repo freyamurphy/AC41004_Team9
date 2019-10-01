@@ -51,6 +51,7 @@ runsearch(code) {
     this.hospitalHandler(res);
     this.usersort=res;
     this.distancecalcvariable=res;
+    console.log(res);
 //    this.sortPriceFunction();
   });
 
