@@ -101,7 +101,7 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
 openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
       
-      duration: 100,
+      duration: 5000,
     });
   }
   submit(){
@@ -119,12 +119,16 @@ openSnackBar(message: string, action: string) {
     if(!addressBox.includes(", USA")){
       //console.log("HELLO");
       this.openSnackBar("Address is not in the US!", "");
+      document.getElementById("bottom").style.display = "none";
 
     }
-    this.interact.runsearch(this.code);
-    document.getElementById("bottom").style.display = "block";
+    else{
+      this.interact.runsearch(this.code);
+      document.getElementById("bottom").style.display = "block";
 
-    this.scroll();
+      this.scroll();
+    }
+    
 
   }
   reset(){

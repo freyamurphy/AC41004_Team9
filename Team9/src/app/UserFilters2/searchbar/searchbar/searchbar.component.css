@@ -2,7 +2,7 @@
     display: inline-block; /* the default for span */
 }
 ::ng-deep .mat-snack-bar-container{
-  color: #155724 !important;
+  color: white !important;
   background-color: #e95656 !important;
   border-color: black !important;
 }
