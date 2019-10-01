@@ -16,10 +16,11 @@ export class SelectComponent {
 constructor(private comunicate:ComunicationService) { }
 
 
-sortPrice(){
+sortPrice(n){
 
-     this.comunicate.sortPriceFunction();
-
+     //this.comunicate.sortPriceFunction(n);
+     this.comunicate.newSort(n);
+     
  }
 
 

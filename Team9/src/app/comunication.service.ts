@@ -37,7 +37,7 @@ distancecalcvariable:any;
 resultlength:any;
 userstate:any;
 
-  constructor(private http: HttpClient,private sqlapi:SqlapiService ,private locate:GelocatorService) { }
+constructor(private http: HttpClient,private sqlapi:SqlapiService ,private locate:GelocatorService) { }
 
 // runs a search
 runsearch(code) {
@@ -92,38 +92,61 @@ this.arrayOfObjectsFromSQLSource.next(reservationArr);
 
 }
 
+newSort(n)
+{
+  var x,y,count=0;
 
+  for (var i=0;i<70;i++){
+if (n==0){
+  x=this.locate.getdistance(this.usersort[i].lat,this.usersort[i].lng,this.userlat,this.userlong);
+  y=this.locate.getdistance(this.usersort[i+1].lat,this.usersort[i+1].lng,this.userlat,this.userlong);
+  console.log("count",count);
+  count ++;
+if (x>y)
+{
+[this.usersort[i+1],this.usersort[i]]=[this.usersort[i],this.usersort[i+1]]
+}
 
-sortPriceFunction(){
+   }
+ }
+ return this.usersort;
+
+}
+
+sortPriceFunction(n){
 //Set the sorting direction to ascending:
-
 console.log("zhen said hi ");
-
 var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-
    switching = true;
    //Set the sorting direction to ascending:
    dir = "asc";
    /*Make a loop that will continue until
    no switching has been done:*/
-  // var distance= this.locate.getdistance(this.usersort[1].lat,this.usersort[1].lng,this.userlat,this.userlong);
-  // console.log("distance",distance);
    while (switching) {
        //start by saying: no switching is done:
        switching = false;
        rows = this.usersort;
-    //   console.log("rows length",rows.length, "result length",this.resultlength);
+    //  console.log("rows length",rows.length, "result length",this.resultlength);
        /*Loop through all table rows (except the
        first, which contains table headers):*/
-     for (i = 0; i < (rows.length - 1); i++) {
-        //    for (i = 0; i < ; i++) {
+  //   for (i = 0; i < (rows.length - 1); i++) {
+
+
+        for (i = 0; i < 10; i++) {
+          var count=0;
            //start by saying there should be no switching:
            shouldSwitch = false;
            /*Get the two elements you want to compare,
            one from current row and one from the next:*/
-           //rows[i].averageMedicarePayments;
+           if (n==1){//Price
           x = rows[i].averageTotalPayments-rows[i].averageMedicarePayments;
-          y = rows[i + 1].averageTotalPayments-rows[i+1].averageMedicarePayments;
+          y = rows[i + 1].averageTotalPayments-rows[i+1].averageMedicarePayments;}
+          if (n==0){//Distance
+            x=this.locate.getdistance(this.usersort[i].lat,this.usersort[i].lng,this.userlat,this.userlong);
+            y=this.locate.getdistance(this.usersort[i+1].lat,this.usersort[i+1].lng,this.userlat,this.userlong);
+            console.log(x,"count",count);
+            count ++;
+          }
            /*check if the two rows should switch place,
            based on the direction, asc or desc:*/
            if (dir == "asc") {
@@ -143,7 +166,7 @@ var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
        if (shouldSwitch) {
            /*If a switch has been marked, make the switch
            and mark that a switch has been done:*/
-           [this.usersort[i+1], this.usersort[i]] = [this.usersort[i], this.usersort[i+1]]
+           [rows[i+1], rows[i]] = [rows[i], rows[i+1]]
            switching = true;
            //Each time a switch is done, increase this count by 1:
            switchcount ++;
@@ -156,10 +179,7 @@ var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
            }
        }
    }
-
         return this.usersort;
-
-
 }
 
 
@@ -233,7 +253,7 @@ var apikey="AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8";
 
 var temp = "https://maps.googleapis.com/maps/api/geocode/json?address="+address+" "+state+"&key="+apikey;
 //    https://maps.googleapis.com/maps/api/geocode/json?address=90210&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8;
-//return this.http.get<any>(temp).subscribe((res: any) => {console.log(res);});
+return this.http.get<any>(temp).subscribe((res: any) => {console.log(res);});
 }
 
 
