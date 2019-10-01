@@ -110,11 +110,7 @@ openSnackBar(message: string, action: string) {
     console.log(this.code);
 
     var addressBox = (document.getElementById("addressBox") as HTMLInputElement).value;
-    if(!addressBox){
-      addressBox = "216 N Meech Rd, Dansville, MI 48819, USA";
-      (document.getElementById("addressBox") as HTMLInputElement).value = addressBox;
 
-    }
     console.log(addressBox);
     if(!addressBox.includes(", USA")){
       //console.log("HELLO");
