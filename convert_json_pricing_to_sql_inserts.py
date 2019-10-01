@@ -1,4 +1,7 @@
 import json
+import re
+
+regex = re.compile('[^0-9.]')
 
 DATA_FILE = "DRGChargesData.json"
 OUTPUT_FILE = "pricing.sql"
@@ -45,6 +48,10 @@ for conditionCode in insertedConditionIDs:
         averageCoveredCharges = recentYearDict["averageCoveredCharges"]
         averageTotalPayments = recentYearDict["averageTotalPayments"]
         averageMedicarePayments = recentYearDict["averageMedicarePayments"]
+
+        averageCoveredCharges = regex.sub('', averageTotalPayments)
+        averageTotalPayments = regex.sub('', averageTotalPayments)
+        averageMedicarePayments = regex.sub('', averageMedicarePayments)
 
         statement = (
             "INSERT INTO `Pricing`(`providerID`,`conditionCode`, `totalDischarges`"
