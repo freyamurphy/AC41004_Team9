@@ -100,7 +100,8 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
   }
 openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
-      duration: 1000,
+      
+      duration: 100,
     });
   }
   submit(){
