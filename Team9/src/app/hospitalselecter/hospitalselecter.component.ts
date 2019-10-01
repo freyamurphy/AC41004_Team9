@@ -47,6 +47,15 @@ index =p-1;
 //  console.log(display);
   return display;
 }
+
+
+steven2(index,p):any{
+  if(index==0){
+    index =p-1;
+
+  }
+  return this.hospitalList[index*p].providerName;
+}
 ngOnInit() {
 
 
@@ -56,7 +65,7 @@ ngOnInit() {
 
 
 
-   
+
 
 
 
