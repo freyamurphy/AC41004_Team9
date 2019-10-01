@@ -15,11 +15,11 @@ export class SearchbarComponent implements OnInit, OnDestroy{
   ngOnDestroy(): void {
     throw new Error("Method not implemented.");
   }
-  
 
- 
+
+
     public ngxControl = new FormControl();
- 
+
     private _ngxDefaultTimeout;
     private _ngxDefaultInterval;
     private _ngxDefault;
@@ -37,6 +37,7 @@ export class SearchbarComponent implements OnInit, OnDestroy{
       this._ngxDefaultInterval = setInterval(() => {
           const idx = Math.floor(Math.random() * (this.description.length - 1));
           this._ngxDefault = this.description[idx];
+          this.selected = this._ngxDefault;
           // console.log('new default value = ', this._ngxDefault);
         }, 2000);
       }, 2000);
@@ -63,13 +64,13 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
   ngOnInit() {
     //this.placeholder = "hello";
     this.interact.getautoComplete().subscribe((res: any) => {
-      this.list =res; 
+      this.list =res;
       console.log(this.list);
       var i = 0;
       for(let item of this.list){
-        this.description[i] = item.Description; 
+        this.description[i] = item.Description;
         i++;
-      } 
+      }
     });
     this.t = this.interact.setautoComplete("");
     //console.log(t);

@@ -48,6 +48,23 @@ index =p-1;
   return display;
 }
 ngOnInit() {
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
   this.innerWidth = window.innerWidth;
   this.innerHeight= window.innerHeight;
   //this.interact.runsearch("a","b");
