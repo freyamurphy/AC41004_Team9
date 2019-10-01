@@ -49,7 +49,7 @@ for conditionCode in insertedConditionIDs:
         averageTotalPayments = recentYearDict["averageTotalPayments"]
         averageMedicarePayments = recentYearDict["averageMedicarePayments"]
 
-        averageCoveredCharges = regex.sub('', averageTotalPayments)
+        averageCoveredCharges = regex.sub('', averageCoveredCharges)
         averageTotalPayments = regex.sub('', averageTotalPayments)
         averageMedicarePayments = regex.sub('', averageMedicarePayments)
 
