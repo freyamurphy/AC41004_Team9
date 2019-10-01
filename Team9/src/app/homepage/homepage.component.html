@@ -40,9 +40,11 @@
             <app-hospitalselecter></app-hospitalselecter>
             </div>
             <div class="col-md-auto">
-              <app-map style="height:100%; width: 100%; position: absolute;"
-              [style.height.px]="getheight(100)"[style.width.px]="getwidth(50)">
-              </app-map>
+              <div class="mapLenard">
+                <app-map style="position: absolute;"
+                [style.height.px]="getheight(100)"[style.width.px]="getwidth(50)">
+                </app-map>
+            </div>
             </div>
           </div>
         </div>
