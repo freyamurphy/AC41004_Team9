@@ -50,7 +50,8 @@ runsearch(code) {
     this.hospitalHandler(res);
     this.usersort=res;
     this.distancecalcvariable=res;
-  //  this.sortPriceFunction();
+    console.log(res);
+//    this.sortPriceFunction();
   });
 
 }
@@ -138,15 +139,8 @@ var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
            shouldSwitch = false;
            /*Get the two elements you want to compare,
            one from current row and one from the next:*/
-           if (n==1){//Price
-          x = rows[i].averageTotalPayments-rows[i].averageMedicarePayments;
-          y = rows[i + 1].averageTotalPayments-rows[i+1].averageMedicarePayments;}
-          if (n==0){//Distance
-            x=this.locate.getdistance(this.usersort[i].lat,this.usersort[i].lng,this.userlat,this.userlong);
-            y=this.locate.getdistance(this.usersort[i+1].lat,this.usersort[i+1].lng,this.userlat,this.userlong);
-            console.log(x,"count",count);
-            count ++;
-          }
+           x = rows[i].averageTotalPayments-rows[i].averageMedicarePayments;
+           y = rows[i + 1].averageTotalPayments-rows[i+1].averageMedicarePayments;
            /*check if the two rows should switch place,
            based on the direction, asc or desc:*/
            if (dir == "asc") {
