@@ -70,6 +70,9 @@ var apikey=""
 return this.http.get<any>(apikey);
 }
 
+giveuserlatlong(){
 
+  return {lat:this.userlat,  lng:this.userlong}
+}
 
 }
