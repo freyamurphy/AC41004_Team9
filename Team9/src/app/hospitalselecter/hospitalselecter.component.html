@@ -5,16 +5,18 @@
 <body>
 
 <div class="hospitalselector"  >
-  <div class="list-group" *ngFor = "let hospital of hospitalList | paginate: { itemsPerPage: 5  , currentPage: p } ; let i = index" >
+  <div class="list-group" *ngFor = "let hospital of hospitalList | paginate: { itemsPerPage: 8  , currentPage: p } ; let i = index" >
     <a id={{i}} class="list-group-item list-group-item-action flex-column align-items-start" (click)="highlight(i);" (keyup.enter)="highlight(i);">
       <div class="d-flex w-100 justify-content-between" >
-        <h6 class="mb-1"tabindex="1">{{hospital.providerName}}</h6>
-        <h6 class="mb-2" tabindex="1">Price: {{steven(i) | currency}} </h6>
+        <h6 class="mb-1"tabindex="9">{{hospitalList[i*p].providerName}}</h6>
+        <h6 class="mb-2" tabindex="9">Price: {{steven(i,p) | currency}} </h6>
       </div>
-      <small tabindex="1" name="Distance">Distance</small><p tabindex="1">{{getdistance(hospital.providers_ID,i,p)| number:'.0'}} Miles</p>
+      <small tabindex="9" name="Distance">Distance</small><p>{{getdistance(hospital.providers_ID,i,p)| number:'.0'}} Miles</p>
+    <div style="height:20px; width:20px;" [style.background-color]="getColor(i,p)">aaa</div>
     </a>
   </div>
-<pagination-controls tabindex="1" (pageChange)="p = $event"></pagination-controls>
+
+<pagination-controls tabindex="9" (pageChange)="p = $event"></pagination-controls>
 
 
 </div>

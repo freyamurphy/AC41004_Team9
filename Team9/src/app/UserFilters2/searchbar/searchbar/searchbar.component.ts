@@ -15,11 +15,11 @@ export class SearchbarComponent implements OnInit, OnDestroy{
   ngOnDestroy(): void {
     throw new Error("Method not implemented.");
   }
-  
 
- 
+
+
     public ngxControl = new FormControl();
- 
+
     private _ngxDefaultTimeout;
     private _ngxDefaultInterval;
     private _ngxDefault;
@@ -66,13 +66,13 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
   ngOnInit() {
     //this.placeholder = "hello";
     this.interact.getautoComplete().subscribe((res: any) => {
-      this.list =res; 
+      this.list =res;
       console.log(this.list);
       var i = 0;
       for(let item of this.list){
-        this.description[i] = item.Description; 
+        this.description[i] = item.Description;
         i++;
-      } 
+      }
     });
     this.t = this.interact.setautoComplete("");
     //console.log(t);
@@ -112,7 +112,7 @@ openSnackBar(message: string, action: string) {
     if(!addressBox){
       addressBox = "216 N Meech Rd, Dansville, MI 48819, USA";
       (document.getElementById("addressBox") as HTMLInputElement).value = addressBox;
-      
+
     }
     console.log(addressBox);
     if(!addressBox.includes(", USA")){
@@ -124,7 +124,7 @@ openSnackBar(message: string, action: string) {
     document.getElementById("bottom").style.display = "block";
 
     this.scroll();
-    
+
   }
   reset(){
     this.selected="";

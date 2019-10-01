@@ -36,13 +36,35 @@ p: number = 1;
 
 constructor(private interact:ComunicationService, private database:ClassmanagerService,private sqlapi:SqlapiService ,private locate:GelocatorService) { }
 
-steven(index):any{
-  var display = this.hospitalList[index].averageTotalPayments - this.hospitalList[index].averageMedicarePayments;
+steven(index,p):any{
+if(index==0){
+index =p-1;
+
+}
+
+  var display = this.hospitalList[index*p].averageTotalPayments - this.hospitalList[index*p].averageMedicarePayments;
   //var t = this.hospitalList[index];
-  console.log(display);
+//  console.log(display);
   return display;
 }
 ngOnInit() {
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
   this.innerWidth = window.innerWidth;
   this.innerHeight= window.innerHeight;
   //this.interact.runsearch("a","b");
@@ -65,8 +87,12 @@ getwidth(widthpercentage){
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 getdistance(hospitalID,index,pagenumber){
+  if(index==0){
+  index =pagenumber-1;
+
+  }
   var userlocation = this.interact.getuserlocation();
-//  console.log(userlocation.lat," aa ",userlocation.lng);
+  console.log(userlocation.lat," aa ",userlocation.lng);
   return  this.locate.getdistance(this.hospitalList[index*pagenumber].lat,this.hospitalList[index*pagenumber].lng,userlocation.lat,userlocation.lng);
 
 
@@ -74,11 +100,22 @@ getdistance(hospitalID,index,pagenumber){
 
 
 senddatatocommunicationservice(data:any){
+
   this.interact.setfocusedlocation(data);
 }
 
 
+getColor(index,pagenumber)
+{
+  if(this.hospitalList[index*pagenumber].pricingYEAR <2012)
+  {
 
+    return "red";
+
+  }
+  return "green";
+
+}
 
 
 
