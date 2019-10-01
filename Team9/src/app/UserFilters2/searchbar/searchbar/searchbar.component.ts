@@ -42,6 +42,8 @@ export class SearchbarComponent implements OnInit, OnDestroy{
         }, 2000);
       }, 2000);
    }
+
+
    public doNgxDefault(): any {
     return this._ngxDefault;
 }
@@ -76,6 +78,7 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
     //console.log(t);
   }
  auto(){
+    console.log(this.selected);
     for(var i = 0; i < this.list.length; i++){
       if(this.selected == this.list[i].Description)
       {
@@ -97,7 +100,7 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
   }
 openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
-      duration: 2000,
+      duration: 1000,
     });
   }
   submit(){
