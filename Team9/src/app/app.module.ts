@@ -67,7 +67,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
-
+import { NgxSelectModule } from 'ngx-select-ex';
 // services
 
 import { SqlapiService } from './sqlapi.service';
@@ -106,7 +106,7 @@ import { BackComponent } from './back/back/back.component';
     GeolocationComponent,
     ManuallocationComponent,
     UserhelpComponent,
-    BackComponent
+    BackComponent,
 
 
   ],
@@ -131,6 +131,8 @@ import { BackComponent } from './back/back/back.component';
     MatBottomSheetModule,
     NgxPaginationModule,
     BrowserAnimationsModule,
+    NgxSelectModule,
+
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8',
       libraries: ['geometry', 'places']
