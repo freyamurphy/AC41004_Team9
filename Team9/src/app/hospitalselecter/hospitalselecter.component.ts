@@ -38,7 +38,7 @@ constructor(private interact:ComunicationService, private database:ClassmanagerS
 
 steven(index,p):any{
 if(index==0){
-index =p-1;
+//index =p-1;
 
 }
 
@@ -47,14 +47,20 @@ index =p-1;
 //  console.log(display);
   return display;
 }
-
-
 steven2(index,p):any{
   if(index==0){
-    index =p-1;
+  //  index =p-1;
 
   }
   return this.hospitalList[index*p].providerName;
+}//fuck steve
+
+steven3(index,p):any{
+  if(index==0){
+  //  index =p-1;
+
+  }
+  return this.hospitalList[index*p].Distance;
 }
 ngOnInit() {
 
@@ -90,10 +96,16 @@ getdistance(hospitalID,index,pagenumber){
   //return  this.locate.getdistance(this.hospitalList[index*pagenumber].lat,this.hospitalList[index*pagenumber].lng,userlocation.lat,userlocation.lng);
 
 
+
+
 }
 
 
 senddatatocommunicationservice(data:any){
+
+  this.interact.setfocusedlocation(data);
+}
+getuser(data:any){
 
   this.interact.setfocusedlocation(data);
 }

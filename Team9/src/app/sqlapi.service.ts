@@ -13,8 +13,7 @@ export class SqlapiService {
 
 test:any;
   baseUrl = 'http://localhost/phptest/test.php';
-//baseUrl = 'https://zeno.computing.dundee.ac.uk/2019-projects/team9/AC41004_Team9/Team9/angular-php/backend/api/search.php';
-
+//baseUrl = 'https://zeno.computing.dundee.ac.uk/2019-projects5
 
    constructor(private http: HttpClient, ) { }
 
@@ -62,7 +61,7 @@ for(var i = 0; i < 1000; i++){
   console.log(state);
     if( proceed){
       var temp = "https://zeno.computing.dundee.ac.uk/2019-projects/team9/AC41004_Team9/echotest.php?state="+state+"&condition_Code="+drgcode;
-    //  console.log(temp );
+     console.log(temp );
           return this.http.get(temp).pipe(
             map((res) => {
              return res['data'];
