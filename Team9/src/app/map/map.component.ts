@@ -42,6 +42,9 @@ export class MapComponent implements OnInit {
 
     this.subscription = this.interact.getfocusedlocation().subscribe(
       message => {
+        console.log(message.lat);
+        console.log(message.lng);
+
         this.focusLocation.lat = message.lat;
         this.focusLocation.lng = message.lng;
         console.log("changed focsed location");

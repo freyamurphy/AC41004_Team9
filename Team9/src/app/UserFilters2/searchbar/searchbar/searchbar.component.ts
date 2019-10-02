@@ -64,7 +64,7 @@ public doRemove = (value: any) => console.log('SingleDemoComponent.doRemove', va
 
 public doSelectOptions = (options: INgxSelectOption[]) =>{};
   ngOnInit() {
-    this.code = 1;
+    this.code = 64;
     //this.placeholder = "hello";
     this.interact.getautoComplete().subscribe((res: any) => {
       this.list =res;
