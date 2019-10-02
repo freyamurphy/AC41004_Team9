@@ -15,10 +15,18 @@ export class SelectComponent {
   filterOptions: string[] = ["Distance","Price"];
 constructor(private comunicate:ComunicationService) { }
 
+sortprice(){
 
-sortPrice(){
-     this.comunicate.sortPriceFunction();
- }
+ this.comunicate.ryanssort(1);
+}
+sortdist(){
+this.comunicate.ryanssort(0);
+
+}
+
+//sortPrice(){
+//     this.comunicate.sortPriceFunction();
+// }
 
 
 
