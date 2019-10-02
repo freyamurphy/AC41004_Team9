@@ -316,6 +316,7 @@ console.log("user location set ");
 console.log(lat," ",long)
   this.userlat=lat;
   this.userlong=long;
+
   this.userlocationSource.next({lat:this.userlat, lng:this.userlong});
   console.log(this.userlat," ",this.userlong);
  this.resetfocused();
