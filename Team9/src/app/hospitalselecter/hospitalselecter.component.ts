@@ -38,7 +38,7 @@ constructor(private interact:ComunicationService, private database:ClassmanagerS
 
 steven(index,p):any{
 
- console.log("index",index,"page",p,"muiltpy",index+8*(p-1));
+ //console.log("index",index,"page",p,"muiltpy",index+8*(p-1));
   var display = this.hospitalList[index+8*(p-1)].averageTotalPayments - this.hospitalList[index+8*(p-1)].averageMedicarePayments;
   //var t = this.hospitalList[index];
 //  console.log(display);
@@ -81,12 +81,12 @@ getwidth(widthpercentage){
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 getdistance(hospitalID,index,p){
+ 
+  var userlocation;
+  var user = this.interact.getuserlocation().subscribe((res: any) => {userlocation =res;console.log(res);});
+  //return  this.locate.getdistance(this.hospitalList[index+7*(p-1)].lat,this.hospitalList[index+7*(p-1)].lng,userlocation.lat,userlocation.lng);
 
-  var userlocation = this.interact.getuserlocation();
-
-  return  this.locate.getdistance(this.hospitalList[index+8*(p-1)].lat,this.hospitalList[index+8*(p-1)].lng,userlocation.lat,userlocation.lng);
-
-
+this.hospitalList[index+8*(p-1)].Distance;
 }
 
 
@@ -100,9 +100,9 @@ getuser(data:any){
 }
 
 
-getColor(index,pagenumber)
+getColor(index,p)
 {
-  if(this.hospitalList[index*pagenumber].pricingYEAR <2012)
+  if(this.hospitalList[index+8*(p-1)].pricingYEAR <2012)
   {
 
     return "red";
