@@ -1,5 +1,4 @@
-.search{
-    display: inline-block; /* the default for span */
+.searchB{
 }
 ::ng-deep .mat-snack-bar-container{
   color: white !important;
@@ -18,6 +17,4 @@
   width: 50%
 }
 
-#search {
-  width: 50%;
-}
+

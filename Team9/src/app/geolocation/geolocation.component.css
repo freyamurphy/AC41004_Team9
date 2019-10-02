@@ -1,5 +1,8 @@
 #addressBox {
-  width: 50%;
+  width: 97%;
+}
+.autoButton{
+  width: 3%;
 }
 ::ng-deep .mat-checkbox .mat-checkbox-frame {
   border-color: #6041b0;
@@ -19,4 +22,7 @@
 
 .auto{
   left: 2%;
+}
+.stateSelector {
+  width: 50%;
 }

@@ -97,7 +97,7 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
     console.log("hello");
   }
   scroll(){
-    document.getElementById("hospitals").scrollIntoView({behavior:"smooth"});
+    document.getElementById("back").scrollIntoView({behavior:"smooth"});
   }
 openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {

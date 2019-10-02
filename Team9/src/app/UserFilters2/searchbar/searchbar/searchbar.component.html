@@ -17,7 +17,7 @@
       <div id=search>
             
       <ngx-select   
-            id="search"
+            id="SelectSearch"
             style="margin-top:00px"
             [formControl]="ngxControl"
             [allowClear]="true"
@@ -35,5 +35,5 @@
       </ngx-select>
 </div>
       <button mat-raised-button color="primary" id= "formSelect" (click)="submit();"
-      value="submit" >Search</button>
+      value="submit" name="Search button" class="searchB" style="width: 100%" >Search</button>
 

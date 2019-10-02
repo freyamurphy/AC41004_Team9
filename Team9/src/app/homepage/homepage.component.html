@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -8,41 +8,44 @@
 <body [style.height.px]="getheight(100)" >
 <div id="top" style="display: hidden"></div>
 <!--Elements in the background-->
-<div class="bg" id="test">
-
+<div class="bg-image" id="test"></div>
+  <div class="bg-text">
 
     <h1  class="font-weight-bold" style="font-family: Roboto, sans-serif;text-align: center; color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; ">Freedom 4 U</h1>
-    <div class="FrontEndUIElements">
       <app-geolocation></app-geolocation>
       <app-searchbar></app-searchbar>
-      <input hidden id="lat" value="none"/>
-      <input hidden id="lng" value="none"/>
-    </div>
+
   </div>
   <!--Elements on the bottom part of the page-->
-  <div id="bottom" style="display: none;">
-        <div class="row" >
+  <div id="bottom" style="">
 
-          <div class="col-md-auto" style="width: 45%; height: 98%" id="hospitals">
-              <app-back  class="Column"></app-back>
-            <div class="Rows">
-              <app-select class="Column"></app-select>
-              <app-distance-sorter class="Column"></app-distance-sorter>
+    <div class="container">
+        <div class="row justify-content-md-left" >
+            <div class="col-sm-auto">
+              
+              <app-back id="back"></app-back>
+              
             </div>
-            <div class="center-div">
-
+            <div class="col-sm-auto">
+                <app-select></app-select>
             </div>
-
-
+            <div class="col-sm-auto">
+                <app-distance-sorter></app-distance-sorter>
+            </div>
+            
+        </div>
+        <div class="row justify-content-md-left">
+          <div class="col-sm-auto"id="hospitals">
             <app-hospitalselecter></app-hospitalselecter>
-            </div>
-            <div class="col-md-auto">
-              <app-map style="height:100%; width: 100%; position: absolute;"
-              [style.height.px]="getheight(100)"[style.width.px]="getwidth(50)">
-              </app-map>
-            </div>
+          </div>
+          <div class="col-sm-auto">
+            <app-map style="height:100%; width: 100%; position: absolute;"
+            [style.height.px]="getheight(100)"[style.width.px]="getwidth(50)">
+            </app-map>
           </div>
         </div>
+      </div>
+  </div>
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="/__/firebase/6.6.2/firebase-app.js"></script>
 
