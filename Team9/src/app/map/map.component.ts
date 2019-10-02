@@ -47,7 +47,6 @@ export class MapComponent implements OnInit, OnDestroy {
     );
     this.interact.getuseraddress().subscribe(
       (res:any) => {
-        console.log(res);
         this.userLocation = res;
       }
     );
@@ -76,8 +75,6 @@ export class MapComponent implements OnInit, OnDestroy {
 
     this.subscription = this.interact.getfocusedlocation().subscribe(
       message => {
-        console.log(message.lat);
-        console.log(message.lng);
 
         this.focusLocation.lat = message.lat;
         this.focusLocation.lng = message.lng;

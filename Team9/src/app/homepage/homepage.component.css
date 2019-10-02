@@ -1,16 +1,33 @@
 body, html {
   height: 100%;
-  width: 100%;
   margin: 0px;
   padding: 0px;
   overflow-x: hidden; 
 }
+.container{
+  display: table; /* Make the container element behave like a table */
+  width: 100%; /* Set full-width to expand the whole page */
+}
+
+
 .sort{
   width: 100%;
 }
 .sel {
   background-image: url("../../Images/Love.jpg");
   
+}
+.gutter-2.row {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+.gutter-2 > [class^="col-"], .gutter-2 > [class^=" col-"] {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.t{
+  right: 10%;
 }
 .Rows
 {

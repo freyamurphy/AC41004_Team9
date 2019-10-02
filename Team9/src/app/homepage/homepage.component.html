@@ -17,14 +17,12 @@
 
   </div>
   <!--Elements on the bottom part of the page-->
-  <div id="bottom" style="">
+  <div id="bottom" style="display: none">
 
     <div class="container">
         <div class="row justify-content-md-left" >
             <div class="col-sm-auto">
-              
               <app-back id="back"></app-back>
-              
             </div>
             <div class="col-sm-auto">
                 <app-select></app-select>
@@ -32,15 +30,18 @@
             <div class="col-sm-auto">
                 <app-distance-sorter></app-distance-sorter>
             </div>
-            
         </div>
-        <div class="row justify-content-md-left">
-          <div class="col-sm-auto"id="hospitals">
+        <div class="gutter-2 row justify-content-md-left">
+          <div class="col-sm-3"id="hospitals">
+          <div class="t">
+
             <app-hospitalselecter></app-hospitalselecter>
           </div>
-          <div class="col-sm-auto">
+
+          </div>
+          <div class="col-sm-8">
             <app-map style="height:100%; width: 100%; position: absolute;"
-            [style.height.px]="getheight(100)"[style.width.px]="getwidth(50)">
+            [style.height.px]="getheight(131)"[style.width.px]="getwidth(70)">
             </app-map>
           </div>
         </div>
