@@ -88,7 +88,7 @@ runsearch(code) {
     this.usersort=res;
     this.distancecalcvariable=res;
     console.log(res);
-//    this.sortPriceFunction();
+this.ryanssort(0);
   });
   setTimeout( ()=>{
     for(var i = 0; i <  this.resultlength ; i++) {
@@ -169,7 +169,7 @@ ryanssort(whatsort){
     }
     else if (this.flag==1){   this.arrayOfObjectsFromSQLSource.next(array.sort(this.comparedist2).reverse());
       this.flag=0;
-    this.arrayOfObjectsFromSQLSource.next(array.sort(this.comparedist).reverse());    
+    this.arrayOfObjectsFromSQLSource.next(array.sort(this.comparedist).reverse());
     }
   }
 
