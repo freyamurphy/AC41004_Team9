@@ -18,6 +18,7 @@ userlong:any=0;
 
 usersort:any;
 
+flag:any=0;
 
 private arrayOfObjectsFromSQLSource = new Subject<any>();
 arrayofstuff$ = this.arrayOfObjectsFromSQLSource.asObservable();
@@ -95,24 +96,40 @@ this.arrayOfObjectsFromSQLSource.next(reservationArr);
 }
 
 
+
 ryanssort(whatsort){
   for(var i = 0; i < this.usersort.length ; i++) {
     this.usersort[i].Distance = this.locate.getdistance(this.usersort[i].lat,this.usersort[i].lng,this.userlat,this.userlong);
   }
-var array =  this.usersort;
-  console.log(this.arrayOfObjectsFromSQLSource[0]);
+  var array =  this.usersort;
   if(whatsort==1)
   {
-    this.arrayOfObjectsFromSQLSource.next(array.sort(this.compareprice));
+    if (this.flag==0)
+    {
+    this.flag++;
+      this.arrayOfObjectsFromSQLSource.next(array.sort(this.compareprice));
+    }
+    else if (this.flag==1){
+      this.flag=0;
+     this.arrayOfObjectsFromSQLSource.next(array.sort(this.compareprice).reverse());
+    }
   }
   else
   {
+    if (this.flag==0)
+    {
+    this.flag++;
     this.arrayOfObjectsFromSQLSource.next(array.sort(this.comparedist));
+    }
+    else if (this.flag==1){
+      this.flag=0;
+  this.arrayOfObjectsFromSQLSource.next(array.sort(this.comparedist).reverse());
+    }
   }
 
-  for(var i = 0; i < this.usersort.length ; i++) {
+/*  for(var i = 0; i < this.usersort.length ; i++) {
     console.log(array[i].Distance);
-  }
+  }*/
 
 }
 
