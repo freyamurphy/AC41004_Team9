@@ -52,19 +52,15 @@ export class MapComponent implements OnInit, OnDestroy {
     );
 
     this.top20Providers = [];
-    /*this.interact.getuseraddress().subscribe(
-      (res:any) => {
-        console.log(res);
-      }
-
-    )*/
+   
     this.interact.getsearchresults().subscribe(
       (res: any) => {
         this.providers = res;
-
         this.top20Providers = []
         for ( let i = 0; i < 20; i++) {
           if(this.providers[i]){
+           console.log(this.providers[i]);
+
             this.top20Providers.push(this.providers[i]);
 
           }
