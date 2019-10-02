@@ -65,7 +65,6 @@ for(var i = 0; i < 1000; i++){
     //  console.log(temp );
           return this.http.get(temp).pipe(
             map((res) => {
-              console.log(res['data']);
              return res['data'];
           }));
   }

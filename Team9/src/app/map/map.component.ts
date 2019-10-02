@@ -35,10 +35,7 @@ export class MapComponent implements OnInit {
 
         this.top20Providers = []
         for ( let i = 0; i < 20; i++) {
-          if(this.providers[i]){
-            this.top20Providers.push(this.providers[i]);
-
-          }
+          this.top20Providers.push(this.providers[i]);
         }
       }
     );

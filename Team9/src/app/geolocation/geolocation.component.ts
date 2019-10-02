@@ -57,7 +57,6 @@ export class GeolocationComponent implements OnInit {
 
   getLocation() {
     this.error = false;
-    console.log("button has been clicked.");
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.showPosition, this.showError);
     }
@@ -73,7 +72,7 @@ export class GeolocationComponent implements OnInit {
     console.log("Lng: " + position.coords.longitude);
     this.reverseGeo(lat,lng);
     this.comunicate.setuserlocation(position.coords.latitude , position.coords.longitude);
-    
+
   }
 
   showError(error) {
@@ -102,8 +101,11 @@ export class GeolocationComponent implements OnInit {
 //test
     this.zipcode = ((document.getElementById("addressBox") as HTMLInputElement).value);
     this.zipcode = this.zipcode.replace('#','');
-    this.baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + this.zipcode + 
-    "&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8&region=US";
+    if(!this.zipcode){
+      return;
+    }
+    
+    this.baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + this.zipcode + "&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8&region=US";
 
     this.http.get(this.baseUrl).subscribe(data => {
       this.temp = data['results'];
