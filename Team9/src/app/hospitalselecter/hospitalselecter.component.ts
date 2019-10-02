@@ -82,11 +82,11 @@ getwidth(widthpercentage){
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 getdistance(hospitalID,index,p){
 
-  var userlocation = this.interact.getuserlocation();
+  var userlocation;
+  var user = this.interact.getuserlocation().subscribe((res: any) => {userlocation =res;console.log(res);});
+  //return  this.locate.getdistance(this.hospitalList[index+7*(p-1)].lat,this.hospitalList[index+7*(p-1)].lng,userlocation.lat,userlocation.lng);
 
-  return  this.locate.getdistance(this.hospitalList[index+8*(p-1)].lat,this.hospitalList[index+8*(p-1)].lng,userlocation.lat,userlocation.lng);
-
-
+this.hospitalList[index+8*(p-1)].Distance;
 }
 
 
@@ -100,9 +100,9 @@ getuser(data:any){
 }
 
 
-getColor(index,pagenumber)
+getColor(index,p)
 {
-  if(this.hospitalList[index*pagenumber].pricingYEAR <2012)
+  if(this.hospitalList[index+8*(p-1)].pricingYEAR <2012)
   {
 
     return "red";
