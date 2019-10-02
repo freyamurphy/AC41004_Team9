@@ -13,7 +13,7 @@ export class MapComponent implements OnInit, OnDestroy {
   opacity=0.2;
   sColour='#28292b';
   sWeight='#28292b';
-  zoom = 12;
+  zoom = 5;
 
   userLocation = {lat: 0, lng: 0};
 
@@ -28,7 +28,7 @@ export class MapComponent implements OnInit, OnDestroy {
 
   top20Providers: any;
   subscription2: Subscription;
-  distanceRestriction: any = 160934;
+  distanceRestriction: any = null;
   constructor(private interact:ComunicationService) {
     
   }
@@ -37,7 +37,11 @@ export class MapComponent implements OnInit, OnDestroy {
     this.interact.getdistancebeingsearched().subscribe(
       (res: any) => {
         console.log(res);
+        
         this.distanceRestriction = res;
+        if(this.distanceRestriction == 2151687.58){
+          this.distanceRestriction = null;
+        }
 
       }
     );

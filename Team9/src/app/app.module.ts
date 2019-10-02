@@ -68,6 +68,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { NgxSelectModule } from 'ngx-select-ex';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 // services
 
 import { SqlapiService } from './sqlapi.service';
@@ -132,6 +133,7 @@ import { BackComponent } from './back/back/back.component';
     NgxPaginationModule,
     BrowserAnimationsModule,
     NgxSelectModule,
+    MatCheckboxModule,
 
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8',
