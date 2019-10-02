@@ -37,6 +37,7 @@ export class MapComponent implements OnInit {
         for ( let i = 0; i < 20; i++) {
           this.top20Providers.push(this.providers[i]);
         }
+        //test
       }
     );
 
