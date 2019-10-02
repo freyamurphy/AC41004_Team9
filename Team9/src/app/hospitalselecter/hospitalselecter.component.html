@@ -8,21 +8,21 @@
   <div class="list-group" *ngFor = "let hospital of hospitalList | paginate: { itemsPerPage: 8  , currentPage: p } ; let i = index" >
     <a id={{i}} class="list-group-item list-group-item-action flex-column align-items-start" (click)="highlight(i);" (keyup.enter)="highlight(i);">
       <div class="d-flex w-100 justify-content-between" >
-        <h6 class="mb-1"tabindex="9">{{ steven2(i,p)}}</h6>
-        <h6 class="mb-2" tabindex="9">Price: {{steven(i,p) | currency}} </h6>
+        <h6 class="mb-1">{{ steven2(i,p)}}</h6>
+        <h6 class="mb-2">Price: {{steven(i,p) | currency}} </h6>
       </div>
- 
+
       <div class="d-flex w-100 justify-content-between" >
-      <h6 tabindex="9" name="Distance">Distance: {{steven3(i,p)| number:'.0'}} Miles </h6>
+      <h6 name="Distance">Distance: {{steven3(i,p)| number:'.0'}} Miles </h6>
       <br>
       <button mat-fab [style.background-color]="getColor(i,p)" matTooltip="Reliability Rating - How Recent is the Data?" style="width:20px; height:20px"> </button>
     </div>
 
- 
+
     </a>
   </div>
 
-<pagination-controls tabindex="9" (pageChange)="p = $event"></pagination-controls>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
 
 
 </div>
