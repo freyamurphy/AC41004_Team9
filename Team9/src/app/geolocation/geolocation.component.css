@@ -1,6 +1,7 @@
 #addressBox {
   width: 50%;
 }
+
 ::ng-deep .mat-snack-bar-container{
   color: white !important;
   background-color: #e95656 !important;
