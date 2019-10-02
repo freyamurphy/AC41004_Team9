@@ -40,6 +40,7 @@ export class MapComponent implements OnInit {
 
           }
         }
+        //test
       }
     );
 
