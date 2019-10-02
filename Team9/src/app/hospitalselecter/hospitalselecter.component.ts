@@ -39,13 +39,13 @@ constructor(private interact:ComunicationService, private database:ClassmanagerS
 steven(index,p):any{
 if(index==0){
 index =p-1;
-
 }
-
+ console.log("index",index,"page",p);
   var display = this.hospitalList[index*p].averageTotalPayments - this.hospitalList[index*p].averageMedicarePayments;
   //var t = this.hospitalList[index];
 //  console.log(display);
   return display;
+
 }
 
 
@@ -54,7 +54,9 @@ steven2(index,p):any{
     index =p-1;
 
   }
+
   return this.hospitalList[index*p].providerName;
+
 }
 ngOnInit() {
 
@@ -86,7 +88,7 @@ getdistance(hospitalID,index,pagenumber){
 
   }
   var userlocation = this.interact.getuserlocation();
- 
+
   return  this.locate.getdistance(this.hospitalList[index*pagenumber].lat,this.hospitalList[index*pagenumber].lng,userlocation.lat,userlocation.lng);
 
 

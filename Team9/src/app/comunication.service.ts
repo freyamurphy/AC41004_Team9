@@ -124,7 +124,7 @@ ryanssort(whatsort){
     }
     else if (this.flag==1){
       this.flag=0;
-  this.arrayOfObjectsFromSQLSource.next(array.sort(this.comparedist).reverse());
+    this.arrayOfObjectsFromSQLSource.next(array.sort(this.comparedist).reverse());
     }
   }
 
@@ -134,7 +134,7 @@ ryanssort(whatsort){
 
 }
 
- 
+
 compareprice( a, b ){
   if ( a.averageTotalPayments-a.averageMedicarePayments < b.averageTotalPayments-b.averageMedicarePayments ){
     return -1;
@@ -147,7 +147,7 @@ compareprice( a, b ){
 
 comparedist( a, b ){
   if ( a.Distance  < b.Distance ){
-    console.log(a.Distance  ,"  ", b.Distance , "swap");
+  //  console.log(a.Distance  ,"  ", b.Distance , "swap");
     return -1;
   }
   if ( a.Distance  >b.Distance ){
