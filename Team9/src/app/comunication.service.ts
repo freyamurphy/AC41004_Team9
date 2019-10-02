@@ -271,6 +271,9 @@ getuseraddress(): Observable<any> {
 setfocusedlocation(locationInput:any)
 {
   console.log("locationInput ", locationInput);
+  locationInput.lat = Number(locationInput.lat);
+  locationInput.lng = Number(locationInput.lng);
+
   this.focusedlocationSource.next(locationInput);
 }
 // get the location the map is focused on
