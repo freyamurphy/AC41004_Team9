@@ -5,7 +5,11 @@ import { searchWithStateAndDRGCodeInterface,test }from './classmanager.service';
 import { SqlapiService }from './sqlapi.service';
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { GelocatorService }from './gelocator.service';
+
 import { map, catchError } from 'rxjs/operators';
+
+import { ReturnStatement } from '@angular/compiler';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -247,6 +251,7 @@ hospitalHandler(dataset){
 
 }
 getlocationfromaddress(state: string,address: string): Observable<any>{
+
   var temp = "https://maps.googleapis.com/maps/api/geocode/json?address="+address+" "+state+"&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8";
   return this.http.get<any>(temp).pipe(
     map((res) => {
@@ -272,6 +277,9 @@ getuseraddress(): Observable<any> {
 setfocusedlocation(locationInput:any)
 {
   console.log("locationInput ", locationInput);
+  locationInput.lat = Number(locationInput.lat);
+  locationInput.lng = Number(locationInput.lng);
+
   this.focusedlocationSource.next(locationInput);
 }
 // get the location the map is focused on

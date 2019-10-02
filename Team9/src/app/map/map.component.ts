@@ -35,13 +35,20 @@ export class MapComponent implements OnInit {
 
         this.top20Providers = []
         for ( let i = 0; i < 20; i++) {
-          this.top20Providers.push(this.providers[i]);
+          if(this.providers[i]){
+            this.top20Providers.push(this.providers[i]);
+
+          }
         }
+        
       }
     );
 
     this.subscription = this.interact.getfocusedlocation().subscribe(
       message => {
+        console.log(message.lat);
+        console.log(message.lng);
+
         this.focusLocation.lat = message.lat;
         this.focusLocation.lng = message.lng;
         console.log("changed focsed location");
