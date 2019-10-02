@@ -62,7 +62,21 @@ runtestsearch(): Observable<test[]>
 
 
 }
+  private distancebeingsearchedSource = new Subject<any>();
 
+  distancebeingsearched$ = this.distancebeingsearchedSource.asObservable();
+
+  setdistancebeingsearched(dist){
+
+    this.distancebeingsearchedSource.next(dist);
+
+  }
+
+  getdistancebeingsearched(): Observable<any> {
+
+      return this.distancebeingsearched$;
+
+  }
 runsearch(code) {
 // todo make sure this runs as an * if there is no address
 
@@ -80,7 +94,7 @@ runsearch(code) {
     for(var i = 0; i <  this.resultlength ; i++) {
 
 
-        console.log(this.arrayOfObjectsFromSQLSource[i].Distance);
+        //console.log(this.arrayOfObjectsFromSQLSource[i].Distance);
     }
   }, 3000)
 
@@ -129,7 +143,11 @@ ryanssort(whatsort){
   for(var i = 0; i < this.usersort.length ; i++) {
     this.usersort[i].Distance = this.locate.getdistance(this.usersort[i].lat,this.usersort[i].lng,this.userlat,this.userlong);
   }
+
   var array =  this.usersort;
+  for(var i = 0; i < this.usersort.length ; i++) {
+    console.log(array[i].Distance );
+  }
   if(whatsort==1)
   {
     if (this.flag==0)
@@ -145,13 +163,13 @@ ryanssort(whatsort){
   else
   {
     if (this.flag==0)
-    {
+    {this.arrayOfObjectsFromSQLSource.next(array.sort(this.comparedist2));
     this.flag++;
     this.arrayOfObjectsFromSQLSource.next(array.sort(this.comparedist));
     }
-    else if (this.flag==1){
+    else if (this.flag==1){   this.arrayOfObjectsFromSQLSource.next(array.sort(this.comparedist2).reverse());
       this.flag=0;
-  this.arrayOfObjectsFromSQLSource.next(array.sort(this.comparedist).reverse());
+    this.arrayOfObjectsFromSQLSource.next(array.sort(this.comparedist).reverse());    
     }
   }
 
@@ -173,11 +191,21 @@ compareprice( a, b ){
 }
 
 comparedist( a, b ){
-  if ( a.Distance  < b.Distance ){
-    console.log(a.Distance  ,"  ", b.Distance , "swap");
+  if ( Math.round(a.Distance)  < Math.round(b.Distance) ){
+
     return -1;
   }
-  if ( a.Distance  >b.Distance ){
+  if ( Math.round(a.Distance)  >Math.round(b.Distance) ){
+    return 1;
+  }
+  return 0;
+}
+comparedist2( a, b ){
+  if ( a.Distance   <  b.Distance  ){
+
+    return -1;
+  }
+  if (  a.Distance   > b.Distance ){
     return 1;
   }
   return 0;
@@ -296,26 +324,21 @@ resetfocused(){
 
 getuserlocation(): Observable<any>{
   //console.log("inside get user location function");
-return this.userlocation$;
+  //return {lat:this.userlat, lng:this.userlong};
 
+  return this.userlocation$;
 
-//  return {lat:this.userlat, lng:this.userlong};
 }
 
 
 
 setuserlocation(lat,long){
 console.log("user location set ");
-console.log("user location set ");
-console.log("user location set ");
-console.log("user location set ");
-console.log("user location set ");
-console.log("user location set ");
-console.log("user location set ");
-console.log("user location set ");
+
 console.log(lat," ",long)
   this.userlat=lat;
   this.userlong=long;
+
   this.userlocationSource.next({lat:this.userlat, lng:this.userlong});
   console.log(this.userlat," ",this.userlong);
  this.resetfocused();

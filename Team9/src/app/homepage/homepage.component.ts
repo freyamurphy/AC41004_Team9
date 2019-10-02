@@ -75,8 +75,10 @@ export class HomepageComponent implements OnInit {
 
 
     limitByDistance(limitNumber){
-this.interact.limitdataByDistance(limitNumber);
-
+     
+      limitNumber = limitNumber * 1609.34;
+      this.interact.limitdataByDistance(limitNumber);
+      this.interact.setdistancebeingsearched(limitNumber);
 
 
     }

@@ -37,30 +37,24 @@ p: number = 1;
 constructor(private interact:ComunicationService, private database:ClassmanagerService,private sqlapi:SqlapiService ,private locate:GelocatorService) { }
 
 steven(index,p):any{
-if(index==0){
-//index =p-1;
 
-}
-
-  var display = this.hospitalList[index*p].averageTotalPayments - this.hospitalList[index*p].averageMedicarePayments;
+ //console.log("index",index,"page",p,"muiltpy",index+8*(p-1));
+  var display = this.hospitalList[index+8*(p-1)].averageTotalPayments - this.hospitalList[index+8*(p-1)].averageMedicarePayments;
   //var t = this.hospitalList[index];
 //  console.log(display);
   return display;
+
 }
 steven2(index,p):any{
-  if(index==0){
-  //  index =p-1;
 
-  }
-  return this.hospitalList[index*p].providerName;
-}//fuck steve
+  return this.hospitalList[index+8*(p-1)].providerName;
+
+}
 
 steven3(index,p):any{
-  if(index==0){
-  //  index =p-1;
 
-  }
-  return this.hospitalList[index*p].Distance;
+  return this.hospitalList[index+8*(p-1)].Distance;
+
 }
 ngOnInit() {
 
@@ -86,22 +80,13 @@ getwidth(widthpercentage){
   return tempvar.toString();
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-getdistance(hospitalID,index,pagenumber){
-  if(index==0){
-  index =pagenumber-1;
-
-  }
+getdistance(hospitalID,index,p){
+ 
   var userlocation;
   var user = this.interact.getuserlocation().subscribe((res: any) => {userlocation =res;console.log(res);});
+  //return  this.locate.getdistance(this.hospitalList[index+7*(p-1)].lat,this.hospitalList[index+7*(p-1)].lng,userlocation.lat,userlocation.lng);
 
-//  console.log(userlocation.lat," aa ",userlocation.lng);
-//  return  this.locate.getdistance(this.hospitalList[index*pagenumber].lat,this.hospitalList[index*pagenumber].lng,userlocation.lat,userlocation.lng);
-
-
-  return  this.locate.getdistance(this.hospitalList[index*pagenumber].lat,this.hospitalList[index*pagenumber].lng,userlocation.lat,userlocation.lng);
-
-
-
+this.hospitalList[index+8*(p-1)].Distance;
 }
 
 
@@ -115,9 +100,9 @@ getuser(data:any){
 }
 
 
-getColor(index,pagenumber)
+getColor(index,p)
 {
-  if(this.hospitalList[index*pagenumber].pricingYEAR <2012)
+  if(this.hospitalList[index+8*(p-1)].pricingYEAR <2012)
   {
 
     return "red";
