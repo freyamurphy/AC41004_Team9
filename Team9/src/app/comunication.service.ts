@@ -62,7 +62,21 @@ runtestsearch(): Observable<test[]>
 
 
 }
+  private distancebeingsearchedSource = new Subject<any>();
 
+  distancebeingsearched$ = this.distancebeingsearchedSource.asObservable();
+
+  setdistancebeingsearched(dist){
+
+    this.distancebeingsearchedSource.next(dist);
+
+  }
+
+  getdistancebeingsearched(): Observable<any> {
+
+      return this.distancebeingsearched$;
+
+  }
 runsearch(code) {
 // todo make sure this runs as an * if there is no address
 
@@ -80,7 +94,7 @@ runsearch(code) {
     for(var i = 0; i <  this.resultlength ; i++) {
 
 
-        console.log(this.arrayOfObjectsFromSQLSource[i].Distance);
+        //console.log(this.arrayOfObjectsFromSQLSource[i].Distance);
     }
   }, 3000)
 
@@ -297,7 +311,7 @@ resetfocused(){
 getuserlocation(): Observable<any>{
   //console.log("inside get user location function");
   //return {lat:this.userlat, lng:this.userlong};
-  
+
   return this.userlocation$;
 
 }
@@ -306,16 +320,11 @@ getuserlocation(): Observable<any>{
 
 setuserlocation(lat,long){
 console.log("user location set ");
-console.log("user location set ");
-console.log("user location set ");
-console.log("user location set ");
-console.log("user location set ");
-console.log("user location set ");
-console.log("user location set ");
-console.log("user location set ");
+ 
 console.log(lat," ",long)
   this.userlat=lat;
   this.userlong=long;
+
   this.userlocationSource.next({lat:this.userlat, lng:this.userlong});
   console.log(this.userlat," ",this.userlong);
  this.resetfocused();

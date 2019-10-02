@@ -38,7 +38,7 @@ constructor(private interact:ComunicationService, private database:ClassmanagerS
 
 steven(index,p):any{
 
- console.log("index",index,"page",p,"muiltpy",index+8*(p-1));
+ //console.log("index",index,"page",p,"muiltpy",index+8*(p-1));
   var display = this.hospitalList[index+8*(p-1)].averageTotalPayments - this.hospitalList[index+8*(p-1)].averageMedicarePayments;
   //var t = this.hospitalList[index];
 //  console.log(display);
