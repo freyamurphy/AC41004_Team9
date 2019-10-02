@@ -37,11 +37,9 @@ p: number = 1;
 constructor(private interact:ComunicationService, private database:ClassmanagerService,private sqlapi:SqlapiService ,private locate:GelocatorService) { }
 
 steven(index,p):any{
-if(index==0){
-index =p-1;
-}
- console.log("index",index,"page",p);
-  var display = this.hospitalList[index*p].averageTotalPayments - this.hospitalList[index*p].averageMedicarePayments;
+
+ console.log("index",index,"page",p,"muiltpy",index+7*(p-1));
+  var display = this.hospitalList[index+7*(p-1)].averageTotalPayments - this.hospitalList[index+7*(p-1)].averageMedicarePayments;
   //var t = this.hospitalList[index];
 //  console.log(display);
   return display;
@@ -50,12 +48,8 @@ index =p-1;
 
 
 steven2(index,p):any{
-  if(index==0){
-    index =p-1;
 
-  }
-
-  return this.hospitalList[index*p].providerName;
+  return this.hospitalList[index+7*(p-1)].providerName;
 
 }
 ngOnInit() {
@@ -82,14 +76,11 @@ getwidth(widthpercentage){
   return tempvar.toString();
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-getdistance(hospitalID,index,pagenumber){
-  if(index==0){
-  index =pagenumber-1;
+getdistance(hospitalID,index,p){
 
-  }
   var userlocation = this.interact.getuserlocation();
 
-  return  this.locate.getdistance(this.hospitalList[index*pagenumber].lat,this.hospitalList[index*pagenumber].lng,userlocation.lat,userlocation.lng);
+  return  this.locate.getdistance(this.hospitalList[index+7*(p-1)].lat,this.hospitalList[index+7*(p-1)].lng,userlocation.lat,userlocation.lng);
 
 
 }
