@@ -13,7 +13,7 @@ export class MapComponent implements OnInit, OnDestroy {
   opacity=0.2;
   sColour='#28292b';
   sWeight='#28292b';
-  zoom = 5;
+  zoom = 10;
 
   userLocation = {lat: 0, lng: 0};
 

@@ -4,12 +4,6 @@ body, html {
   padding: 0px;
   overflow-x: hidden; 
 }
-.container{
-  display: table; /* Make the container element behave like a table */
-  width: 100%; /* Set full-width to expand the whole page */
-}
-
-
 .sort{
   width: 100%;
 }

@@ -19,29 +19,26 @@
   <!--Elements on the bottom part of the page-->
   <div id="bottom" style="display: none">
 
-    <div class="container">
+    <div class="container" >
         <div class="row justify-content-md-left" >
-            <div class="col-sm-auto">
+            <div class="col-sm-auto" style="right: 7%; bottom: 10em;">
               <app-back id="back"></app-back>
             </div>
-            <div class="col-sm-auto">
+            <div class="col-sm-auto" style="right: 7%; bottom: 10em;">
                 <app-select></app-select>
             </div>
-            <div class="col-sm-auto">
+            <div class="col-sm-auto" style="right: 7%; bottom: 10em;">
                 <app-distance-sorter></app-distance-sorter>
             </div>
         </div>
         <div class="gutter-2 row justify-content-md-left">
-          <div class="col-sm-3"id="hospitals">
-          <div class="t">
-
+          <div class="col-sm-3 "id="hospitals" style="right: 7%; bottom: 10em;">
             <app-hospitalselecter></app-hospitalselecter>
-          </div>
 
           </div>
-          <div class="col-sm-8">
+          <div class="col-sm-8" style="right: 7%; bottom: 10em;">
             <app-map style="height:100%; width: 100%; position: absolute;"
-            [style.height.px]="getheight(131)"[style.width.px]="getwidth(70)">
+            [style.height.px]="getheight(70)"[style.width.px]="getwidth(76)">
             </app-map>
           </div>
         </div>
