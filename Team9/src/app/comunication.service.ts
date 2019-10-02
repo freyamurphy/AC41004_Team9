@@ -133,8 +133,7 @@ ryanssort(whatsort){
 
 }
 
-
-
+ 
 compareprice( a, b ){
   if ( a.averageTotalPayments-a.averageMedicarePayments < b.averageTotalPayments-b.averageMedicarePayments ){
     return -1;
