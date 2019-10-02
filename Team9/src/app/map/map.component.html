@@ -5,13 +5,13 @@
   >
 
 
-  <agm-marker [latitude]="focusLocation.lat" [longitude]="focusLocation.lng"
+  <agm-marker [latitude]="userLocation.lat" [longitude]="userLocation.lng"
     [label]=""
     [iconUrl]="'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'">
   </agm-marker>
 
   <!-- This is the bit that needs replaced with a variable :) -->
-  <agm-circle [latitude]="focusLocation.lat" [longitude]="focusLocation.lng"
+  <agm-circle [latitude]="userLocation.lat" [longitude]="userLocation.lng"
     [radius]="5000">
   </agm-circle>
 
