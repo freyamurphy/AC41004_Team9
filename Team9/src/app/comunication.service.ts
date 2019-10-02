@@ -62,7 +62,21 @@ runtestsearch(): Observable<test[]>
 
 
 }
+  private distancebeingsearchedSource = new Subject<any>();
 
+  distancebeingsearched$ = this.distancebeingsearchedSource.asObservable();
+
+  setdistancebeingsearched(dist){
+
+    this.distancebeingsearchedSource.next(dist);
+
+  }
+
+  getdistancebeingsearched(): Observable<any> {
+
+      return this.distancebeingsearched$;
+
+  }
 runsearch(code) {
 // todo make sure this runs as an * if there is no address
 
@@ -80,7 +94,7 @@ runsearch(code) {
     for(var i = 0; i <  this.resultlength ; i++) {
 
 
-        console.log(this.arrayOfObjectsFromSQLSource[i].Distance);
+        //console.log(this.arrayOfObjectsFromSQLSource[i].Distance);
     }
   }, 3000)
 
@@ -151,7 +165,7 @@ ryanssort(whatsort){
     }
     else if (this.flag==1){
       this.flag=0;
-  this.arrayOfObjectsFromSQLSource.next(array.sort(this.comparedist).reverse());
+    this.arrayOfObjectsFromSQLSource.next(array.sort(this.comparedist).reverse());
     }
   }
 
@@ -174,7 +188,7 @@ compareprice( a, b ){
 
 comparedist( a, b ){
   if ( a.Distance  < b.Distance ){
-    console.log(a.Distance  ,"  ", b.Distance , "swap");
+  //  console.log(a.Distance  ,"  ", b.Distance , "swap");
     return -1;
   }
   if ( a.Distance  >b.Distance ){
@@ -296,23 +310,17 @@ resetfocused(){
 
 getuserlocation(): Observable<any>{
   //console.log("inside get user location function");
-return this.userlocation$;
+  //return {lat:this.userlat, lng:this.userlong};
 
+  return this.userlocation$;
 
-//  return {lat:this.userlat, lng:this.userlong};
 }
 
 
 
 setuserlocation(lat,long){
 console.log("user location set ");
-console.log("user location set ");
-console.log("user location set ");
-console.log("user location set ");
-console.log("user location set ");
-console.log("user location set ");
-console.log("user location set ");
-console.log("user location set ");
+ 
 console.log(lat," ",long)
   this.userlat=lat;
   this.userlong=long;
