@@ -12,7 +12,7 @@
 
   <!-- This is the bit that needs replaced with a variable :) -->
   <agm-circle [latitude]="userLocation.lat" [longitude]="userLocation.lng"
-    [radius]="5000">
+    [radius]="distanceRestriction" [fillColor]="fill" [fillOpacity]="opacity" [strokeColor]="sColour" [strokeWeight]="sWeight">
   </agm-circle>
 
   <div class="mapContainer">

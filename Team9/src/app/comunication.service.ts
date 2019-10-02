@@ -62,7 +62,21 @@ runtestsearch(): Observable<test[]>
 
 
 }
+  private distancebeingsearchedSource = new Subject<any>();
 
+  distancebeingsearched$ = this.distancebeingsearchedSource.asObservable();
+
+  setdistancebeingsearched(dist){
+
+    this.distancebeingsearchedSource.next(dist);
+
+  }
+
+  getdistancebeingsearched(): Observable<any> {
+
+      return this.distancebeingsearched$;
+
+  }
 runsearch(code) {
 // todo make sure this runs as an * if there is no address
 
@@ -80,7 +94,7 @@ runsearch(code) {
     for(var i = 0; i <  this.resultlength ; i++) {
 
 
-        console.log(this.arrayOfObjectsFromSQLSource[i].Distance);
+        //console.log(this.arrayOfObjectsFromSQLSource[i].Distance);
     }
   }, 3000)
 

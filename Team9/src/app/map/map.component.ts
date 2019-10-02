@@ -9,7 +9,10 @@ import { Subscription } from 'rxjs/Subscription';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit, OnDestroy {
-  
+  fill= '#FF0000';
+  opacity=0.2;
+  sColour='#28292b';
+  sWeight='#28292b';
   zoom = 12;
 
   userLocation = {lat: 0, lng: 0};
@@ -25,15 +28,23 @@ export class MapComponent implements OnInit, OnDestroy {
 
   top20Providers: any;
   subscription2: Subscription;
-
+  distanceRestriction: any = 160934;
   constructor(private interact:ComunicationService) {
     
   }
 
   ngOnInit() {
+    this.interact.getdistancebeingsearched().subscribe(
+      (res: any) => {
+        console.log(res);
+        this.distanceRestriction = res;
+
+      }
+    );
     this.interact.getuseraddress().subscribe(
       (res:any) => {
         console.log(res);
+        this.userLocation = res;
       }
     );
 
