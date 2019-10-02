@@ -53,7 +53,7 @@ steven2(index,p):any{
 
 steven3(index,p):any{
 
-  return this.hospitalList[index+0*(p-1)].Distance;
+  return this.hospitalList[index+8*(p-1)].Distance;
 
 }
 ngOnInit() {
@@ -84,7 +84,7 @@ getdistance(hospitalID,index,p){
 
   var userlocation = this.interact.getuserlocation();
 
-  return  this.locate.getdistance(this.hospitalList[index+7*(p-1)].lat,this.hospitalList[index+7*(p-1)].lng,userlocation.lat,userlocation.lng);
+  return  this.locate.getdistance(this.hospitalList[index+8*(p-1)].lat,this.hospitalList[index+8*(p-1)].lng,userlocation.lat,userlocation.lng);
 
 
 }
