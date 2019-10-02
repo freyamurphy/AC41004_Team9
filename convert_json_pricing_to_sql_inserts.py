@@ -26,20 +26,25 @@ for rowIndex in range(len(rows)):
     averageMedicarePayments = row.get("averageMedicarePayments")
     year = row.get("year")
 
-    if insertedConditionIDs.get(conditionCode) is None:
-        insertedConditionIDs[conditionCode] = {}
-    if insertedConditionIDs[conditionCode].get(providerID) is None:
-        insertedConditionIDs[conditionCode][providerID] = {}
-    if insertedConditionIDs[conditionCode][providerID].get(year) is None:
-        yearDict = {
-            "totalDischarges": totalDischarges,
-            "averageCoveredCharges": averageCoveredCharges,
-            "averageTotalPayments": averageTotalPayments,
-            "averageMedicarePayments": averageMedicarePayments,
-        }
-        insertedConditionIDs[conditionCode][providerID][year] = yearDict
+    if providerID != "" and conditionCode != "":
+        providerID = str(int(providerID))
+        conditionCode = str(int(conditionCode))
+
+        if insertedConditionIDs.get(conditionCode) is None:
+            insertedConditionIDs[conditionCode] = {}
+        if insertedConditionIDs[conditionCode].get(providerID) is None:
+            insertedConditionIDs[conditionCode][providerID] = {}
+        if insertedConditionIDs[conditionCode][providerID].get(year) is None:
+            yearDict = {
+                "totalDischarges": totalDischarges,
+                "averageCoveredCharges": averageCoveredCharges,
+                "averageTotalPayments": averageTotalPayments,
+                "averageMedicarePayments": averageMedicarePayments,
+            }
+            insertedConditionIDs[conditionCode][providerID][year] = yearDict
 
 for conditionCode in insertedConditionIDs:
+    print(conditionCode)
     for providerID in insertedConditionIDs[conditionCode]:
         recentYear = max(list(insertedConditionIDs[conditionCode][providerID].keys()))
 
