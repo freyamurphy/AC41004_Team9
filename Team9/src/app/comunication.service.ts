@@ -267,9 +267,11 @@ resetfocused(){
 
 
 
-getuserlocation(){
+getuserlocation(): Observable<any>{
   //console.log("inside get user location function");
-  return {lat:this.userlat, lng:this.userlong};
+  //return {lat:this.userlat, lng:this.userlong};
+  
+  return this.userlocation$;
 }
 
 
@@ -286,7 +288,7 @@ console.log("user location set ");
 console.log(lat," ",long)
   this.userlat=lat;
   this.userlong=long;
-  
+  this.userlocationSource.next({lat:this.userlat, lng:this.userlong});
   console.log(this.userlat," ",this.userlong);
  this.resetfocused();
 }

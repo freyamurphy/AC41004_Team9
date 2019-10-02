@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { LabelInfo ,test}from '../classmanager.service';
 import { ComunicationService } from '../comunication.service';
 import { Subscription } from 'rxjs/Subscription';
@@ -8,7 +8,8 @@ import { Subscription } from 'rxjs/Subscription';
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
 })
-export class MapComponent implements OnInit {
+export class MapComponent implements OnInit, OnDestroy {
+  
   zoom = 12;
 
   userLocation = {lat: 0, lng: 0};
@@ -23,6 +24,7 @@ export class MapComponent implements OnInit {
   subscription:any;
 
   top20Providers: any;
+  subscription2: Subscription;
 
   constructor(private interact:ComunicationService) {
     
@@ -66,8 +68,18 @@ export class MapComponent implements OnInit {
         this.focusLocation.lng = message.lng;
         console.log("changed focsed location");
       });
+      this.subscription2 = this.interact.getuserlocation().subscribe(
+        message => {
+  
+          //console.log(message);
+          this.userLocation = message;
+          console.log(this.userLocation);
+        });
 
     setTimeout( () => {}, 5000)
+      }
+      ngOnDestroy(): void {
+      }
 /*
     for (let i = 0; i < this.providers.length; i++) {
       this.labelInfo= {
@@ -82,7 +94,7 @@ export class MapComponent implements OnInit {
 */
     // for each pricing loop through provider and find the matching id
 
-  }
+  
 
 
 
