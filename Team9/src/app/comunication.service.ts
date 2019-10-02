@@ -221,11 +221,12 @@ hospitalHandler(dataset){
         {
           if(templng[i]!=1000 && templng[i]!=undefined)
           {
+            console.log(dataset[i].State,dataset[i].StreetAddress,dataset[i].providers_ID,templat[i],templng[i]);
             this.sqlapi.inserthospical(dataset[i].providers_ID,templat[i],templng[i]).subscribe((res: any) => {console.log(res);});
         }
 
         }
-      }, 100)
+      }, 50000)
 
 
 }

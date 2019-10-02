@@ -2,19 +2,18 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Observable, throwError, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-import { searchWithStateAndDRGCodeInterface,test }from './classmanager.service';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class SqlapiService {
   temp: number[];
-tester:test[];
+
 
 test:any;
   baseUrl = 'http://localhost/phptest/test.php';
-//baseUrl = 'https://zeno.computing.dundee.ac.uk/2019-projects/team9/AC41004_Team9/Team9/angular-php/backend/api/search.php';
-
+//baseUrl = 'https://zeno.computing.dundee.ac.uk/2019-projects5
 
    constructor(private http: HttpClient, ) { }
 
@@ -25,11 +24,10 @@ will use class from class manager tomerge
 
 function on sql is named
 */
-   gettestdata(): Observable<test[]> {
+   gettestdata(): Observable<any> {
      return this.http.get(this.baseUrl).pipe(
        map((res) => {
-         this.tester= res['name'];
-        return this.tester;
+        return res['name'];
      }));
   }
 
@@ -59,9 +57,11 @@ for(var i = 0; i < 1000; i++){
 
   }
   //drgcode = 64;
+  console.log(drgcode);
+  console.log(state);
     if( proceed){
       var temp = "https://zeno.computing.dundee.ac.uk/2019-projects/team9/AC41004_Team9/echotest.php?state="+state+"&condition_Code="+drgcode;
-    //  console.log(temp );
+     console.log(temp );
           return this.http.get(temp).pipe(
             map((res) => {
              return res['data'];
