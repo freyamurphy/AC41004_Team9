@@ -22,23 +22,33 @@
   <!--Elements on the bottom part of the page-->
   <div id="bottom" style="display: none;">
         <div class="row" >
-          <div class="col-md-auto" style="width: 40%; height: 100%" id="hospitals">
+
+          <div class="col-md-auto" style="width: 45%; height: 98%" id="hospitals">
+              <app-back  class="Column"></app-back>
+            <div class="Rows">
+
+
+              <app-select  class="Column"></app-select>
+              <div  [style.width.px]="getwidth(15)" [style.height.px]="getheight(10)">
+                <mat-label   class="Column" id="label" name="Sort By">Within Distance</mat-label>
+
+                <mat-select    id="select">
+                    <mat-option>None</mat-option>
+                    <mat-option tabindex="7"   (click)="limitByDistance(20)">20</mat-option>
+                    <mat-option tabindex="7"   (click)="limitByDistance(100)">100</mat-option>
+                    <mat-option tabindex="7"   (click)="limitByDistance(500)">500</mat-option>
+                    <mat-option tabindex="7"   (click)="limitByDistance(100000)">Any distance</mat-option>
+
+
+
+                </mat-select>
+                </div>
+                </div>
             <div class="center-div">
-              <app-back></app-back>
-              <app-select></app-select>
 
             </div>
-            <div >
-              <mat-label   id="label" name="Sort By">Within Distance</mat-label>
 
-              <mat-select    id="select">
-                  <mat-option>None</mat-option>
-                  <mat-option tabindex="7"   (click)="limitByDistance(20)">20</mat-option>
-                  <mat-option tabindex="7"   (click)="limitByDistance(100)">100</mat-option>
-                  <mat-option tabindex="7"   (click)="limitByDistance(500)">500</mat-option>
-                  <mat-option tabindex="7"   (click)="limitByDistance(100000)">Any distance</mat-option>
-              </mat-select>
-              </div>
+
             <app-hospitalselecter></app-hospitalselecter>
             </div>
             <div class="col-md-auto">

@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Subject} from 'rxjs';
 import { Observable } from 'rxjs';
-import { searchWithStateAndDRGCodeInterface }from './classmanager.service';
+import { searchWithStateAndDRGCodeInterface,test }from './classmanager.service';
 import { SqlapiService }from './sqlapi.service';
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { GelocatorService }from './gelocator.service';
+
+import { map, catchError } from 'rxjs/operators';
+
 import { ReturnStatement } from '@angular/compiler';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -39,9 +43,26 @@ distancecalcvariable:any;
 resultlength:any;
 userstate:any;
 
+
+
+testvariables:test[];
+
 constructor(private http: HttpClient,private sqlapi:SqlapiService ,private locate:GelocatorService) { }
 
-// runs a search
+runtestsearch(): Observable<test[]>
+{
+  return  this.sqlapi.gettestdata().pipe(
+  map((res) => {
+
+      this.testvariables =  res['data'];
+      return this.testvariables;
+  }));
+
+
+
+
+}
+
 runsearch(code) {
 // todo make sure this runs as an * if there is no address
 
@@ -51,15 +72,21 @@ runsearch(code) {
     this.resultlength=res.length;
     this.hospitalHandler(res);
     this.usersort=res;
-
     this.distancecalcvariable=res;
     console.log(res);
 //    this.sortPriceFunction();
   });
+  setTimeout( ()=>{
+    for(var i = 0; i <  this.resultlength ; i++) {
+
+
+        console.log(this.arrayOfObjectsFromSQLSource[i].Distance);
+    }
+  }, 3000)
+
+
 
 }
-
-
 
 //to use put the following in init setautoComplete(what you are searching for ) and subscibe to getautocompete
 setautoComplete(locationInput:any)
@@ -214,22 +241,22 @@ hospitalHandler(dataset){
         {
           if(templng[i]!=1000 && templng[i]!=undefined)
           {
+            console.log(dataset[i].State,dataset[i].StreetAddress,dataset[i].providers_ID,templat[i],templng[i]);
             this.sqlapi.inserthospical(dataset[i].providers_ID,templat[i],templng[i]).subscribe((res: any) => {console.log(res);});
         }
 
         }
-      }, 10000)
+      }, 50000)
 
 
 }
 getlocationfromaddress(state: string,address: string): Observable<any>{
 
-var apikey="AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8";
-
-var temp = "https://maps.googleapis.com/maps/api/geocode/json?address="+address+" "+state+"&key="+apikey;
-//    https://maps.googleapis.com/maps/api/geocode/json?address=90210&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8;
-//return this.http.get<any>(temp).subscribe((res: any) => {console.log(res);});
- return;
+  var temp = "https://maps.googleapis.com/maps/api/geocode/json?address="+address+" "+state+"&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8";
+  return this.http.get<any>(temp).pipe(
+    map((res) => {
+     return res;
+  }));
 }
 
 
@@ -267,9 +294,12 @@ resetfocused(){
 
 
 
-getuserlocation(){
+getuserlocation(): Observable<any>{
   //console.log("inside get user location function");
-  return {lat:this.userlat, lng:this.userlong};
+  //return {lat:this.userlat, lng:this.userlong};
+  
+  return this.userlocation$;
+
 }
 
 
@@ -286,6 +316,7 @@ console.log("user location set ");
 console.log(lat," ",long)
   this.userlat=lat;
   this.userlong=long;
+  this.userlocationSource.next({lat:this.userlat, lng:this.userlong});
   console.log(this.userlat," ",this.userlong);
  this.resetfocused();
 }

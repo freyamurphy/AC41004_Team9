@@ -45,11 +45,15 @@ steven(index,p):any{
   return display;
 
 }
-
-
 steven2(index,p):any{
 
   return this.hospitalList[index+7*(p-1)].providerName;
+
+}
+
+steven3(index,p):any{
+
+  return this.hospitalList[index+7*(p-1)].Distance;
 
 }
 ngOnInit() {
@@ -87,6 +91,10 @@ getdistance(hospitalID,index,p){
 
 
 senddatatocommunicationservice(data:any){
+
+  this.interact.setfocusedlocation(data);
+}
+getuser(data:any){
 
   this.interact.setfocusedlocation(data);
 }

@@ -134,6 +134,7 @@ arrayofstuff:any;
           this.innerWidth = window.innerWidth;
             this.innerHeight= window.innerHeight;
           this.isHidden = true;
+        //    this.interact.getsearchresults().subscribe((res: any) => {this.hospitalList =res;console.log(res);});
       }
 
 
