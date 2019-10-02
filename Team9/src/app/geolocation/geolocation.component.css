@@ -1,6 +1,14 @@
 #addressBox {
   width: 50%;
 }
+::ng-deep .mat-snack-bar-container{
+  color: white !important;
+  background-color: #e95656 !important;
+  border-color: black !important;
+}
+::ng-deep .mat-simple-snackbar-action {
+  color: red;
+}
 
 #button {
   left: 300px;

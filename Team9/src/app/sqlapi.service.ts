@@ -32,7 +32,7 @@ function on sql is named
   }
 
 
-  searchWithStateAndDRGCodeFunction(state, drgcode ): Observable<any> {
+  searchWithStateAndDRGCodeFunction(state, drgcode  ): Observable<any> {
 //    console.log("inside sqlapi");
 
     // check drg code is a number

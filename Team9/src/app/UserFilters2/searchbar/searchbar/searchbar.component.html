@@ -15,7 +15,7 @@
             </select>
       </datalist>-->
       <div id=search>
-      <ngx-select    
+      <ngx-select   
             id="search"
             style="margin-top:00px"
             [formControl]="ngxControl"
@@ -33,6 +33,6 @@
             (selectionChanges)="doSelectOptions($event)">
       </ngx-select>
 </div>
-      <button mat-raised-button color="primary" tabindex="6" id= "formSelect" (click)="submit();"
+      <button mat-raised-button color="primary" id= "formSelect" (click)="submit();"
       value="submit" >Search</button>
 

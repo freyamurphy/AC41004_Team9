@@ -65,21 +65,6 @@ steven3(index,p):any{
 ngOnInit() {
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   this.innerWidth = window.innerWidth;
   this.innerHeight= window.innerHeight;
   //this.interact.runsearch("a","b");
@@ -107,8 +92,13 @@ getdistance(hospitalID,index,pagenumber){
 
   }
   var userlocation = this.interact.getuserlocation();
+
 //  console.log(userlocation.lat," aa ",userlocation.lng);
 //  return  this.locate.getdistance(this.hospitalList[index*pagenumber].lat,this.hospitalList[index*pagenumber].lng,userlocation.lat,userlocation.lng);
+
+
+  return  this.locate.getdistance(this.hospitalList[index*pagenumber].lat,this.hospitalList[index*pagenumber].lng,userlocation.lat,userlocation.lng);
+
 
 
 }

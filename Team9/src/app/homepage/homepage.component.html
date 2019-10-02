@@ -22,9 +22,11 @@
   <!--Elements on the bottom part of the page-->
   <div id="bottom" style="display: none;">
         <div class="row" >
+
           <div class="col-md-auto" style="width: 45%; height: 98%" id="hospitals">
               <app-back  class="Column"></app-back>
             <div class="Rows">
+
 
               <app-select  class="Column"></app-select>
               <div  [style.width.px]="getwidth(15)" [style.height.px]="getheight(10)">
@@ -38,6 +40,7 @@
                     <mat-option tabindex="7"   (click)="limitByDistance(100000)">Any distance</mat-option>
 
 
+
                 </mat-select>
                 </div>
                 </div>
@@ -45,10 +48,11 @@
 
             </div>
 
+
             <app-hospitalselecter></app-hospitalselecter>
             </div>
-            <div class="col-md-auto" style="width:40%; margin-top:20px;margin-bottom:20px;border-radius: 25px;">
-              <app-map style="height:98%; width: 100%; position: absolute; border-radius: 25px;"
+            <div class="col-md-auto">
+              <app-map style="height:100%; width: 100%; position: absolute;"
               [style.height.px]="getheight(100)"[style.width.px]="getwidth(50)">
               </app-map>
             </div>
