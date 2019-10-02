@@ -38,8 +38,8 @@ constructor(private interact:ComunicationService, private database:ClassmanagerS
 
 steven(index,p):any{
 
- console.log("index",index,"page",p,"muiltpy",index+7*(p-1));
-  var display = this.hospitalList[index+7*(p-1)].averageTotalPayments - this.hospitalList[index+7*(p-1)].averageMedicarePayments;
+ console.log("index",index,"page",p,"muiltpy",index+8*(p-1));
+  var display = this.hospitalList[index+8*(p-1)].averageTotalPayments - this.hospitalList[index+8*(p-1)].averageMedicarePayments;
   //var t = this.hospitalList[index];
 //  console.log(display);
   return display;
@@ -47,13 +47,13 @@ steven(index,p):any{
 }
 steven2(index,p):any{
 
-  return this.hospitalList[index+7*(p-1)].providerName;
+  return this.hospitalList[index+8*(p-1)].providerName;
 
 }
 
 steven3(index,p):any{
 
-  return this.hospitalList[index+7*(p-1)].Distance;
+  return this.hospitalList[index+0*(p-1)].Distance;
 
 }
 ngOnInit() {
