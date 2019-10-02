@@ -1,0 +1,14 @@
+<div  class="parent">
+    <mat-form-field>
+        <div style="text-align:center;">
+            <mat-label id="label" name="Sort By">Within Distance</mat-label>
+            <mat-select [(value)]="selected" id="select">
+                <mat-option>None</mat-option>
+                <mat-option (click)="limitByDistance(20)">20</mat-option>
+                <mat-option (click)="limitByDistance(100)">100</mat-option>
+                <mat-option (click)="limitByDistance(500)">500</mat-option>
+                <mat-option (click)="limitByDistance(100000)">Any distance</mat-option>
+            </mat-select>
+        </div>
+    </mat-form-field>
+</div>

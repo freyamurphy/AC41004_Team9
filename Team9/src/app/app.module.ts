@@ -51,7 +51,6 @@ import { TestpageComponent } from './testpage/testpage.component';
 import { UilocationfinderComponent } from './uilocationfinder/uilocationfinder.component';
 
 import { HospitalselecterComponent } from './hospitalselecter/hospitalselecter.component';
-
 import { RangesliderComponent } from './UserFilters2/rangeslider/rangeslider.component';
 
 import { SearchbarComponent } from './UserFilters2/searchbar/searchbar/searchbar.component';
@@ -83,6 +82,7 @@ import { ManuallocationComponent } from './manuallocation/manuallocation/manuall
 import { UserhelpComponent } from './help/userhelp/userhelp.component';
 
 import { BackComponent } from './back/back/back.component';
+import { DistanceSorterComponent } from './distance-sorter/distance-sorter.component';
 //test
 
 
@@ -95,7 +95,6 @@ import { BackComponent } from './back/back/back.component';
     HomepageComponent,
     MapComponent,
     TestpageComponent,
-
     SearchComponent,
 
     UilocationfinderComponent,
@@ -107,6 +106,7 @@ import { BackComponent } from './back/back/back.component';
     ManuallocationComponent,
     UserhelpComponent,
     BackComponent,
+    DistanceSorterComponent,
 
 
   ],
