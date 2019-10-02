@@ -36,8 +36,8 @@ export class SearchbarComponent implements OnInit, OnDestroy{
     this._ngxDefaultTimeout = setTimeout(() => {
       this._ngxDefaultInterval = setInterval(() => {
           const idx = Math.floor(Math.random() * (this.description.length - 1));
-          this._ngxDefault = this.description[idx];
-          this.selected = this._ngxDefault;
+          this._ngxDefault = this.description[0];
+          //this.selected = this._ngxDefault;
           // console.log('new default value = ', this._ngxDefault);
         }, 2000);
       }, 2000);
@@ -58,12 +58,13 @@ public doOpen = () => console.log('SingleDemoComponent.doOpen');
 
 public doClose = () => console.log('SingleDemoComponent.doClose');
 
-public doSelect = (value: any) => { console.log(value); this.selected = value};;
+public doSelect = (value: any) => { console.log("value: " + value); this.selected = value; console.log(this.selected)};
 
 public doRemove = (value: any) => console.log('SingleDemoComponent.doRemove', value);
 
 public doSelectOptions = (options: INgxSelectOption[]) =>{};
   ngOnInit() {
+    this.code = 1;
     //this.placeholder = "hello";
     this.interact.getautoComplete().subscribe((res: any) => {
       this.list =res;
@@ -111,7 +112,6 @@ openSnackBar(message: string, action: string) {
 
     var addressBox = (document.getElementById("addressBox") as HTMLInputElement).value;
 
-    console.log(addressBox);
     if(!addressBox.includes(", USA")){
       //console.log("HELLO");
       this.openSnackBar("Address is not in the US!", "");

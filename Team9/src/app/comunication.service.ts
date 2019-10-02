@@ -120,7 +120,6 @@ sortPriceFunction(){
       }
 */
 
-console.log("zhen said hi ");
 var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
 
    switching = true;
