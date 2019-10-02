@@ -24,11 +24,24 @@ export class MapComponent implements OnInit {
 
   top20Providers: any;
 
-  constructor(private interact:ComunicationService) {}
+  constructor(private interact:ComunicationService) {
+    
+  }
 
   ngOnInit() {
-    this.top20Providers = [];
+    this.interact.getuseraddress().subscribe(
+      (res:any) => {
+        console.log(res);
+      }
+    );
 
+    this.top20Providers = [];
+    /*this.interact.getuseraddress().subscribe(
+      (res:any) => {
+        console.log(res);
+      }
+
+    )*/
     this.interact.getsearchresults().subscribe(
       (res: any) => {
         this.providers = res;
