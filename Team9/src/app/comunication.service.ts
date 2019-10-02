@@ -5,6 +5,7 @@ import { searchWithStateAndDRGCodeInterface }from './classmanager.service';
 import { SqlapiService }from './sqlapi.service';
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { GelocatorService }from './gelocator.service';
+import { ReturnStatement } from '@angular/compiler';
 @Injectable({
   providedIn: 'root'
 })
@@ -227,7 +228,8 @@ var apikey="AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8";
 
 var temp = "https://maps.googleapis.com/maps/api/geocode/json?address="+address+" "+state+"&key="+apikey;
 //    https://maps.googleapis.com/maps/api/geocode/json?address=90210&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8;
-return this.http.get<any>(temp).subscribe((res: any) => {console.log(res);});
+//return this.http.get<any>(temp).subscribe((res: any) => {console.log(res);});
+ return;
 }
 
 
