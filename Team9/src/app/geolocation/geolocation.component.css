@@ -2,7 +2,7 @@
   width: 50%;
 }
 ::ng-deep .mat-checkbox .mat-checkbox-frame {
-  border-color: purple;
+  border-color: #6041b0;
 }
 ::ng-deep .mat-snack-bar-container{
   color: white !important;
