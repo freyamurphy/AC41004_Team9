@@ -64,10 +64,10 @@ export class GelocatorService {
 
 getlocationfromaddress(state: string,address: string): Observable<any>{
 var addressFull = "";
-var apikey=""
-//var temp = "https://maps.googleapis.com/maps/api/geocode/json?address="addresss"&key="apikey;
+var apikey="AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8"
+var temp = "https://maps.googleapis.com/maps/api/geocode/json?address="+address+"&key="+apikey;
 
-return this.http.get<any>(apikey);
+return this.http.get<any>(temp);
 }
 
 giveuserlatlong(){
