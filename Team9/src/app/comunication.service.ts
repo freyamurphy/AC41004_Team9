@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Subject} from 'rxjs';
 import { Observable } from 'rxjs';
-import { searchWithStateAndDRGCodeInterface }from './classmanager.service';
+import { searchWithStateAndDRGCodeInterface,test }from './classmanager.service';
 import { SqlapiService }from './sqlapi.service';
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { GelocatorService }from './gelocator.service';
+import { map, catchError } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -37,9 +38,25 @@ distancecalcvariable:any;
 resultlength:any;
 userstate:any;
 
-  constructor(private http: HttpClient,private sqlapi:SqlapiService ,private locate:GelocatorService) { }
 
-// runs a search
+testvariables:test[];
+
+constructor(private http: HttpClient,private sqlapi:SqlapiService ,private locate:GelocatorService) { }
+
+runtestsearch(): Observable<test[]>
+{
+  return  this.sqlapi.gettestdata().pipe(
+  map((res) => {
+
+      this.testvariables =  res['data'];
+      return this.testvariables;
+  }));
+
+
+
+
+}
+
 runsearch(code) {
 // todo make sure this runs as an * if there is no address
 
@@ -50,17 +67,20 @@ runsearch(code) {
     this.resultlength=res.length;
     this.hospitalHandler(res);
     this.usersort=res;
-
     this.distancecalcvariable=res;
     console.log(res);
 //    this.sortPriceFunction();
   });
+  setTimeout( ()=>{
+    for(var i = 0; i <  this.resultlength ; i++) {
+
+        console.log(this.arrayOfObjectsFromSQLSource[i].Distance);
+    }
+  }, 3000)
 
 
 
 }
-
-
 
 //to use put the following in init setautoComplete(what you are searching for ) and subscibe to getautocompete
 setautoComplete(locationInput:any)
@@ -205,7 +225,7 @@ hospitalHandler(dataset){
         }
 
         }
-      }, 10000)
+      }, 100)
 
 
 }

@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Observable, throwError, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-
+import { searchWithStateAndDRGCodeInterface,test }from './classmanager.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SqlapiService {
   temp: number[];
-
+tester:test[];
 
 test:any;
   baseUrl = 'http://localhost/phptest/test.php';
@@ -25,10 +25,11 @@ will use class from class manager tomerge
 
 function on sql is named
 */
-   gettestdata(): Observable<any> {
+   gettestdata(): Observable<test[]> {
      return this.http.get(this.baseUrl).pipe(
        map((res) => {
-        return res['name'];
+         this.tester= res['name'];
+        return this.tester;
      }));
   }
 
@@ -57,7 +58,7 @@ for(var i = 0; i < 1000; i++){
 //proceed=true;
 
   }
-  drgcode = 64;
+  //drgcode = 64;
     if( proceed){
       var temp = "https://zeno.computing.dundee.ac.uk/2019-projects/team9/AC41004_Team9/echotest.php?state="+state+"&condition_Code="+drgcode;
     //  console.log(temp );
