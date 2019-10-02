@@ -91,7 +91,8 @@ getdistance(hospitalID,index,pagenumber){
   index =pagenumber-1;
 
   }
-  var userlocation = this.interact.getuserlocation();
+  var userlocation;
+  var user = this.interact.getuserlocation().subscribe((res: any) => {userlocation =res;console.log(res);});
 
 //  console.log(userlocation.lat," aa ",userlocation.lng);
 //  return  this.locate.getdistance(this.hospitalList[index*pagenumber].lat,this.hospitalList[index*pagenumber].lng,userlocation.lat,userlocation.lng);
@@ -105,6 +106,10 @@ getdistance(hospitalID,index,pagenumber){
 
 
 senddatatocommunicationservice(data:any){
+
+  this.interact.setfocusedlocation(data);
+}
+getuser(data:any){
 
   this.interact.setfocusedlocation(data);
 }
