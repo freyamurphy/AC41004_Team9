@@ -269,13 +269,7 @@ getstatefromaddress(locationInput:any):string{
 //todo check if this can ever be missed (not likely)
 }
 
-
-
-
-
 hospitalHandler(dataset){
-
-
   var templat =new Array(1000);
   var templng =new Array(1000);
     var provid =new Array(1000);
