@@ -17,14 +17,16 @@ export class ComunicationService {
 
 private focusedlocationSource = new Subject<any>();
 focusedlocation$ = this.focusedlocationSource.asObservable();
+private distancebeingsearchedSource = new Subject<any>();
 
+  distancebeingsearched$ = this.distancebeingsearchedSource.asObservable();
 userlat:any=0;
 userlong:any=0;
 
 usersort:any;
 
 flag:any=0;
-typeofsearch:any;
+
 private arrayOfObjectsFromSQLSource = new Subject<any>();
 arrayofstuff$ = this.arrayOfObjectsFromSQLSource.asObservable();
 
@@ -75,8 +77,8 @@ runtestsearch(): Observable<test[]>
 runsearch(code ) {
 
 
-
-console.log(this.typeofsearch);
+ 
+console.log(this.typeofsearchSource);
 
 
 
@@ -127,8 +129,6 @@ getautoComplete(): Observable<any> {
     return this.autoCompleteSource.asObservable();
 }
 
-
-
 setdistancebeingsearched(dist){
 
   this.distancebeingsearchedSource.next(dist);
@@ -138,7 +138,7 @@ setdistancebeingsearched(dist){
 
 
 settypeofseaech(dist){
-this.typeofsearch = dist;
+
   this.typeofsearchSource.next(dist);
 
 }
@@ -289,8 +289,7 @@ hospitalHandler(dataset){
               templat[i]=res.results[0].geometry.location.lat;
               templng[i]=res.results[0].geometry.location.lng;
               provid[i]=dataset[i].providers_ID;
-              console.log(dataset[i].providers_ID,templat[i],templng[i]);
-     this.sqlapi.inserthospical(dataset[i].providers_ID,templat[i],templng[i]).subscribe((res: any) => {});
+
             });
         }
 
@@ -304,7 +303,7 @@ hospitalHandler(dataset){
           if(templng[i]!=1000 && templng[i]!=undefined)
           {
             //console.log(dataset[i].State,dataset[i].StreetAddress,dataset[i].providers_ID,templat[i],templng[i]);
-        //   this.sqlapi.inserthospical(provid[i].providers_ID,templat[i],templng[i]).subscribe((res: any) => {});
+           this.sqlapi.inserthospical(provid[i].providers_ID,templat[i],templng[i]).subscribe((res: any) => {});
         }
 
         }

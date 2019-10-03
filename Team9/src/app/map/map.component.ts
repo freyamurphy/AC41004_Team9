@@ -44,7 +44,7 @@ export class MapComponent implements OnInit, OnDestroy {
 
       }
     );
-
+    
     this.interact.getuseraddress().subscribe(
       (res:any) => {
         this.userLocation = res;
@@ -55,7 +55,7 @@ export class MapComponent implements OnInit, OnDestroy {
 
     this.interact.getsearchresults().subscribe(
       (res: any) => {
-
+        
         this.providers = res;
         this.top20Providers = []
         for ( let i = 0; i < this.providers.length; i++) {
@@ -73,15 +73,15 @@ export class MapComponent implements OnInit, OnDestroy {
       message => {
         this.focusLocation.lat = message.lat;
         this.focusLocation.lng = message.lng;
-    //    console.log("changed focsed location");
+        console.log("changed focsed location");
       });
       this.subscription2 = this.interact.getuserlocation().subscribe(
         message => {
 
           //console.log(message);
           this.userLocation = message;
-
-      //    console.log(this.userLocation);
+          
+          console.log(this.userLocation);
         });
 
     setTimeout( () => {}, 5000)
@@ -102,7 +102,7 @@ export class MapComponent implements OnInit, OnDestroy {
 */
     // for each pricing loop through provider and find the matching id
 
-
+ 
 
 
 
