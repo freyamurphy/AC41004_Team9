@@ -5,7 +5,7 @@ import { ClassmanagerService }from '../classmanager.service';
 import { Observable, throwError, of  } from 'rxjs';
 import { SqlapiService }from '../sqlapi.service';
 import { GelocatorService }from '../gelocator.service';
-
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-hospitalselecter',
@@ -35,8 +35,13 @@ boolforselector:any="white";
 p: number = 1;
 
 
-constructor(private interact:ComunicationService, private database:ClassmanagerService,private sqlapi:SqlapiService ,private locate:GelocatorService) { }
-
+constructor(private interact:ComunicationService, private database:ClassmanagerService,
+  private sqlapi:SqlapiService ,private locate:GelocatorService , private _snackBar: MatSnackBar) { }
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
+  }
 steven(index,p):any{
 
  //("index",index,"page",p,"muiltpy",index+8*(p-1));
@@ -47,7 +52,7 @@ steven(index,p):any{
 
 }
 steven2(index,p):any{
-console.log("seven2 position", index , " on page " , p , " = ",this.hospitalList[index+8*(p-1)].providerName, " lat : ",this.hospitalList[index+8*(p-1)].lat, "lng : ",this.hospitalList[index+8*(p-1)].lng, " year : ",this.hospitalList[index+8*(p-1)].pricingYEAR);
+//console.log("seven2 position", index , " on page " , p , " = ",this.hospitalList[index+8*(p-1)].providerName, " lat : ",this.hospitalList[index+8*(p-1)].lat, "lng : ",this.hospitalList[index+8*(p-1)].lng, " year : ",this.hospitalList[index+8*(p-1)].pricingYEAR);
   return this.hospitalList[index+8*(p-1)].providerName;
 
 }
@@ -63,7 +68,11 @@ ngOnInit() {
   this.innerWidth = window.innerWidth;
   this.innerHeight= window.innerHeight;
   //this.interact.runsearch("a","b");
-  this.interact.getsearchresults().subscribe((res: any) => {this.hospitalList =res;});
+  this.interact.getsearchresults().subscribe((res: any) => {this.hospitalList =res;
+
+      
+    
+  });
 //this.sqlapi.searchWithStateAndDRGCodeFunction("NY","033").subscribe((res: any) => {this.hospitalList =res;});
 }
 @HostListener('window:resize', ['$event'])
