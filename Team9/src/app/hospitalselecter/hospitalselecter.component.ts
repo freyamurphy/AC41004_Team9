@@ -83,7 +83,7 @@ getwidth(widthpercentage){
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 getdistance(hospitalID,index,p){
 
- 
+
 this.hospitalList[index+8*(p-1)].Distance;
 }
 
@@ -116,8 +116,8 @@ getColor(index,p)
 
 highlight(index){
   var temp = {
-    lat:this.hospitalList[index].lat,
-    lng:this.hospitalList[index].lng
+    lat:this.hospitalList[index+8*(p-1)].lat,
+    lng:this.hospitalList[index+8*(p-1)].lng
   };
 
 
