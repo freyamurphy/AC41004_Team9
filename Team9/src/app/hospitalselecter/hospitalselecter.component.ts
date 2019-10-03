@@ -47,7 +47,7 @@ steven(index,p):any{
 
 }
 steven2(index,p):any{
-console.log("seven2 position", index , " on page " , p , " = ",this.hospitalList[index+8*(p-1)].providerName, " lat : ",this.hospitalList[index+8*(p-1)].lat, "lng : ",this.hospitalList[index+8*(p-1)].lng, " year : ",this.hospitalList[index+8*(p-1)].pricingYEAR);
+//console.log("seven2 position", index , " on page " , p , " = ",this.hospitalList[index+8*(p-1)].providerName, " lat : ",this.hospitalList[index+8*(p-1)].lat, "lng : ",this.hospitalList[index+8*(p-1)].lng, " year : ",this.hospitalList[index+8*(p-1)].pricingYEAR);
   return this.hospitalList[index+8*(p-1)].providerName;
 
 }
