@@ -119,7 +119,10 @@ openSnackBar(message: string, action: string) {
 
     }
     else{
+      this.interact.limitdataByDistance(100);
+      this.interact.setdistancebeingsearched(100);
       this.interact.runsearch(this.code);
+      
       document.getElementById("bottom").style.display = "block";
 
       this.scroll();
