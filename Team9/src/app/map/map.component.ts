@@ -47,8 +47,6 @@ export class MapComponent implements OnInit, OnDestroy {
     
     this.interact.getuseraddress().subscribe(
       (res:any) => {
-        
-
         this.userLocation = res;
       }
     );
