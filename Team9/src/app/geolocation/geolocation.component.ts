@@ -118,6 +118,7 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
     });
   }
   switch(){
+    console.log("TT");
     if((document.getElementById("stateSelector") as HTMLInputElement).disabled == true){
       (document.getElementById("addressBox") as HTMLInputElement).disabled = true;
       (document.getElementById("addressBox") as HTMLInputElement).value = "";
@@ -134,6 +135,8 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
       (document.getElementById("stateSelector") as HTMLInputElement).disabled = true;
       this.stateValue = "";
     }
+    this.resetText();
+
 
   }
   ngOnInit() {
@@ -157,6 +160,7 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
   }
 
   getLocation() {
+    console.log("hello");
     this.error = false;
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.showPosition, this.showError);
@@ -199,15 +203,10 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
 
   getMLocation()
   {
-//test
     this.zipcode = ((document.getElementById("addressBox") as HTMLInputElement).value);
     this.zipcode = this.zipcode.replace('#','');
-    if(!this.zipcode){
-
-      if(this.stateValue == ""){
-        return;
-
-      }
+    if(!this.zipcode || !this.zipcode.includes(this.stateValue) ){
+      console.log("GG");
       this.zipcode = this.stateValue;
 
 this.comunicate.settypeofseaech(0);
