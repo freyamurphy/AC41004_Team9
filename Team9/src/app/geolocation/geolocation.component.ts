@@ -137,7 +137,6 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
       this.stateValue = "";
     }
 
-
   }
   ngOnInit() {
     this.searchControl = new FormControl();
@@ -160,7 +159,6 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
   }
 
   getLocation() {
-    console.log("hello");
     this.error = false;
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.showPosition, this.showError);
