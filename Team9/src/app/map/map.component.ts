@@ -28,7 +28,7 @@ export class MapComponent implements OnInit, OnDestroy {
 
   top20Providers: any;
   subscription2: Subscription;
-  distanceRestriction: any = 100 * 1609.34;
+  distanceRestriction: any = null;
   constructor(private interact:ComunicationService) {
 
   }
@@ -44,6 +44,7 @@ export class MapComponent implements OnInit, OnDestroy {
 
       }
     );
+    
     this.interact.getuseraddress().subscribe(
       (res:any) => {
         
