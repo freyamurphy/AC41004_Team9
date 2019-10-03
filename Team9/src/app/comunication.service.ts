@@ -47,6 +47,10 @@ private distancebeingsearchedSource = new Subject<any>();
 
 distancebeingsearched$ = this.distancebeingsearchedSource.asObservable();
 
+private typeofsearchSource = new Subject<any>();
+typeofsearch$ = this.typeofsearchSource.asObservable();
+
+
 testvariables:test[];
 
 constructor(private http: HttpClient,private sqlapi:SqlapiService ,private locate:GelocatorService) { }
@@ -69,8 +73,7 @@ runtestsearch(): Observable<test[]>
 
 
 runsearch(code ) {
-// todo make sure this runs as an * if there is no address
-
+ 
 
 
 //searchWithOnlyDRGCode
@@ -117,6 +120,14 @@ getautoComplete(): Observable<any> {
 setdistancebeingsearched(dist){
 
   this.distancebeingsearchedSource.next(dist);
+
+}
+
+
+
+settypeofseaech(dist){
+
+  this.typeofsearchSource.next(dist);
 
 }
 

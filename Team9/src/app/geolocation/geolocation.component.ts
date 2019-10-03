@@ -125,7 +125,7 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
       (document.getElementById("addressBox") as HTMLInputElement).disabled = false;
       (document.getElementById("stateSelector") as HTMLInputElement).disabled = true;
     }
-    
+
   }
   ngOnInit() {
     this.searchControl = new FormControl();
@@ -196,7 +196,7 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
     if(!this.zipcode){
       return;
     }
-    
+
     this.baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + this.zipcode + "&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8&region=US";
 
     this.http.get(this.baseUrl).subscribe(data => {
@@ -215,7 +215,7 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
         this.text = (this.temp[0].formatted_address);
         this.sendtocomunicationservice(this.temp[0]);
             this.comunicate.setuserlocation(this.temp[0].geometry.location.lat,this.temp[0].geometry.location.lng);
-
+this.comunicate.settypeofseaech(1);
       }
 //test
 
