@@ -70,13 +70,15 @@ runtestsearch(): Observable<test[]>
 
 
 }
-  
+
 
 
 
 runsearch(code ) {
- 
 
+
+ 
+console.log(this.typeofsearchSource);
 
 
 
