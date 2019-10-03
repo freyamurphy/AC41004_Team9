@@ -119,10 +119,16 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
   switch(){
     if((document.getElementById("stateSelector") as HTMLInputElement).disabled == true){
       (document.getElementById("addressBox") as HTMLInputElement).disabled = true;
+      (document.getElementById("addressBox") as HTMLInputElement).value = "";
+      (document.getElementById("save") as HTMLInputElement).disabled = true;
+
       (document.getElementById("stateSelector") as HTMLInputElement).disabled = false;
+
     }
     else{
       (document.getElementById("addressBox") as HTMLInputElement).disabled = false;
+      (document.getElementById("save") as HTMLInputElement).disabled = false;
+
       (document.getElementById("stateSelector") as HTMLInputElement).disabled = true;
     }
 
