@@ -118,6 +118,7 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
     });
   }
   switch(){
+    console.log("TT");
     if((document.getElementById("stateSelector") as HTMLInputElement).disabled == true){
       (document.getElementById("addressBox") as HTMLInputElement).disabled = true;
       (document.getElementById("addressBox") as HTMLInputElement).value = "";
@@ -204,12 +205,8 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
   {
     this.zipcode = ((document.getElementById("addressBox") as HTMLInputElement).value);
     this.zipcode = this.zipcode.replace('#','');
-    if(!this.zipcode){
-
-      if(this.stateValue == ""){
-        return;
-
-      }
+    if(!this.zipcode || !this.zipcode.includes(this.stateValue) ){
+      console.log("GG");
       this.zipcode = this.stateValue;
 
     }
