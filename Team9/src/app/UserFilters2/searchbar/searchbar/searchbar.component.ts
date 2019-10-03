@@ -106,7 +106,7 @@ openSnackBar(message: string, action: string) {
   }
   submit(){
     this.auto();
-
+    
     var addressBox = (document.getElementById("addressBox") as HTMLInputElement).value;
 
     if(!addressBox.includes(", USA")){

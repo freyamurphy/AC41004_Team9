@@ -215,8 +215,6 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
 
     this.http.get(this.baseUrl).subscribe(data => {
       this.temp = data['results'];
-      console.log(this.temp);
-      console.log(this.zipcode);
 
 
       if(this.temp.length == 0){
@@ -227,7 +225,7 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
       else{
         this.error = false;
         this.text = (this.temp[0].formatted_address);
-        //this.sendtocomunicationservice(this.temp[0]);
+        this.sendtocomunicationservice(this.temp[0]);
             this.comunicate.setuserlocation(this.temp[0].geometry.location.lat,this.temp[0].geometry.location.lng);
       }
 //test
