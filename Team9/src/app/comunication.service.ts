@@ -17,7 +17,9 @@ export class ComunicationService {
 
 private focusedlocationSource = new Subject<any>();
 focusedlocation$ = this.focusedlocationSource.asObservable();
+private distancebeingsearchedSource = new Subject<any>();
 
+  distancebeingsearched$ = this.distancebeingsearchedSource.asObservable();
 userlat:any=0;
 userlong:any=0;
 
@@ -75,10 +77,20 @@ runtestsearch(): Observable<test[]>
 runsearch(code ) {
 
 
+ 
 console.log(this.typeofsearchSource);
-//searchWithOnlyDRGCode
 
 
+
+ /* getdistancebeingsearched(): Observable<any> {
+
+    return this.distancebeingsearched$;
+
+}
+*/
+
+
+// todo make sure this runs as an * if there is no address
 
   this.sqlapi.searchWithStateAndDRGCodeFunction(this.userstate,code).subscribe((res: any) =>
   {

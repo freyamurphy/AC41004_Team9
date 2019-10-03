@@ -65,7 +65,6 @@ public doRemove = (value: any) => console.log('SingleDemoComponent.doRemove', va
 public doSelectOptions = (options: INgxSelectOption[]) =>{};
   ngOnInit() {
     this.code = 64;
-    //this.placeholder = "hello";
     this.interact.getautoComplete().subscribe((res: any) => {
       this.list =res;
       console.log(this.list);
@@ -119,7 +118,12 @@ openSnackBar(message: string, action: string) {
 
     }
     else{
+      
       this.interact.runsearch(this.code);
+      setTimeout( () => {}, 5000)
+
+      this.interact.limitdataByDistance(100);
+      this.interact.setdistancebeingsearched(100);
       document.getElementById("bottom").style.display = "block";
 
       this.scroll();
