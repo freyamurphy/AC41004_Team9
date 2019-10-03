@@ -30,14 +30,14 @@ export class MapComponent implements OnInit, OnDestroy {
   subscription2: Subscription;
   distanceRestriction: any = null;
   constructor(private interact:ComunicationService) {
-    
+
   }
 
   ngOnInit() {
     this.interact.getdistancebeingsearched().subscribe(
       (res: any) => {
         console.log(res);
-        
+
         this.distanceRestriction = res;
         if(this.distanceRestriction == 2151687.58){
           this.distanceRestriction = null;
@@ -52,12 +52,12 @@ export class MapComponent implements OnInit, OnDestroy {
     );
 
     this.top20Providers = [];
-   
+
     this.interact.getsearchresults().subscribe(
       (res: any) => {
         this.providers = res;
         this.top20Providers = []
-        for ( let i = 0; i < 20; i++) {
+        for ( let i = 0; i < 100; i++) {
           if(this.providers[i]){
            console.log(this.providers[i]);
 
@@ -65,7 +65,7 @@ export class MapComponent implements OnInit, OnDestroy {
 
           }
         }
-        
+
       }
     );
 
@@ -78,7 +78,7 @@ export class MapComponent implements OnInit, OnDestroy {
       });
       this.subscription2 = this.interact.getuserlocation().subscribe(
         message => {
-  
+
           //console.log(message);
           this.userLocation = message;
           console.log(this.userLocation);
@@ -102,7 +102,7 @@ export class MapComponent implements OnInit, OnDestroy {
 */
     // for each pricing loop through provider and find the matching id
 
-  
+ 
 
 
 

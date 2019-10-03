@@ -18,7 +18,7 @@
   <agm-circle [latitude]="focusLocation.lat" [longitude]="focusLocation.lng"
   [radius]="700" [fillColor]="green" [fillOpacity]="0.7" [strokeColor]="sColour" [strokeWeight]="sWeight">
 </agm-circle>
-  
+
 
   <div class="mapContainer">
   <!--- <agm-marker-cluster
@@ -31,7 +31,7 @@
           [label]="">
           <agm-info-window [disableAutoPan]="true">
             {{top20Providers[i].providerName}}: ${{
-              top20Providers[i].averageTotalPayments - top20Providers[i].averageMedicarePayments
+              top20Providers[i].averageTotalPayments - top20Providers[i].averageMedicarePayments | number:'.0'
             }}
           </agm-info-window>
         </agm-marker>
