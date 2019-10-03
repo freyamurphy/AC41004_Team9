@@ -14,7 +14,7 @@ matTooltip="Find your location automatically" matTooltipPosition="above">
     matToolTip="Switch between state select and address"  matTooltipPosition="above" aria-label="Click to switch to between Address and State Selector" (click)="switch()">
     <i class="fa fa-random" name="Icon" ></i>
 </button>
-<select id="stateSelector" disabled [(ngModel)]="stateValue"(focusout)="getMLocation()">
+<select id="stateSelector" disabled [(ngModel)]="stateValue"(focusout)="stateSelector(); getMLocation()">
     <option aria-label="Select A State to search for hospitals in that state"value="">State Selector</option>
     <option *ngFor="let item of states" [value]="item">{{item}}</option>
 

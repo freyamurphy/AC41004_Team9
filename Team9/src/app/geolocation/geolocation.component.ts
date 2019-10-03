@@ -119,8 +119,10 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
   }
   switch(){
     if((document.getElementById("stateSelector") as HTMLInputElement).disabled == true){
-      (document.getElementById("addressBox") as HTMLInputElement).disabled = true;
+
       (document.getElementById("addressBox") as HTMLInputElement).value = "";
+
+      (document.getElementById("addressBox") as HTMLInputElement).disabled = true;
       (document.getElementById("save") as HTMLInputElement).disabled = true;
 
       (document.getElementById("stateSelector") as HTMLInputElement).disabled = false;
@@ -134,6 +136,7 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
       (document.getElementById("stateSelector") as HTMLInputElement).disabled = true;
       this.stateValue = "";
     }
+
 
   }
   ngOnInit() {
@@ -196,21 +199,16 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
     console.log(locationInput);
   }
 
-
+  stateSelector(){
+    this.textValue = this.stateValue + ", USA";
+  }
   getMLocation()
   {
-//test
-    this.zipcode = ((document.getElementById("addressBox") as HTMLInputElement).value);
+
+    this.zipcode = this.textValue;
     this.zipcode = this.zipcode.replace('#','');
-    if(!this.zipcode){
-
-      if(this.stateValue == ""){
-        return;
-
-      }
-      this.zipcode = this.stateValue;
-
-    }
+    console.log(this.zipcode);
+ 
 
     this.baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + this.zipcode + "&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8&region=US";
 
@@ -228,9 +226,8 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
       else{
         this.error = false;
         this.text = (this.temp[0].formatted_address);
-        this.sendtocomunicationservice(this.temp[0]);
+        //this.sendtocomunicationservice(this.temp[0]);
             this.comunicate.setuserlocation(this.temp[0].geometry.location.lat,this.temp[0].geometry.location.lng);
-this.comunicate.settypeofseaech(1);
       }
 //test
 
