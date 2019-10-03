@@ -1,10 +1,11 @@
 /// <reference types="@types/googlemaps" />
 import { HttpClient } from '@angular/common/http';
-import { ElementRef, NgZone, OnInit, ViewChild, Component } from '@angular/core';
+import { ElementRef, NgZone, OnInit, ViewChild, Component, OnDestroy } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MapsAPILoader } from '@agm/core';
 import { ComunicationService } from '../comunication.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { INgxSelectOption } from 'ngx-select-ex';
 
 
 @Component({
@@ -12,7 +13,10 @@ import {MatSnackBar} from '@angular/material/snack-bar';
   templateUrl: './geolocation.component.html',
   styleUrls: ['./geolocation.component.css']
 })
-export class GeolocationComponent implements OnInit {
+export class GeolocationComponent implements OnInit, OnDestroy {
+  ngOnDestroy(): void {
+    throw new Error("Method not implemented.");
+  }
   lat: any;
   long: any;
   zipcode : any;
@@ -21,6 +25,82 @@ export class GeolocationComponent implements OnInit {
   text: any;
   textValue = "";// state
   error: boolean = false;
+  public ngxControl = new FormControl();
+
+  private _ngxDefaultTimeout;
+  private _ngxDefaultInterval;
+  private _ngxDefault;
+  public doNgxDefault(): any {
+    return this._ngxDefault;
+}
+
+public inputTyped = (source: string, text: string) => console.log('SingleDemoComponent.inputTyped', source, text);
+
+public doFocus = () => console.log('SingleDemoComponent.doFocus');
+
+public doBlur = () => console.log('SingleDemoComponent.doBlur');
+
+public doOpen = () => console.log('SingleDemoComponent.doOpen');
+
+public doClose = () => console.log('SingleDemoComponent.doClose');
+
+public doSelect = (value: any) => { console.log("value: " + value);};
+
+public doRemove = (value: any) => console.log('SingleDemoComponent.doRemove', value);
+
+public doSelectOptions = (options: INgxSelectOption[]) =>{};
+  states: string[] =[
+    
+    "Alaska",
+    "Arizona",
+    "Arkansas",
+    "California",
+    "Colorado",
+    "Connecticut",
+    "Delaware",
+    "Florida",
+    "Georgia",
+    "Hawaii",
+    "Idaho",
+    "Illinois",
+    "Indiana",
+    "Iowa",
+    "Kansas",
+    "Kentucky",
+    "Louisiana",
+    "Maine",
+    "Maryland",
+    "Massachusetts",
+    "Michigan",
+    "Minnesota",
+    "Mississippi",
+    "Missouri",
+    "Montana",
+    "Nebraska",
+    "Nevada",
+    "New Hampshire",
+    "New Jersey",
+    "New Mexico",
+    "New York",
+    "North Carolina",
+    "North Dakota",
+    "Ohio",
+    "Oklahoma",
+    "Oregon",
+    "Pennsylvania",
+    "Rhode Island",
+    "South Carolina",
+    "South Dakota",
+    "Tennessee",
+    "Texas",
+    "Utah",
+    "Vermont",
+    "Virginia",
+    "Washington",
+   "West Virginia",
+    "Wisconsin",
+    "Wyoming",
+  ]
   public searchControl: FormControl;
   @ViewChild("search", {static:false})
   public searchElementRef: ElementRef;
@@ -28,6 +108,14 @@ export class GeolocationComponent implements OnInit {
   constructor( private http: HttpClient, private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone, private comunicate:ComunicationService, private _snackBar: MatSnackBar) {
     this.showPosition = this.showPosition.bind(this);
+    this._ngxDefaultTimeout = setTimeout(() => {
+      this._ngxDefaultInterval = setInterval(() => {
+          const idx = Math.floor(Math.random() * (this.states.length - 1));
+          //this._ngxDefault = this.description[0];
+          //this.selected = this._ngxDefault;
+          // console.log('new default value = ', this._ngxDefault);
+        }, 2000);
+      }, 2000);
 
    }
    openSnackBar(message: string, action: string) {

@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { ComunicationService } from '../comunication.service';
 import { Subscription } from 'rxjs/Subscription';
 import { ClassmanagerService }from '../classmanager.service';
@@ -14,7 +14,8 @@ import { GelocatorService }from '../gelocator.service';
 })
 
 export class HospitalselecterComponent implements OnInit {
-
+  @ViewChild('hospitalselector' , {static: false}) elementView: ElementRef;
+  viewHeight: number;
 hospitalList: any[]=[];
 
 public innerHeight: any;
@@ -24,7 +25,7 @@ public state: any;
  testvar:any;
 
 //hospitalPrice: any = (this.hospitalList.averageTotalPayments - this.hospitalList.averageMedicarePrice);
-//console.log(hospitalPrice);
+//(hospitalPrice);
 
 
 oldcontext:any;// used for selecting in the function highlight
@@ -38,10 +39,10 @@ constructor(private interact:ComunicationService, private database:ClassmanagerS
 
 steven(index,p):any{
 
- //console.log("index",index,"page",p,"muiltpy",index+8*(p-1));
+ //("index",index,"page",p,"muiltpy",index+8*(p-1));
   var display = this.hospitalList[index+8*(p-1)].averageTotalPayments - this.hospitalList[index+8*(p-1)].averageMedicarePayments;
   //var t = this.hospitalList[index];
-//  console.log(display);
+//  (display);
   return display;
 
 }
@@ -62,7 +63,7 @@ ngOnInit() {
   this.innerWidth = window.innerWidth;
   this.innerHeight= window.innerHeight;
   //this.interact.runsearch("a","b");
-  this.interact.getsearchresults().subscribe((res: any) => {this.hospitalList =res;console.log(res);});
+  this.interact.getsearchresults().subscribe((res: any) => {this.hospitalList =res;});
 //this.sqlapi.searchWithStateAndDRGCodeFunction("NY","033").subscribe((res: any) => {this.hospitalList =res;});
 }
 @HostListener('window:resize', ['$event'])
@@ -168,8 +169,8 @@ putinfocus(index){
 }
 
 testfunction(){
-//  console.log("a");
-//  console.log(this.hospitalList);
+//  ("a");
+//  (this.hospitalList);
 }
 
 //[style.height]="getheight(50)"[style.width]="getwidth(50)"

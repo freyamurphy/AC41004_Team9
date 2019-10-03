@@ -13,7 +13,7 @@ export class MapComponent implements OnInit, OnDestroy {
   opacity=0.2;
   sColour='#28292b';
   sWeight='#28292b';
-  zoom = 5;
+  zoom = 10;
 
   userLocation = {lat: 0, lng: 0};
 
@@ -47,25 +47,20 @@ export class MapComponent implements OnInit, OnDestroy {
     );
     this.interact.getuseraddress().subscribe(
       (res:any) => {
-        console.log(res);
         this.userLocation = res;
       }
     );
 
     this.top20Providers = [];
-    /*this.interact.getuseraddress().subscribe(
-      (res:any) => {
-        console.log(res);
-      }
-
-    )*/
+   
     this.interact.getsearchresults().subscribe(
       (res: any) => {
         this.providers = res;
-
         this.top20Providers = []
         for ( let i = 0; i < 100; i++) {
           if(this.providers[i]){
+           console.log(this.providers[i]);
+
             this.top20Providers.push(this.providers[i]);
 
           }
@@ -76,8 +71,6 @@ export class MapComponent implements OnInit, OnDestroy {
 
     this.subscription = this.interact.getfocusedlocation().subscribe(
       message => {
-        console.log(message.lat);
-        console.log(message.lng);
 
         this.focusLocation.lat = message.lat;
         this.focusLocation.lng = message.lng;
