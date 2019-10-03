@@ -15,7 +15,7 @@ export class DistanceSorterComponent implements OnInit {
   }
 
   limitByDistance(limitNumber){
-  //  limitNumber = limitNumber * 1609.34;
+   // limitNumber = limitNumber * 1609.34;
     this.interact.limitdataByDistance(limitNumber);
     this.interact.setdistancebeingsearched(limitNumber);
   }

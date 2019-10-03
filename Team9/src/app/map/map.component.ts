@@ -36,15 +36,15 @@ export class MapComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.interact.getdistancebeingsearched().subscribe(
       (res: any) => {
-        console.log(res);
-
-        this.distanceRestriction = res;
+        this.distanceRestriction = res * 1609.34;
+        console.log(this.distanceRestriction);
         if(this.distanceRestriction == 2151687.58){
           this.distanceRestriction = null;
         }
 
       }
     );
+    
     this.interact.getuseraddress().subscribe(
       (res:any) => {
         this.userLocation = res;
@@ -55,11 +55,11 @@ export class MapComponent implements OnInit, OnDestroy {
 
     this.interact.getsearchresults().subscribe(
       (res: any) => {
+        
         this.providers = res;
         this.top20Providers = []
-        for ( let i = 0; i < 100; i++) {
+        for ( let i = 0; i < this.providers.length; i++) {
           if(this.providers[i]){
-           console.log(this.providers[i]);
 
             this.top20Providers.push(this.providers[i]);
 
@@ -71,7 +71,6 @@ export class MapComponent implements OnInit, OnDestroy {
 
     this.subscription = this.interact.getfocusedlocation().subscribe(
       message => {
-
         this.focusLocation.lat = message.lat;
         this.focusLocation.lng = message.lng;
         console.log("changed focsed location");
@@ -81,6 +80,7 @@ export class MapComponent implements OnInit, OnDestroy {
 
           //console.log(message);
           this.userLocation = message;
+          
           console.log(this.userLocation);
         });
 

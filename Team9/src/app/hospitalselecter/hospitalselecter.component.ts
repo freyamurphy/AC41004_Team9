@@ -122,7 +122,7 @@ return "red";
 
 
 
-highlight(index,p){
+highlight(index, p){
   var temp = {
     lat:this.hospitalList[index+8*(p-1)].lat,
     lng:this.hospitalList[index+8*(p-1)].lng
