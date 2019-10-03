@@ -4,8 +4,8 @@
 
 
 
-      <!--<input style="margin-top:00px"  type="text"  
-            id="search" placeholder="DRG Code/Description of Condition" 
+      <!--<input style="margin-top:00px"  type="text"
+            id="search" placeholder="DRG Code/Description of Condition"
             list="conditionList" (keydown.enter)="submit()" (focusout)="complete()"
 
             [(ngModel)]='selected' (change)="autocomplete(selected)" required/>
@@ -15,8 +15,8 @@
             </select>
       </datalist>-->
       <div id=search>
-            
-      <ngx-select   
+
+      <ngx-select
             id="SelectSearch"
             style="margin-top:00px"
             [formControl]="ngxControl"
@@ -34,6 +34,5 @@
             (selectionChanges)="doSelectOptions($event)">
       </ngx-select>
 </div>
-      <button mat-raised-button color="primary" id= "formSelect" (click)="submit();"
+      <button mat-raised-button color="primary" id= "formSelect" aria-label="Search for Hospitals" (click)="submit();"
       value="submit" name="Search button" class="searchB" style="width: 100%" >Search</button>
-
