@@ -28,28 +28,7 @@ export class GeolocationComponent implements OnInit, OnDestroy {
   stateValue: any;
   public ngxControl = new FormControl();
 
-  private _ngxDefaultTimeout;
-  private _ngxDefaultInterval;
-  private _ngxDefault;
-  public doNgxDefault(): any {
-    return this._ngxDefault;
-}
-
-public inputTyped = (source: string, text: string) => console.log('SingleDemoComponent.inputTyped', source, text);
-
-public doFocus = () => console.log('SingleDemoComponent.doFocus');
-
-public doBlur = () => console.log('SingleDemoComponent.doBlur');
-
-public doOpen = () => console.log('SingleDemoComponent.doOpen');
-
-public doClose = () => console.log('SingleDemoComponent.doClose');
-
-public doSelect = (value: any) => { console.log("value: " + value);};
-
-public doRemove = (value: any) => console.log('SingleDemoComponent.doRemove', value);
-
-public doSelectOptions = (options: INgxSelectOption[]) =>{};
+  //list of states
   states: string[] =[
 
     "Alaska",
@@ -102,21 +81,21 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
     "Wisconsin",
     "Wyoming",
   ]
-  public searchControl: FormControl;
   @ViewChild("search", {static:false})
-  public searchElementRef: ElementRef;
+  public searchElementRef: ElementRef; //autocomplete
 
   constructor( private http: HttpClient, private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone, private comunicate:ComunicationService, private _snackBar: MatSnackBar) {
-    this.showPosition = this.showPosition.bind(this);
+    this.showPosition = this.showPosition.bind(this); //Async
 
 
    }
-   openSnackBar(message: string, action: string) {
+   openSnackBar(message: string, action: string) { //Message that opens at bottom
     this._snackBar.open(message, action, {
       duration: 2000,
     });
   }
+  //Method to switch between address entry and state entry
   switch(){
     if((document.getElementById("stateSelector") as HTMLInputElement).disabled == true){
       
@@ -139,7 +118,6 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
 
   }
   ngOnInit() {
-    this.searchControl = new FormControl();
     this.mapsAPILoader.load().then(() => {
       let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
         types: ["address"]
@@ -193,28 +171,21 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
   }
 
   sendtocomunicationservice(locationInput:any){
-  this.comunicate.setuseraddress(locationInput);
+    this.comunicate.setuseraddress(locationInput);
 
-    console.log(locationInput);
   }
-
+  //Ryan look here
   stateSelector(){
     this.textValue = this.stateValue + ", USA";
   }
   getMLocation()
   {
-    this.zipcode = this.textValue;
+    this.zipcode = this.textValue; //Get address from textbox 
     this.zipcode = this.zipcode.replace('#','');
-    console.log(this.zipcode);
     //this.comunicate.settypeofseaech(0);
-
-
     this.baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + this.zipcode + "&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8&region=US";
-
     this.http.get(this.baseUrl).subscribe(data => {
       this.temp = data['results'];
-
-
       if(this.temp.length == 0){
         this.error = true;
         this.text=' ';
@@ -225,9 +196,8 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
         this.text = (this.temp[0].formatted_address);
         console.log(this.text);
         this.sendtocomunicationservice(this.temp[0]);
-            this.comunicate.setuserlocation(this.temp[0].geometry.location.lat,this.temp[0].geometry.location.lng);
+        this.comunicate.setuserlocation(this.temp[0].geometry.location.lat,this.temp[0].geometry.location.lng);
       }
-//test
 
     });
 
