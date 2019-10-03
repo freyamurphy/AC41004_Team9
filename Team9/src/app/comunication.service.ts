@@ -17,7 +17,9 @@ export class ComunicationService {
 
 private focusedlocationSource = new Subject<any>();
 focusedlocation$ = this.focusedlocationSource.asObservable();
+private distancebeingsearchedSource = new Subject<any>();
 
+  distancebeingsearched$ = this.distancebeingsearchedSource.asObservable();
 userlat:any=0;
 userlong:any=0;
 
@@ -62,9 +64,7 @@ runtestsearch(): Observable<test[]>
 
 
 }
-  private distancebeingsearchedSource = new Subject<any>();
-
-  distancebeingsearched$ = this.distancebeingsearchedSource.asObservable();
+  
 
   setdistancebeingsearched(dist){
 
@@ -72,11 +72,17 @@ runtestsearch(): Observable<test[]>
 
   }
 
+
+
+
   getdistancebeingsearched(): Observable<any> {
 
-      return this.distancebeingsearched$;
+    return this.distancebeingsearched$;
 
-  }
+}
+
+
+
 runsearch(code) {
 // todo make sure this runs as an * if there is no address
 

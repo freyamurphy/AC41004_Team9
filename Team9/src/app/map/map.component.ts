@@ -39,6 +39,7 @@ export class MapComponent implements OnInit, OnDestroy {
         console.log(res);
 
         this.distanceRestriction = res;
+        console.log(this.distanceRestriction);
         if(this.distanceRestriction == 2151687.58){
           this.distanceRestriction = null;
         }
@@ -59,7 +60,6 @@ export class MapComponent implements OnInit, OnDestroy {
         this.top20Providers = []
         for ( let i = 0; i < 100; i++) {
           if(this.providers[i]){
-           console.log(this.providers[i]);
 
             this.top20Providers.push(this.providers[i]);
 

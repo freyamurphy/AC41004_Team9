@@ -6,7 +6,7 @@
 
 <div class="hospitalselector"  >
   <div class="list-group" *ngFor = "let hospital of hospitalList | paginate: { itemsPerPage: 8  , currentPage: p } ; let i = index" >
-    <a id={{i}} class="list-group-item list-group-item-action flex-column align-items-start" (click)="highlight(i);" (keyup.enter)="highlight(i);">
+    <a id={{i}} class="list-group-item list-group-item-action flex-column align-items-start" (click)="highlight(i,p);" (keyup.enter)="highlight(i);">
       <div class="d-flex w-100 justify-content-between" >
         <h6 tabindex="0" class="mb-1">{{ steven2(i,p)}}</h6>
         <h6 tabindex="0" class="mb-2">Price: {{steven(i,p) | currency}} </h6>
