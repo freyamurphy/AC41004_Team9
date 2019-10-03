@@ -31,7 +31,7 @@ function on sql is named
      }));
   }
 
-  searchWithOnlyDRGCode(drgcode  ): Observable<any> {
+  searchWithOnlyDRGCode(drgcode): Observable<any> {
       var temp = "https://zeno.computing.dundee.ac.uk/2019-projects/team9/AC41004_Team9/drgSearch.php?condition_Code="+drgcode;
      console.log(temp );
           return this.http.get(temp).pipe(

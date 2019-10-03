@@ -28,8 +28,8 @@ export class GeolocationComponent implements OnInit, OnDestroy {
   stateValue: any;
   public ngxControl = new FormControl();
 
-  //list of states
-  states: string[] =[
+
+  states: string[] =[ //List of states
 
     "Alaska",
     "Arizona",
@@ -81,21 +81,21 @@ export class GeolocationComponent implements OnInit, OnDestroy {
     "Wisconsin",
     "Wyoming",
   ]
+  public searchControl: FormControl;
   @ViewChild("search", {static:false})
-  public searchElementRef: ElementRef; //autocomplete
+  public searchElementRef: ElementRef;
 
   constructor( private http: HttpClient, private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone, private comunicate:ComunicationService, private _snackBar: MatSnackBar) {
-    this.showPosition = this.showPosition.bind(this); //Async
+    this.showPosition = this.showPosition.bind(this);
 
 
    }
-   openSnackBar(message: string, action: string) { //Message that opens at bottom
+   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
       duration: 2000,
     });
   }
-  //Method to switch between address entry and state entry
   switch(){
     if((document.getElementById("stateSelector") as HTMLInputElement).disabled == true){
       
@@ -118,6 +118,7 @@ export class GeolocationComponent implements OnInit, OnDestroy {
 
   }
   ngOnInit() {
+    this.searchControl = new FormControl();
     this.mapsAPILoader.load().then(() => {
       let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
         types: ["address"]
@@ -164,28 +165,35 @@ export class GeolocationComponent implements OnInit, OnDestroy {
     var reverseUrl = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat + "," + lng +"&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8"
     this.http.get(reverseUrl).subscribe(data => {
       var temp = data['results'];
-      this.text = (temp[0].formatted_address);
+      this.text = (temp[0].formatted_address); 
       this.sendtocomunicationservice(temp[0]);
     });
 
   }
 
   sendtocomunicationservice(locationInput:any){
-    this.comunicate.setuseraddress(locationInput);
+  this.comunicate.setuseraddress(locationInput);
 
+    console.log(locationInput);
   }
-  //Ryan look here
+  //RYAN
   stateSelector(){
     this.textValue = this.stateValue + ", USA";
   }
   getMLocation()
   {
-    this.zipcode = this.textValue; //Get address from textbox 
+    this.zipcode = this.textValue;
     this.zipcode = this.zipcode.replace('#','');
+    console.log(this.zipcode);
     //this.comunicate.settypeofseaech(0);
+
+
     this.baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + this.zipcode + "&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8&region=US";
+
     this.http.get(this.baseUrl).subscribe(data => {
       this.temp = data['results'];
+
+
       if(this.temp.length == 0){
         this.error = true;
         this.text=' ';
@@ -196,8 +204,9 @@ export class GeolocationComponent implements OnInit, OnDestroy {
         this.text = (this.temp[0].formatted_address);
         console.log(this.text);
         this.sendtocomunicationservice(this.temp[0]);
-        this.comunicate.setuserlocation(this.temp[0].geometry.location.lat,this.temp[0].geometry.location.lng);
+            this.comunicate.setuserlocation(this.temp[0].geometry.location.lat,this.temp[0].geometry.location.lng);
       }
+//test
 
     });
 
