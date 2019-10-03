@@ -263,13 +263,13 @@ getstatefromaddress(locationInput:any):string{
 
 
 
-
 hospitalHandler(dataset){
 
 
   var templat =new Array(10000);
   var templng =new Array(10000);
     var provid =new Array(10000);
+ 
       for(let i = 0 ; i < this.resultlength; i++)
       {
         templat[i]=1000;

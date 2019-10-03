@@ -28,29 +28,8 @@ export class GeolocationComponent implements OnInit, OnDestroy {
   stateValue: any;
   public ngxControl = new FormControl();
 
-  private _ngxDefaultTimeout;
-  private _ngxDefaultInterval;
-  private _ngxDefault;
-  public doNgxDefault(): any {
-    return this._ngxDefault;
-}
 
-public inputTyped = (source: string, text: string) => console.log('SingleDemoComponent.inputTyped', source, text);
-
-public doFocus = () => console.log('SingleDemoComponent.doFocus');
-
-public doBlur = () => console.log('SingleDemoComponent.doBlur');
-
-public doOpen = () => console.log('SingleDemoComponent.doOpen');
-
-public doClose = () => console.log('SingleDemoComponent.doClose');
-
-public doSelect = (value: any) => { console.log("value: " + value);};
-
-public doRemove = (value: any) => console.log('SingleDemoComponent.doRemove', value);
-
-public doSelectOptions = (options: INgxSelectOption[]) =>{};
-  states: string[] =[
+  states: string[] =[ //List of states
 
     "Alaska",
     "Arizona",
@@ -137,7 +116,6 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
       this.stateValue = "";
     }
 
-
   }
   ngOnInit() {
     this.searchControl = new FormControl();
@@ -183,7 +161,7 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
     console.log(error);
   }
   //---------------------------------------------
-  reverseGeo(lat: any, lng: any){
+  reverseGeo(lat: any, lng: any){ //Method to translate lat and long to an address
     var reverseUrl = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat + "," + lng +"&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8"
     this.http.get(reverseUrl).subscribe(data => {
       var temp = data['results'];
@@ -198,27 +176,23 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
 
     console.log(locationInput);
   }
-
+  //RYAN
   stateSelector(){
     this.textValue = this.stateValue + ", USA";
   }
   getMLocation()
   {
 
-    this.zipcode = this.textValue;
-    this.zipcode = this.zipcode.replace('#','');
+    this.zipcode = this.textValue; //Gets value in textbox
+    this.zipcode = this.zipcode.replace('#',''); //# screws search up
     console.log(this.zipcode);
+    //this.comunicate.settypeofseaech(0);
  
-
     this.baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + this.zipcode + "&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8&region=US";
-
+    //queries google
     this.http.get(this.baseUrl).subscribe(data => {
       this.temp = data['results'];
-      console.log(this.temp);
-      console.log(this.zipcode);
-
-
-      if(this.temp.length == 0){
+      if(this.temp.length == 0){ //If no results are found
         this.error = true;
         this.text=' ';
         this.openSnackBar("Invalid address", "");
@@ -226,7 +200,8 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
       else{
         this.error = false;
         this.text = (this.temp[0].formatted_address);
-        //this.sendtocomunicationservice(this.temp[0]);
+        console.log(this.text);
+        this.sendtocomunicationservice(this.temp[0]);
             this.comunicate.setuserlocation(this.temp[0].geometry.location.lat,this.temp[0].geometry.location.lng);
       }
 //test
