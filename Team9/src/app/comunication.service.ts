@@ -88,7 +88,7 @@ runsearch(code) {
     this.usersort=res;
     this.distancecalcvariable=res;
     //console.log(res);
-this.ryanssort(0);
+    this.ryanssort(0);
   });
   setTimeout( ()=>{
     for(var i = 0; i <  this.resultlength ; i++) {
