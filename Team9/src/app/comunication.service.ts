@@ -55,29 +55,27 @@ testvariables:test[];
 
 constructor(private http: HttpClient,private sqlapi:SqlapiService ,private locate:GelocatorService) { }
 
-runtestsearch(): Observable<test[]>
-{
-  return  this.sqlapi.gettestdata().pipe(
-  map((res) => {
 
-      this.testvariables =  res['data'];
-      return this.testvariables;
-  }));
-
-
-
-
-}
 
 
 
 
 runsearch(code ) {
+console.log(" type of search :  ",this.typeofsearch);
+if(this.userstate==undefined){
 
+  this.sqlapi.searchWithOnlyDRGCode(code).subscribe((res: any) =>
+  {
+    this.arrayOfObjectsFromSQLSource.next(res);
+    this.resultlength=res.length;
+    this.hospitalHandler(res);
+    this.usersort=res;
+    this.distancecalcvariable=res;
+    //console.log(res);
+this.ryanssort(0);
+  });
 
-
-console.log(this.typeofsearch);
-
+}else{
 
 
  /* getdistancebeingsearched(): Observable<any> {
@@ -100,16 +98,10 @@ console.log(this.typeofsearch);
     //console.log(res);
 this.ryanssort(0);
   });
-  setTimeout( ()=>{
-    for(var i = 0; i <  this.resultlength ; i++) {
-
-
-        //console.log(this.arrayOfObjectsFromSQLSource[i].Distance);
-    }
-  }, 3000)
 
 
 
+}// end of else
 }
 
 //to use put the following in init setautoComplete(what you are searching for ) and subscibe to getautocompete
@@ -276,22 +268,20 @@ getstatefromaddress(locationInput:any):string{
 hospitalHandler(dataset){
 
 
-  var templat =new Array(1000);
-  var templng =new Array(1000);
-    var provid =new Array(1000);
+  var templat =new Array(10000);
+  var templng =new Array(10000);
+    var provid =new Array(10000);
       for(let i = 0 ; i < this.resultlength; i++)
       {
         templat[i]=1000;
          templng[i]=1000;
-      //   console.log(dataset[i].lat);
+    var cr = 0;
         if(dataset[i].lat ==null){
-            this.getlocationfromaddress(dataset[i].State,dataset[i].StreetAddress).subscribe((res: any) => {
-              templat[i]=res.results[0].geometry.location.lat;
-              templng[i]=res.results[0].geometry.location.lng;
-              provid[i]=dataset[i].providers_ID;
-              console.log(dataset[i].providers_ID,templat[i],templng[i]);
-     this.sqlapi.inserthospical(dataset[i].providers_ID,templat[i],templng[i]).subscribe((res: any) => {});
+            this.getlocationfromaddress(dataset[i].providerName, dataset[i].State,dataset[i].StreetAddress,dataset[i].City).subscribe((res: any) => {
+              //this.sqlapi.inserthospical(dataset[i].providers_ID,res.results[0].geometry.location.lat,res.results[0].geometry.location.lng).subscribe((res: any) => {});
+              cr ++;
             });
+
         }
 
 
@@ -299,12 +289,13 @@ hospitalHandler(dataset){
       }
 
     setTimeout( ()=>{
-        for(let i = 0 ; i < this.resultlength; i++)
+        for(let i = 0 ; i <cr ; i++)
         {
           if(templng[i]!=1000 && templng[i]!=undefined)
           {
+          //console.log(  this.sqlapi.inserthospical(dataset[i].providers_ID,templat[i],templng[i]).subscribe((res: any) => {}));
             //console.log(dataset[i].State,dataset[i].StreetAddress,dataset[i].providers_ID,templat[i],templng[i]);
-        //   this.sqlapi.inserthospical(provid[i].providers_ID,templat[i],templng[i]).subscribe((res: any) => {});
+      //   this.sqlapi.inserthospical(provid[i],templat[i],templng[i]).subscribe((res: any) => {});
         }
 
         }
@@ -312,9 +303,9 @@ hospitalHandler(dataset){
 
 
 }
-getlocationfromaddress(state: string,address: string): Observable<any>{
+getlocationfromaddress(state: string,address: string,providerName:string,city:string): Observable<any>{
 
-  var temp = "https://maps.googleapis.com/maps/api/geocode/json?address="+address+" "+state+"&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8";
+  var temp = "https://maps.googleapis.com/maps/api/geocode/json?address="+address+" "+providerName+" "+city+" "+state+"&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8";
   return this.http.get<any>(temp).pipe(
     map((res) => {
      return res;
