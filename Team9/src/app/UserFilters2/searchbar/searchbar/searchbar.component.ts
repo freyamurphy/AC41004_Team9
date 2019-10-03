@@ -100,7 +100,7 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
   }
 openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
-      
+
       duration: 5000,
     });
   }
@@ -118,9 +118,9 @@ openSnackBar(message: string, action: string) {
 
     }
     else{
-      
+
       this.interact.runsearch(this.code);
-      setTimeout( () => {}, 5000)
+       
 
       this.interact.limitdataByDistance(100);
       this.interact.setdistancebeingsearched(100);
@@ -128,7 +128,7 @@ openSnackBar(message: string, action: string) {
 
       this.scroll();
     }
-    
+
 
   }
   reset(){

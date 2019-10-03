@@ -45,10 +45,7 @@ distancecalcvariable:any;
 resultlength:any;
 userstate:any;
 
-private distancebeingsearchedSource = new Subject<any>();
-
-distancebeingsearched$ = this.distancebeingsearchedSource.asObservable();
-
+ 
 private typeofsearchSource = new Subject<any>();
 typeofsearch$ = this.typeofsearchSource.asObservable();
 
@@ -70,12 +67,12 @@ runtestsearch(): Observable<test[]>
 
 
 }
-  
+
 
 
 
 runsearch(code ) {
- 
+
 
 
 
