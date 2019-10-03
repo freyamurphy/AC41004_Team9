@@ -129,6 +129,7 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
     else{
       (document.getElementById("addressBox") as HTMLInputElement).disabled = false;
       (document.getElementById("save") as HTMLInputElement).disabled = false;
+      (document.getElementById("addressBox") as HTMLInputElement).value = "";
 
       (document.getElementById("stateSelector") as HTMLInputElement).disabled = true;
       this.stateValue = "";
