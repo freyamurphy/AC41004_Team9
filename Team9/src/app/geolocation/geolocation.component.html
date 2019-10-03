@@ -1,16 +1,15 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
-<button name="Find your location automatically" (click)="getLocation()"
-matTooltip="Find your location automatically" matTooltipPosition="right"
-
-    ><i class="fa fa-map-marker"></i>
+<button  class="autoButton" type="button"  id="save" aria-label="AutoFind Location" (click)="getLocation()"
+matTooltip="Find your location automatically" matTooltipPosition="above">
+    <i class="fa fa-map-marker" name="Icon" ></i>
 </button>
-<mat-checkbox color="primary" matTooltip="Restrict to my state"><font color="white"></font></mat-checkbox>
 
 
-<br>
 <input class="auto" (focusout)="getMLocation()"
  (keydown.enter)="getMLocation()" name="addressBox" id ="addressBox" placeholder="Enter Address" 
- value="{{text}}" [(ngModel)]="textValue"  #search [formControl]="searchControl"  required>
+ value="{{text}}" [(ngModel)]="textValue"  #search [formControl]="searchControl" aria-label="Enter address" required>
+<!--<mat-checkbox aria-label="State Checkbox" name="My state only" color="primary" matTooltip="Restrict to my state"><font color="white"></font></mat-checkbox>-->
+
 
 <!--<button  (click)="getMLocation()"><i class="fa fa-search"></i></button>-->

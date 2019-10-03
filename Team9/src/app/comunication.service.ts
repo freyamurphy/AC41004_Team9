@@ -87,7 +87,7 @@ runsearch(code) {
     this.hospitalHandler(res);
     this.usersort=res;
     this.distancecalcvariable=res;
-    console.log(res);
+    //console.log(res);
 this.ryanssort(0);
   });
   setTimeout( ()=>{
@@ -146,7 +146,7 @@ ryanssort(whatsort){
 
   var array =  this.usersort;
   for(var i = 0; i < this.usersort.length ; i++) {
-    console.log(array[i].Distance );
+    //console.log(array[i].Distance );
   }
   if(whatsort==1)
   {
@@ -231,7 +231,7 @@ getstatefromaddress(locationInput:any):string{
     {
         if(locationInput.address_components[i].types[0]=="administrative_area_level_1")
         {
-          console.log(locationInput.address_components[i].short_name);
+          //console.log(locationInput.address_components[i].short_name);
           this.userstate=locationInput.address_components[i].short_name;
           return locationInput.address_components[i].short_name;
         }
@@ -269,8 +269,8 @@ hospitalHandler(dataset){
         {
           if(templng[i]!=1000 && templng[i]!=undefined)
           {
-            console.log(dataset[i].State,dataset[i].StreetAddress,dataset[i].providers_ID,templat[i],templng[i]);
-            this.sqlapi.inserthospical(dataset[i].providers_ID,templat[i],templng[i]).subscribe((res: any) => {console.log(res);});
+            //console.log(dataset[i].State,dataset[i].StreetAddress,dataset[i].providers_ID,templat[i],templng[i]);
+            this.sqlapi.inserthospical(dataset[i].providers_ID,templat[i],templng[i]).subscribe((res: any) => {});
         }
 
         }
@@ -304,7 +304,7 @@ getuseraddress(): Observable<any> {
 // set the location the map is focusing on
 setfocusedlocation(locationInput:any)
 {
-  console.log("locationInput ", locationInput);
+  //console.log("locationInput ", locationInput);
   locationInput.lat = Number(locationInput.lat);
   locationInput.lng = Number(locationInput.lng);
 
@@ -333,14 +333,14 @@ getuserlocation(): Observable<any>{
 
 
 setuserlocation(lat,long){
-console.log("user location set ");
+//console.log("user location set ");
 
-console.log(lat," ",long)
+//console.log(lat," ",long)
   this.userlat=lat;
   this.userlong=long;
 
   this.userlocationSource.next({lat:this.userlat, lng:this.userlong});
-  console.log(this.userlat," ",this.userlong);
+  //console.log(this.userlat," ",this.userlong);
  this.resetfocused();
 }
 

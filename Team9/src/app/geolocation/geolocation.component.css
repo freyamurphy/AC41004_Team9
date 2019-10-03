@@ -1,7 +1,12 @@
 #addressBox {
-  width: 50%;
+  width: 97%;
 }
-
+.autoButton{
+  width: 3%;
+}
+::ng-deep .mat-checkbox .mat-checkbox-frame {
+  border-color: #6041b0;
+}
 ::ng-deep .mat-snack-bar-container{
   color: white !important;
   background-color: #e95656 !important;
@@ -17,4 +22,7 @@
 
 .auto{
   left: 2%;
+}
+.stateSelector {
+  width: 50%;
 }
