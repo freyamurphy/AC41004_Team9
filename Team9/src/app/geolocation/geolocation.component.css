@@ -1,6 +1,13 @@
 #addressBox {
   width: 97%;
 }
+#stateSelector{
+  width: 97%;
+}
+.switchButton{
+  width: 3%;
+
+}
 .autoButton{
   width: 3%;
 }
@@ -25,4 +32,6 @@
 }
 .stateSelector {
   width: 50%;
+  position: relative;
+  top: 300px;
 }
