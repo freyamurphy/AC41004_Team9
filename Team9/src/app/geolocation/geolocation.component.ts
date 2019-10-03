@@ -25,6 +25,7 @@ export class GeolocationComponent implements OnInit, OnDestroy {
   text: any;
   textValue = "";// state
   error: boolean = false;
+  stateValue: any;
   public ngxControl = new FormControl();
 
   private _ngxDefaultTimeout;
@@ -119,11 +120,19 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
   switch(){
     if((document.getElementById("stateSelector") as HTMLInputElement).disabled == true){
       (document.getElementById("addressBox") as HTMLInputElement).disabled = true;
+      (document.getElementById("addressBox") as HTMLInputElement).value = "";
+      (document.getElementById("save") as HTMLInputElement).disabled = true;
+
       (document.getElementById("stateSelector") as HTMLInputElement).disabled = false;
+
     }
     else{
       (document.getElementById("addressBox") as HTMLInputElement).disabled = false;
+      (document.getElementById("save") as HTMLInputElement).disabled = false;
+      (document.getElementById("addressBox") as HTMLInputElement).value = "";
+
       (document.getElementById("stateSelector") as HTMLInputElement).disabled = true;
+      this.stateValue = "";
     }
 
   }
@@ -194,7 +203,13 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
     this.zipcode = ((document.getElementById("addressBox") as HTMLInputElement).value);
     this.zipcode = this.zipcode.replace('#','');
     if(!this.zipcode){
-      return;
+
+      if(this.stateValue == ""){
+        return;
+
+      }
+      this.zipcode = this.stateValue;
+this.comunicate.settypeofseaech(0);
     }
 
     this.baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + this.zipcode + "&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8&region=US";
