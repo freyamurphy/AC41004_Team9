@@ -1,10 +1,27 @@
 body, html {
   height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden; 
+}
+.sort{
   width: 100%;
 }
-
 .sel {
   background-image: url("../../Images/Love.jpg");
+  
+}
+.gutter-2.row {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+.gutter-2 > [class^="col-"], .gutter-2 > [class^=" col-"] {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.t{
+  right: 10%;
 }
 .Rows
 {
@@ -18,13 +35,27 @@ body, html {
     display: table-cell;
    
 }
-
-.bg {
+.bg-text {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: relative;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+}
+.bg-image{
   /* The image used */
   background-image: url("../../Images/Background7.jpg");
-  /* Half height */
   height: 100%;
-
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;

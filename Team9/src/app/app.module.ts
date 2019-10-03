@@ -51,7 +51,6 @@ import { TestpageComponent } from './testpage/testpage.component';
 import { UilocationfinderComponent } from './uilocationfinder/uilocationfinder.component';
 
 import { HospitalselecterComponent } from './hospitalselecter/hospitalselecter.component';
-
 import { RangesliderComponent } from './UserFilters2/rangeslider/rangeslider.component';
 
 import { SearchbarComponent } from './UserFilters2/searchbar/searchbar/searchbar.component';
@@ -69,6 +68,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { NgxSelectModule } from 'ngx-select-ex';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatExpansionModule} from '@angular/material/expansion';
 // services
 
 import { SqlapiService } from './sqlapi.service';
@@ -84,6 +84,7 @@ import { ManuallocationComponent } from './manuallocation/manuallocation/manuall
 import { UserhelpComponent } from './help/userhelp/userhelp.component';
 
 import { BackComponent } from './back/back/back.component';
+import { DistanceSorterComponent } from './distance-sorter/distance-sorter.component';
 //test
 
 
@@ -96,7 +97,6 @@ import { BackComponent } from './back/back/back.component';
     HomepageComponent,
     MapComponent,
     TestpageComponent,
-
     SearchComponent,
 
     UilocationfinderComponent,
@@ -108,6 +108,7 @@ import { BackComponent } from './back/back/back.component';
     ManuallocationComponent,
     UserhelpComponent,
     BackComponent,
+    DistanceSorterComponent,
 
 
   ],
@@ -134,7 +135,8 @@ import { BackComponent } from './back/back/back.component';
     BrowserAnimationsModule,
     NgxSelectModule,
     MatCheckboxModule,
-
+ 
+    MatExpansionModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8',
       libraries: ['geometry', 'places']
