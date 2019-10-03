@@ -24,26 +24,40 @@
             <div class="col-sm-auto" style="right: 7%; bottom: 10em;">
               <app-back id="back"></app-back>
             </div>
-            <div class="col-sm-auto" style="right: 7%; bottom: 10em;">
+            
+            <div class="col-sm-4" style="right: 9%; bottom: 10em;">
+
+              <mat-expansion-panel (opened)="panelOpenState = true"
+                (closed)="panelOpenState = false" aria-label="Filters">
+              <mat-expansion-panel-header>
+              <mat-panel-title>
+                  Filters
+                </mat-panel-title>
+                <mat-panel-description>
+                        
+                </mat-panel-description>
+                </mat-expansion-panel-header>
                 <app-select></app-select>
-            </div>
-            <div class="col-sm-auto" style="right: 7%; bottom: 10em;">
+
                 <app-distance-sorter></app-distance-sorter>
-            </div>
+              </mat-expansion-panel>
+              </div>
+
         </div>
         <div class="gutter-2 row justify-content-md-left">
-          <div class="col-sm-3 "id="hospitals" style="right: 7%; bottom: 10em;">
+          <div class="col-sm-5 "id="hospitals" style="right: 7%; bottom: 9em;">
             <app-hospitalselecter></app-hospitalselecter>
 
           </div>
-          <div class="col-sm-8" style="right: 7%; bottom: 10em;">
+          <div class="col-sm-6" style="right: 7%; bottom: 9em;">
             <app-map style="height:100%; width: 100%; position: absolute;"
-            [style.height.px]="getheight(70)"[style.width.px]="getwidth(76)">
+            [style.height.px]="getheight(110)"[style.width.px]="getwidth(62)">
             </app-map>
           </div>
         </div>
       </div>
   </div>
+  
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="/__/firebase/6.6.2/firebase-app.js"></script>
 

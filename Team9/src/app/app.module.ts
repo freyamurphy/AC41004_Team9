@@ -68,6 +68,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { NgxSelectModule } from 'ngx-select-ex';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatExpansionModule} from '@angular/material/expansion';
 // services
 
 import { SqlapiService } from './sqlapi.service';
@@ -134,7 +135,8 @@ import { DistanceSorterComponent } from './distance-sorter/distance-sorter.compo
     BrowserAnimationsModule,
     NgxSelectModule,
     MatCheckboxModule,
-
+ 
+    MatExpansionModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8',
       libraries: ['geometry', 'places']
