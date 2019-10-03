@@ -116,8 +116,8 @@ getColor(index,p)
 
 highlight(index){
   var temp = {
-    lat:this.hospitalList[index+8*(p-1)].lat,
-    lng:this.hospitalList[index+8*(p-1)].lng
+    lat:this.hospitalList[index].lat,
+    lng:this.hospitalList[index].lng
   };
 
 
