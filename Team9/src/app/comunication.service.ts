@@ -45,6 +45,12 @@ distancecalcvariable:any;
 resultlength:any;
 userstate:any;
 
+private distancebeingsearchedSource = new Subject<any>();
+
+distancebeingsearched$ = this.distancebeingsearchedSource.asObservable();
+
+private typeofsearchSource = new Subject<any>();
+typeofsearch$ = this.typeofsearchSource.asObservable();
 
 
 testvariables:test[];
@@ -66,24 +72,22 @@ runtestsearch(): Observable<test[]>
 }
   
 
-  setdistancebeingsearched(dist){
 
-    this.distancebeingsearchedSource.next(dist);
 
-  }
-
+runsearch(code ) {
+ 
 
 
 
-  getdistancebeingsearched(): Observable<any> {
+
+ /* getdistancebeingsearched(): Observable<any> {
 
     return this.distancebeingsearched$;
 
 }
+*/
 
 
-
-runsearch(code) {
 // todo make sure this runs as an * if there is no address
 
   this.sqlapi.searchWithStateAndDRGCodeFunction(this.userstate,code).subscribe((res: any) =>
@@ -123,7 +127,25 @@ getautoComplete(): Observable<any> {
     return this.autoCompleteSource.asObservable();
 }
 
+setdistancebeingsearched(dist){
 
+  this.distancebeingsearchedSource.next(dist);
+
+}
+
+
+
+settypeofseaech(dist){
+
+  this.typeofsearchSource.next(dist);
+
+}
+
+getdistancebeingsearched(): Observable<any> {
+
+    return this.distancebeingsearched$;
+
+}
 
 limitdataByDistance(number){
    let reservationArr :  any  = [];
@@ -254,6 +276,7 @@ hospitalHandler(dataset){
 
   var templat =new Array(1000);
   var templng =new Array(1000);
+    var provid =new Array(1000);
       for(let i = 0 ; i < this.resultlength; i++)
       {
         templat[i]=1000;
@@ -263,6 +286,8 @@ hospitalHandler(dataset){
             this.getlocationfromaddress(dataset[i].State,dataset[i].StreetAddress).subscribe((res: any) => {
               templat[i]=res.results[0].geometry.location.lat;
               templng[i]=res.results[0].geometry.location.lng;
+              provid[i]=dataset[i].providers_ID;
+
             });
         }
 
@@ -276,11 +301,11 @@ hospitalHandler(dataset){
           if(templng[i]!=1000 && templng[i]!=undefined)
           {
             //console.log(dataset[i].State,dataset[i].StreetAddress,dataset[i].providers_ID,templat[i],templng[i]);
-            this.sqlapi.inserthospical(dataset[i].providers_ID,templat[i],templng[i]).subscribe((res: any) => {});
+           this.sqlapi.inserthospical(provid[i].providers_ID,templat[i],templng[i]).subscribe((res: any) => {});
         }
 
         }
-      }, 50000)
+      }, 5000)
 
 
 }

@@ -52,7 +52,7 @@ export class MapComponent implements OnInit, OnDestroy {
     );
 
     this.top20Providers = [];
-   
+
     this.interact.getsearchresults().subscribe(
       (res: any) => {
         
@@ -102,7 +102,7 @@ export class MapComponent implements OnInit, OnDestroy {
 */
     // for each pricing loop through provider and find the matching id
 
-
+ 
 
 
 
