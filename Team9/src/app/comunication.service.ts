@@ -77,6 +77,11 @@ runtestsearch(): Observable<test[]>
       return this.distancebeingsearched$;
 
   }
+  getdistancebeingsearched2(): Observable<any> {
+
+      return this.distancebeingsearched$ * 1609.34;;
+
+  }
 runsearch(code) {
 // todo make sure this runs as an * if there is no address
 
