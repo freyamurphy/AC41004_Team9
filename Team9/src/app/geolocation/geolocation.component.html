@@ -14,7 +14,7 @@ matTooltip="Find your location automatically" matTooltipPosition="above">
     matToolTip="Switch between state select and address"  matTooltipPosition="above" (click)="switch()">
     <i class="fa fa-random" name="Icon" ></i>
 </button>
-<select id="stateSelector" disabled>
+<select id="stateSelector" disabled [(ngModel)]="stateValue"(focusout)="getMLocation()" >
     <option value="">State Selector</option>
     <option *ngFor="let item of states" [value]="item">{{item}}</option>
 

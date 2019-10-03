@@ -56,7 +56,7 @@ for(var i = 0; i < 1000; i++){
 //proceed=true;
 
   }
-  drgcode = 64;
+  //drgcode = 64;
  
     if( proceed){
       var temp = "https://zeno.computing.dundee.ac.uk/2019-projects/team9/AC41004_Team9/echotest.php?state="+state+"&condition_Code="+drgcode;

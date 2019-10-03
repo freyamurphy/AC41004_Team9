@@ -38,7 +38,7 @@ export class MapComponent implements OnInit, OnDestroy {
       (res: any) => {
         console.log(res);
 
-        this.distanceRestriction = res;
+        this.distanceRestriction = res * 1609.34;
         console.log(this.distanceRestriction);
         if(this.distanceRestriction == 2151687.58){
           this.distanceRestriction = null;
