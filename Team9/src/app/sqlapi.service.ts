@@ -55,7 +55,7 @@ inserthospical(data:string,lat:string,long:string): Observable<any>  {
 
        var sql = "update providers set lat =" +lat +" , lng="+long+"  where ID ="+data+";";
 
-//console.log("inswerting -"+lat +"-  -"+ long+ "-   -" +data+"-");
+console.log("in sql api   -"+lat +"-  -"+ long+ "-   -" +data+"-    "+temp);
 
 
    //this.http.post(`${this.baseUrl}/store`, { data: car })

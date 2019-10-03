@@ -264,7 +264,6 @@ getstatefromaddress(locationInput:any):string{
 
 
 
-
 hospitalHandler(dataset){
 
 
@@ -275,37 +274,31 @@ hospitalHandler(dataset){
       {
         templat[i]=1000;
          templng[i]=1000;
-    var cr = 0;
-        if(dataset[i].lat ==null){
+      //   console.log(dataset[i].lat);
+        if(dataset[i].lat ==null&& 1==2){
             this.getlocationfromaddress(dataset[i].providerName, dataset[i].State,dataset[i].StreetAddress,dataset[i].City).subscribe((res: any) => {
-              //this.sqlapi.inserthospical(dataset[i].providers_ID,res.results[0].geometry.location.lat,res.results[0].geometry.location.lng).subscribe((res: any) => {});
-              cr ++;
+              templat[i]=res.results[0].geometry.location.lat;
+              templng[i]=res.results[0].geometry.location.lng;
+              provid[i]=dataset[i].providers_ID;
+              if(templng[i]!=1000 && templng[i]!=undefined && provid[i]!= undefined)
+              {
+                  console.log("lat :", templat[i],"  lng :",templng[i],"  id :",provid[i]);
+                  this.sqlapi.inserthospical(dataset[i].providers_ID,templat[i],templng[i]).subscribe((res: any) => {});
+              }
             });
-
         }
-
 
 
       }
 
-    setTimeout( ()=>{
-        for(let i = 0 ; i <cr ; i++)
-        {
-          if(templng[i]!=1000 && templng[i]!=undefined)
-          {
-          //console.log(  this.sqlapi.inserthospical(dataset[i].providers_ID,templat[i],templng[i]).subscribe((res: any) => {}));
-            //console.log(dataset[i].State,dataset[i].StreetAddress,dataset[i].providers_ID,templat[i],templng[i]);
-      //   this.sqlapi.inserthospical(provid[i],templat[i],templng[i]).subscribe((res: any) => {});
-        }
 
-        }
-      }, 5000)
 
 
 }
 getlocationfromaddress(state: string,address: string,providerName:string,city:string): Observable<any>{
 
   var temp = "https://maps.googleapis.com/maps/api/geocode/json?address="+address+" "+providerName+" "+city+" "+state+"&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8";
+//  console.log(temp);
   return this.http.get<any>(temp).pipe(
     map((res) => {
      return res;
@@ -316,6 +309,7 @@ getlocationfromaddress(state: string,address: string,providerName:string,city:st
 
 setuseraddress(locationInput:any)
 {
+  console.log("setting user address");
     this.useruseraddressSource.next(this.getstatefromaddress(locationInput));
 }
 // get the location the map is focused on
