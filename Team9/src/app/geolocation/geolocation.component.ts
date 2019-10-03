@@ -118,10 +118,11 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
     });
   }
   switch(){
-    console.log("TT");
     if((document.getElementById("stateSelector") as HTMLInputElement).disabled == true){
-      (document.getElementById("addressBox") as HTMLInputElement).disabled = true;
+      
       (document.getElementById("addressBox") as HTMLInputElement).value = "";
+
+      (document.getElementById("addressBox") as HTMLInputElement).disabled = true;
       (document.getElementById("save") as HTMLInputElement).disabled = true;
 
       (document.getElementById("stateSelector") as HTMLInputElement).disabled = false;
@@ -135,7 +136,6 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
       (document.getElementById("stateSelector") as HTMLInputElement).disabled = true;
       this.stateValue = "";
     }
-    this.resetText();
 
 
   }
@@ -200,18 +200,16 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
     console.log(locationInput);
   }
 
-
+  stateSelector(){
+    this.textValue = this.stateValue + ", USA";
+  }
   getMLocation()
   {
-    this.zipcode = ((document.getElementById("addressBox") as HTMLInputElement).value);
+    this.zipcode = this.textValue;
     this.zipcode = this.zipcode.replace('#','');
-    if(!this.zipcode || !this.zipcode.includes(this.stateValue) ){
-      console.log("GG");
-      this.zipcode = this.stateValue;
+    console.log(this.zipcode);
+    //this.comunicate.settypeofseaech(0);
 
-this.comunicate.settypeofseaech(0);
- 
-    }
 
     this.baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + this.zipcode + "&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8&region=US";
 
