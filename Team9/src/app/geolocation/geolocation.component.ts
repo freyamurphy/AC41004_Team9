@@ -227,9 +227,8 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
       else{
         this.error = false;
         this.text = (this.temp[0].formatted_address);
-        this.sendtocomunicationservice(this.temp[0]);
+        //this.sendtocomunicationservice(this.temp[0]);
             this.comunicate.setuserlocation(this.temp[0].geometry.location.lat,this.temp[0].geometry.location.lng);
-this.comunicate.settypeofseaech(1);
       }
 //test
 
