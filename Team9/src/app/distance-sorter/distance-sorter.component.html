@@ -2,7 +2,7 @@
     <mat-form-field>
         <div style="text-align:center;">
             <mat-label id="label" name="Sort By">Within Distance (Miles)</mat-label>
-            <mat-select [(value)]="selected" id="select">
+            <mat-select aria-label="Sort By Distance" [(value)]="selected" id="select">
                 <mat-option (click)="limitByDistance(1337)">Any distance</mat-option>
                 <mat-option (click)="limitByDistance(10)">10</mat-option>
                 <mat-option (click)="limitByDistance(20)">20</mat-option>
