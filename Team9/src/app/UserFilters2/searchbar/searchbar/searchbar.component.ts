@@ -105,9 +105,7 @@ openSnackBar(message: string, action: string) {
     });
   }
   submit(){
-    console.log(this.selected);
     this.auto();
-    console.log(this.code);
 
     var addressBox = (document.getElementById("addressBox") as HTMLInputElement).value;
 
