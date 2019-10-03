@@ -64,7 +64,7 @@ for conditionCode in insertedConditionIDs:
             "`averageMedicarePayments`, `year`"
             f")VALUES({providerID}, {conditionCode}, {totalDischarges},"
             f" {averageCoveredCharges}, {averageTotalPayments}, {averageMedicarePayments}, "
-            f"{year}) \n"
+            f"{recentYear}); \n"
         )
 
         outputFile.write(statement)
