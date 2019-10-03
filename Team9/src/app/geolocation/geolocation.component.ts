@@ -50,7 +50,7 @@ public doRemove = (value: any) => console.log('SingleDemoComponent.doRemove', va
 
 public doSelectOptions = (options: INgxSelectOption[]) =>{};
   states: string[] =[
-    
+
     "Alaska",
     "Arizona",
     "Arkansas",
@@ -108,20 +108,30 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
   constructor( private http: HttpClient, private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone, private comunicate:ComunicationService, private _snackBar: MatSnackBar) {
     this.showPosition = this.showPosition.bind(this);
-    this._ngxDefaultTimeout = setTimeout(() => {
-      this._ngxDefaultInterval = setInterval(() => {
-          const idx = Math.floor(Math.random() * (this.states.length - 1));
-          //this._ngxDefault = this.description[0];
-          //this.selected = this._ngxDefault;
-          // console.log('new default value = ', this._ngxDefault);
-        }, 2000);
-      }, 2000);
+
 
    }
    openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
       duration: 2000,
     });
+  }
+  switch(){
+    if((document.getElementById("stateSelector") as HTMLInputElement).disabled == true){
+      (document.getElementById("addressBox") as HTMLInputElement).disabled = true;
+      (document.getElementById("addressBox") as HTMLInputElement).value = "";
+      (document.getElementById("save") as HTMLInputElement).disabled = true;
+
+      (document.getElementById("stateSelector") as HTMLInputElement).disabled = false;
+
+    }
+    else{
+      (document.getElementById("addressBox") as HTMLInputElement).disabled = false;
+      (document.getElementById("save") as HTMLInputElement).disabled = false;
+
+      (document.getElementById("stateSelector") as HTMLInputElement).disabled = true;
+    }
+    
   }
   ngOnInit() {
     this.searchControl = new FormControl();
