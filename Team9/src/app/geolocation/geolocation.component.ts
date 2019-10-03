@@ -161,7 +161,7 @@ export class GeolocationComponent implements OnInit, OnDestroy {
     console.log(error);
   }
   //---------------------------------------------
-  reverseGeo(lat: any, lng: any){
+  reverseGeo(lat: any, lng: any){ //Method to translate lat and long to an address
     var reverseUrl = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat + "," + lng +"&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8"
     this.http.get(reverseUrl).subscribe(data => {
       var temp = data['results'];
@@ -182,19 +182,17 @@ export class GeolocationComponent implements OnInit, OnDestroy {
   }
   getMLocation()
   {
-    this.zipcode = this.textValue;
-    this.zipcode = this.zipcode.replace('#','');
+    this.zipcode = this.textValue; //Gets value in textbox
+    this.zipcode = this.zipcode.replace('#',''); //# screws search up
     console.log(this.zipcode);
     //this.comunicate.settypeofseaech(0);
 
 
     this.baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + this.zipcode + "&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8&region=US";
-
+    //queries google
     this.http.get(this.baseUrl).subscribe(data => {
       this.temp = data['results'];
-
-
-      if(this.temp.length == 0){
+      if(this.temp.length == 0){ //If no results are found
         this.error = true;
         this.text=' ';
         this.openSnackBar("Invalid address", "");
