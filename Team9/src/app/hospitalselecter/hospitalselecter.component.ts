@@ -119,6 +119,24 @@ getColor(index,p)
 return "red";
 
 }
+}
+
+getReliability(index,p)
+{
+  if(this.hospitalList[index+8*(p-1)].pricingYEAR ==2016)
+  {
+
+    return "Reliability Rating - How Recent is the Data? This data is reliable";
+
+  }else if (this.hospitalList[index+8*(p-1)].pricingYEAR ==2017){
+
+  return "Reliability Rating - How Recent is the Data? This data is very reliable";
+
+}else {
+
+return "Reliability Rating - How Recent is the Data? This data is unreliable";
+
+}
 
 
 }
