@@ -137,12 +137,15 @@ setdistancebeingsearched(dist){
 
 }
 
+gettosearchornottosearch(){
 
+  this.distancebeingsearchedSource.next(false);
+
+}
 
 settypeofseaech(dist){
-this.typeofsearch = dist;
+  this.typeofsearch = dist;
   this.typeofsearchSource.next(dist);
-
 }
 
 getdistancebeingsearched(): Observable<any> {

@@ -123,6 +123,7 @@ openSnackBar(message: string, action: string) {
             setTimeout( () => {
                 this.interact.limitdataByDistance(100);
                 this.interact.setdistancebeingsearched(100);
+                  this.interact.gettosearchornottosearch();
             }, 1000)
       }
     //  this.interact.limitdataByDistance(100);
