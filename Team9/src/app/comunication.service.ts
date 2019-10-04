@@ -67,7 +67,7 @@ runsearch(code ) {
 console.log(" type of search :  ",this.typeofsearch);
 this.tosearchSource.next(true);
 
-if(this.userstate==undefined){
+if(this.typeofsearch==true){
 
   this.sqlapi.searchWithOnlyDRGCode(code).subscribe((res: any) =>
   {
@@ -79,7 +79,7 @@ if(this.userstate==undefined){
     //console.log(res);
 this.ryanssort(0);
   });
-
+this.typeofsearch=false;
 }else{
 
 this.tosearchSource.next(false);
@@ -142,7 +142,8 @@ setdistancebeingsearched(dist){
 settypeofseaech(dist){
 this.typeofsearch = dist;
   this.typeofsearchSource.next(dist);
-
+console.log(this.typeofsearch);
+console.log(this.typeofsearchSource);
 }
 
 getdistancebeingsearched(): Observable<any> {
@@ -152,6 +153,7 @@ getdistancebeingsearched(): Observable<any> {
 }
 
 limitdataByDistance(number){
+//  console.log(this.tosearchSource);
    let reservationArr :  any  = [];
 for(var i = 0; i < this.resultlength-1; i++){
 //console.log(this.locate.getdistance(this.distancecalcvariable[i].lat,this.distancecalcvariable[i].lng,this.userlat,this.userlong));
@@ -271,7 +273,33 @@ getstatefromaddress(locationInput:any):string{
 //todo check if this can ever be missed (not likely)
 }
 
+hospitalHandler2(dataset,a){
 
+
+  var templat =new Array(10000);
+  var templng =new Array(10000);
+    var provid =new Array(10000);
+
+var i =a;
+        templat[i]=1000;
+         templng[i]=1000;
+
+            this.getlocationfromaddress(dataset[i].providerName, dataset[i].State,dataset[i].StreetAddress,dataset[i].City).subscribe((res: any) => {
+              templat[i]=res.results[0].geometry.location.lat;
+              templng[i]=res.results[0].geometry.location.lng;
+              provid[i]=dataset[i].providers_ID;
+              if(templng[i]!=1000 && templng[i]!=undefined && provid[i]!= undefined)
+              {
+                  console.log("lat :", templat[i],"  lng :",templng[i],"  id :",provid[i]);
+                  this.sqlapi.inserthospical(dataset[i].providers_ID,templat[i],templng[i]).subscribe((res: any) => {});
+              }
+            });
+
+
+
+
+
+}
 
 hospitalHandler(dataset){
 
@@ -285,7 +313,7 @@ hospitalHandler(dataset){
         templat[i]=1000;
          templng[i]=1000;
       //   console.log(dataset[i].lat);
-        if(dataset[i].lat ==null ){
+        if(1==1){
             this.getlocationfromaddress(dataset[i].providerName, dataset[i].State,dataset[i].StreetAddress,dataset[i].City).subscribe((res: any) => {
               templat[i]=res.results[0].geometry.location.lat;
               templng[i]=res.results[0].geometry.location.lng;

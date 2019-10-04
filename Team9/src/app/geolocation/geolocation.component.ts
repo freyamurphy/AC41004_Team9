@@ -183,6 +183,7 @@ stateselecrotran:boolean=false;
     this.textValue = this.stateValue + ", USA";
     this.stateselecrotran=true;
       console.log( ", USA");
+      this.comunicate.settypeofseaech(false);
   }
   getMLocation()
   {
