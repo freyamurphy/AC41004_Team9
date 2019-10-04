@@ -16,7 +16,6 @@ export class SelectComponent {
 constructor(private comunicate:ComunicationService) { }
 
 sortprice(){
-
  this.comunicate.ryanssort(1);
 }
 sortdist(){

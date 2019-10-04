@@ -64,7 +64,7 @@ public doRemove = (value: any) => console.log('SingleDemoComponent.doRemove', va
 
 public doSelectOptions = (options: INgxSelectOption[]) =>{};
   ngOnInit() {
-    this.code = 64;
+    this.code = 1;
     this.interact.getautoComplete().subscribe((res: any) => {
       this.list =res;
       console.log(this.list);
@@ -106,7 +106,9 @@ openSnackBar(message: string, action: string) {
   }
   submit(){
     this.auto();
-
+    if(!this.code){
+      this.code = 1;
+    }
     var addressBox = (document.getElementById("addressBox") as HTMLInputElement).value;
 
     if(!addressBox.includes(", USA")){
