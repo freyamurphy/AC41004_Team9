@@ -100,13 +100,13 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
   }
 openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
-      
+
       duration: 5000,
     });
   }
   submit(){
     this.auto();
-    
+
     var addressBox = (document.getElementById("addressBox") as HTMLInputElement).value;
 
     if(!addressBox.includes(", USA")){
@@ -116,9 +116,13 @@ openSnackBar(message: string, action: string) {
 
     }
     else{
-      
+
       this.interact.runsearch(this.code);
-      setTimeout( () => {}, 5000)
+
+      //if the search is a address search 
+      setTimeout( () => {
+        this.interact.limitdataByDistance(100);
+      }, 1000)
 
       this.interact.limitdataByDistance(100);
       this.interact.setdistancebeingsearched(100);
@@ -126,7 +130,7 @@ openSnackBar(message: string, action: string) {
 
       this.scroll();
     }
-    
+
 
   }
   reset(){

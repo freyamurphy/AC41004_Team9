@@ -63,7 +63,12 @@ ngOnInit() {
   this.innerWidth = window.innerWidth;
   this.innerHeight= window.innerHeight;
   //this.interact.runsearch("a","b");
-  this.interact.getsearchresults().subscribe((res: any) => {this.hospitalList =res;});
+  this.interact.getsearchresults().subscribe((res: any) => {
+  //  this.interact.limitdataByDistance(100);
+  //  this.interact.setdistancebeingsearched(100);
+    this.hospitalList =res;
+  //   this.interact.limitdataByDistance(100);
+  });
 //this.sqlapi.searchWithStateAndDRGCodeFunction("NY","033").subscribe((res: any) => {this.hospitalList =res;});
 }
 @HostListener('window:resize', ['$event'])

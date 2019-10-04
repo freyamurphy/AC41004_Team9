@@ -28,7 +28,7 @@ export class GeolocationComponent implements OnInit, OnDestroy {
   stateValue: any;
   public ngxControl = new FormControl();
 
-
+stateselecrotran:boolean=false;
   states: string[] =[ //List of states
 
     "Alaska",
@@ -172,13 +172,17 @@ export class GeolocationComponent implements OnInit, OnDestroy {
   }
 
   sendtocomunicationservice(locationInput:any){
-  this.comunicate.setuseraddress(locationInput);
 
-    console.log(locationInput);
+    if(this.stateselecrotran){this.comunicate.setuseraddress(locationInput,1);}else{this.comunicate.setuseraddress(locationInput,0);}// 1 for state selector 0 for address
+  //this.comunicate.setuseraddress(locationInput);
+
+//    console.log(locationInput);
   }
   //RYAN
   stateSelector(){
     this.textValue = this.stateValue + ", USA";
+    this.stateselecrotran=true;
+      console.log( ", USA");
   }
   getMLocation()
   {
@@ -187,7 +191,7 @@ export class GeolocationComponent implements OnInit, OnDestroy {
     this.zipcode = this.zipcode.replace('#',''); //# screws search up
     console.log(this.zipcode);
     //this.comunicate.settypeofseaech(0);
- 
+
     this.baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + this.zipcode + "&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8&region=US";
     //queries google
     this.http.get(this.baseUrl).subscribe(data => {

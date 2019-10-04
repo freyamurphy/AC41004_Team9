@@ -269,13 +269,13 @@ hospitalHandler(dataset){
   var templat =new Array(10000);
   var templng =new Array(10000);
     var provid =new Array(10000);
- 
+
       for(let i = 0 ; i < this.resultlength; i++)
       {
         templat[i]=1000;
          templng[i]=1000;
       //   console.log(dataset[i].lat);
-        if(dataset[i].lat ==null&& 1==2){
+        if(dataset[i].lat ==null ){
             this.getlocationfromaddress(dataset[i].providerName, dataset[i].State,dataset[i].StreetAddress,dataset[i].City).subscribe((res: any) => {
               templat[i]=res.results[0].geometry.location.lat;
               templng[i]=res.results[0].geometry.location.lng;
@@ -307,9 +307,11 @@ getlocationfromaddress(state: string,address: string,providerName:string,city:st
 
 
 
-setuseraddress(locationInput:any)
+setuseraddress(locationInput:any, tmpvar:any)// 1 for state selector 0 for address
 {
-  console.log("setting user address");
+if(tmpvar==1){this.userstate=  this.getstatefromaddress(locationInput);}
+
+
     this.useruseraddressSource.next(this.getstatefromaddress(locationInput));
 }
 // get the location the map is focused on
