@@ -209,8 +209,8 @@ stateselecrotran:boolean=false;
         this.error = false;
         this.text = (this.temp[0].formatted_address);
         console.log(this.text);
-        this.sendtocomunicationservice(this.temp[0]);
-            this.comunicate.setuserlocation(this.temp[0].geometry.location.lat,this.temp[0].geometry.location.lng);
+        this.sendtocomunicationservice(this.temp[0]); 
+        this.comunicate.setuserlocation(this.temp[0].geometry.location.lat,this.temp[0].geometry.location.lng);
       }
       
 //test
