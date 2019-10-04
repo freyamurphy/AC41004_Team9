@@ -190,6 +190,7 @@ stateselecrotran:boolean=false;
   }
   getMLocation()
   {
+    
     console.log(this.done);
     this.zipcode = (document.getElementById("addressBox") as HTMLInputElement).value;//Gets value in textbox
     this.zipcode = this.zipcode.replace('#',''); //# screws search up
