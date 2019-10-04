@@ -17,13 +17,7 @@ test:any;
 
    constructor(private http: HttpClient, ) { }
 
-/*
-GET
-test data is in the following format '{"data":[{"first":"a","last":"b"},{"first":"a","last":"b"}}]
-will use class from class manager tomerge
 
-function on sql is named
-*/
    gettestdata(): Observable<any> {
      return this.http.get(this.baseUrl).pipe(
        map((res) => {
@@ -31,7 +25,7 @@ function on sql is named
      }));
   }
 
-  searchWithOnlyDRGCode(drgcode  ): Observable<any> {
+  searchWithOnlyDRGCode(drgcode): Observable<any> {
       var temp = "https://zeno.computing.dundee.ac.uk/2019-projects/team9/AC41004_Team9/drgSearch.php?condition_Code="+drgcode;
      console.log(temp );
           return this.http.get(temp).pipe(
@@ -61,13 +55,13 @@ inserthospical(data:string,lat:string,long:string): Observable<any>  {
 
        var sql = "update providers set lat =" +lat +" , lng="+long+"  where ID ="+data+";";
 
-console.log("inswerting -"+lat +"-  -"+ long+ "-   -" +data+"-");
+console.log("in sql api   -"+lat +"-  -"+ long+ "-   -" +data+"-    "+temp);
 
-  console.log(temp );
-  console.log(sql );
+
    //this.http.post(`${this.baseUrl}/store`, { data: car })
  return  this.http.get(temp).pipe(
    map((res) => {
+     console.log(res['data']);
     return res['data'];
  }));
 

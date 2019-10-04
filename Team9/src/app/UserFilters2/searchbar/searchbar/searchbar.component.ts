@@ -64,7 +64,7 @@ public doRemove = (value: any) => console.log('SingleDemoComponent.doRemove', va
 
 public doSelectOptions = (options: INgxSelectOption[]) =>{};
   ngOnInit() {
-    this.code = 64;
+    this.code = 1;
     this.interact.getautoComplete().subscribe((res: any) => {
       this.list =res;
       console.log(this.list);
@@ -100,15 +100,15 @@ public doSelectOptions = (options: INgxSelectOption[]) =>{};
   }
 openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
-      
+
       duration: 5000,
     });
   }
   submit(){
-    console.log(this.selected);
     this.auto();
-    console.log(this.code);
-
+    if(!this.code){
+      this.code = 1;
+    }
     var addressBox = (document.getElementById("addressBox") as HTMLInputElement).value;
 
     if(!addressBox.includes(", USA")){
@@ -118,9 +118,13 @@ openSnackBar(message: string, action: string) {
 
     }
     else{
-      
+
       this.interact.runsearch(this.code);
-      setTimeout( () => {}, 5000)
+
+      //if the search is a address search 
+      setTimeout( () => {
+        this.interact.limitdataByDistance(100);
+      }, 1000)
 
       this.interact.limitdataByDistance(100);
       this.interact.setdistancebeingsearched(100);
@@ -128,7 +132,7 @@ openSnackBar(message: string, action: string) {
 
       this.scroll();
     }
-    
+
 
   }
   reset(){

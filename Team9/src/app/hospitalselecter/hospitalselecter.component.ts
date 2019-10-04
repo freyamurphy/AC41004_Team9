@@ -47,7 +47,7 @@ steven(index,p):any{
 
 }
 steven2(index,p):any{
-console.log("seven2 position", index , " on page " , p , " = ",this.hospitalList[index+8*(p-1)].providerName, " lat : ",this.hospitalList[index+8*(p-1)].lat, "lng : ",this.hospitalList[index+8*(p-1)].lng, " year : ",this.hospitalList[index+8*(p-1)].pricingYEAR);
+//console.log("seven2 position", index , " on page " , p , " = ",this.hospitalList[index+8*(p-1)].providerName, " lat : ",this.hospitalList[index+8*(p-1)].lat, "lng : ",this.hospitalList[index+8*(p-1)].lng, " year : ",this.hospitalList[index+8*(p-1)].pricingYEAR);
   return this.hospitalList[index+8*(p-1)].providerName;
 
 }
@@ -63,7 +63,12 @@ ngOnInit() {
   this.innerWidth = window.innerWidth;
   this.innerHeight= window.innerHeight;
   //this.interact.runsearch("a","b");
-  this.interact.getsearchresults().subscribe((res: any) => {this.hospitalList =res;});
+  this.interact.getsearchresults().subscribe((res: any) => {
+  //  this.interact.limitdataByDistance(100);
+  //  this.interact.setdistancebeingsearched(100);
+    this.hospitalList =res;
+  //   this.interact.limitdataByDistance(100);
+  });
 //this.sqlapi.searchWithStateAndDRGCodeFunction("NY","033").subscribe((res: any) => {this.hospitalList =res;});
 }
 @HostListener('window:resize', ['$event'])
@@ -112,6 +117,24 @@ getColor(index,p)
 }else {
 
 return "red";
+
+}
+}
+
+getReliability(index,p)
+{
+  if(this.hospitalList[index+8*(p-1)].pricingYEAR ==2016)
+  {
+
+    return "Reliability Rating - How Recent is the Data? This data is reliable";
+
+  }else if (this.hospitalList[index+8*(p-1)].pricingYEAR ==2017){
+
+  return "Reliability Rating - How Recent is the Data? This data is very reliable";
+
+}else {
+
+return "Reliability Rating - How Recent is the Data? This data is unreliable";
 
 }
 
