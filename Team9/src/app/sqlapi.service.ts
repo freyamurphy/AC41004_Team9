@@ -26,7 +26,7 @@ test:any;
   }
 
   searchWithOnlyDRGCode(drgcode): Observable<any> {
-      var temp = "https://zeno.computing.dundee.ac.uk/2019-projects/team9/AC41004_Team9/drgSearch.php?condition_Code="+drgcode;
+      var temp = "http://localhost/phptest/drgSearch.php?condition_Code="+drgcode;
      console.log(temp );
           return this.http.get(temp).pipe(
             map((res) => {
@@ -36,7 +36,7 @@ test:any;
  }
   searchWithStateAndDRGCodeFunction(state, drgcode  ): Observable<any> {
 
-      var temp = "https://zeno.computing.dundee.ac.uk/2019-projects/team9/AC41004_Team9/echotest.php?state="+state+"&condition_Code="+drgcode;
+      var temp = "http://localhost/phptest/echotest.php?state="+state+"&condition_Code="+drgcode;
      console.log(temp );
           return this.http.get(temp).pipe(
             map((res) => {
@@ -51,7 +51,7 @@ test:any;
 //accepts provider id returns a value if it has one if not it finds it and inserts it into the database..
 inserthospical(data:string,lat:string,long:string): Observable<any>  {
 
-       var temp = "https://zeno.computing.dundee.ac.uk/2019-projects/team9/AC41004_Team9/hospitalone.php?ID="+data+"&lat="+lat+"&lng="+long;
+       var temp = "http://localhost/phptest/hospitalone.php?ID="+data+"&lat="+lat+"&lng="+long;
 
        var sql = "update providers set lat =" +lat +" , lng="+long+"  where ID ="+data+";";
 
@@ -72,7 +72,7 @@ console.log("in sql api   -"+lat +"-  -"+ long+ "-   -" +data+"-    "+temp);
 
 hellolenny(description ): Observable<any> {
 
-var temp = "https://zeno.computing.dundee.ac.uk/2019-projects/team9/AC41004_Team9/desc.php?desc="+description;
+var temp = "http://localhost/phptest/desc.php?desc="+description;
 
   return this.http.get(temp).pipe(
     map((res) => {
