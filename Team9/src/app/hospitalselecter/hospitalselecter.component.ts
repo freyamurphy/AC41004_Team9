@@ -69,6 +69,7 @@ ngOnInit() {
     this.hospitalList =res;
   //   this.interact.limitdataByDistance(100);
   });
+
 //this.sqlapi.searchWithStateAndDRGCodeFunction("NY","033").subscribe((res: any) => {this.hospitalList =res;});
 }
 @HostListener('window:resize', ['$event'])

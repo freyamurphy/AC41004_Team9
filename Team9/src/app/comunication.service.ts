@@ -38,6 +38,9 @@ useraddress$ = this.useruseraddressSource.asObservable();
 private autoCompleteSource = new Subject<any>();
 autoComplete$ = this.autoCompleteSource.asObservable();
 
+private tosearchSource = new Subject<any>();
+tosearch$ = this.tosearchSource.asObservable();
+
 tempvar:any;
 distancecalcvariable:any;
 resultlength:any;
@@ -62,6 +65,8 @@ constructor(private http: HttpClient,private sqlapi:SqlapiService ,private locat
 
 runsearch(code ) {
 console.log(" type of search :  ",this.typeofsearch);
+this.tosearchSource.next(true);
+
 if(this.userstate==undefined){
 
   this.sqlapi.searchWithOnlyDRGCode(code).subscribe((res: any) =>
@@ -77,7 +82,7 @@ this.ryanssort(0);
 
 }else{
 
-
+this.tosearchSource.next(false);
  /* getdistancebeingsearched(): Observable<any> {
 
     return this.distancebeingsearched$;
@@ -119,6 +124,11 @@ getautoComplete(): Observable<any> {
     return this.autoCompleteSource.asObservable();
 }
 
+gettosearchornottosearch(): Observable<any> {
+
+
+    return this.tosearchSource.asObservable();
+}
 
 
 setdistancebeingsearched(dist){

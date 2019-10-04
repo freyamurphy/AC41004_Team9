@@ -118,14 +118,15 @@ openSnackBar(message: string, action: string) {
     else{
 
       this.interact.runsearch(this.code);
-
-      //if the search is a address search 
-      setTimeout( () => {
-        this.interact.limitdataByDistance(100);
-      }, 1000)
-
-      this.interact.limitdataByDistance(100);
-      this.interact.setdistancebeingsearched(100);
+      if(this.interact.gettosearchornottosearch()){
+            //if the search is a address search
+            setTimeout( () => {
+                this.interact.limitdataByDistance(100);
+                this.interact.setdistancebeingsearched(100);
+            }, 1000)
+      }
+    //  this.interact.limitdataByDistance(100);
+  //    this.interact.setdistancebeingsearched(100);
       document.getElementById("bottom").style.display = "block";
 
       this.scroll();
