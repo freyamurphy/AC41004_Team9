@@ -117,6 +117,7 @@ stateselecrotran:boolean=false;
     }
 
   }
+  done: boolean = false;
   ngOnInit() {
     this.searchControl = new FormControl();
     this.mapsAPILoader.load().then(() => {
@@ -132,6 +133,7 @@ stateselecrotran:boolean=false;
           if (place.geometry === undefined || place.geometry === null) {
             return;
           }
+          this.done = true;
         });
       });
     });
@@ -185,14 +187,16 @@ stateselecrotran:boolean=false;
       console.log( ", USA");
       this.comunicate.settypeofseaech(false);
   }
+  tauto(){
+  }
   getMLocation()
   {
-
-    this.zipcode = this.textValue; //Gets value in textbox
+    
+    console.log(this.done);
+    this.zipcode = (document.getElementById("addressBox") as HTMLInputElement).value;//Gets value in textbox
     this.zipcode = this.zipcode.replace('#',''); //# screws search up
     console.log(this.zipcode);
     //this.comunicate.settypeofseaech(0);
-
     this.baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + this.zipcode + "&key=AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8&region=US";
     //queries google
     this.http.get(this.baseUrl).subscribe(data => {
@@ -203,15 +207,20 @@ stateselecrotran:boolean=false;
         this.openSnackBar("Invalid address", "");
       }
       else{
+        console.log("test2");
         this.error = false;
         this.text = (this.temp[0].formatted_address);
         console.log(this.text);
-        this.sendtocomunicationservice(this.temp[0]);
-            this.comunicate.setuserlocation(this.temp[0].geometry.location.lat,this.temp[0].geometry.location.lng);
+        this.sendtocomunicationservice(this.temp[0]); 
+        this.comunicate.setuserlocation(this.temp[0].geometry.location.lat,this.temp[0].geometry.location.lng);
       }
+      
 //test
 
-    });
+        });
+      
+      
+      
 
   }
   resetText(){

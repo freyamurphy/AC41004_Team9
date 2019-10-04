@@ -1,11 +1,11 @@
 <div class="parent">
     <mat-form-field>
         <div style="text-align:center;">
-            <mat-label aria-label="Sort Hospitals By" id="Sort" name="Sort By">Sort By</mat-label>
+            <mat-label aria-label="Sort Hospitals" id="Sort" name="Sort By">Sort By</mat-label>
             <mat-select aria-label="Sort Hospitals By" [(value)]="selected" id="select" class="mat-select-content">
                 <mat-option>None</mat-option>
-                <mat-option value="Distance" name="Distance" (click)="sortdist()">{{filterOptions[0]}}</mat-option>
-                <mat-option value="Price" name="Price" (click)="sortprice()">{{filterOptions[1]}}</mat-option>
+                <mat-option aria-label="Sort hospitals by distance" value="Distance" name="Distance" (click)="sortdist()">{{filterOptions[0]}}</mat-option>
+                <mat-option aria-label="Sort hospitals by price" value="Price" name="Price"  (click)="sortprice()">{{filterOptions[1]}}</mat-option>
             </mat-select>
         </div>
     </mat-form-field>
