@@ -9,7 +9,7 @@ matTooltip="Find your location automatically" matTooltipPosition="above">
 <input class="auto" (focusout)="getMLocation()" (click)="tauto()"
  (keydown.enter)="getMLocation()" name="addressBox" id ="addressBox" placeholder="Enter Address"
  value="{{text}}" [(ngModel)]="textValue" #search [formControl]="searchControl"
- aria-label="Enter your address" required><!--
+ aria-label="Enter your address" required>
 <button class="switchButton" 
     matTooltip="Switch between state selector and address finder"  matTooltipPosition="right" 
     aria-label="Click to switch between Address and State Selector" (click)="switch()">
@@ -19,6 +19,6 @@ matTooltip="Find your location automatically" matTooltipPosition="above">
     <option aria-label="Select A State to search for hospitals in that state"value="">State Selector</option>
     <option *ngFor="let item of states" [value]="item">{{item}}</option>
 
-</select>-->
+</select>
 
 <!--<button  (click)="getMLocation()"><i class="fa fa-search"></i></button>-->
