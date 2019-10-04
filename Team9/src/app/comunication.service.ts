@@ -137,7 +137,7 @@ setdistancebeingsearched(dist){
 
 }
 
-gettosearchornottosearch(){
+gettosearchornottosearch2(){
 
   this.distancebeingsearchedSource.next(false);
 
