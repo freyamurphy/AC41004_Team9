@@ -47,7 +47,7 @@ steven(index,p):any{
 
 }
 steven2(index,p):any{
-
+//console.log("seven2 position", index , " on page " , p , " = ",this.hospitalList[index+8*(p-1)].providerName, " lat : ",this.hospitalList[index+8*(p-1)].lat, "lng : ",this.hospitalList[index+8*(p-1)].lng, " year : ",this.hospitalList[index+8*(p-1)].pricingYEAR);
   return this.hospitalList[index+8*(p-1)].providerName;
 
 }
@@ -63,7 +63,12 @@ ngOnInit() {
   this.innerWidth = window.innerWidth;
   this.innerHeight= window.innerHeight;
   //this.interact.runsearch("a","b");
-  this.interact.getsearchresults().subscribe((res: any) => {this.hospitalList =res;});
+  this.interact.getsearchresults().subscribe((res: any) => {
+  //  this.interact.limitdataByDistance(100);
+  //  this.interact.setdistancebeingsearched(100);
+    this.hospitalList =res;
+  //   this.interact.limitdataByDistance(100);
+  });
 //this.sqlapi.searchWithStateAndDRGCodeFunction("NY","033").subscribe((res: any) => {this.hospitalList =res;});
 }
 @HostListener('window:resize', ['$event'])
@@ -100,13 +105,21 @@ getuser(data:any){
 
 getColor(index,p)
 {
-  if(this.hospitalList[index+8*(p-1)].pricingYEAR <2012)
+  if(this.hospitalList[index+8*(p-1)].pricingYEAR ==2016)
   {
 
-    return "red";
+    return "yellow";
 
-  }
+  }else if (this.hospitalList[index+8*(p-1)].pricingYEAR ==2017){
+
   return "green";
+
+}else {
+
+return "red";
+
+}
+
 
 }
 
@@ -114,16 +127,11 @@ getColor(index,p)
 
 
 
-highlight(index){
+highlight(index, p){
   var temp = {
     lat:this.hospitalList[index].lat,
     lng:this.hospitalList[index].lng
   };
-
-
-
-
-
 
   if(this.oldcontext != undefined)
   {
@@ -158,22 +166,9 @@ highlight(index){
   }
 
 
-this.putinfocus(index);
-
-
-}
-putinfocus(index){
-
-// focus map on selected hospital
-
 }
 
-testfunction(){
-//  ("a");
-//  (this.hospitalList);
-}
 
-//[style.height]="getheight(50)"[style.width]="getwidth(50)"
 
 
 

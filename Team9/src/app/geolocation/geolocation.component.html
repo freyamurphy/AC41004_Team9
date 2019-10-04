@@ -11,10 +11,11 @@ matTooltip="Find your location automatically" matTooltipPosition="above">
  value="{{text}}" [(ngModel)]="textValue" #search [formControl]="searchControl"
  aria-label="Enter your address" required>
 <button class="switchButton" aria-label="Switch between state select and address"
-    matToolTip="Switch between state select and address"  matTooltipPosition="above" aria-label="Click to switch to between Address and State Selector" (click)="switch()">
+    matToolTip="Switch between state select and address"  matTooltipPosition="above" 
+    aria-label="Click to switch to between Address and State Selector" (click)="switch()">
     <i class="fa fa-random" name="Icon" ></i>
 </button>
-<select id="stateSelector" disabled>
+<select id="stateSelector" disabled [(ngModel)]="stateValue"(focusout)="stateSelector(); getMLocation()">
     <option aria-label="Select A State to search for hospitals in that state"value="">State Selector</option>
     <option *ngFor="let item of states" [value]="item">{{item}}</option>
 
