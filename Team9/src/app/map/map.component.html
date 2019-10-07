@@ -1,7 +1,7 @@
 
 <agm-map [latitude]="focusLocation.lat" [longitude]="focusLocation.lng"
   [zoom]="zoom"
-  style="height:100%; width: 100%;"
+  style="height:80%; width: 90%;"
   >
 
 
@@ -15,7 +15,7 @@
     [radius]="distanceRestriction" [fillColor]="fill" [fillOpacity]="opacity" [strokeColor]="sColour" [strokeWeight]="sWeight">
   </agm-circle>
 
-  <agm-circle [latitude]="focusLocation.lat" [longitude]="focusLocation.lng" 
+  <agm-circle [latitude]="focusLocation.lat" [longitude]="focusLocation.lng"
   [radius]="700" [fillColor]="green" [fillOpacity]="0.7" [strokeColor]="sColour" [strokeWeight]="sWeight">
 </agm-circle>
 
@@ -26,13 +26,14 @@
   -->
       <!-- loop through each hospital -->
       <ng-template ngFor let-item [ngForOf]="top20Providers" let-i="index" [ngForTrackBy]="trackByFn">
-        <agm-marker [latitude]="top20Providers[i].lat" 
+        <agm-marker [latitude]="top20Providers[i].lat"
           [longitude]="top20Providers[i].lng"
           [label]="">
           <agm-info-window [disableAutoPan]="true">
-            {{top20Providers[i].providerName}}: ${{
+            <p>{{top20Providers[i].providerName}}: ${{
               top20Providers[i].averageTotalPayments - top20Providers[i].averageMedicarePayments | number:'.0'
-            }}
+
+            }}  </p>    <p> {{top20Providers[i].StreetAddress }} {{top20Providers[i].City }} </p>
           </agm-info-window>
         </agm-marker>
       </ng-template>

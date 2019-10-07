@@ -16,7 +16,7 @@ import { GeolocationComponent } from './geolocation/geolocation.component';
 
 const routes: Routes = [
 
-  { path: '',   redirectTo: 'testpage', pathMatch: 'full' },
+  { path: '',   redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomepageComponent},
   { path: 'testmap', component: MapoutlineareasTESTComponent},
   { path: 'testpage', component: TestpageComponent},
