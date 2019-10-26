@@ -135,10 +135,10 @@ import { DistanceSorterComponent } from './distance-sorter/distance-sorter.compo
     BrowserAnimationsModule,
     NgxSelectModule,
     MatCheckboxModule,
- 
+
     MatExpansionModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyA7eaqYll1QlUO_OpGtshZQHhNbbKUjWd8',
+      apiKey: 'AIzaSyDV-r9uK3-Mn6fQYgwDgd4RTWEotW45y20',
       libraries: ['geometry', 'places']
     }),
     ReactiveFormsModule,
